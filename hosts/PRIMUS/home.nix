@@ -19,6 +19,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+    ./../../modules/home-manager # the default modules
   ];
 
   nixpkgs = {
@@ -52,7 +53,7 @@
   };
 
   # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
+  programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
 
   # Enable home-manager and git

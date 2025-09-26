@@ -3,6 +3,9 @@
 {
   # List your module files here
   # my-module = import ./my-module.nix;
-  zen-browser = import ./zen-browser.nix;
-  xdg-user-dirs = import ./xdg-user-dirs.nix;
+  # DEFAULTS For all systems!
+  imports = [
+    ./xdg-user-dirs.nix
+    ./zen-browser.nix
+  ];
 }

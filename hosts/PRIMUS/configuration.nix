@@ -115,6 +115,17 @@
     };
   };
 
+  # Tailscale VPN
+  # services.tailscale.enable = true;
+  #
+  # # Docker
+  # virtualisation.docker.enable = true;
+  #
+  # environment.systemPackages = with pkgs; [
+  #   qemu-kvm
+  #   weylus
+  # ];
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "25.05";
 }

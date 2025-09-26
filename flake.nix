@@ -22,6 +22,9 @@
       # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    # NixGL (temporary)
+    nixgl.url = "github:nix-community/nixGL";
   };
 
   outputs =

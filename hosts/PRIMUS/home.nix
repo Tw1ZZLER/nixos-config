@@ -61,6 +61,118 @@
   programs.home-manager.enable = true;
   programs.git.enable = true;
 
+  # Syncthing
+  services.syncthing = {
+    enable = true;
+    tray.enable = true;
+  };
+
+  # Enable fonts
+  fonts.fontconfig = {
+    enable = true;
+    antialiasing = true;
+  };
+
+  # NixGL settings
+  nixGL = {
+    packages = inputs.nixgl.packages;
+    defaultWrapper = "mesa";
+    installScripts = [ "mesa" ];
+  };
+
+  # The home.packages option allows you to install Nix packages into your
+  # environment.
+  home.packages = with pkgs; [
+    # Terminal
+    (config.lib.nixGL.wrap wezterm)
+
+    # Shell
+    fish
+    starship
+
+    # Command utilities
+    bat
+    eza
+    fd
+    fzf
+    ripgrep
+    ugrep
+
+    # Editor
+    neovim
+    vscode
+
+    # PDF Viewer
+    zathura
+
+    # Fonts
+    nerd-fonts.victor-mono
+    corefonts
+    monocraft
+
+    # Git
+    git
+    lazygit
+
+    # Terminal apps
+    btop
+    fastfetch
+    yazi
+
+    # Learning Languages
+    exercism
+
+    # Languages
+    python3
+    nodejs
+    cargo
+    rustc
+
+    # Nix-specific
+    nixfmt-rfc-style
+
+    # Wine
+    # wineWowPackages.staging
+    # winetricks
+
+    # Email / calendar
+    thunderbird-bin
+
+    # Waveforms
+    # inputs.waveforms.packages.${system}.waveforms
+
+    # Music stuff
+    (config.lib.nixGL.wrap reaper) # WARN: Proprietary
+    reaper-reapack-extension
+
+    # Video stuff
+    (config.lib.nixGL.wrap obs-studio)
+
+    # Games
+    (config.lib.nixGL.wrap moonlight-qt)
+    (config.lib.nixGL.wrap steam) # WARN: Proprietary
+    (config.lib.nixGL.wrap clonehero) # WARN: Proprietary
+
+    # GUI apps that may or may not need hardware acceleration
+    (config.lib.nixGL.wrap obsidian) # WARN: Proprietary
+    (config.lib.nixGL.wrap discord) # WARN: Proprietary
+    (config.lib.nixGL.wrap wpsoffice-cn) # WARN: Proprietary
+    (config.lib.nixGL.wrap omnissa-horizon-client) # WARN: Proprietary
+
+    # # It is sometimes useful to fine-tune packages, for example, by applying
+    # # overrides. You can do that directly here, just don't forget the
+    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
+    # # fonts?
+    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+
+    # # You can also create simple shell scripts directly inside your
+    # # configuration. For example, this adds a command 'my-hello' to your
+    # # environment:
+    # (pkgs.writeShellScriptBin "my-hello" ''
+    #   echo "Hello, ${config.home.username}!"
+    # '')
+  ];
+
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 

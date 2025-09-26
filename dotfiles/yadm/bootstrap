@@ -1,0 +1,67 @@
+#!/bin/sh
+
+# Print epic logo
+echo " _____          _ ___________     _____ ____    "
+echo "|_   _|_      _/ |__  /__  / |   | ____|  _ \   "
+echo "  | | \ \ /\ / / | / /  / /| |   |  _| | |_) |  "
+echo "  | |  \ V  V /| |/ /_ / /_| |___| |___|  _ <   "
+echo "  |_|   \_/\_/ |_/____/____|_____|_____|_| \_\  "
+echo "♠️       ██████████            ██████████     ♥️"
+echo "       ██                                ██     "
+echo "    ███         ███████████████████             "
+echo "           █████████████       █████████        "
+echo "       ███████         ██    ██        ████     "
+echo "    ███  ██            ███  ██            ██    "
+echo "   ██  ██     ███       ██  █      ███    ██    "
+echo "  ██  ██      ███      ██   ██     ███    █ █   "
+echo " ██   █               ██     ██          ██ █   "
+echo " █    ██            ███       █████     ██   █  "
+echo " █     █████   ██████      █      ██████    ██  "
+echo " █         █████           ██               █   "
+echo " ██                         ███            ██   "
+echo "  █           ███       ██████           ███    "
+echo "  ██             ████████             ████      "
+echo "   ███                           █████          "
+echo "     █████                 ██████               "
+echo "♦️       ██████████████████                   ♣️"
+
+# Because Git submodule commands cannot operate without a work tree, they must
+# be run from within $HOME (assuming this is the root of your dotfiles)
+cd "$HOME" || return
+
+echo "Initialize submodules..."
+yadm submodule update --init --force --recursive
+yadm submodule foreach "git fetch origin && git checkout main || true"
+
+# Set git commit name and email
+git config --global user.email "63320116+Tw1ZZLER@users.noreply.github.com"
+git config --global user.name "Corbin"
+
+# OS Specific Options
+echo "Detecting system type..."
+system_type=$(uname -s)
+echo Running on "$system_type"
+
+# Install Nix package manager and Home Manager
+# Check for unsupported OS
+if [ "$system_type" = "CYGWIN" ] || [ "$system_type" = "MINGW" ] || [ "$system_type" = "MSYS" ]; then
+    echo "Nix is not supported on Windows. Exiting."
+
+# Install Nix package manager for macOS and Linux
+elif [ "$system_type" = "Darwin" ] || [ "$system_type" = "Linux" ]; then
+    if ! command -v nix >/dev/null 2>&1; then
+        echo "Installing Nix package manager"
+        sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
+    fi
+
+    # Install and run Home Manager
+    if [ ! -d "$HOME/.config/nixpkgs/home-manager" ]; then
+        echo "Installing Home Manager"
+        nix run home-manager/master -- init --switch
+    fi
+
+else
+    echo "Unsupported operating system: $system_type. Exiting."
+    exit 1
+fi
+

@@ -3,7 +3,6 @@
 {
   inputs,
   outputs,
-  lib,
   config,
   pkgs,
   ...
@@ -20,7 +19,8 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     # ./../../modules/home-manager # the default modules # okay maybe I don't understand this
-    outputs.homeManagerModules.default
+    outputs.homeManagerModules.zen-browser
+    outputs.homeManagerModules.xdg-user-dirs
   ];
 
   nixpkgs = {

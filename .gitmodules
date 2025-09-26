@@ -1,0 +1,12 @@
+[submodule "fish-config"]
+	path = dotfiles/fish
+	url = https://github.com/Tw1ZZLER/fish-config
+[submodule "wezterm-config"]
+	path = dotfiles/wezterm
+	url = https://github.com/Tw1ZZLER/wezterm-config
+[submodule "yazi-config"]
+	path = dotfiles/yazi
+	url = https://github.com/Tw1ZZLER/yazi-config
+[submodule "nvim-config"]
+	path = dotfiles/nvim
+	url = https://github.com/Tw1ZZLER/nvim-config

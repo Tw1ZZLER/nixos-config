@@ -1,6 +1,11 @@
 { inputs, system, ... }:
 
 {
+  imports = [
+    inputs.zen-browser.homeModules.beta
+    # or inputs.zen-browser.homeModules.twilight
+    # or inputs.zen-browser.homeModules.twilight-official
+  ];
   # Zen-browser as default browser
   xdg.mimeApps =
     let

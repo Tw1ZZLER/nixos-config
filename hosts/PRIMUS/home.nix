@@ -54,12 +54,22 @@
     homeDirectory = "/home/tw1zzler";
   };
 
-  # Add stuff for your user as you see fit:
+  #  Neovim
   programs.neovim = {
     enable = true;
     package = pkgs.unstable.neovim-unwrapped;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+    withNodeJs = true;
+    withPython3 = true;
+    # extraPackages = [ pkgs.shfmt ];
+    # extraLuaPackages = luaPkgs: with luaPkgs; [ luautf8 ];
+    # extraPython3Packages = pyPkgs: with pyPkgs; [ pynvim ];
   };
-  # home.packages = with pkgs; [ steam ];
+
+  xdg.configFile."nvim".source = ../../dotfiles/nvim;
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

@@ -72,6 +72,17 @@
     };
 
   # FIXME: Add the rest of your current configuration
+  # Boot loader
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "nodev";
+  boot.loader.grub.efiSupport = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
+  # Kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+ 
+  time.timeZone = "America/New_York";
+  networking.hostName = "PRIMUS";
 
   # Enable the COSMIC login manager
   services.displayManager.cosmic-greeter.enable = true;
@@ -86,7 +97,6 @@
   # Fix Wayland clipboard (decreases security)
   environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
 
-  networking.hostName = "PRIMUS";
 
   # Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {

@@ -74,15 +74,18 @@
   # FIXME: Add the rest of your current configuration
   # Boot loader
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.loader.grub.device = "nodev";
 
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
- 
+
+  # Timezone
   time.timeZone = "America/New_York";
+
+  # Networking
   networking.hostName = "PRIMUS";
+  networking.networkmanager.enable = true;
 
   # Enable the COSMIC login manager
   services.displayManager.cosmic-greeter.enable = true;
@@ -97,6 +100,19 @@
   # Fix Wayland clipboard (decreases security)
   environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
 
+  # CUPS (printing)
+  services.printing.enable = true;
+
+  # Sound!!!
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+    alsa.enable = true;
+    jack.enable = true;
+  };
+
+  # Touchpad support
+  services.libinput.enable = true;
 
   # Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
@@ -131,7 +147,7 @@
     enable = true;
     settings = {
       # Opinionated: forbid root login through SSH.
-      PermitRootLogin = "no";
+      # PermitRootLogin = "no";
       # Opinionated: use keys only.
       # Remove if you want to SSH using passwords
       # PasswordAuthentication = false;

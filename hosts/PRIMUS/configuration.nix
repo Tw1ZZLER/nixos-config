@@ -73,19 +73,33 @@
 
   # FIXME: Add the rest of your current configuration
   # Boot loader
-  boot.loader.grub.enable = true;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.device = "nodev";
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Timezone
-  time.timeZone = "America/New_York";
+  boot.initrd.luks.devices."luks-ca30a1bf-13fc-4ab0-a89c-daf7c9e8fe0d".device =
+    "/dev/disk/by-uuid/ca30a1bf-13fc-4ab0-a89c-daf7c9e8fe0d";
 
   # Networking
   networking.hostName = "PRIMUS";
   networking.networkmanager.enable = true;
+
+  # Timezone
+  time.timeZone = "America/New_York";
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+  };
 
   # Enable the COSMIC login manager
   services.displayManager.cosmic-greeter.enable = true;
@@ -104,11 +118,15 @@
   services.printing.enable = true;
 
   # Sound!!!
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
     alsa.enable = true;
+    alsa.support32Bit = true;
     jack.enable = true;
+    media-session.enable = true;
   };
 
   # Touchpad support
@@ -122,6 +140,7 @@
       # Be sure to change it (using passwd) after rebooting!
       initialPassword = "password";
       isNormalUser = true;
+      description = "Tw1ZZLER";
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];

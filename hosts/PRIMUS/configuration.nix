@@ -73,6 +73,19 @@
 
   # FIXME: Add the rest of your current configuration
 
+  # Enable the COSMIC login manager
+  services.displayManager.cosmic-greeter.enable = true;
+
+  # Enable the COSMIC desktop environment
+  services.desktopManager.cosmic.enable = true;
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "tw1zzler";
+  };
+
+  # Fix Wayland clipboard (decreases security)
+  environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
+
   networking.hostName = "PRIMUS";
 
   # Configure your system-wide user settings (groups, etc), add more users as needed.

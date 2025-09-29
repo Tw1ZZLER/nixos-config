@@ -1,9 +1,7 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
-  inputs,
   outputs,
-  config,
   pkgs,
   ...
 }:
@@ -97,18 +95,11 @@
     enable = true;
   };
 
-  # NixGL settings
-  nixGL = {
-    packages = inputs.nixgl.packages;
-    defaultWrapper = "mesa";
-    installScripts = [ "mesa" ];
-  };
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs.unstable; [
     # Terminal
-    (config.lib.nixGL.wrap wezterm)
+    wezterm
 
     # Shell
     fish
@@ -164,22 +155,22 @@
     # inputs.waveforms.packages.${system}.waveforms
 
     # Music stuff
-    (config.lib.nixGL.wrap reaper) # WARN: Proprietary
+    reaper # WARN: Proprietary
     reaper-reapack-extension
 
     # Video stuff
-    (config.lib.nixGL.wrap obs-studio)
+    obs-studio
 
     # Games
-    (config.lib.nixGL.wrap moonlight-qt)
-    (config.lib.nixGL.wrap steam) # WARN: Proprietary
-    (config.lib.nixGL.wrap clonehero) # WARN: Proprietary
+    moonlight-qt
+    steam # WARN: Proprietary
+    clonehero # WARN: Proprietary
 
     # GUI apps that may or may not need hardware acceleration
-    (config.lib.nixGL.wrap obsidian) # WARN: Proprietary
-    (config.lib.nixGL.wrap discord) # WARN: Proprietary
-    (config.lib.nixGL.wrap wpsoffice-cn) # WARN: Proprietary
-    (config.lib.nixGL.wrap omnissa-horizon-client) # WARN: Proprietary
+    obsidian # WARN: Proprietary
+    discord # WARN: Proprietary
+    wpsoffice-cn # WARN: Proprietary
+    omnissa-horizon-client # WARN: Proprietary
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

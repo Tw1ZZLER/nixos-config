@@ -2,6 +2,9 @@
   description = "My NixOS configuration with home-manager and flakes";
 
   inputs = {
+    # Enable flake support for Git submodules
+    self.submodules = true;
+
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     # You can access packages and modules from different nixpkgs revs

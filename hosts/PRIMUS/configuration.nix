@@ -193,6 +193,7 @@
     gh
     gnupg1
     unzip
+    cosmic-store
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

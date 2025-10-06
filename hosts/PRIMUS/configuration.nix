@@ -196,6 +196,13 @@
     cosmic-store
   ];
 
+  # Run dynamically linked binaries
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    # add any missing dynamic libraries for unpackaged
+    # programs here, NOT in environment.systemPackages
+  ];
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "25.05";
 }

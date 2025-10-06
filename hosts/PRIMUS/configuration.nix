@@ -110,6 +110,10 @@
     user = "tw1zzler";
   };
 
+  # Enable GNOME keyring (works best with COSMIC DE)
+  services.gnome.gnome-keyring.enable = true;
+  programs.seahorse.enable = true;
+
   # Fix Wayland clipboard (decreases security)
   environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
 

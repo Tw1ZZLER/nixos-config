@@ -71,7 +71,6 @@
       nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
     };
 
-  # FIXME: Add the rest of your current configuration
   # Boot loader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -79,8 +78,8 @@
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.initrd.luks.devices."luks-ca30a1bf-13fc-4ab0-a89c-daf7c9e8fe0d".device =
-    "/dev/disk/by-uuid/ca30a1bf-13fc-4ab0-a89c-daf7c9e8fe0d";
+  # System76 hardware
+  hardware.system76.enableAll = true;
 
   # Networking
   networking.hostName = "PRIMUS";
@@ -150,7 +149,7 @@
         "docker"
         "audio"
         "dialout"
-        "libvirt"
+        "libvirtd"
         "kvm"
         "sudo"
         "adm"
@@ -173,16 +172,33 @@
     };
   };
 
+  # Git!!
+  programs.git = {
+    enable = true;
+  };
+
   # Tailscale VPN
-  # services.tailscale.enable = true;
-  #
-  # # Docker
-  # virtualisation.docker.enable = true;
-  #
-  # environment.systemPackages = with pkgs; [
-  #   qemu-kvm
-  #   weylus
-  # ];
+  services.tailscale.enable = true;
+
+  # Docker
+  virtualisation.docker.enable = true;
+
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = [ "tw1zzler" ];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
+  programs.weylus = {
+    enable = true;
+    openFirewall = true;
+    users = [ "tw1zzler" ];
+  };
+
+  environment.systemPackages = with pkgs; [
+    gh
+    gnupg1
+    unzip
+  ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "25.05";

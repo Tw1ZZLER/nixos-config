@@ -62,7 +62,7 @@
     vimdiffAlias = true;
     withNodeJs = true;
     withPython3 = true;
-    # extraPackages = [ pkgs.shfmt ];
+    extraPackages = with pkgs; [ unzip ];
     # extraLuaPackages = luaPkgs: with luaPkgs; [ luautf8 ];
     # extraPython3Packages = pyPkgs: with pyPkgs; [ pynvim ];
   };
@@ -82,7 +82,6 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
 
   # Syncthing
   services.syncthing = {

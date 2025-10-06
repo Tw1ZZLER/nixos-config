@@ -172,11 +172,6 @@
     };
   };
 
-  # Git!!
-  programs.git = {
-    enable = true;
-  };
-
   # Tailscale VPN
   services.tailscale.enable = true;
 

@@ -82,6 +82,11 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
+  programs.git = {
+    enable = true;
+    userName = "Corbin";
+    userEmail = "63320116+Tw1ZZLER@users.noreply.github.com";
+  };
 
   # Syncthing
   services.syncthing = {

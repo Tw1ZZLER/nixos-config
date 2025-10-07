@@ -67,6 +67,14 @@
     # extraPython3Packages = pyPkgs: with pyPkgs; [ pynvim ];
   };
 
+  # VSCode
+  programs.vscode = {
+    enable = true;
+    enableExtensionUpdateCheck = false;
+    enableUpdateCheck = false;
+    package = pkgs.unstable.vscode;
+  };
+
   xdg.configFile."nvim".source = ../../dotfiles/nvim;
   xdg.configFile."wezterm".source = ../../dotfiles/wezterm;
   xdg.configFile."fish".source = ../../dotfiles/fish;
@@ -150,9 +158,6 @@
     fzf
     ripgrep
     ugrep
-
-    # Editor
-    vscode
 
     # PDF Viewer
     zathura

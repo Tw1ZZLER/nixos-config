@@ -109,6 +109,12 @@
     loader.timeout = 0;
   };
 
+  # Fix odd boot issues with xdg-desktop-portal and syncthingtray
+  systemd.user.extraConfig = ''
+    DefaultTimeoutStopSec=15s
+    KillUserProcesses=yes
+  '';
+
   # System76 hardware
   hardware.system76.enableAll = true;
 

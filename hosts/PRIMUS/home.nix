@@ -190,10 +190,10 @@
     exercism
 
     # Languages
-    python3
-    nodejs
-    cargo
-    rustc
+    # python3
+    # nodejs
+    # cargo
+    # rustc
 
     # Nix-specific
     nixfmt-rfc-style

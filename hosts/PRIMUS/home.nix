@@ -98,6 +98,15 @@
     userEmail = "63320116+Tw1ZZLER@users.noreply.github.com";
   };
 
+  # Enable GNOME keyring (works best with COSMIC DE)
+  services.gnome-keyring = {
+    enable = true;
+    components = [
+      "secrets"
+      "ssh"
+    ];
+  };
+
   # Syncthing
   services.syncthing = {
     enable = true;

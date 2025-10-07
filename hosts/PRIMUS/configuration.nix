@@ -206,6 +206,9 @@
     # Unzipping tools
     unzip
 
+    # Library for programs to use gnome-keyring
+    libsecret
+
     # COSMIC applets and Flatpak store
     cosmic-store
   ];

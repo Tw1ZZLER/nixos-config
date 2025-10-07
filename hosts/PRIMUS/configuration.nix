@@ -253,6 +253,10 @@
 
     # COSMIC applets and Flatpak store
     cosmic-store
+
+    # Wine
+    unstable.wineWowPackages.staging
+    unstable.winetricks
   ];
 
   # Need flatpak for some packages (particularly COSMIC DE)

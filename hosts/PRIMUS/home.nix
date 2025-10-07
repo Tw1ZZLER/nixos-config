@@ -170,8 +170,9 @@
     ripgrep
     ugrep
 
-    # Disk usage statistics
+    # Other utils
     kdePackages.filelight
+    kdePackages.ark
 
     # PDF Viewer
     zathura

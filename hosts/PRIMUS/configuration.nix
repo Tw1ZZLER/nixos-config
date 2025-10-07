@@ -194,9 +194,19 @@
   };
 
   environment.systemPackages = with pkgs; [
+    # C/C++ compiler
+    gcc
+
+    # GitHub CLI
     gh
+
+    # GNU encryption and keys tools
     gnupg1
+
+    # Unzipping tools
     unzip
+
+    # COSMIC applets and Flatpak store
     cosmic-store
   ];
 

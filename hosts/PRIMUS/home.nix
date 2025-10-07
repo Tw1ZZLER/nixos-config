@@ -70,8 +70,10 @@
   # VSCode
   programs.vscode = {
     enable = true;
-    enableExtensionUpdateCheck = false;
-    enableUpdateCheck = false;
+    profiles.default = {
+      enableExtensionUpdateCheck = false;
+      enableUpdateCheck = false;
+    };
     package = pkgs.unstable.vscode;
   };
 

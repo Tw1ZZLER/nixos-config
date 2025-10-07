@@ -81,6 +81,22 @@
   # System76 hardware
   hardware.system76.enableAll = true;
 
+  # Graphics stuffs
+  # (https://wiki.nixos.org/wiki/Intel_Graphics)
+  # https://nixos.org/manual/nixos/stable/#sec-gpu-accel
+  hardware.graphics = {
+    enable = true; # Enable OpenGL (graphics)
+    extraPackages = with pkgs; [
+      vpl-gpu-rt # Intel Quick Sync Video (QSV)
+      intel-compute-runtime # OpenCL
+      intel-ocl # Official proprietary OpenCL library # WARN: Proprieratary
+      intel-media-driver # (VAAPI) Enable hardware acceleration with the Intel iHD driver
+    ];
+  };
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  };
+
   # Networking
   networking.hostName = "PRIMUS";
   networking.networkmanager.enable = true;

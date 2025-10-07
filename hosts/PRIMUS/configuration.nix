@@ -83,6 +83,7 @@
     plymouth = {
       enable = true;
       theme = "rings";
+      logo = "${pkgs.nixos-icons}/share/icons/hicolor/128x128/apps/nix-snowflake.png";
       themePackages = with pkgs; [
         # By default we would install all themes
         (adi1090x-plymouth-themes.override {
@@ -94,6 +95,7 @@
     # Enable "Silent boot"
     consoleLogLevel = 3;
     initrd.verbose = false;
+    initrd.systemd.enable = true;
     kernelParams = [
       "quiet"
       "splash"

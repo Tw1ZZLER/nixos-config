@@ -198,15 +198,14 @@
     # Nix-specific
     nixfmt-rfc-style
 
-    # Wine
-    # wineWowPackages.staging
-    # winetricks
-
     # Email / calendar
     thunderbird-bin
 
     # Waveforms
     # inputs.waveforms.packages.${system}.waveforms
+
+    # Games
+    prismlauncher
 
     # Music stuff
     reaper # WARN: Proprietary

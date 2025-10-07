@@ -78,6 +78,35 @@
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # Plymouth / silent boot
+  boot = {
+    plymouth = {
+      enable = true;
+      theme = "rings";
+      themePackages = with pkgs; [
+        # By default we would install all themes
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "rings" ];
+        })
+      ];
+    };
+
+    # Enable "Silent boot"
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "udev.log_priority=3"
+      "rd.systemd.show_status=auto"
+    ];
+    # Hide the OS choice for bootloaders.
+    # It's still possible to open the bootloader list by pressing any key
+    # It will just not appear on screen unless a key is pressed
+    loader.timeout = 0;
+  };
+
   # System76 hardware
   hardware.system76.enableAll = true;
 
@@ -89,7 +118,7 @@
     extraPackages = with pkgs; [
       vpl-gpu-rt # Intel Quick Sync Video (QSV)
       intel-compute-runtime # OpenCL
-      intel-ocl # Official proprietary OpenCL library # WARN: Proprieratary
+      intel-ocl # Official proprietary OpenCL library # WARN: Proprietary
       intel-media-driver # (VAAPI) Enable hardware acceleration with the Intel iHD driver
     ];
   };
@@ -197,6 +226,7 @@
   # Docker
   virtualisation.docker.enable = true;
 
+  # Virt-Manager with QEMU-KVM and libvirt
   programs.virt-manager.enable = true;
   users.groups.libvirtd.members = [ "tw1zzler" ];
   virtualisation.libvirtd.enable = true;
@@ -237,10 +267,10 @@
 
   # Run dynamically linked binaries
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    # add any missing dynamic libraries for unpackaged
-    # programs here, NOT in environment.systemPackages
-  ];
+  # programs.nix-ld.libraries = with pkgs; [
+  #   # add any missing dynamic libraries for unpackaged
+  #   # programs here, NOT in environment.systemPackages
+  # ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "25.05";

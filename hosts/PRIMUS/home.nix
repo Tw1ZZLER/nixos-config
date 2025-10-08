@@ -217,6 +217,7 @@
     prismlauncher
 
     # Music stuff
+    # An extra line later is needed to actually link ReaPack into ~/.config/REAPER/UserPlugins/
     reaper # WARN: Proprietary
     reaper-reapack-extension
 
@@ -247,6 +248,11 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
+
+  # Link ReaPack to Reaper User Plugins
+  home.file.".config/REAPER/UserPlugins/reaper_reapack-x86_64.so" = {
+    source = pkgs.reaper-reapack-extension + "/UserPlugins/reaper_reapack-x86_64.so";
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

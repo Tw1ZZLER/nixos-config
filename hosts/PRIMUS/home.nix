@@ -143,6 +143,11 @@
             "Pixel 8"
           ];
         };
+        "PrismLauncher" = {
+          path = "/home/tw1zzler/.local/share/PrismLauncher";
+          id = "ec4nk-gwpbm";
+          devices = [ "REDMOND" ];
+        };
       };
     };
   };

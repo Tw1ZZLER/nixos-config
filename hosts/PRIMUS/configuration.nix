@@ -265,6 +265,7 @@
     # Wine
     unstable.wineWowPackages.staging
     unstable.winetricks
+    unstable.wineasio
   ];
 
   # Need flatpak for some packages (particularly COSMIC DE)

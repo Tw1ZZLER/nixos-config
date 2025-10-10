@@ -9,6 +9,9 @@
     ./sound.nix
     ./ssh.nix
     ./tailscale.nix
+    ./timezone.nix
     ./user.nix
+    ./virt-manager.nix
+    ./wine.nix
   ];
 }

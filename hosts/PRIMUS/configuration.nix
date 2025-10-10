@@ -121,9 +121,6 @@
   networking.hostName = "PRIMUS";
   networking.networkmanager.enable = true;
 
-  # CUPS (printing)
-  services.printing.enable = true;
-
   # Touchpad support
   services.libinput.enable = true;
 

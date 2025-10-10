@@ -6,6 +6,7 @@
   imports = [
     ./docker.nix
     ./nix-ld.nix
+    ./printing.nix
     ./sound.nix
     ./ssh.nix
     ./tailscale.nix

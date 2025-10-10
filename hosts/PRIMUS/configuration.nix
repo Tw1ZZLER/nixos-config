@@ -127,12 +127,6 @@
   # Touchpad support
   services.libinput.enable = true;
 
-  programs.weylus = {
-    enable = true;
-    openFirewall = true;
-    users = [ "tw1zzler" ];
-  };
-
   environment.systemPackages = with pkgs; [
     # C/C++ compiler
     gcc

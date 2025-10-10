@@ -4,6 +4,7 @@
   # my-module = import ./my-module.nix;
   # DEFAULTS For all systems!
   imports = [
+    ../nixpkgs.nix
     ./dotfiles.nix
     ./fonts.nix
     ./gaming.nix

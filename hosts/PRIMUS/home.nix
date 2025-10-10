@@ -15,11 +15,8 @@
     # inputs.nix-colors.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
     # DEFAULTS for all systems
-    ./../../modules/home-manager # the default modules # okay maybe I don't understand this
-    # outputs.homeManagerModules.zen-browser
-    # outputs.homeManagerModules.xdg-user-dirs
+    ../../modules/home-manager
   ];
 
   nixpkgs = {
@@ -52,117 +49,12 @@
     homeDirectory = "/home/tw1zzler";
   };
 
-  #  Neovim
-  programs.neovim = {
-    enable = true;
-    package = pkgs.unstable.neovim-unwrapped;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-    withNodeJs = true;
-    withPython3 = true;
-    extraPackages = with pkgs; [ unzip ];
-    # extraLuaPackages = luaPkgs: with luaPkgs; [ luautf8 ];
-    # extraPython3Packages = pyPkgs: with pyPkgs; [ pynvim ];
-  };
-
-  # VSCode
-  programs.vscode = {
-    enable = true;
-    profiles.default = {
-      enableExtensionUpdateCheck = false;
-      enableUpdateCheck = false;
-    };
-    package = pkgs.unstable.vscode;
-  };
-
-  xdg.configFile."nvim".source = ../../dotfiles/nvim;
-  xdg.configFile."wezterm".source = ../../dotfiles/wezterm;
-  xdg.configFile."fish".source = ../../dotfiles/fish;
-  xdg.configFile."fastfetch".source = ../../dotfiles/fastfetch;
-  xdg.configFile."yazi".source = ../../dotfiles/yazi;
-  xdg.configFile."starship.toml".source = ../../dotfiles/starship.toml;
-
-  # Wezterm
-  # programs.wezterm = {
-  #   enable = true;
-  #   package = pkgs.unstable.wezterm;
-  # };
-
-  # Enable home-manager and git
+  # Enable home-manager
   programs.home-manager.enable = true;
-  programs.git = {
-    enable = true;
-    userName = "Corbin";
-    userEmail = "63320116+Tw1ZZLER@users.noreply.github.com";
-  };
-
-  # Enable GNOME keyring (works best with COSMIC DE)
-  services.gnome-keyring = {
-    enable = true;
-    components = [
-      "secrets"
-      "ssh"
-    ];
-  };
-
-  # Syncthing
-  services.syncthing = {
-    enable = true;
-    tray.enable = true;
-    # overrideFolders = false; # can be used to turn off the auto restart thing
-    # overrideDevices = false; # where devices and folders are deleted on switch
-    settings = {
-      options = {
-        relaysEnabled = false;
-        globalAnnounceEnabled = false;
-        urAccepted = -1;
-      };
-      devices = {
-        "Pixel 8" = {
-          addresses = [ "tcp://100.67.233.82:22000" ];
-          id = "K6ZAYPE-YSJ7ILX-2XARZW7-HVKS76J-7YSAJM5-7K6TQ7H-LHQ5U4A-4EPXOQR";
-        };
-        "iPad" = {
-          addresses = [ "tcp://100.85.218.3:22000" ];
-          id = "YJ74BBR-KYOX2GQ-WE6EPHY-WE6Y3DH-VEP6CFU-HATBP5G-U6VZMUS-BP4ALAA";
-        };
-        "REDMOND" = {
-          addresses = [ "tcp://100.80.238.41:22000" ];
-          id = "XVSUFJ6-DF5JJZU-ETJXMWT-XOFGOJ7-UJLGDLQ-MGMS2C3-HCJHTBM-F4E74QH";
-        };
-      };
-      folders = {
-        "Vaults" = {
-          path = "/home/tw1zzler/vault";
-          id = "ncpx4-79bk4";
-          devices = [
-            "REDMOND"
-            "iPad"
-            "Pixel 8"
-          ];
-        };
-        "PrismLauncher" = {
-          path = "/home/tw1zzler/.local/share/PrismLauncher";
-          id = "ec4nk-gwpbm";
-          devices = [ "REDMOND" ];
-        };
-      };
-    };
-  };
-
-  # Enable fonts
-  fonts.fontconfig = {
-    enable = true;
-  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs.unstable; [
-    # Terminal
-    wezterm
-
     # Shell
     fish
     starship
@@ -181,14 +73,6 @@
 
     # PDF Viewer
     zathura
-
-    # Fonts
-    nerd-fonts.victor-mono
-    corefonts
-    monocraft
-
-    # Git
-    lazygit
 
     # Terminal apps
     btop
@@ -210,31 +94,10 @@
     # Email / calendar
     thunderbird-bin
 
-    # Waveforms
-    # inputs.waveforms.packages.${system}.waveforms
-
-    # Games
-    prismlauncher
-
-    # Music stuff
-    # An extra line later is needed to actually link ReaPack into ~/.config/REAPER/UserPlugins/
-    reaper # WARN: Proprietary
-    reaper-reapack-extension
-    carla # Audio plugin host
-
     # Video stuff
     obs-studio
 
-    # Games
-    moonlight-qt
-    steam # WARN: Proprietary
-    clonehero # WARN: Proprietary
-
-    # GUI apps that may or may not need hardware acceleration
-    obsidian # WARN: Proprietary
     discord # WARN: Proprietary
-    wpsoffice-cn # WARN: Proprietary
-    omnissa-horizon-client # WARN: Proprietary
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -249,19 +112,6 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
-
-  # Link ReaPack to Reaper User Plugins
-  home.file.".config/REAPER/UserPlugins/reaper_reapack-x86_64.so" = {
-    source = pkgs.unstable.reaper-reapack-extension + "/UserPlugins/reaper_reapack-x86_64.so";
-  };
-
-  # Link Carla Plugins to Reaper VST and LV2 Plugins
-  home.file.".vst/carla.vst" = {
-    source = pkgs.unstable.carla + "/lib/vst/carla.vst";
-  };
-  home.file.".lv2/carla.lv2" = {
-    source = pkgs.unstable.carla + "/lib/lv2/carla.lv2";
-  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

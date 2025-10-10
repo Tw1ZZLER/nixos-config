@@ -1,10 +1,19 @@
 # Add your reusable home-manager modules to this directory, on their own file (https://nixos.wiki/wiki/Module).
-# These should be stuff you would like to share with others, not your personal configurations.
 {
   # List your module files here
   # my-module = import ./my-module.nix;
   # DEFAULTS For all systems!
   imports = [
+    ./dotfiles.nix
+    ./fonts.nix
+    ./gaming.nix
+    ./neovim.nix
+    ./obsidian.nix
+    ./onu.nix
+    ./reaper.nix
+    ./syncthing.nix
+    ./vscode.nix
+    ./wezterm.nix
     ./xdg-user-dirs.nix
     ./zen-browser.nix
   ];

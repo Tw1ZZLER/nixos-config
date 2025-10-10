@@ -15,6 +15,7 @@
     ./onu.nix
     ./reaper.nix
     ./syncthing.nix
+    ./thunderbird.nix
     ./vscode.nix
     ./wezterm.nix
     ./xdg-user-dirs.nix

@@ -1,3 +1,4 @@
+# The best terminal emulator
 { pkgs }:
 {
   programs.wezterm = {

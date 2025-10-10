@@ -1,6 +1,6 @@
+# Not the best text editor, but necessary in many cases
 { pkgs }:
 {
-  # VSCode
   programs.vscode = {
     enable = true;
     profiles.default = {

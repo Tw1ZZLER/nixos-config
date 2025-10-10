@@ -1,3 +1,4 @@
+# I like these user directories better because they are easy to type (and match more closely to the rest of the Linux filesystem)
 { config, ... }:
 {
   xdg = {

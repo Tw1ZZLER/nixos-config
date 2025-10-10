@@ -1,3 +1,4 @@
+# My dotfile linking
 { }:
 {
   xdg.configFile."nvim".source = ../../dotfiles/nvim;

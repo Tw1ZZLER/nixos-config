@@ -1,3 +1,4 @@
+# The best browser in the world right now
 { inputs, system, ... }:
 
 {

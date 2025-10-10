@@ -1,5 +1,4 @@
 # Stuff I need for college
-
 { pkgs }:
 {
   home.packages = with pkgs.unstable; [

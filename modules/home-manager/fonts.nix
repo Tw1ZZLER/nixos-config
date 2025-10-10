@@ -1,12 +1,11 @@
+# Enable fonts that I like
 { pkgs }:
 {
-  # Enable fonts
   fonts.fontconfig = {
     enable = true;
   };
 
   home.packages = with pkgs.unstable; [
-    # Fonts
     nerd-fonts.victor-mono
     corefonts
     monocraft

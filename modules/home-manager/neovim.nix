@@ -1,7 +1,6 @@
+# The best text editor
 { pkgs }:
 {
-
-  #  Neovim
   programs.neovim = {
     enable = true;
     package = pkgs.unstable.neovim-unwrapped;

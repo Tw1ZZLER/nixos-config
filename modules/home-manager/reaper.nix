@@ -1,7 +1,7 @@
+# Reaper DAW and other music stuff related to it
 { pkgs }:
 {
   home.packages = with pkgs.unstable; [
-    # Music stuff
     # An extra line later is needed to actually link ReaPack into ~/.config/REAPER/UserPlugins/
     reaper # WARN: Proprietary
     reaper-reapack-extension

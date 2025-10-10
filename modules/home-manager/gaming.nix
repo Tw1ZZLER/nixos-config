@@ -1,3 +1,4 @@
+# Gaming tools, games, etc.
 { pkgs }:
 {
   home.packages = with pkgs.unstable; [

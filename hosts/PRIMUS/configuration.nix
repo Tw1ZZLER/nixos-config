@@ -137,9 +137,6 @@
     # C/C++ compiler
     gcc
 
-    # GitHub CLI
-    gh
-
     # GNU encryption and keys tools
     gnupg1
 

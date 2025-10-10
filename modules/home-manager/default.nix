@@ -7,6 +7,7 @@
     ../nixpkgs.nix
     ./discord.nix
     ./dotfiles.nix
+    ./exercism.nix
     ./fonts.nix
     ./gaming.nix
     ./git.nix

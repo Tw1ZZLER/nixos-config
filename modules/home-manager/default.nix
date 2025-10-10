@@ -11,6 +11,7 @@
     ./gaming.nix
     ./git.nix
     ./neovim.nix
+    ./obs-studio.nix
     ./obsidian.nix
     ./onu.nix
     ./reaper.nix

@@ -98,9 +98,6 @@
     # C/C++ compiler
     gcc
 
-    # GNU encryption and keys tools
-    gnupg1
-
     # Unzipping tools
     unzip
   ];

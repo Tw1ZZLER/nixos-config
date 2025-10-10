@@ -8,6 +8,7 @@
     ./dotfiles.nix
     ./fonts.nix
     ./gaming.nix
+    ./git.nix
     ./neovim.nix
     ./obsidian.nix
     ./onu.nix
@@ -18,4 +19,13 @@
     ./xdg-user-dirs.nix
     ./zen-browser.nix
   ];
+
+  # I don't see this stuff ever changing
+  home = {
+    username = "tw1zzler";
+    homeDirectory = "/home/tw1zzler";
+  };
+
+  # Enable home-manager
+  programs.home-manager.enable = true;
 }

@@ -1,7 +1,6 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
-  outputs,
   pkgs,
   ...
 }:
@@ -18,14 +17,6 @@
     # DEFAULTS for all systems
     ../../modules/home-manager
   ];
-
-  home = {
-    username = "tw1zzler";
-    homeDirectory = "/home/tw1zzler";
-  };
-
-  # Enable home-manager
-  programs.home-manager.enable = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.

@@ -7,6 +7,7 @@
     ../nixpkgs.nix
     ./docker.nix
     ./nix-ld.nix
+    ./nix.nix
     ./printing.nix
     ./sound.nix
     ./ssh.nix

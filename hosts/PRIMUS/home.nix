@@ -21,18 +21,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs.unstable; [
-    # Shell
-    fish
-    starship
-
-    # Command utilities
-    bat
-    eza
-    fd
-    fzf
-    ripgrep
-    ugrep
-
     # Other utils
     kdePackages.filelight
     kdePackages.ark
@@ -40,22 +28,8 @@
     # PDF Viewer
     zathura
 
-    # Terminal apps
-    btop
-    fastfetch
-    yazi
-
     # Learning Languages
     exercism
-
-    # Languages
-    # python3
-    # nodejs
-    # cargo
-    # rustc
-
-    # Nix-specific
-    nixfmt-rfc-style
 
     # Email / calendar
     thunderbird-bin
@@ -78,9 +52,6 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
-
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "25.05";

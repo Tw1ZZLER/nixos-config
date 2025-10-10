@@ -1,5 +1,4 @@
 # Now this is Meta (Configuring Nix with Nix in Nix)
-
 {
   lib,
   inputs,

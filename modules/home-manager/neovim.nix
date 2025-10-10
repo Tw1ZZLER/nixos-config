@@ -11,7 +11,13 @@
     vimdiffAlias = true;
     withNodeJs = true;
     withPython3 = true;
-    extraPackages = with pkgs; [ unzip ];
+    extraPackages = with pkgs; [
+      # Idk why LazyVim needs this but it does
+      unzip
+
+      # Nix Formatter
+      nixfmt-rfc-style
+    ];
     # extraLuaPackages = luaPkgs: with luaPkgs; [ luautf8 ];
     # extraPython3Packages = pyPkgs: with pyPkgs; [ pynvim ];
   };

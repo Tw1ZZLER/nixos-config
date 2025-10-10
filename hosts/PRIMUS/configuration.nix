@@ -18,11 +18,16 @@
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
 
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
-
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+
+    # You can also split up your configuration and import pieces of it here:
+    # DEFAULTS for all systems
+    ../../modules/nixos
+
+    # Not defaults (changes per system)
+    ../../modules/nixos/intel-graphics.nix
+    ../../modules/nixos/cosmic.nix
   ];
 
   nixpkgs = {
@@ -109,30 +114,8 @@
     loader.timeout = 0;
   };
 
-  # Fix odd boot issues with xdg-desktop-portal and syncthingtray
-  systemd.user.extraConfig = ''
-    DefaultTimeoutStopSec=15s
-    KillUserProcesses=yes
-  '';
-
   # System76 hardware
   hardware.system76.enableAll = true;
-
-  # Graphics stuffs
-  # (https://wiki.nixos.org/wiki/Intel_Graphics)
-  # https://nixos.org/manual/nixos/stable/#sec-gpu-accel
-  hardware.graphics = {
-    enable = true; # Enable OpenGL (graphics)
-    extraPackages = with pkgs; [
-      vpl-gpu-rt # Intel Quick Sync Video (QSV)
-      intel-compute-runtime # OpenCL
-      intel-ocl # Official proprietary OpenCL library # WARN: Proprietary
-      intel-media-driver # (VAAPI) Enable hardware acceleration with the Intel iHD driver
-    ];
-  };
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";
-  };
 
   # Networking
   networking.hostName = "PRIMUS";
@@ -153,92 +136,11 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the COSMIC login manager
-  services.displayManager.cosmic-greeter.enable = true;
-
-  # Enable the COSMIC desktop environment
-  services.desktopManager.cosmic.enable = true;
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "tw1zzler";
-  };
-
-  # Fix Wayland clipboard (decreases security)
-  environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
-
   # CUPS (printing)
   services.printing.enable = true;
 
-  # Sound!!!
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    jack.enable = true;
-    wireplumber.enable = true;
-  };
-
   # Touchpad support
   services.libinput.enable = true;
-
-  # Configure your system-wide user settings (groups, etc), add more users as needed.
-  users.users = {
-    tw1zzler = {
-      # You can set an initial password for your user.
-      # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
-      # Be sure to change it (using passwd) after rebooting!
-      initialPassword = "password";
-      isNormalUser = true;
-      description = "Tw1ZZLER";
-      openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      ];
-      extraGroups = [
-        "wheel"
-        "networkmanager"
-        "docker"
-        "audio"
-        "dialout"
-        "libvirtd"
-        "kvm"
-        "sudo"
-        "adm"
-        "lpadmin"
-        "uinput"
-      ];
-    };
-  };
-
-  # This setups a SSH server. Very important if you're setting up a headless system.
-  # Feel free to remove if you don't need it.
-  services.openssh = {
-    enable = true;
-    settings = {
-      # Opinionated: forbid root login through SSH.
-      # PermitRootLogin = "no";
-      # Opinionated: use keys only.
-      # Remove if you want to SSH using passwords
-      # PasswordAuthentication = false;
-    };
-  };
-
-  # Enable Seahorse for keyring management
-  programs.seahorse.enable = true;
-
-  # Tailscale VPN
-  services.tailscale.enable = true;
-
-  # Docker
-  virtualisation.docker.enable = true;
-
-  # Virt-Manager with QEMU-KVM and libvirt
-  programs.virt-manager.enable = true;
-  users.groups.libvirtd.members = [ "tw1zzler" ];
-  virtualisation.libvirtd.enable = true;
-  virtualisation.spiceUSBRedirection.enable = true;
 
   programs.weylus = {
     enable = true;
@@ -258,32 +160,7 @@
 
     # Unzipping tools
     unzip
-
-    # COSMIC applets and Flatpak store
-    cosmic-store
-
-    # Wine
-    unstable.wineWowPackages.staging
-    unstable.winetricks
-    unstable.wineasio
   ];
-
-  # Need flatpak for some packages (particularly COSMIC DE)
-  services.flatpak.enable = true;
-  systemd.services.flatpak-repo = {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
-
-  # Run dynamically linked binaries
-  programs.nix-ld.enable = true;
-  # programs.nix-ld.libraries = with pkgs; [
-  #   # add any missing dynamic libraries for unpackaged
-  #   # programs here, NOT in environment.systemPackages
-  # ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "25.05";

@@ -5,6 +5,7 @@
   # DEFAULTS For all systems!
   imports = [
     ../nixpkgs.nix
+    ./discord.nix
     ./dotfiles.nix
     ./fonts.nix
     ./gaming.nix

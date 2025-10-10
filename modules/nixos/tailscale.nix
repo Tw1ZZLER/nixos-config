@@ -1,5 +1,6 @@
+# Tailscale VPN
+# Lives in NixOS modules because home-manager on non-NixOS machines cannot change networking settings
 { }:
 {
-  # Tailscale VPN
   services.tailscale.enable = true;
 }

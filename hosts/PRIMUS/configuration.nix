@@ -97,9 +97,6 @@
   environment.systemPackages = with pkgs; [
     # C/C++ compiler
     gcc
-
-    # Unzipping tools
-    unzip
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

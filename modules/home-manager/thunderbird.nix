@@ -1,5 +1,5 @@
 # Email /calendar
-{ pkgs }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs.unstable; [
     thunderbird-bin

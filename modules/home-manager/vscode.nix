@@ -1,5 +1,5 @@
 # Not the best text editor, but necessary in many cases
-{ pkgs }:
+{ pkgs, ... }:
 {
   programs.vscode = {
     enable = true;

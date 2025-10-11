@@ -1,4 +1,4 @@
-{ outputs }:
+{ outputs, ... }:
 
 # This module for Nixpkgs is useful in both NixOS and home-manager, so it goes here (I am using it in both)
 {

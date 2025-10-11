@@ -1,5 +1,5 @@
 # My dotfile linking
-{ }:
+{ ... }:
 {
   xdg.configFile."nvim".source = ../../dotfiles/nvim;
   xdg.configFile."wezterm".source = ../../dotfiles/wezterm;

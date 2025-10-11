@@ -1,5 +1,5 @@
 # Enable fonts that I like
-{ pkgs }:
+{ pkgs, ... }:
 {
   fonts.fontconfig = {
     enable = true;

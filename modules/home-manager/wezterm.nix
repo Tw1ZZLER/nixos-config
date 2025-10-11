@@ -1,5 +1,5 @@
 # The best terminal emulator
-{ pkgs }:
+{ pkgs, ... }:
 {
   programs.wezterm = {
     enable = true;

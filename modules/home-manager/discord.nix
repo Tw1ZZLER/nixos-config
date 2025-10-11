@@ -1,5 +1,5 @@
 # (Proprietary) Communication platform
-{ pkgs }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs.unstable; [
     discord # WARN: Proprietary

@@ -1,5 +1,5 @@
 # The best tool for language learning
-{ pkgs }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs.unstable; [
     exercism

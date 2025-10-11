@@ -1,5 +1,5 @@
 # Stuff I need for college
-{ pkgs }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs.unstable; [
     wpsoffice-cn # WARN: Proprietary

@@ -1,5 +1,5 @@
 # The best video recording and streaming software
-{ pkgs }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs.unstable; [
     obs-studio

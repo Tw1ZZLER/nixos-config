@@ -1,5 +1,5 @@
 # The best text editor
-{ pkgs }:
+{ pkgs, ... }:
 {
   programs.neovim = {
     enable = true;

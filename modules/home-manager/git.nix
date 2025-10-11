@@ -1,5 +1,5 @@
 # Configure git and other git-related tools
-{ pkgs }:
+{ pkgs, ... }:
 {
   programs.git = {
     enable = true;

@@ -1,5 +1,5 @@
 # File syncing tool Syncthing
-{ }:
+{ ... }:
 {
   services.syncthing = {
     enable = true;

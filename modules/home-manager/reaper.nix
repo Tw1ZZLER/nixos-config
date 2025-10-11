@@ -1,5 +1,5 @@
 # Reaper DAW and other music stuff related to it
-{ pkgs }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs.unstable; [
     # An extra line later is needed to actually link ReaPack into ~/.config/REAPER/UserPlugins/

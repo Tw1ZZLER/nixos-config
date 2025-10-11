@@ -18,9 +18,6 @@
     ../../modules/home-manager
   ];
 
-  # Link this home.nix to ~/.config/home-manager/home.nix
-  xdg.configFile."home-manager/home.nix".source = ./home.nix;
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs.unstable; [
@@ -44,6 +41,15 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
+
+  # Enable GNOME keyring (works best with COSMIC DE)
+  services.gnome-keyring = {
+    enable = true;
+    components = [
+      "secrets"
+      "ssh"
+    ];
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "25.05";

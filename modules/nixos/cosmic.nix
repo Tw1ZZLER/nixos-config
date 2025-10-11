@@ -23,15 +23,6 @@
     cosmic-store
   ];
 
-  # Enable GNOME keyring (works best with COSMIC DE)
-  services.gnome-keyring = {
-    enable = true;
-    components = [
-      "secrets"
-      "ssh"
-    ];
-  };
-
   # Enable Seahorse for keyring management
   programs.seahorse.enable = true;
 }

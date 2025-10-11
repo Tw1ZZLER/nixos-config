@@ -18,6 +18,9 @@
     ../../modules/home-manager
   ];
 
+  # Link this home.nix to ~/.config/home-manager/home.nix
+  xdg.configFile."home-manager/home.nix".source = ./home.nix;
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs.unstable; [

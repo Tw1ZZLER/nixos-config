@@ -1,4 +1,4 @@
-{ }:
+{ ... }:
 {
   programs.weylus = {
     enable = true;

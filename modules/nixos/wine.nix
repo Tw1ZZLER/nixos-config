@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 {
   # It's better to use unstable for this sort of thing
   environment.systemPackages = with pkgs.unstable; [

@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 {
   # Graphics stuffs
   # (https://wiki.nixos.org/wiki/Intel_Graphics)

@@ -1,4 +1,4 @@
-{ }:
+{ ... }:
 {
   # Sound!!!
   services.pulseaudio.enable = false;

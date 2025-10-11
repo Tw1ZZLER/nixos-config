@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 {
   imports = [
     # Flatpak is required to install our COSMIC applets

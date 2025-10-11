@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 # How to achieve slow but awesome boots
 {
   # Plymouth / silent boot

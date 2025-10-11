@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 {
   # Need flatpak for some packages (particularly COSMIC DE)
   services.flatpak.enable = true;

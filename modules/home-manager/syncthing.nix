@@ -3,7 +3,7 @@
 {
   services.syncthing = {
     enable = true;
-    tray.enable = true;
+    # tray.enable = true;
     # overrideFolders = false; # can be used to turn off the auto restart thing
     # overrideDevices = false; # where devices and folders are deleted on switch
     settings = {

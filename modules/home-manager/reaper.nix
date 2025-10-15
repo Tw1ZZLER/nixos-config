@@ -6,6 +6,9 @@
     reaper # WARN: Proprietary
     reaper-reapack-extension
     carla # Audio plugin host
+
+    yabridge # Run Windows VST plugins on Linux
+    yabridgectl
   ];
 
   # Link ReaPack to Reaper User Plugins

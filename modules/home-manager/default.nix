@@ -18,6 +18,7 @@
     ./reaper.nix
     ./syncthing.nix
     ./thunderbird.nix
+    ./torrent.nix
     ./vscode.nix
     ./wezterm.nix
     ./xdg-user-dirs.nix

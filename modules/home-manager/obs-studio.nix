@@ -1,7 +1,8 @@
 # The best video recording and streaming software
 { pkgs, ... }:
 {
-  home.packages = with pkgs.unstable; [
-    obs-studio
-  ];
+  programs.obs-studio = {
+    enable = true;
+    package = pkgs.unstable.obs-studio;
+  };
 }

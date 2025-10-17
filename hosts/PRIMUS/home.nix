@@ -24,6 +24,7 @@
     # Other utils missing from COSMIC DE that I would like
     kdePackages.filelight
     kdePackages.ark
+    kdePackages.gwenview
 
     # Zathura
     zathura

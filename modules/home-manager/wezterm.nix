@@ -25,4 +25,7 @@
     fastfetch
     yazi
   ];
+
+  # Wezterm configuration dotfiles
+  # xdg.configFile."wezterm".source = ../../dotfiles/wezterm;
 }

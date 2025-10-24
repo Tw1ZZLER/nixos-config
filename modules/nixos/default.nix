@@ -18,4 +18,7 @@
     ./weylus.nix
     ./wine.nix
   ];
+
+  # Disable command-not-found globally for flake-based systems
+  programs.command-not-found.enable = false;
 }

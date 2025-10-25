@@ -18,6 +18,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Nix Index
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs-unstable";
+
     # Zen Browser
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -32,6 +36,7 @@
       self,
       nixpkgs,
       home-manager,
+      nix-index-database,
       ...
     }@inputs:
     let
@@ -87,13 +92,13 @@
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
-        # FIXME: replace with your username@hostname
         "tw1zzler@PRIMUS" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             # > Our main home-manager configuration file <
             ./hosts/PRIMUS/home.nix
+            nix-index-database.homeModules.nix-index
           ];
         };
         "tw1zzler@REDMOND" = home-manager.lib.homeManagerConfiguration {
@@ -102,6 +107,7 @@
           modules = [
             # > Our main home-manager configuration file <
             ./hosts/REDMOND/home.nix
+            nix-index-database.homeModules.nix-index
           ];
         };
       };

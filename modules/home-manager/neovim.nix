@@ -21,7 +21,7 @@
       imagemagick
     ];
     extraLuaPackages =
-      luaPkgs: with luaPkgs; [
+      luaPkgs: with pkgs.unstable.lua51Packages; [
         luautf8
         luarocks
       ];

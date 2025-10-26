@@ -16,6 +16,7 @@
     ./obs-studio.nix
     ./obsidian.nix
     ./onu.nix
+    ./python.nix
     ./reaper.nix
     ./syncthing.nix
     ./thunderbird.nix

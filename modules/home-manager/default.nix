@@ -8,6 +8,7 @@
     ./discord.nix
     ./dotfiles.nix
     ./exercism.nix
+    ./fish.nix
     ./fonts.nix
     ./gaming.nix
     ./git.nix

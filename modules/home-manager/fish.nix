@@ -6,6 +6,9 @@
     package = pkgs.unstable.fish;
   };
 
+  # Fish dotfiles
+  xdg.configFile."fish".source = ../../dotfiles/fish;
+
   # Starship prompt
   programs.starship = {
     enable = true;
@@ -65,7 +68,7 @@
     ugrep
   ];
 
+  # Nix Index (for searching nix packages)
   programs.nix-index.enable = true;
 
-  xdg.configFile."fish".source = ../../dotfiles/fish;
 }

@@ -4,10 +4,38 @@
   programs.fish = {
     enable = true;
     package = pkgs.unstable.fish;
+
+    # Main fish config (exec at shell start)
+    interactiveShellInit = builtins.readFile ../../dotfiles/fish/config.fish;
+
+    # Extra conf.d files
+    shellInit = ''
+      for file in ${../../dotfiles/fish/conf.d}/*.fish
+          source $file
+      end
+    '';
+
+    # Plugins
+    # plugins = with pkgs.unstable.fishPlugins; [
+    #   bass
+    #   autopair
+    # ];
+
+    # Inline shell aliases (you can remove if using conf.d/aliases.fish)
+    # shellAliases = {
+    #   ll = "ls -al";
+    #   gs = "git status";
+    # };
+
+    # Import custom functions
+    # functions = {
+    #
+    # };
   };
 
   # Fish dotfiles
-  xdg.configFile."fish".source = ../../dotfiles/fish;
+  xdg.configFile."fish/completions".source = ../../dotfiles/fish/completions;
+  xdg.configFile."fish/themes".source = ../../dotfiles/fish/themes;
 
   # Starship prompt
   programs.starship = {

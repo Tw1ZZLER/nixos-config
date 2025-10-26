@@ -9,17 +9,11 @@
     interactiveShellInit = builtins.readFile ../../dotfiles/fish/config.fish;
 
     # Extra conf.d files
-    shellInit = ''
-      for file in ${../../dotfiles/fish/conf.d}/*.fish
-          source $file
-      end
-    '';
-
-    # Plugins
-    # plugins = with pkgs.unstable.fishPlugins; [
-    #   bass
-    #   autopair
-    # ];
+    # shellInit = ''
+    #   for file in ${../../dotfiles/fish/conf.d}/*.fish
+    #       source $file
+    #   end
+    # '';
 
     # Inline shell aliases (you can remove if using conf.d/aliases.fish)
     # shellAliases = {
@@ -32,6 +26,12 @@
     #
     # };
   };
+
+  # Fish plugins
+  home.packages = with pkgs.unstable.fishPlugins; [
+    bass
+    autopair
+  ];
 
   # Fish dotfiles
   xdg.configFile."fish/completions".source = ../../dotfiles/fish/completions;
@@ -90,11 +90,6 @@
     enable = true;
     package = pkgs.unstable.yazi;
   };
-
-  # Ugrep (will be replaced by ripgrep)
-  home.packages = with pkgs.unstable; [
-    ugrep
-  ];
 
   # Nix Index (for searching nix packages)
   programs.nix-index.enable = true;

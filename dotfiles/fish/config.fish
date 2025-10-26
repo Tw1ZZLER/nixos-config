@@ -119,9 +119,8 @@ alias .... 'cd ../../..'
 alias ..... 'cd ../../../..'
 alias ...... 'cd ../../../../..'
 alias dir 'dir --color=auto'
-alias grep 'ugrep --color=auto'
-alias egrep 'ugrep -E --color=auto'
-alias fgrep 'ugrep -F --color=auto'
+alias grep rg
+alias fgrep 'rg -F'
 alias hw 'hwinfo --short' # Hardware Info
 alias ip 'ip -color'
 alias psmem 'ps auxf | sort -nr -k 4'

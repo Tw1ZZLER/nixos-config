@@ -8,10 +8,9 @@
       vulkan-validation-layers
       vulkan-tools
     ];
+    enable32Bit = true;
     extraPackages32 = with pkgs.pkgsi686Linux; [
       vulkan-loader
     ];
-    driSupport = true;
-    driSupport32Bit = true;
   };
 }

@@ -23,7 +23,6 @@
     extraLuaPackages =
       luaPkgs: with pkgs.unstable.lua51Packages; [
         luautf8
-        luarocks
       ];
     # extraPython3Packages = pyPkgs: with pyPkgs; [ pynvim ];
   };

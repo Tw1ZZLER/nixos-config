@@ -6,6 +6,7 @@
   imports = [
     ../nixpkgs.nix
     ./docker.nix
+    ./graphics.nix
     ./nix-ld.nix
     ./nix.nix
     ./printing.nix

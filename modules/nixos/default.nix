@@ -12,6 +12,7 @@
     ./printing.nix
     ./sound.nix
     ./ssh.nix
+    ./steam.nix
     ./tailscale.nix
     ./timezone.nix
     ./user.nix

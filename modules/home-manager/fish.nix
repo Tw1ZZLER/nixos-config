@@ -37,12 +37,6 @@
   xdg.configFile."fish/completions".source = ../../dotfiles/fish/completions;
   xdg.configFile."fish/themes".source = ../../dotfiles/fish/themes;
 
-  # Starship prompt
-  programs.starship = {
-    enable = true;
-    package = pkgs.unstable.starship;
-  };
-
   # Eza (replacement for ls)
   programs.eza = {
     enable = true;

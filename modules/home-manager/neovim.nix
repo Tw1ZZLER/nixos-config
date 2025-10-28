@@ -9,7 +9,6 @@
     vimAlias = true;
     vimdiffAlias = true;
     withNodeJs = true;
-    withPython3 = true;
     extraPackages = with pkgs.unstable; [
       # Idk why LazyVim needs this but it does
       unzip
@@ -24,7 +23,11 @@
       luaPkgs: with pkgs.unstable.lua51Packages; [
         luautf8
       ];
-    # extraPython3Packages = pyPkgs: with pyPkgs; [ pynvim ];
+    extraPython3Packages =
+      pyPkgs: with pkgs.unstable.python312Packages; [
+        pynvim
+        pylatexenc
+      ];
   };
   xdg.configFile."nvim".source = ../../dotfiles/nvim;
 }

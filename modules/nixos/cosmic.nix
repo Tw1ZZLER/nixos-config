@@ -21,6 +21,10 @@
   environment.systemPackages = with pkgs; [
     # COSMIC applets and Flatpak store
     cosmic-store
+
+    # Other Wayland clipboard stuff
+    wl-clipboard
+    cliphist
   ];
 
   # Enable Seahorse for keyring management

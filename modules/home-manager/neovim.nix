@@ -30,19 +30,16 @@
       # LaTeX (TeXLive) Stuff
       texliveMedium
       texlivePackages.biber
-    ];
-    extraLuaPackages =
-      luaPkgs: with pkgs.unstable.lua51Packages; [
-        luautf8
-        luarocks
-      ];
-    extraPython3Packages =
-      pyPkgs: with pkgs.unstable.python312Packages; [
-        pynvim
 
-        # LaTeX support
-        pylatexenc
-      ];
+      # Lua Stuff
+      lua51Packages.lua
+      lua51Packages.luautf8
+      lua51Packages.luarocks
+
+      # Python stuff
+      python312Packages.pynvim
+      python312Packages.pylatexenc
+    ];
   };
   xdg.configFile."nvim".source = ../../dotfiles/nvim;
 }

@@ -12,12 +12,16 @@
     extraPackages = with pkgs.unstable; [
       # Idk why LazyVim needs this but it does
       unzip
+      sqlite
 
       # Nix Formatter
       nixfmt-rfc-style
 
       # Required by Snacks.image
       imagemagick
+
+      # Tree-sitter requirement
+      tree-sitter
     ];
     extraLuaPackages =
       luaPkgs: with pkgs.unstable.lua51Packages; [
@@ -26,6 +30,8 @@
     extraPython3Packages =
       pyPkgs: with pkgs.unstable.python312Packages; [
         pynvim
+
+        # LaTeX support
         pylatexenc
       ];
   };

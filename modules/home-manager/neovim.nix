@@ -14,6 +14,10 @@
       unzip
       sqlite
 
+      # Snacks.image requirements (Mermaid diagrams and PDFs)
+      mermaid-cli
+      ghostscript
+
       # Nix Formatter
       nixfmt-rfc-style
 
@@ -22,10 +26,15 @@
 
       # Tree-sitter requirement
       tree-sitter
+
+      # LaTeX (TeXLive) Stuff
+      texliveMedium
+      texlivePackages.biber
     ];
     extraLuaPackages =
       luaPkgs: with pkgs.unstable.lua51Packages; [
         luautf8
+        luarocks
       ];
     extraPython3Packages =
       pyPkgs: with pkgs.unstable.python312Packages; [

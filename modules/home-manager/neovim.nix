@@ -18,6 +18,9 @@
       mermaid-cli
       ghostscript
 
+      # Marksman requirement
+      icu
+
       # Nix Formatter
       nixfmt-rfc-style
 
@@ -30,6 +33,11 @@
       # LaTeX (TeXLive) Stuff
       texliveMedium
       texlivePackages.biber
+      texlivePackages.standalone
+      texlivePackages.amsmath
+      texlivePackages.xcolor
+      texlivePackages.mathtools
+      texlivePackages.amsfonts
 
       # Lua Stuff
       lua51Packages.lua
@@ -39,6 +47,9 @@
       # Python stuff
       python312Packages.pynvim
       python312Packages.pylatexenc
+
+      # Apparently we also need some Java stuff for ltex
+      jdk21
     ];
   };
   xdg.configFile."nvim".source = ../../dotfiles/nvim;

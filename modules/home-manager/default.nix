@@ -18,6 +18,7 @@
     ./onu.nix
     ./python.nix
     ./reaper.nix
+    ./research.nix
     ./sqlite.nix
     ./starship.nix
     ./syncthing.nix

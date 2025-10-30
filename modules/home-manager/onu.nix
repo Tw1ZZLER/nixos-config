@@ -2,7 +2,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs.unstable; [
-    wpsoffice-cn # WARN: Proprietary
+    wpsoffice # WARN: Proprietary
     omnissa-horizon-client # WARN: Proprietary
 
     # Waveforms

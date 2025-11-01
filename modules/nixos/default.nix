@@ -15,6 +15,7 @@
     ./steam.nix
     ./tailscale.nix
     ./timezone.nix
+    ./trash.nix
     ./user.nix
     ./virt-manager.nix
     ./weylus.nix

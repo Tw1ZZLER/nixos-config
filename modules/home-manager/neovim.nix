@@ -31,13 +31,19 @@
       tree-sitter
 
       # LaTeX (TeXLive) Stuff
-      texliveMedium
-      texlivePackages.biber
-      texlivePackages.standalone
-      texlivePackages.amsmath
-      texlivePackages.xcolor
-      texlivePackages.mathtools
-      texlivePackages.amsfonts
+      (pkgs.unstable.texlive.combine {
+        inherit (pkgs.unstable.texlive)
+          scheme-medium # or scheme-small, or scheme-full if you want everything
+          biber
+          standalone
+          amsmath
+          xcolor
+          mathtools
+          amsfonts
+          varwidth
+          preview
+          ;
+      })
 
       # Lua Stuff
       lua51Packages.lua

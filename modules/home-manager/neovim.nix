@@ -24,8 +24,9 @@
       # Rustacean requirement
       rust-analyzer
 
-      # Nix Formatter
+      # Nix Formatter & Linting
       nixfmt-rfc-style
+      statix
 
       # Required by Snacks.image
       imagemagick

@@ -21,6 +21,9 @@
       # Marksman requirement
       icu
 
+      # Rustacean requirement
+      rust-analyzer
+
       # Nix Formatter
       nixfmt-rfc-style
 

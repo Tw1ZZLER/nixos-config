@@ -1,5 +1,5 @@
 # The best text editor
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   programs.neovim = {
     enable = true;
@@ -62,5 +62,6 @@
       jdk21
     ];
   };
-  xdg.configFile."nvim".source = ../../dotfiles/nvim;
+  # We can't store Neovim config in the Nix store, so we need an out of store symlink
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/nvim;
 }

@@ -6,26 +6,35 @@
   ];
 
   # Enable the COSMIC login manager
-  services.displayManager.cosmic-greeter.enable = true;
+  services = {
+    displayManager = {
+      cosmic-greeter = {
+        enable = true;
+        package = pkgs.unstable.cosmic-greeter;
+      };
+      autoLogin = {
+        enable = true;
+        user = "tw1zzler";
+      };
+    };
 
-  # Enable the COSMIC desktop environment
-  services.desktopManager.cosmic.enable = true;
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "tw1zzler";
+    # Enable the COSMIC desktop environment
+    desktopManager.cosmic.enable = true;
   };
 
-  # Fix Wayland clipboard (decreases security)
-  environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
+  environment = {
+    # Fix Wayland clipboard (decreases security)
+    sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
 
-  environment.systemPackages = with pkgs; [
-    # COSMIC applets and Flatpak store
-    cosmic-store
+    systemPackages = with pkgs; [
+      # COSMIC applets and Flatpak store
+      unstable.cosmic-store
 
-    # Other Wayland clipboard stuff
-    wl-clipboard
-    cliphist
-  ];
+      # Other Wayland clipboard stuff
+      wl-clipboard
+      cliphist
+    ];
+  };
 
   # Enable Seahorse for keyring management
   programs.seahorse.enable = true;

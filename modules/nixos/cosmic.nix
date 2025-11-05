@@ -20,6 +20,11 @@
 
     # Enable the COSMIC desktop environment
     desktopManager.cosmic.enable = true;
+
+    # Fix shutdown timing out for COSMIC sessions
+    # logind.extraConfig = ''
+    #   KillUserProcesses=yes
+    # '';
   };
 
   environment = {
@@ -35,6 +40,12 @@
       cliphist
     ];
   };
+
+  # Fix shutdown timing out for COSMIC sessions
+  # systemd.user.services."cosmic-session".serviceConfig = {
+  #   TimeoutStopSec = "10s";
+  #   KillSignal = "SIGKILL";
+  # };
 
   # Enable Seahorse for keyring management
   programs.seahorse.enable = true;

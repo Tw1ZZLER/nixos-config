@@ -41,6 +41,13 @@
     ];
   };
 
+  systemd.services.cosmic-flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists --user cosmic https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
+    '';
+  };
   # Fix shutdown timing out for COSMIC sessions
   # systemd.user.services."cosmic-session".serviceConfig = {
   #   TimeoutStopSec = "10s";

@@ -7,6 +7,6 @@
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
     };
-    package = pkgs.unstable.vscode;
+    package = pkgs.unstable.vscode.fhs;
   };
 }

@@ -1,5 +1,5 @@
 # Windows interoperability and file sharing settings (Windows printers are located in ./printing.nix)
-{ pkgs }:
+{ pkgs, ... }:
 {
   services = {
     samba = {

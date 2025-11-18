@@ -5,6 +5,7 @@
   # DEFAULTS For all systems!
   imports = [
     ../nixpkgs.nix
+    ./cifs.nix
     ./docker.nix
     ./graphics.nix
     ./nix-ld.nix

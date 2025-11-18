@@ -21,6 +21,17 @@
 
         # Samsung Printer Drivers
         splix
+
+        # ASCII to PostScript converter and pretty-printer
+        a2ps
+
+        # CUPS and related packages
+        cups
+        cups-filters
+        cups-pk-helper
+
+        # PostScript interpreter
+        ghostscript
       ];
     };
     avahi = {
@@ -30,17 +41,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # ASCII to PostScript converter and pretty-printer
-    a2ps
-
-    # CUPS and related packages
-    cups
-    cups-filters
-    cups-pk-helper
-
-    # PostScript interpreter
-    ghostscript
-
     # GTK GUI app for printer configuration
     system-config-printer
 

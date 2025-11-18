@@ -2,10 +2,10 @@
 {
   gtk = {
     enable = true;
-    # cursorTheme = {
-    #   name = "catppuccin-cursors-frappe";
-    #   package = pkgs.unstable.catppuccin-cursors;
-    # };
+    cursorTheme = {
+      name = "catppuccin-frappe-blue-cursors";
+      package = pkgs.unstable.catppuccin-cursors;
+    };
     theme = {
       name = "catppuccin-frappe-blue-standard";
       package = pkgs.unstable.catppuccin-gtk;

@@ -56,20 +56,14 @@
         description = "ONU Black and White Printer";
         location = "ONU";
         deviceUri = "smb://onuprinters.onu.edu/Black-and-White";
-        model = "drv:///sample.drv/generpcl.ppd";
-        ppdOptions = {
-          AuthInfoRequired = "username,password"; # DANGER: Credentials in plain text
-        };
+        model = "foomatic-db-ppds/KONICA_MINOLTA-bizhub_C352-Postscript-KONICA_MINOLTA.ppd.gz";
       }
       {
         name = "onu-color";
         description = "ONU Color Printer";
         location = "ONU";
         deviceUri = "smb://onuprinters.onu.edu/Color";
-        model = "drv:///sample.drv/generpcl.ppd";
-        ppdOptions = {
-          AuthInfoRequired = "username,password"; # DANGER: Credentials in plain text
-        };
+        model = "foomatic-db-ppds/KONICA_MINOLTA-bizhub_C352-Postscript-KONICA_MINOLTA.ppd.gz";
       }
     ];
     ensureDefaultPrinter = "onu-bw";

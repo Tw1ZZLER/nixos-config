@@ -17,6 +17,7 @@
     ./obsidian.nix
     ./onu.nix
     ./python.nix
+    ./qt-gtk-theme.nix
     ./reaper.nix
     ./research.nix
     ./sqlite.nix

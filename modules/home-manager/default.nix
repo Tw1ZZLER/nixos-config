@@ -9,6 +9,7 @@
     ./dotfiles.nix
     ./exercism.nix
     ./fish.nix
+    ./flameshot.nix
     ./fonts.nix
     ./gaming.nix
     ./git.nix

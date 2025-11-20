@@ -28,9 +28,14 @@
   };
 
   environment = {
-    # Fix Wayland clipboard (decreases security)
-    sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
-
+    sessionVariables = {
+      # Fix Wayland clipboard (decreases security)
+      COSMIC_DATA_CONTROL_ENABLED = 1;
+      # Wayland support for Electron and Chromium
+      NIXOS_OZONE_WL = "1";
+      # Fix COSMIC Screenshot
+      XDG_CURRENT_DESKTOP = "COSMIC";
+    };
     systemPackages = with pkgs; [
       # COSMIC applets and Flatpak store
       unstable.cosmic-store

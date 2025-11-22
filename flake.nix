@@ -29,6 +29,9 @@
       # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    # Garuda Linux Nix Subsystem
+    garuda.url = "gitlab:garuda-linux/garuda-nix-subsystem/stable";
   };
 
   outputs =
@@ -37,6 +40,7 @@
       nixpkgs,
       home-manager,
       nix-index-database,
+      garuda,
       ...
     }@inputs:
     let
@@ -80,10 +84,10 @@
             ./hosts/PRIMUS/configuration.nix
           ];
         };
-        REDMOND = nixpkgs.lib.nixosSystem {
+        REDMOND = garuda.lib.garudaSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
-            # > Our main nixos configuration file <
+            # > Our main Garuda Linux Nix Subsystem configuration file <
             ./hosts/REDMOND/configuration.nix
           ];
         };

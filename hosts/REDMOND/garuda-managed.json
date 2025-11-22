@@ -1,0 +1,39 @@
+{
+  "installVersion": 2,
+  "version": 2,
+  "hostname": "REDMOND",
+  "v2": {
+    "subsystem": true,
+    "host": {
+      "users": [
+        {
+          "name": "tw1zzler",
+          "uid": 1000,
+          "hashed_password": "$y$j9T$RhHVCzE2kcvOfBQvM4jYb0$RDbwHQS1JmBQtWaWdpaoizdr3QYF0PvpnMOL8UQRxBB",
+          "home": "/home/tw1zzler",
+          "wheel": true
+        }
+      ],
+      "locale": {
+        "LANG": "en_US.UTF-8",
+        "LC_ADDRESS": "en_US.UTF-8",
+        "LC_IDENTIFICATION": "en_US.UTF-8",
+        "LC_MEASUREMENT": "en_US.UTF-8",
+        "LC_MONETARY": "en_US.UTF-8",
+        "LC_NAME": "en_US.UTF-8",
+        "LC_NUMERIC": "en_US.UTF-8",
+        "LC_PAPER": "en_US.UTF-8",
+        "LC_TELEPHONE": "en_US.UTF-8",
+        "LC_TIME": "en_US.UTF-8"
+      },
+      "keymap": "us",
+      "timezone": "America/New_York"
+    },
+    "auto": {
+      "uuid": "d3b68968-2d97-4139-8ab7-78a82c6e78a9",
+      "hardware": {
+        "virt": "none"
+      }
+    }
+  }
+}

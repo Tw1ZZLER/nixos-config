@@ -23,7 +23,6 @@
     ./research.nix
     ./sqlite.nix
     ./starship.nix
-    ./syncthing.nix
     ./thunderbird.nix
     ./torrent.nix
     ./vscode.nix

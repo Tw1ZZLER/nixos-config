@@ -94,7 +94,7 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users.tw1zzler.imports = [ ./hosts/PRIMUS/home.nix ];
-		extraSpecialArgs = { inherit inputs outputs; };
+                extraSpecialArgs = { inherit inputs outputs; };
               };
             }
           ];

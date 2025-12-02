@@ -2,7 +2,7 @@
 # Hide welcome message & ensure we are reporting fish as shell
 set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT 1
-set -x SHELL /home/tw1zzler/.nix-profile/bin/fish
+set -x SHELL fish
 set -x EDITOR nvim
 set -x VISUAL nvim
 
@@ -24,13 +24,6 @@ end
 if test -d ~/.local/bin
     if not contains -- ~/.local/bin $PATH
         set -p PATH ~/.local/bin
-    end
-end
-
-# Add depot_tools to PATH
-if test -d ~/Applications/depot_tools
-    if not contains -- ~/Applications/depot_tools $PATH
-        set -p PATH ~/Applications/depot_tools
     end
 end
 

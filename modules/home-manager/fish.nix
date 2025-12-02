@@ -31,6 +31,7 @@
   home.packages = with pkgs.unstable.fishPlugins; [
     bass
     autopair
+    grc
   ];
 
   # Fish dotfiles

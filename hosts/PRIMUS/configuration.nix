@@ -25,6 +25,8 @@
     ../../modules/nixos/intel-graphics.nix
     ../../modules/nixos/cosmic.nix
     ../../modules/nixos/plymouth.nix
+
+    ../../modules/nixos/stylix.nix
   ];
 
   # Boot loader

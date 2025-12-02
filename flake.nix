@@ -22,6 +22,12 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
+    # Stylix
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Zen Browser
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -82,6 +88,7 @@
           modules = [
             # > Our main nixos configuration file <
             ./hosts/PRIMUS/configuration.nix
+            inputs.stylix.nixosModules.stylix
           ];
         };
         REDMOND = garuda.lib.garudaSystem {

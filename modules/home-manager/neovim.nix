@@ -60,8 +60,11 @@
 
       # Apparently we also need some Java stuff for ltex
       jdk21
-    ];
+    ]; 
   };
   # We can't store Neovim config in the Nix store, so we need an out of store symlink
-  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/nvim;
+  xdg.configFile.nvim = {
+    recursive = true;
+    source = ../../dotfiles/nvim;
+  };
 }

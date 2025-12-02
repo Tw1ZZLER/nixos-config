@@ -4,7 +4,6 @@
   # my-module = import ./my-module.nix;
   # DEFAULTS For all systems!
   imports = [
-    ../nixpkgs.nix
     ./discord.nix
     ./dotfiles.nix
     ./exercism.nix
@@ -22,6 +21,7 @@
     ./research.nix
     ./sqlite.nix
     ./starship.nix
+    ./stylix.nix
     ./thunderbird.nix
     ./torrent.nix
     ./vscode.nix

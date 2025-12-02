@@ -44,8 +44,6 @@
     {
       self,
       nixpkgs,
-      home-manager,
-      nix-index-database,
       garuda,
       ...
     }@inputs:
@@ -88,7 +86,17 @@
           modules = [
             # > Our main nixos configuration file <
             ./hosts/PRIMUS/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            inputs.nix-index-database.nixosModules.nix-index
             inputs.stylix.nixosModules.stylix
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.tw1zzler.imports = [ ./hosts/PRIMUS/home.nix ];
+		extraSpecialArgs = { inherit inputs outputs; };
+              };
+            }
           ];
         };
         REDMOND = garuda.lib.garudaSystem {
@@ -103,22 +111,21 @@
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
-        "tw1zzler@PRIMUS" = home-manager.lib.homeManagerConfiguration {
+        "tw1zzler@PRIMUS" = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             # > Our main home-manager configuration file <
             ./hosts/PRIMUS/home.nix
-            nix-index-database.homeModules.nix-index
           ];
         };
-        "tw1zzler@REDMOND" = home-manager.lib.homeManagerConfiguration {
+        "tw1zzler@REDMOND" = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             # > Our main home-manager configuration file <
             ./hosts/REDMOND/home.nix
-            nix-index-database.homeModules.nix-index
+            inputs.nix-index-database.homeModules.nix-index
           ];
         };
       };

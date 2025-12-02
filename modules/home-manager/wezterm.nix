@@ -7,5 +7,8 @@
   };
 
   # Wezterm configuration dotfiles
-  xdg.configFile."wezterm".source = ../../dotfiles/wezterm;
+  xdg.configFile.wezterm = {
+    recursive = true;
+    source = ../../dotfiles/wezterm;
+  };
 }

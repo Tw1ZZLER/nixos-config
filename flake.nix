@@ -19,13 +19,15 @@
     };
 
     # Nix Index
-    nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
 
     # Stylix
     stylix = {
       url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     # Zen Browser

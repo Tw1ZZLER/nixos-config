@@ -10,15 +10,16 @@
   # Zen-browser as default browser
   xdg.mimeApps =
     let
+      value =
+        let
+          zen-browser = inputs.zen-browser.packages.${system}.beta; # or twilight
+        in
+        zen-browser.meta.desktopFileName;
+
       associations = builtins.listToAttrs (
         map
           (name: {
-            inherit name;
-            value =
-              let
-                zen-browser = inputs.zen-browser.packages.${system}.beta;
-              in
-              zen-browser.meta.desktopFile;
+            inherit name value;
           })
           [
             "application/x-extension-shtml"
@@ -92,7 +93,8 @@
       };
 
     # PROFILE
-    profiles.tw1zzler = {
+    profiles."tw1zzler" = {
+      # Extensions
       extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
         better-canvas
         bitwarden
@@ -106,6 +108,76 @@
         violentmonkey
         zotero-connector
       ];
+
+      # Container Tabs
+      containersForce = true;
+      containers = {
+        Personal = {
+          color = "blue";
+          icon = "fingerprint";
+          id = 1;
+        };
+        Work = {
+          color = "orange";
+          icon = "briefcase";
+          id = 2;
+        };
+        Banking = {
+          color = "green";
+          icon = "dollar";
+          id = 3;
+        };
+        College = {
+          color = "turquoise";
+          icon = "tree";
+          id = 4;
+        };
+      };
+
+      # Spaces
+      spacesForce = true;
+      spaces =
+        let
+          containers = config.programs.zen-browser.profiles."tw1zzler".containers;
+        in
+        {
+          "College" = {
+            id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
+            icon = "💽";
+            container = containers."College".id;
+            position = 1000;
+          };
+          "Research" = {
+            id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
+            icon = "🔏";
+            container = containers."Work".id;
+            position = 2000;
+          };
+          "Robotics" = {
+            id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
+            icon = "🔧";
+            container = containers."College".id;
+            position = 3000;
+          };
+          "ACM" = {
+            id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
+            icon = "💻";
+            container = containers."College".id;
+            position = 4000;
+          };
+          "Leisure" = {
+            id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
+            icon = "🧊"; # get it, cuz chilling
+            container = containers."Personal".id;
+            position = 5000;
+          };
+          "Music" = {
+            id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
+            icon = "🎼";
+            container = containers."Personal".id;
+            position = 6000;
+          };
+        };
     };
   };
 }

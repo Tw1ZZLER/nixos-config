@@ -36,6 +36,11 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    # Xilinx / Vivado Flake
+    nix-xilinx = {
+      url = "github:MIT-OpenCompute/xilinx-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Garuda Linux Nix Subsystem
     garuda.url = "gitlab:garuda-linux/garuda-nix-subsystem/stable";
   };
@@ -60,6 +65,8 @@
       # This is a function that generates an attribute by calling a function you
       # pass to it, with each system as an argument
       forAllSystems = nixpkgs.lib.genAttrs systems;
+
+      flake-overlays = [ inputs.nix-xilinx.overlay ];
     in
     {
       # Your custom packages

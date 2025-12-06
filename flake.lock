@@ -166,6 +166,22 @@
         "type": "github"
       }
     },
+    "flake-compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1761588595,
+        "narHash": "sha256-XKUZz9zewJNUj46b4AJdiRZJAvSZ0Dqj2BNfXvFlJC4=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "f387cd2afec9419c8ee37694406ca490c3f34ee5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -464,6 +480,27 @@
         "type": "github"
       }
     },
+    "nix-xilinx": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1764379479,
+        "narHash": "sha256-0p8kvRAlilfhcoGCTM4W11eWn+yExJz8iWLan07vSTw=",
+        "owner": "MIT-OpenCompute",
+        "repo": "xilinx-flake",
+        "rev": "f842de5b1de92cdf95e517cb123b33ab331c1736",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MIT-OpenCompute",
+        "repo": "xilinx-flake",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1763421233,
@@ -586,6 +623,7 @@
         "garuda": "garuda",
         "home-manager": "home-manager_2",
         "nix-index-database": "nix-index-database_2",
+        "nix-xilinx": "nix-xilinx",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "stylix": "stylix",
@@ -624,7 +662,7 @@
         "flake-parts": "flake-parts_2",
         "gnome-shell": "gnome-shell",
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs-unstable"
         ],
         "nur": "nur",
         "systems": "systems",

@@ -5,6 +5,7 @@
 
     # Catpuccin-frappe from the base16-schemes package
     base16Scheme = "${pkgs.unstable.base16-schemes}/share/themes/catppuccin-frappe.yaml";
+    polarity = "dark";
 
     fonts = {
       serif = {

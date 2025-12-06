@@ -44,7 +44,14 @@
       url = "github:0xc000022070/zen-browser-flake";
       # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
       # to have it up-to-date or simply don't specify the nixpkgs input
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs = {
+        nixpkgs.follows = "nixpkgs-unstable";
+        home-manager.follows = "home-manager";
+      };
+    };
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Xilinx / Vivado Flake
@@ -52,6 +59,7 @@
       url = "github:MIT-OpenCompute/xilinx-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     # Garuda Linux Nix Subsystem
     garuda.url = "gitlab:garuda-linux/garuda-nix-subsystem/stable";
   };

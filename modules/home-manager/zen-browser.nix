@@ -47,12 +47,26 @@
   # Zen Browser Program
   programs.zen-browser = {
     enable = true;
+
+    # POLICIES
     policies =
       let
         locked = value: {
           Value = value;
           Status = "locked";
         };
+        mkExtensionSettings = builtins.mapAttrs (
+          _: pluginId: {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/${pluginId}/latest.xpi";
+            installation_mode = "force_installed";
+          }
+        );
+        mkLockedAttrs = builtins.mapAttrs (
+          _: value: {
+            Value = value;
+            Status = "locked";
+          }
+        );
       in
       {
         AutofillAddressEnabled = false;
@@ -71,22 +85,27 @@
           Cryptomining = true;
           Fingerprinting = true;
         };
-        ExtensionSettings = {
-          "uBlock0@raymondhill.net" = {
-            default_area = "menupanel";
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-            installation_mode = "force_installed";
-            private_browsing = true;
-          };
-          "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = {
-            install_urL = "https://addons.mozilla.org/firefox/downloads/latest/return-youtube-dislikes/latest.xpi";
-            installation_mode = "force_installed";
-          };
-        };
-        Preferences = builtins.mapAttrs (_: locked) {
+        Preferences = mkLockedAttrs {
           "browser.tabs.warnOnClose" = false;
           "media.videocontrols.picture-in-picture.video-toggle.enabled" = true;
         };
       };
+
+    # PROFILE
+    profiles.tw1zzler = {
+      extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+        better-canvas
+        bitwarden
+        decentraleyes
+        duckduckgo-privacy-essentials
+        web-clipper-obsidian
+        return-youtube-dislikes
+        sponsorblock
+        stylus
+        ublock-origin
+        violentmonkey
+        zotero-connector
+      ];
+    };
   };
 }

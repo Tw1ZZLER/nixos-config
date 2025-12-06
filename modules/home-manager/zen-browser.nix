@@ -138,7 +138,7 @@
       spacesForce = true;
       spaces =
         let
-          containers = config.programs.zen-browser.profiles."tw1zzler".containers;
+          inherit (config.programs.zen-browser.profiles."tw1zzler") containers;
         in
         {
           "College" = {

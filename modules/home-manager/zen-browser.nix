@@ -137,37 +137,37 @@
         in
         {
           "College" = {
-            id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
+            id = "00c706b6-4239-4915-ac6d-f93ec2cdd749";
             icon = "💽";
             container = containers."College".id;
             position = 1000;
           };
           "Research" = {
-            id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
+            id = "{f04cb5c2-d9e1-473f-b91d-e7b1277c7961}";
             icon = "🔏";
             container = containers."Work".id;
             position = 2000;
           };
           "Robotics" = {
-            id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
+            id = "4deb6ee3-5d78-4ceb-a7d8-7f4d9d30b22e";
             icon = "🔧";
             container = containers."College".id;
             position = 3000;
           };
           "ACM" = {
-            id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
+            id = "5d6a2f3a-d301-400f-aadc-9a391567d3ee";
             icon = "💻";
             container = containers."College".id;
             position = 4000;
           };
           "Leisure" = {
-            id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
+            id = "8f7f9ec5-e9d4-464c-b41b-82078057b4e8";
             icon = "🧊"; # get it, cuz chilling
             container = containers."Personal".id;
             position = 5000;
           };
           "Music" = {
-            id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
+            id = "{1b1efd97-f8e8-42f7-926e-3dc4867d66fc}";
             icon = "🎼";
             container = containers."Personal".id;
             position = 6000;

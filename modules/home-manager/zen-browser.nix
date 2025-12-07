@@ -93,8 +93,6 @@
       extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
         better-canvas
         bitwarden
-        decentraleyes
-        duckduckgo-privacy-essentials
         web-clipper-obsidian
         return-youtube-dislikes
         sponsorblock

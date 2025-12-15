@@ -162,6 +162,7 @@
             ./hosts/REDMOND/home.nix
             inputs.nix-index-database.homeModules.nix-index
             inputs.stylix.homeModules.stylix
+            inputs.nixcord.homeModules.nixcord
           ];
         };
       };

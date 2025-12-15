@@ -21,6 +21,7 @@
     ./python.nix
     ./reaper.nix
     ./research.nix
+    ./rmpc.nix
     ./sqlite.nix
     ./starship.nix
     ./thunderbird.nix

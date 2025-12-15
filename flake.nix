@@ -60,6 +60,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Nixcord - Discord client management for home-manager
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+    };
+
     # Garuda Linux Nix Subsystem
     garuda.url = "gitlab:garuda-linux/garuda-nix-subsystem/stable";
   };
@@ -130,6 +135,9 @@
                 useUserPackages = true;
                 users.tw1zzler.imports = [ ./hosts/PRIMUS/home.nix ];
                 extraSpecialArgs = { inherit inputs outputs; };
+                sharedModules = [
+                  inputs.nixcord.homeModules.nixcord
+                ];
               };
             }
           ];

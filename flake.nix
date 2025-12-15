@@ -154,14 +154,6 @@
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
-        "tw1zzler@PRIMUS" = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            # > Our main home-manager configuration file <
-            ./hosts/PRIMUS/home.nix
-          ];
-        };
         "tw1zzler@REDMOND" = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = { inherit inputs outputs; };
@@ -169,6 +161,7 @@
             # > Our main home-manager configuration file <
             ./hosts/REDMOND/home.nix
             inputs.nix-index-database.homeModules.nix-index
+            inputs.stylix.homeModules.stylix
           ];
         };
       };

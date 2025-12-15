@@ -12,9 +12,7 @@
 
     # MPD state / database location
     dataDir = "${config.xdg.cacheHome}/mpd";
-
     playlistDirectory = "${config.xdg.configHome}/mpd/playlists";
-    dbFile = "${config.xdg.cacheHome}/mpd/database";
 
     network = {
       listenAddress = "0.0.0.0";
@@ -61,7 +59,8 @@
         type "httpd"
         name "Opus Stream"
         encoder "opus"
-        bitrate "192"
+        bitrate "192000"
+        format "48000:16:2"
         port "8001"
         mixer_type "software"
       }
@@ -77,11 +76,15 @@
       # Metadata
       ############################
       metadata_to_use "artist,album,title,track,name,date,genre"
-
-      ############################
-      # Security
-      ############################
-      password ""
     '';
   };
+
+  programs.ncmpcpp = {
+    enable = true;
+    package = pkgs.unstable.ncmpcpp;
+  };
+
+  home.packages = with pkgs.unstable; [
+    mpc
+  ];
 }

@@ -21,7 +21,6 @@
     ./research.nix
     ./sqlite.nix
     ./starship.nix
-    ./stylix.nix
     ./thunderbird.nix
     ./torrent.nix
     ./vscode.nix

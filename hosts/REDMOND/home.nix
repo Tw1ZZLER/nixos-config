@@ -18,6 +18,7 @@
     ../../modules/home-manager
     ./syncthing.nix
     ../../modules/home-manager/mpd.nix
+    ../../modules/nixpkgs.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your

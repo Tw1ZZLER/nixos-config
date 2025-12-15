@@ -5,7 +5,7 @@
     package = pkgs.unstable.rmpc;
     config = ''
       (
-          address: "127.0.0.1:6600",
+          address: "100.80.238.41:6600",
           password: None,
           theme: None,
           cache_dir: None,

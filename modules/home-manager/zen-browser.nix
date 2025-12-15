@@ -91,7 +91,6 @@
     profiles."tw1zzler" = {
       # Extensions
       extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
-        better-canvas
         bitwarden
         web-clipper-obsidian
         return-youtube-dislikes

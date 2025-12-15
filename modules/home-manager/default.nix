@@ -12,6 +12,7 @@
     ./fonts.nix
     ./gaming.nix
     ./git.nix
+    ./mpv.nix
     ./ncmpcpp.nix
     ./neovim.nix
     ./obs-studio.nix

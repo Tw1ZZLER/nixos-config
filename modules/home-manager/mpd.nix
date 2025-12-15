@@ -78,8 +78,4 @@
       metadata_to_use "artist,album,title,track,name,date,genre"
     '';
   };
-
-  home.packages = with pkgs.unstable; [
-    mpc
-  ];
 }

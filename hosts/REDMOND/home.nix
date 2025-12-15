@@ -17,6 +17,7 @@
     # DEFAULTS for all systems
     ../../modules/home-manager
     ./syncthing.nix
+    ../../modules/home-manager/mpd.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your

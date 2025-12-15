@@ -12,6 +12,7 @@
     ./fonts.nix
     ./gaming.nix
     ./git.nix
+    ./ncmpcpp.nix
     ./neovim.nix
     ./obs-studio.nix
     ./obsidian.nix

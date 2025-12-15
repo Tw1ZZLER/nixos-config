@@ -79,11 +79,6 @@
     '';
   };
 
-  programs.ncmpcpp = {
-    enable = true;
-    package = pkgs.unstable.ncmpcpp;
-  };
-
   home.packages = with pkgs.unstable; [
     mpc
   ];

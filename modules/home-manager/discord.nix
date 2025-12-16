@@ -13,9 +13,33 @@
     config = {
       frameless = true; # Set some Vencord/Equicord options
       plugins = {
-        questify.enable = true;
-        betterFolders.enable = true;
+        alwaysTrust.enable = true;
         anammox.enable = true;
+        betterFolders.enable = true;
+        clearUrLs.enable = true;
+        fakeNitro.enable = true;
+        fixYoutubeEmbeds.enable = true;
+        fixImagesQuality.enable = true;
+        fixSpotifyEmbeds.enable = true;
+        friendshipRanks.enable = true;
+        fullSearchContext.enable = true;
+        gitHubRepos.enable = true;
+        globalBadges.enable = true;
+        ignoreTerms.enable = true;
+        implicitRelationships.enable = true;
+        inviteDefaults.enable = true;
+        jumpTo.enable = true;
+        loadingQuotes.enable = true;
+        noDevtoolsWarning.enable = true;
+        noF1.enable = true;
+        noNitroUpsell.enable = true;
+        openInApp.enable = true;
+        questify.enable = true;
+        steamStatusSync.enable = true;
+        userPfp.enable = true;
+        usrbg.enable = true;
+        viewIcons.enable = true;
+        youtubeAdblock.enable = true;
       };
     };
     extraConfig = {

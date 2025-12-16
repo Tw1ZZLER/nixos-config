@@ -40,6 +40,9 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    # Catppuccin
+    catppuccin.url = "github:catppuccin/nix";
+
     # Zen Browser
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -129,15 +132,17 @@
             ./hosts/PRIMUS/configuration.nix
             inputs.home-manager.nixosModules.home-manager
             inputs.nix-index-database.nixosModules.nix-index
-            inputs.stylix.nixosModules.stylix
+            inputs.catppuccin.nixosModules.catppuccin
+            # inputs.stylix.nixosModules.stylix
             {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.tw1zzler.imports = [ ./hosts/PRIMUS/home.nix ];
                 extraSpecialArgs = { inherit inputs outputs; };
-                sharedModules = [
+                users.tw1zzler.imports = [
+                  ./hosts/PRIMUS/home.nix
                   inputs.nixcord.homeModules.nixcord
+                  inputs.catppuccin.homeModules.catppuccin
                 ];
               };
             }

@@ -15,7 +15,6 @@
       plugins = {
         alwaysTrust.enable = true;
         anammox.enable = true;
-        betterFolders.enable = true;
         clearUrLs.enable = true;
         fakeNitro.enable = true;
         fixYoutubeEmbeds.enable = true;

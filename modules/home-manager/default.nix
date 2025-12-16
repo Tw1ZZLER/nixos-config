@@ -15,6 +15,7 @@
     ./mpv.nix
     ./ncmpcpp.nix
     ./neovim.nix
+    ./nix-helper.nix
     ./obs-studio.nix
     ./obsidian.nix
     ./onu.nix

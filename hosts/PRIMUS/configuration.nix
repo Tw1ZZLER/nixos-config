@@ -26,8 +26,8 @@
     ../../modules/nixos/cosmic.nix
     ../../modules/nixos/plymouth.nix
 
-    # ../../modules/nixos/stylix.nix
-    ../../modules/nixos/catppuccin.nix
+    ../../modules/nixos/stylix.nix
+    # ../../modules/nixos/catppuccin.nix
   ];
 
   # Boot loader

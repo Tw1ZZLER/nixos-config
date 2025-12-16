@@ -133,7 +133,7 @@
             inputs.home-manager.nixosModules.home-manager
             inputs.nix-index-database.nixosModules.nix-index
             inputs.catppuccin.nixosModules.catppuccin
-            # inputs.stylix.nixosModules.stylix
+            inputs.stylix.nixosModules.stylix
             {
               home-manager = {
                 useGlobalPkgs = true;

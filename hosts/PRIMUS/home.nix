@@ -16,8 +16,8 @@
     # You can also split up your configuration and import pieces of it here:
     # DEFAULTS for all systems
     ../../modules/home-manager
-    # ../../modules/home-manager/stylix.nix
-    ../../modules/home-manager/catppuccin.nix
+    ../../modules/home-manager/stylix.nix
+    # ../../modules/home-manager/catppuccin.nix
     ./syncthing.nix
   ];
 

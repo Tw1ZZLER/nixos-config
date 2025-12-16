@@ -36,7 +36,7 @@
 
   # Fish dotfiles
   xdg.configFile."fish/completions".source = ../../dotfiles/fish/completions;
-  xdg.configFile."fish/themes".source = ../../dotfiles/fish/themes;
+  # xdg.configFile."fish/themes".source = ../../dotfiles/fish/themes;
 
   # Eza (replacement for ls)
   programs.eza = {

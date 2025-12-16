@@ -1,6 +1,12 @@
 # My dotfile linking
 { ... }:
 {
-  xdg.configFile."fastfetch".source = ../../dotfiles/fastfetch;
-  xdg.configFile."yazi".source = ../../dotfiles/yazi;
+  xdg.configFile.fastfetch = {
+    recursive = true;
+    source = ../../dotfiles/fastfetch;
+  };
+  xdg.configFile.yazi = {
+    recursive = true;
+    source = ../../dotfiles/yazi;
+  };
 }

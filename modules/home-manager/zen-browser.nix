@@ -169,6 +169,12 @@
             container = containers."Personal".id;
             position = 6000;
           };
+          "Finance" = {
+            id = "b888bece-ded5-4708-af08-f49e45604edd";
+            icon = "🪙";
+            container = containers."Banking".id;
+            position = 7000;
+          };
         };
     };
   };

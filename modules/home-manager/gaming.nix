@@ -4,7 +4,6 @@
   home.packages = with pkgs.unstable; [
     moonlight-qt
     clonehero # WARN: Proprietary
-    steam # WARN: Proprietary
     (prismlauncher.override {
       # Change Java runtimes available to Prism Launcher
       jdks = [

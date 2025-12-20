@@ -1,7 +1,18 @@
-# The best personal knowledge management system (its proprietary unfortunately)
-{ pkgs, ... }:
 {
-  home.packages = with pkgs.unstable; [
-    obsidian # WARN: Proprietary
-  ];
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+
+{
+  options = {
+    obsidian.enable = lib.mkEnableOption "Enable Obsidian";
+  };
+
+  config = lib.mkIf config.obsidian.enable {
+    home.packages = with pkgs.unstable; [
+      obsidian
+    ];
+  };
 }

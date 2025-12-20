@@ -1,7 +1,18 @@
 # Not the best text editor, but necessary in many cases
-{ pkgs, ... }:
 {
-  home.packages = with pkgs.unstable; [
-    vscode.fhs
-  ];
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
+  options = {
+    vscode.enable = lib.mkEnableOption "Enable VSCode FHS version";
+  };
+
+  config = lib.mkIf config.vscode.enable {
+    home.packages = with pkgs.unstable; [
+      vscode.fhs
+    ];
+  };
 }

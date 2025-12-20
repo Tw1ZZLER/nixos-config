@@ -1,16 +1,28 @@
-{ pkgs, ... }:
 {
-  programs.nh = {
-    enable = true;
-    package = pkgs.unstable.nh;
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+
+{
+  options = {
+    nix-helper.enable = lib.mkEnableOption "Enable Nix helper tools";
   };
 
-  home.sessionVariables = {
-    NH_FLAKE = "/home/tw1zzler/nixos-config";
-  };
+  config = lib.mkIf config.nix-helper.enable {
+    programs.nh = {
+      enable = true;
+      package = pkgs.unstable.nh;
+    };
 
-  home.packages = with pkgs.unstable; [
-    nix-output-monitor
-    nvd
-  ];
+    home.sessionVariables = {
+      NH_FLAKE = "/home/tw1zzler/nixos-config";
+    };
+
+    home.packages = with pkgs.unstable; [
+      nix-output-monitor
+      nvd
+    ];
+  };
 }

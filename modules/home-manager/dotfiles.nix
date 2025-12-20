@@ -1,12 +1,18 @@
-# My dotfile linking
-{ ... }:
+{ lib, config, ... }:
+
 {
-  xdg.configFile.fastfetch = {
-    recursive = true;
-    source = ../../dotfiles/fastfetch;
+  options = {
+    dotfiles.enable = lib.mkEnableOption "Enable dotfiles linking";
   };
-  xdg.configFile.yazi = {
-    recursive = true;
-    source = ../../dotfiles/yazi;
+
+  config = lib.mkIf config.dotfiles.enable {
+    xdg.configFile.fastfetch = {
+      recursive = true;
+      source = ../../dotfiles/fastfetch;
+    };
+    xdg.configFile.yazi = {
+      recursive = true;
+      source = ../../dotfiles/yazi;
+    };
   };
 }

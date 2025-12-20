@@ -1,11 +1,22 @@
 # Stuff I need for college
-{ pkgs, ... }:
 {
-  home.packages = with pkgs.unstable; [
-    wpsoffice # WARN: Proprietary
-    omnissa-horizon-client # WARN: Proprietary
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
+  options = {
+    onu.enable = lib.mkEnableOption "Enable tools and applications needed for college";
+  };
 
-    # Waveforms
-    # inputs.waveforms.packages.${system}.waveforms
-  ];
+  config = lib.mkIf config.onu.enable {
+    home.packages = with pkgs.unstable; [
+      wpsoffice # WARN: Proprietary
+      omnissa-horizon-client # WARN: Proprietary
+
+      # Waveforms
+      # inputs.waveforms.packages.${system}.waveforms
+    ];
+  };
 }

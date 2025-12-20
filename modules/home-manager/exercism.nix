@@ -1,7 +1,18 @@
-# The best tool for language learning
-{ pkgs, ... }:
 {
-  home.packages = with pkgs.unstable; [
-    exercism
-  ];
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+
+{
+  options = {
+    exercism.enable = lib.mkEnableOption "Enable Exercism CLI";
+  };
+
+  config = lib.mkIf config.exercism.enable {
+    home.packages = with pkgs.unstable; [
+      exercism
+    ];
+  };
 }

@@ -6,9 +6,9 @@
 }:
 {
   options = {
-    research.enable = pkgs.lib.mkEnableOption "Enable research and academic tools";
+    research.enable = lib.mkEnableOption "Enable research and academic tools";
   };
-  config = pkgs.lib.mkIf config.research.enable {
+  config = lib.mkIf config.research.enable {
     home.packages = with pkgs.unstable; [
       zotero
       # jabref

@@ -1,7 +1,7 @@
-{ lib }:
+{ lib, ... }:
 {
   imports = [
-    ./catppuccin.nix
+    ./catppuccin-nix.nix
     ./dotfiles.nix
     ./fonts.nix
     ./mpd.nix

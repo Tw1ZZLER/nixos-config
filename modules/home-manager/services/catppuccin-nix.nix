@@ -1,17 +1,17 @@
 # Catppuccin-specific styling, alternative to Stylix
 {
   pkgs,
-  libs,
+  lib,
   config,
   ...
 }:
 
 {
   options = {
-    catppuccin.enable = lib.mkEnableOption "Enable Catppuccin theme configuration";
+    catppuccin-nix.enable = lib.mkEnableOption "Enable Catppuccin theme configuration";
   };
 
-  config = lib.mkIf config.catppuccin.enable {
+  config = lib.mkIf config.catppuccin-nix.enable {
     catppuccin = {
       enable = true;
       flavor = "frappe";

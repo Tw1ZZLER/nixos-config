@@ -6,7 +6,7 @@
 }:
 {
   options = {
-    starship.enable = pkgs.lib.mkEnableOption "Enable Starship prompt";
+    starship.enable = lib.mkEnableOption "Enable Starship prompt";
   };
   config = lib.mkIf config.starship.enable {
     # Starship prompt

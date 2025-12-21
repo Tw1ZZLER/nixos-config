@@ -7,10 +7,10 @@
 }:
 {
   options = {
-    reaper.enable = pkgs.lib.mkEnableOption "Enable REAPER DAW and related tools";
+    reaper.enable = lib.mkEnableOption "Enable REAPER DAW and related tools";
   };
 
-  config = pkgs.lib.mkIf config.reaper.enable {
+  config = lib.mkIf config.reaper.enable {
     home.packages = with pkgs.unstable; [
       # An extra line later is needed to actually link ReaPack into ~/.config/REAPER/UserPlugins/
       reaper # WARN: Proprietary

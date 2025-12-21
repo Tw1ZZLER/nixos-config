@@ -1,4 +1,3 @@
-# Gaming tools, games, etc.
 {
   pkgs,
   lib,
@@ -7,13 +6,11 @@
 }:
 {
   options = {
-    gaming.enable = lib.mkEnableOption "Enable gaming tools and games";
+    prismlauncher.enable = lib.mkEnableOption "Enable Prism Launcher, the launcher for Minecraft.";
   };
 
-  config = lib.mkIf config.gaming.enable {
+  config = lib.mkIf config.prismlauncher.enable {
     home.packages = with pkgs.unstable; [
-      moonlight-qt
-      clonehero # WARN: Proprietary
       (prismlauncher.override {
         # Change Java runtimes available to Prism Launcher
         jdks = [

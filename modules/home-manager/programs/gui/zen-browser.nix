@@ -8,15 +8,16 @@
 }:
 
 {
+  imports = [
+    # inputs.zen-browser.homeModules.beta
+    inputs.zen-browser.homeModules.twilight
+    # or inputs.zen-browser.homeModules.twilight-official
+  ];
+
   options = {
     zen-browser.enable = lib.mkEnableOption "Enable Zen Browser";
   };
   config = lib.mkIf config.zen-browser.enable {
-    imports = [
-      # inputs.zen-browser.homeModules.beta
-      inputs.zen-browser.homeModules.twilight
-      # or inputs.zen-browser.homeModules.twilight-official
-    ];
     # Zen-browser as default browser
     xdg.mimeApps =
       let

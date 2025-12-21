@@ -6,10 +6,10 @@
 }:
 {
   options = {
-    stylix.enable = lib.mkEnableOption "Enable Stylix theme manager";
+    stylix-wrapper.enable = lib.mkEnableOption "Enable Stylix theme manager";
   };
 
-  config = lib.mkIf config.stylix.enable {
+  config = lib.mkIf config.stylix-wrapper.enable {
     stylix = {
       enable = true;
 

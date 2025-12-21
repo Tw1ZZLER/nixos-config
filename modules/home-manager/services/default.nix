@@ -5,7 +5,7 @@
     ./dotfiles.nix
     ./fonts.nix
     ./mpd.nix
-    ./stylix.nix
+    ./stylix-wrapper.nix
     ./xdg-user-dirs.nix
   ];
 
@@ -13,6 +13,6 @@
   dotfiles.enable = lib.mkDefault true;
   fonts.enable = lib.mkDefault true;
   mpd.enable = lib.mkDefault false;
-  stylix.enable = lib.mkDefault false;
+  stylix-wrapper.enable = lib.mkDefault false;
   xdg-user-dirs.enable = lib.mkDefault true;
 }

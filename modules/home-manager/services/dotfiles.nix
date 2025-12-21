@@ -8,11 +8,11 @@
   config = lib.mkIf config.dotfiles.enable {
     xdg.configFile.fastfetch = {
       recursive = true;
-      source = ../../dotfiles/fastfetch;
+      source = ../../../dotfiles/fastfetch;
     };
     xdg.configFile.yazi = {
       recursive = true;
-      source = ../../dotfiles/yazi;
+      source = ../../../dotfiles/yazi;
     };
   };
 }

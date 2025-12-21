@@ -14,7 +14,7 @@
     programs.fish = {
       enable = true;
       package = pkgs.unstable.fish;
-      interactiveShellInit = builtins.readFile ../../dotfiles/fish/config.fish;
+      interactiveShellInit = builtins.readFile ../../../../dotfiles/fish/config.fish;
     };
 
     home.packages = with pkgs.unstable.fishPlugins; [
@@ -23,7 +23,7 @@
       grc
     ];
 
-    xdg.configFile."fish/completions".source = ../../dotfiles/fish/completions;
+    xdg.configFile."fish/completions".source = ../../../../dotfiles/fish/completions;
 
     programs.eza = {
       enable = true;

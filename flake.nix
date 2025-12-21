@@ -170,6 +170,7 @@
             inputs.nix-index-database.homeModules.nix-index
             inputs.nixcord.homeModules.nixcord
             inputs.catppuccin.homeModules.catppuccin
+            inputs.stylix.homeModules.stylix
           ];
         };
       };

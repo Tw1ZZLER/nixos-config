@@ -21,6 +21,9 @@
   # Enable MPD service (off by default)
   mpd.enable = true;
 
+  # Disable WezTerm (enabled by default in modules/home-manager/programs/gui/wezterm.nix)
+  wezterm.enable = false;
+
   home.packages = with pkgs.unstable; [
     # Other utils missing from COSMIC DE that I would like
     kdePackages.filelight

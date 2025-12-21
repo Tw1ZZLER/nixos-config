@@ -14,7 +14,6 @@
     # inputs.nix-colors.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
-    ./syncthing.nix
     ../../modules/nixpkgs.nix
   ];
 

@@ -166,6 +166,7 @@
           modules = [
             # > Our main home-manager configuration file <
             ./hosts/REDMOND/home.nix
+            ./modules/home-manager
             inputs.nix-index-database.homeModules.nix-index
             inputs.nixcord.homeModules.nixcord
           ];

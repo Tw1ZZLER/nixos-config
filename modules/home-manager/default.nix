@@ -4,33 +4,8 @@
   # my-module = import ./my-module.nix;
   # DEFAULTS For all systems!
   imports = [
-    ./discord.nix
-    ./dotfiles.nix
-    ./exercism.nix
-    ./fish.nix
-    ./flameshot.nix
-    ./fonts.nix
-    ./gaming.nix
-    ./git.nix
-    ./mpv.nix
-    ./ncmpcpp.nix
-    ./neovim.nix
-    ./nix-helper.nix
-    ./obs-studio.nix
-    ./obsidian.nix
-    ./onu.nix
-    ./python.nix
-    ./reaper.nix
-    ./research.nix
-    ./rmpc.nix
-    ./sqlite.nix
-    ./starship.nix
-    ./thunderbird.nix
-    ./torrent.nix
-    ./vscode.nix
-    ./wezterm.nix
-    ./xdg-user-dirs.nix
-    ./zen-browser.nix
+    ./programs
+    ./services
   ];
 
   # I don't see this stuff ever changing

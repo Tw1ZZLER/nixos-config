@@ -25,15 +25,6 @@
   wezterm.enable = false;
   filelight.enable = false;
 
-  home.packages = with pkgs.unstable; [
-    # Other utils missing from COSMIC DE that I would like
-    # kdePackages.ark
-    # kdePackages.gwenview
-
-    # Wget (why do I not have this by default?)
-    wget
-  ];
-
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "25.05";
 }

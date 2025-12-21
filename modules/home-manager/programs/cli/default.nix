@@ -11,6 +11,7 @@
     ./rmpc.nix
     ./sqlite.nix
     ./starship.nix
+    ./wget.nix
   ];
 
   exercism.enable = lib.mkDefault true;
@@ -23,4 +24,5 @@
   rmpc.enable = lib.mkDefault true;
   sqlite.enable = lib.mkDefault true;
   starship.enable = lib.mkDefault true;
+  wget.enable = lib.mkDefault true;
 }

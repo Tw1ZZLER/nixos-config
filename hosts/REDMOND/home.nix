@@ -24,6 +24,9 @@
   wezterm.enable = false;
   filelight.enable = false;
 
+  # Must pass hostname to Syncthing wrapper on non-NixOS hosts
+  syncthing.hostName = "REDMOND";
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "25.05";
 }

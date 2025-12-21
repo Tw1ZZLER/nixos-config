@@ -6,11 +6,17 @@
 }:
 
 let
-  hostName = config.networking.hostName;
+  hostName =
+    if config.syncthing.hostName != null then config.syncthing.hostName else config.networking.hostName;
 in
 {
   options = {
     syncthing.enable = lib.mkEnableOption "Enable Syncthing, a continuous file synchronization program. (My wrapper)";
+    syncthing.hostName = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      description = "Override host name for Syncthing configuration (useful for non-NixOS hosts)";
+    };
   };
 
   config = lib.mkIf config.syncthing.enable {

@@ -3,6 +3,7 @@
   imports = [
     ./clonehero.nix
     ./discord.nix
+    ./filelight.nix
     ./flameshot.nix
     ./moonlight.nix
     ./mpv.nix
@@ -22,6 +23,7 @@
 
   clonehero.enable = lib.mkDefault true;
   discord.enable = lib.mkDefault true;
+  filelight.enable = lib.mkDefault true;
   flameshot.enable = lib.mkDefault true;
   moonlight.enable = lib.mkDefault true;
   mpv.enable = lib.mkDefault true;

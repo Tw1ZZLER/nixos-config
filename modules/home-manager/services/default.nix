@@ -4,6 +4,7 @@
     ./catppuccin-nix.nix
     ./dotfiles.nix
     ./fonts.nix
+    ./gnome-keyring.nix
     ./mpd.nix
     ./stylix-wrapper.nix
     ./syncthing.nix
@@ -13,6 +14,7 @@
   catppuccin.enable = lib.mkDefault false;
   dotfiles.enable = lib.mkDefault true;
   fonts.enable = lib.mkDefault true;
+  gnome-keyring.enable = lib.mkDefault true;
   mpd.enable = lib.mkDefault false;
   stylix-wrapper.enable = lib.mkDefault false;
   syncthing.enable = lib.mkDefault true;

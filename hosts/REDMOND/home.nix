@@ -1,9 +1,6 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 {
   # You can import other home-manager modules here
   imports = [
@@ -23,6 +20,8 @@
   # Disable some GUI apps that don't work due to graphics
   wezterm.enable = false;
   filelight.enable = false;
+  ark.enable = false;
+  gwenview.enable = false;
 
   # Must pass hostname to Syncthing wrapper on non-NixOS hosts
   syncthing.hostName = "REDMOND";

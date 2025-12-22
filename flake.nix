@@ -131,7 +131,7 @@
             # > Our main nixos configuration file <
             ./hosts/PRIMUS/configuration.nix
             inputs.home-manager.nixosModules.home-manager
-            inputs.nix-index-database.nixosModules.nix-index
+            inputs.nix-index-database.nixosModules.default
             inputs.catppuccin.nixosModules.catppuccin
             inputs.stylix.nixosModules.stylix
             {

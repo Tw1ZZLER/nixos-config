@@ -64,7 +64,5 @@
       enable = true;
       package = pkgs.unstable.yazi;
     };
-
-    programs.nix-index.enable = true;
   };
 }

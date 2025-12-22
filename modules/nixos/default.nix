@@ -1,3 +1,4 @@
+{ lib, ... }:
 # Add your reusable NixOS modules to this directory, on their own file (https://nixos.wiki/wiki/Module).
 {
   # List your module files here
@@ -8,6 +9,7 @@
     ./cifs.nix
     ./docker.nix
     ./graphics.nix
+    ./nix-index.nix
     ./nix-ld.nix
     ./nix.nix
     ./printing.nix
@@ -24,6 +26,5 @@
     ./wine.nix
   ];
 
-  # Disable command-not-found globally for flake-based systems
-  programs.command-not-found.enable = false;
+  nix-index.enable = lib.mkDefault true;
 }

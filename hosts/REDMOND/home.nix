@@ -22,6 +22,7 @@
   filelight.enable = false;
   ark.enable = false;
   gwenview.enable = false;
+  stylix-wrapper.enable = false;
 
   # Must pass hostname to Syncthing wrapper on non-NixOS hosts
   syncthing.hostName = "REDMOND";

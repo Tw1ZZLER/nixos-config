@@ -141,6 +141,7 @@
                 extraSpecialArgs = { inherit inputs outputs; };
                 users.tw1zzler.imports = [
                   ./hosts/PRIMUS/home.nix
+                  ./modules/home-manager
                   inputs.nixcord.homeModules.nixcord
                   inputs.catppuccin.homeModules.catppuccin
                 ];

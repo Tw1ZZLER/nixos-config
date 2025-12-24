@@ -6,10 +6,10 @@
 }:
 {
   options = {
-    sound.enable = lib.mkEnableOption "Enable sound service with PulseAudio and ALSA";
+    pipewire.enable = lib.mkEnableOption "Enable sound service with PipeWire";
   };
 
-  config = lib.mkIf config.sound.enable {
+  config = lib.mkIf config.pipewire.enable {
     services.pulseaudio.enable = false;
     security.rtkit.enable = true;
     services.pipewire = {

@@ -7,6 +7,7 @@
     ./ncmpcpp.nix
     ./neovim.nix
     ./nix-helper.nix
+    ./nix-index.nix
     ./python.nix
     ./rmpc.nix
     ./sqlite.nix
@@ -20,6 +21,7 @@
   ncmpcpp.enable = lib.mkDefault true;
   neovim.enable = lib.mkDefault true;
   nix-helper.enable = lib.mkDefault true;
+  nix-index.enable = lib.mkDefault true;
   python.enable = lib.mkDefault true;
   rmpc.enable = lib.mkDefault true;
   sqlite.enable = lib.mkDefault true;

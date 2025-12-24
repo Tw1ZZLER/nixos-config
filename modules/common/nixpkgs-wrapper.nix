@@ -5,24 +5,10 @@
   config,
   ...
 }:
-let
-  isNixOS = lib.hasAttrByPath [ "system" "build" ] config;
-  isHomeManager = lib.hasAttr "home" config;
-  isHomeManagerOnNixOS = isHomeManager && config ? home-manager && config.home-manager ? users;
-  enableNixpkgsWrapper = isNixOS || (isHomeManager && !isHomeManagerOnNixOS);
-in
 {
-  options.nixpkgs-wrapper.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = enableNixpkgsWrapper;
-    description = ''
-      Enable nixpkgs-wrapper only if:
-      1. Called as NixOS module
-      2. Called as Home Manager module on non-NixOS
-      Disabled when called as Home Manager module on NixOS.
-    '';
+  options = {
+    nixpkgs-wrapper.enable = lib.mkEnableOption "Enable common nixpkgs configuration";
   };
-
   config = lib.mkIf config.nixpkgs-wrapper.enable {
     nixpkgs = {
       overlays = [

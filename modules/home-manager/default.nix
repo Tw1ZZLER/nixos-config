@@ -1,4 +1,5 @@
 # Add your reusable home-manager modules to this directory, on their own file (https://nixos.wiki/wiki/Module).
+{ lib, config, ... }:
 {
   # List your module files here
   # my-module = import ./my-module.nix;
@@ -8,6 +9,9 @@
     ./programs
     ./services
   ];
+
+  # Disable nixpkgs config on NixOS, as it is already handled with home-manager.useGlobalPkgs, and is already set in the NixOS modules
+  nixpkgs-wrapper.enable = lib.mkIf (builtins.hasAttr "system" config) false;
 
   # I don't see this stuff ever changing
   home = {

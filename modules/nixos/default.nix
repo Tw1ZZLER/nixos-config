@@ -1,21 +1,13 @@
-{ lib, ... }:
 # Add your reusable NixOS modules to this directory, on their own file (https://nixos.wiki/wiki/Module).
+{ lib, ... }:
 {
-  # List your module files here
-  # my-module = import ./my-module.nix;
-  # DEFAULTS For all systems!
   imports = [
-    ../nixpkgs.nix
-    ./cifs.nix
-    ./docker.nix
-    ./graphics.nix
-    ./nix.nix
-    ./printing.nix
-    ./ssh.nix
-    ./timezone.nix
-    ./trash.nix
-    ./user.nix
-    ./virt-manager.nix
-    ./wine.nix
+    ../common
+    ./desktop
+    ./hardware
+    ./programs
+    ./services
+    ./system
+    ./virtualisation
   ];
 }

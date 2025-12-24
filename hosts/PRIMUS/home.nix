@@ -12,7 +12,6 @@
     outputs.homeModules
 
     # Or modules from other flakes
-    inputs.nixcord.homeModules.nixcord
     inputs.catppuccin.homeModules.catppuccin
   ];
 

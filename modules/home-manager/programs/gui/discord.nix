@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   config,
@@ -6,11 +7,16 @@
 }:
 
 {
+  imports = [
+    inputs.nixcord.homeModules.nixcord
+  ];
+
   options = {
     discord.enable = lib.mkEnableOption "Enable Discord (Nixcord) configuration";
   };
 
   config = lib.mkIf config.discord.enable {
+
     programs.nixcord = {
       enable = true;
       discord = {

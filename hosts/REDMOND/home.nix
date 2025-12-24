@@ -12,7 +12,6 @@
     outputs.homeModules
 
     # Or modules from other flakes
-    inputs.nix-index-database.homeModules.nix-index
     inputs.stylix.homeModules.stylix
   ];
 

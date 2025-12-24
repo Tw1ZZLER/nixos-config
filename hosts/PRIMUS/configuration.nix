@@ -16,7 +16,6 @@
 
     # Or modules from other flakes
     inputs.home-manager.nixosModules.home-manager
-    inputs.nix-index-database.nixosModules.default
     inputs.catppuccin.nixosModules.catppuccin
     inputs.stylix.nixosModules.stylix
   ];

@@ -1,10 +1,14 @@
 {
+  inputs,
   pkgs,
   lib,
   config,
   ...
 }:
 {
+  imports = [
+    inputs.nix-index-database.nixosModules.default
+  ];
   options = {
     nix-index.enable = lib.mkEnableOption "Enable nix-index tool for NixOS";
   };

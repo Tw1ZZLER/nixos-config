@@ -13,10 +13,12 @@
     programs.yazi = {
       enable = true;
       package = pkgs.unstable.yazi;
+      enableBashIntegration = true;
+      enableFishIntegration = true;
     };
     xdg.configFile.yazi = {
       recursive = true;
-      source = ../../../dotfiles/yazi;
+      source = ../../../../dotfiles/yazi;
     };
   };
 }

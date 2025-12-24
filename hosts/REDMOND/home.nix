@@ -2,10 +2,6 @@
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 { pkgs, ... }:
 {
-  imports = [
-    ../../modules/nixpkgs.nix
-  ];
-
   # Enable MPD service (off by default)
   mpd.enable = true;
 

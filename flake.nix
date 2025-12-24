@@ -130,6 +130,7 @@
           modules = [
             # > Our main nixos configuration file <
             ./hosts/PRIMUS/configuration.nix
+            ./modules/nixos
             inputs.home-manager.nixosModules.home-manager
             inputs.nix-index-database.nixosModules.default
             inputs.catppuccin.nixosModules.catppuccin

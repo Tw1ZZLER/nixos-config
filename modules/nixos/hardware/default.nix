@@ -7,6 +7,6 @@
   ];
 
   graphics.enable = lib.mkDefault true;
-  intel-graphics.enable = lib.mkDefault true;
+  intel-graphics.enable = lib.mkDefault false;
   onu-printers.enable = lib.mkDefault false;
 }

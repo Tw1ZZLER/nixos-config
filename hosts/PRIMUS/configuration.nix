@@ -1,34 +1,22 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
+{ pkgs, ... }:
 {
-  pkgs,
-  ...
-}:
-{
-  # You can import other NixOS modules here
   imports = [
-    # If you want to use modules your own flake exports (from modules/nixos):
-    # outputs.nixosModules.example
-
-    # Or modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
-
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-
-    # You can also split up your configuration and import pieces of it here:
-    # DEFAULTS for all systems
-    ../../modules/nixos
-
-    # Not defaults (changes per system)
-    ../../modules/nixos/intel-graphics.nix
-    ../../modules/nixos/cosmic.nix
-    ../../modules/nixos/plymouth.nix
-
-    ../../modules/nixos/stylix.nix
-    # ../../modules/nixos/catppuccin.nix
   ];
+
+  # Desktop environment
+  cosmic.enable = true;
+  plymouth.enable = true;
+
+  # Intel hardware
+  intel-graphics.enable = true;
+
+  # ONU Printers and Drives
+  onu-printers.enable = true;
+  onu-drives.enable = true;
 
   # Boot loader
   boot.loader.systemd-boot.enable = true;

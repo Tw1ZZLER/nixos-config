@@ -13,7 +13,6 @@
 
     # Or modules from other flakes
     inputs.nix-index-database.homeModules.nix-index
-    inputs.catppuccin.homeModules.catppuccin
     inputs.stylix.homeModules.stylix
   ];
 

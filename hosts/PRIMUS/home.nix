@@ -10,9 +10,6 @@
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
     outputs.homeModules
-
-    # Or modules from other flakes
-    inputs.catppuccin.homeModules.catppuccin
   ];
 
   # Must pass hostname to Syncthing wrapper on non-NixOS hosts

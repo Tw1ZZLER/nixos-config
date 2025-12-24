@@ -1,11 +1,15 @@
 # Catppuccin-specific styling, alternative to Stylix
 {
+  inputs,
   pkgs,
   lib,
   config,
   ...
 }:
 {
+  imports = [
+    inputs.catppuccin.homeModules.catppuccin
+  ];
   options = {
     catppuccin-nix.enable = lib.mkEnableOption "Enable Catppuccin theme configuration";
   };

@@ -1,9 +1,9 @@
 { pkgs, ... }:
 {
-  imports = [
-    # Flatpak is required to install our COSMIC applets
-    ./flatpak.nix
-  ];
+  # Flatpak is required to install our COSMIC applets
+  flatpak.enable = true;
+
+  # Use Seahorse for key management
 
   # Enable the COSMIC login manager
   services = {

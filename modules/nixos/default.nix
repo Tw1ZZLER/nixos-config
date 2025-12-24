@@ -19,7 +19,6 @@
     ./trash.nix
     ./user.nix
     ./virt-manager.nix
-    ./weylus.nix
     ./wine.nix
   ];
 

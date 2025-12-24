@@ -4,7 +4,6 @@
   config,
   ...
 }:
-
 {
   options = {
     fish.enable = lib.mkEnableOption "Enable fish shell configuration";
@@ -24,45 +23,5 @@
     ];
 
     xdg.configFile."fish/completions".source = ../../../../dotfiles/fish/completions;
-
-    programs.eza = {
-      enable = true;
-      package = pkgs.unstable.eza;
-    };
-
-    programs.bat = {
-      enable = true;
-      package = pkgs.unstable.bat;
-    };
-
-    programs.fd = {
-      enable = true;
-      package = pkgs.unstable.fd;
-    };
-
-    programs.ripgrep = {
-      enable = true;
-      package = pkgs.unstable.ripgrep;
-    };
-
-    programs.fzf = {
-      enable = true;
-      package = pkgs.unstable.fzf;
-    };
-
-    programs.btop = {
-      enable = true;
-      package = pkgs.unstable.btop;
-    };
-
-    programs.fastfetch = {
-      enable = true;
-      package = pkgs.unstable.fastfetch;
-    };
-
-    programs.yazi = {
-      enable = true;
-      package = pkgs.unstable.yazi;
-    };
   };
 }

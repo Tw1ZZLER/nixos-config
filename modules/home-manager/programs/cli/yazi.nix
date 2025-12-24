@@ -14,5 +14,9 @@
       enable = true;
       package = pkgs.unstable.yazi;
     };
+    xdg.configFile.yazi = {
+      recursive = true;
+      source = ../../../dotfiles/yazi;
+    };
   };
 }

@@ -2,7 +2,6 @@
 {
   imports = [
     ./catppuccin-nix.nix
-    ./dotfiles.nix
     ./fonts.nix
     ./gnome-keyring.nix
     ./mpd.nix
@@ -12,7 +11,6 @@
   ];
 
   catppuccin.enable = lib.mkDefault false;
-  dotfiles.enable = lib.mkDefault true;
   fonts.enable = lib.mkDefault true;
   gnome-keyring.enable = lib.mkDefault true;
   mpd.enable = lib.mkDefault false;

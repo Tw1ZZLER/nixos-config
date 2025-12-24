@@ -13,6 +13,7 @@
     programs.fastfetch = {
       enable = true;
       package = pkgs.unstable.fastfetch;
+      settings = ../../../../dotfiles/fastfetch/config.jsonc;
     };
   };
 }

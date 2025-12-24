@@ -13,8 +13,6 @@
     ./nix-ld.nix
     ./nix.nix
     ./printing.nix
-    ./samba.nix
-    ./sound.nix
     ./ssh.nix
     ./steam.nix
     ./timezone.nix

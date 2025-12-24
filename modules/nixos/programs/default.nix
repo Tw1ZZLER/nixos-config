@@ -1,7 +1,6 @@
 { lib, ... }:
 {
   imports = [
-    ./nix-index.nix
     ./nix-ld.nix
     ./steam.nix
     ./trashy.nix
@@ -9,7 +8,6 @@
     ./wine.nix
   ];
 
-  nix-index.enable = lib.mkDefault true;
   nix-ld.enable = lib.mkDefault true;
   steam.enable = lib.mkDefault true;
   trashy.enable = lib.mkDefault true;

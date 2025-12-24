@@ -9,7 +9,7 @@
     ./tailscale.nix
   ];
 
-  catppuccin-nix.enable = lib.mkDefault true;
+  catppuccin-nix.enable = lib.mkDefault false;
   flatpak.enable = lib.mkDefault false;
   samba.enable = lib.mkDefault true;
   sound.enable = lib.mkDefault true;

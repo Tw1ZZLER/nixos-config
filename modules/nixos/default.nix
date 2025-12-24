@@ -9,18 +9,13 @@
     ./cifs.nix
     ./docker.nix
     ./graphics.nix
-    ./nix-index.nix
-    ./nix-ld.nix
     ./nix.nix
     ./printing.nix
     ./ssh.nix
-    ./steam.nix
     ./timezone.nix
     ./trash.nix
     ./user.nix
     ./virt-manager.nix
     ./wine.nix
   ];
-
-  nix-index.enable = lib.mkDefault true;
 }

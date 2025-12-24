@@ -4,7 +4,7 @@
   # my-module = import ./my-module.nix;
   # DEFAULTS For all systems!
   imports = [
-    ../common/nixpkgs.nix
+    ../common
     ./programs
     ./services
   ];

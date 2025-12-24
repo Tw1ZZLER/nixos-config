@@ -1,6 +1,6 @@
 { lib, ... }:
 {
   imports = [
-    ./nixpkgs.nix
+    ./nixpkgs-wrapper.nix
   ];
 }

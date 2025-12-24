@@ -120,7 +120,7 @@
       nixosModules = import ./modules/nixos;
       # Reusable home-manager modules you might want to export
       # These are usually stuff you would upstream into home-manager
-      homeManagerModules = import ./modules/home-manager;
+      homeModules = import ./modules/home-manager;
 
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
@@ -130,11 +130,6 @@
           modules = [
             # > Our main nixos configuration file <
             ./hosts/PRIMUS/configuration.nix
-            ./modules/nixos
-            inputs.home-manager.nixosModules.home-manager
-            inputs.nix-index-database.nixosModules.default
-            inputs.catppuccin.nixosModules.catppuccin
-            inputs.stylix.nixosModules.stylix
             {
               home-manager = {
                 useGlobalPkgs = true;
@@ -142,9 +137,6 @@
                 extraSpecialArgs = { inherit inputs outputs; };
                 users.tw1zzler.imports = [
                   ./hosts/PRIMUS/home.nix
-                  ./modules/home-manager
-                  inputs.nixcord.homeModules.nixcord
-                  inputs.catppuccin.homeModules.catppuccin
                 ];
               };
             }
@@ -168,11 +160,6 @@
           modules = [
             # > Our main home-manager configuration file <
             ./hosts/REDMOND/home.nix
-            ./modules/home-manager
-            inputs.nix-index-database.homeModules.nix-index
-            inputs.nixcord.homeModules.nixcord
-            inputs.catppuccin.homeModules.catppuccin
-            inputs.stylix.homeModules.stylix
           ];
         };
       };

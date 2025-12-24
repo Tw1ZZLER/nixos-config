@@ -1,6 +1,7 @@
 { lib, ... }:
 {
   imports = [
+    ./catppuccin-nix.nix
     ./flatpak.nix
     ./samba.nix
     ./sound.nix
@@ -8,6 +9,7 @@
     ./tailscale.nix
   ];
 
+  catppuccin-nix.enable = lib.mkDefault true;
   flatpak.enable = lib.mkDefault false;
   samba.enable = lib.mkDefault true;
   sound.enable = lib.mkDefault true;

@@ -9,9 +9,6 @@
     cosmic.enable = lib.mkEnableOption "Enable the COSMIC desktop environment";
   };
   config = lib.mkIf config.cosmic.enable {
-    # Flatpak is required to install our COSMIC applets
-    flatpak.enable = true;
-
     # Enable Seahorse for keyring management
     programs.seahorse.enable = true;
 
@@ -30,11 +27,6 @@
 
       # Enable the COSMIC desktop environment
       desktopManager.cosmic.enable = true;
-
-      # Fix shutdown timing out for COSMIC sessions
-      # logind.extraConfig = ''
-      #   KillUserProcesses=yes
-      # '';
     };
 
     environment = {
@@ -47,26 +39,15 @@
         XDG_CURRENT_DESKTOP = "COSMIC";
       };
       systemPackages = with pkgs; [
-        # COSMIC applets and Flatpak store
-        unstable.cosmic-store
-
         # Other Wayland clipboard stuff
         wl-clipboard
         cliphist
       ];
-    };
 
-    systemd.services.cosmic-flatpak-repo = {
-      wantedBy = [ "multi-user.target" ];
-      path = [ pkgs.flatpak ];
-      script = ''
-        flatpak remote-add --if-not-exists --user cosmic https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
-      '';
+      # Exclude certain applications
+      cosmic.excludePackages = with pkgs; [
+        cosmic-player
+      ];
     };
-    # Fix shutdown timing out for COSMIC sessions
-    # systemd.user.services."cosmic-session".serviceConfig = {
-    #   TimeoutStopSec = "10s";
-    #   KillSignal = "SIGKILL";
-    # };
   };
 }

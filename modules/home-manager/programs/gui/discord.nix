@@ -30,7 +30,7 @@
         plugins = {
           alwaysTrust.enable = true;
           anammox.enable = true;
-          clearUrLs.enable = true;
+          ClearURLs.enable = true;
           fakeNitro.enable = true;
           fixYoutubeEmbeds.enable = true;
           fixImagesQuality.enable = true;
@@ -50,8 +50,8 @@
           openInApp.enable = true;
           questify.enable = true;
           steamStatusSync.enable = true;
-          userPfp.enable = true;
-          usrbg.enable = true;
+          UserPFP.enable = true;
+          USRBG.enable = true;
           viewIcons.enable = true;
           youtubeAdblock.enable = true;
         };

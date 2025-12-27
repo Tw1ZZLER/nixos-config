@@ -14,6 +14,18 @@
       enable = true;
       package = pkgs.unstable.fish;
       interactiveShellInit = builtins.readFile ../../../../dotfiles/fish/config.fish;
+
+      functions = {
+        runsilk = {
+          body = ''
+            cd /home/tw1zzler/Silk
+            python -m server &
+            cd /home/tw1zzler/Silk/GUI
+            python -m http.server 8000 &
+          '';
+        };
+      };
+
     };
 
     home.packages = with pkgs.unstable.fishPlugins; [

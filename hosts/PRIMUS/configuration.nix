@@ -21,7 +21,7 @@
   ];
 
   # Desktop environment
-  cosmic.enable = true;
+  hyprland.enable = true;
   plymouth.enable = true;
 
   # Intel hardware

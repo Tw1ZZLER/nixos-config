@@ -12,21 +12,8 @@
     # Enable Seahorse for keyring management
     programs.seahorse.enable = true;
 
-    # Enable the COSMIC login manager
-    services = {
-      displayManager = {
-        cosmic-greeter = {
-          enable = true;
-        };
-        autoLogin = {
-          enable = true;
-          user = "tw1zzler";
-        };
-      };
-
-      # Enable the COSMIC desktop environment
-      desktopManager.cosmic.enable = true;
-    };
+    # Enable the COSMIC desktop environment
+    services.desktopManager.cosmic.enable = true;
 
     environment = {
       sessionVariables = {

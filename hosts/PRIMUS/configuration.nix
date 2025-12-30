@@ -20,12 +20,14 @@
     inputs.stylix.nixosModules.stylix
   ];
 
-  # Desktop environment
-  hyprland.enable = true;
+  # Boot splash screen
   plymouth.enable = true;
 
   # Display manager
   ly.enable = true;
+
+  # Desktop environment
+  cosmic.enable = true;
 
   # Intel hardware
   intel-graphics.enable = true;

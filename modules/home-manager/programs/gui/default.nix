@@ -34,7 +34,9 @@
   krita.enable = lib.mkDefault true;
   moonlight.enable = lib.mkDefault true;
   mpv.enable = lib.mkDefault true;
-  noctalia-shell.enable = lib.mkDefault (args.osConfig.hyprland.enable || args.osConfig.niri.enable);
+  noctalia-shell.enable = lib.mkIf (args ? osConfig) (
+    lib.mkDefault (args.osConfig.hyprland.enable || args.osConfig.niri.enable)
+  );
   obs-studio.enable = lib.mkDefault true;
   obsidian.enable = lib.mkDefault true;
   onu.enable = lib.mkDefault true;

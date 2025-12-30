@@ -167,6 +167,7 @@
         # Extensions
         extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
           bitwarden
+          dearrow
           web-clipper-obsidian
           return-youtube-dislikes
           sponsorblock

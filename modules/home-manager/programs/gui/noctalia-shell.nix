@@ -20,52 +20,52 @@
       settings = {
         # configure noctalia here
         bar = {
-          density = "compact";
           position = "top";
-          showCapsule = false;
           widgets = {
             left = [
               {
                 id = "ControlCenter";
                 useDistroLogo = true;
               }
-              {
-                id = "WiFi";
-              }
-              {
-                id = "Bluetooth";
-              }
+              { id = "Workspace"; }
+              { id = "ActiveWindow"; }
+              { id = "MediaMini"; }
             ];
             center = [
-              {
-                hideUnoccupied = false;
-                id = "Workspace";
-                labelMode = "none";
-              }
+              { id = "Clock"; }
             ];
             right = [
-              {
-                alwaysShowPercentage = false;
-                id = "Battery";
-                warningThreshold = 30;
-              }
-              {
-                formatHorizontal = "HH:mm";
-                formatVertical = "HH mm";
-                id = "Clock";
-                useMonospacedFont = true;
-                usePrimaryColor = true;
-              }
+              { id = "SystemMonitor"; }
+              { id = "Spacer"; }
+              { id = "NotificationHistory"; }
+              { id = "Tray"; }
+              { id = "Volume"; }
+              { id = "Bluetooth"; }
+              { id = "NightLight"; }
+              { id = "Brightness"; }
+              { id = "Battery"; }
+              { id = "WiFi"; }
+              { id = "SessionMenu"; }
             ];
           };
         };
         general = {
           avatarImage = "/home/tw1zzler/.face";
-          radiusRatio = 0.2;
         };
         location = {
+          useFahrenheit = true;
+          use12hourFormat = true;
           monthBeforeDay = true;
-          name = "Marseille, France";
+          name = "Columbus, OH";
+        };
+        wallpaper = {
+          directory = "/home/tw1zzler/media/img/wallpapers";
+        };
+        appLauncher = {
+          enableClipboardHistory = true;
+        };
+        templates = {
+          hyprland = true;
         };
       };
       # this may also be a string or a path to a JSON file,

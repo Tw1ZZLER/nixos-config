@@ -33,10 +33,9 @@
             ];
             center = [
               { id = "Clock"; }
+              { id = "SystemMonitor"; }
             ];
             right = [
-              { id = "SystemMonitor"; }
-              { id = "Spacer"; }
               { id = "NotificationHistory"; }
               { id = "Tray"; }
               { id = "Volume"; }

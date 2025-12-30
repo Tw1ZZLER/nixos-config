@@ -7,6 +7,7 @@
     ./filelight.nix
     ./flameshot.nix
     ./gwenview.nix
+    ./krita.nix
     ./moonlight.nix
     ./mpv.nix
     ./noctalia-shell.nix
@@ -30,6 +31,7 @@
   filelight.enable = lib.mkDefault true;
   flameshot.enable = lib.mkDefault true;
   gwenview.enable = lib.mkDefault true;
+  krita.enable = lib.mkDefault true;
   moonlight.enable = lib.mkDefault true;
   mpv.enable = lib.mkDefault true;
   noctalia-shell.enable = lib.mkDefault (args.osConfig.hyprland.enable || args.osConfig.niri.enable);

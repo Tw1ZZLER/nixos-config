@@ -24,7 +24,7 @@
   plymouth.enable = true;
 
   # Display manager
-  ly.enable = true;
+  cosmic-greeter.enable = true;
 
   # Desktop environment
   cosmic.enable = true;

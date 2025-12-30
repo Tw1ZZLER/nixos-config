@@ -6,16 +6,15 @@
   ...
 }:
 {
+  # import the home manager module
+  imports = [
+    inputs.noctalia.homeModules.default
+  ];
+
   options = {
     noctalia-shell.enable = lib.mkEnableOption "Enable Noctalia Shell integration.";
   };
   config = lib.mkIf config.noctalia-shell.enable {
-    # import the home manager module
-    imports = [
-      inputs.noctalia.homeModules.default
-    ];
-
-    # configure options
     programs.noctalia-shell = {
       enable = true;
       settings = {

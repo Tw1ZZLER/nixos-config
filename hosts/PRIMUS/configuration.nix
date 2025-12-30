@@ -24,10 +24,12 @@
   plymouth.enable = true;
 
   # Display manager
-  cosmic-greeter.enable = true;
+  # cosmic-greeter.enable = true;
+  ly.enable = true;
 
   # Desktop environment
-  cosmic.enable = true;
+  # cosmic.enable = true;
+  hyprland.enable = true;
 
   # Intel hardware
   intel-graphics.enable = true;

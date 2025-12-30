@@ -12,19 +12,6 @@
     # Enable Seahorse for keyring management
     programs.seahorse.enable = true;
 
-    # Enable the ly display manager
-    services = {
-      displayManager = {
-        ly = {
-          enable = true;
-        };
-        autoLogin = {
-          enable = true;
-          user = "tw1zzler";
-        };
-      };
-    };
-
     # Enable Hyprland
     programs.hyprland.enable = true;
 

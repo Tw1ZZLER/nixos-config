@@ -24,6 +24,9 @@
   hyprland.enable = true;
   plymouth.enable = true;
 
+  # Display manager
+  ly.enable = true;
+
   # Intel hardware
   intel-graphics.enable = true;
 

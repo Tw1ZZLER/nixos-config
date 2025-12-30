@@ -21,7 +21,7 @@
         # configure noctalia here
         bar = {
           density = "compact";
-          position = "right";
+          position = "top";
           showCapsule = false;
           widgets = {
             left = [
@@ -59,9 +59,8 @@
             ];
           };
         };
-        colorSchemes.predefinedScheme = "Monochrome";
         general = {
-          avatarImage = "/home/drfoobar/.face";
+          avatarImage = "/home/tw1zzler/.face";
           radiusRatio = 0.2;
         };
         location = {

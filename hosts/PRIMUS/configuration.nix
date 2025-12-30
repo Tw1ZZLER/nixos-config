@@ -50,6 +50,10 @@
   networking.hostName = "PRIMUS";
   networking.networkmanager.enable = true;
 
+  hardware.bluetooth.enable = true;
+  services.power-profiles-daemon.enable = true;
+  services.upower.enable = true;
+
   # Touchpad support
   services.libinput.enable = true;
 

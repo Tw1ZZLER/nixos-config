@@ -5,6 +5,7 @@
     ./cosmic.nix
     ./hyprland.nix
     ./ly.nix
+    ./niri.nix
     ./plymouth.nix
   ];
 
@@ -12,5 +13,6 @@
   cosmic.enable = lib.mkDefault false;
   hyprland.enable = lib.mkDefault false;
   ly.enable = lib.mkDefault false;
+  niri.enable = lib.mkDefault false;
   plymouth.enable = lib.mkDefault false;
 }

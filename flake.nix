@@ -43,6 +43,12 @@
     # Catppuccin
     catppuccin.url = "github:catppuccin/nix";
 
+    # Noctalia Shell
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Zen Browser
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";

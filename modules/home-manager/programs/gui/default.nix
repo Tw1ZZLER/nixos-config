@@ -9,6 +9,7 @@
     ./gwenview.nix
     ./moonlight.nix
     ./mpv.nix
+    ./noctalia-shell.nix
     ./obs-studio.nix
     ./obsidian.nix
     ./onu.nix
@@ -31,6 +32,7 @@
   gwenview.enable = lib.mkDefault true;
   moonlight.enable = lib.mkDefault true;
   mpv.enable = lib.mkDefault true;
+  noctalia-shell.enable = lib.mkDefault (osConfig.hyprland.enable || osConfig.niri.enable);
   obs-studio.enable = lib.mkDefault true;
   obsidian.enable = lib.mkDefault true;
   onu.enable = lib.mkDefault true;

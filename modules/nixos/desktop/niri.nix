@@ -9,10 +9,6 @@
     niri.enable = lib.mkEnableOption "Enable the Niri window manager";
   };
   config = lib.mkIf config.niri.enable {
-    # Enable Seahorse for keyring management
-    programs.seahorse.enable = true;
-
-    # Enable Niri
     programs.niri.enable = true;
 
     environment = {

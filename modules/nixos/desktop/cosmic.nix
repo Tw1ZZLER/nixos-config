@@ -9,10 +9,6 @@
     cosmic.enable = lib.mkEnableOption "Enable the COSMIC desktop environment";
   };
   config = lib.mkIf config.cosmic.enable {
-    # Enable Seahorse for keyring management
-    programs.seahorse.enable = true;
-
-    # Enable the COSMIC desktop environment
     services.desktopManager.cosmic.enable = true;
 
     environment = {

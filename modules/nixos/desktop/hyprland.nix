@@ -9,10 +9,6 @@
     hyprland.enable = lib.mkEnableOption "Enable the Hyprland window manager";
   };
   config = lib.mkIf config.hyprland.enable {
-    # Enable Seahorse for keyring management
-    programs.seahorse.enable = true;
-
-    # Enable Hyprland
     programs.hyprland = {
       enable = true;
       withUWSM = true;

@@ -100,6 +100,7 @@
 
         # Search Engines
         search = {
+          force = true;
           default = "ddg"; # DuckDuckGo
           privateDefault = "ddg";
           engines = {
@@ -107,7 +108,7 @@
               name = "Nix Packages";
               urls = [
                 {
-                  template = "https://search.nixos.org/packages";
+                  template = "https://search.nixos.org/packages?channel=unstable";
                   params = [
                     {
                       name = "type";
@@ -125,11 +126,11 @@
               definedAliases = [ "@np" ];
             };
 
-            nix-options = {
-              name = "Nix Options";
+            nixos-options = {
+              name = "NixOS Options";
               urls = [
                 {
-                  template = "https://search.nixos.org/options";
+                  template = "https://search.nixos.org/options?channel=unstable";
                   params = [
                     {
                       name = "query";
@@ -147,6 +148,15 @@
               urls = [ { template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; } ];
               iconMapObj."16" = "https://wiki.nixos.org/favicon.ico";
               definedAliases = [ "@nw" ];
+            };
+
+            home-manager-options = {
+              name = "Home Manager Options";
+              urls = [
+                { template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master"; }
+              ];
+              iconMapObj."16" = "https://home-manager-options.extranix.com/images/favicon.png";
+              definedAliases = [ "@hmo" ];
             };
 
             bing.metaData.hidden = true;

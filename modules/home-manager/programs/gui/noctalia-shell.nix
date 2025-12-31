@@ -32,8 +32,18 @@
               { id = "MediaMini"; }
             ];
             center = [
-              { id = "Clock"; }
-              { id = "SystemMonitor"; }
+              {
+                id = "Clock";
+                formatHorizontal = "h:mm AP";
+              }
+              {
+                id = "Clock";
+                formatHorizontal = "yyyy-MM-dd";
+              }
+              {
+                id = "SystemMonitor";
+                showDiskUsage = true;
+              }
             ];
             right = [
               { id = "NotificationHistory"; }
@@ -42,7 +52,11 @@
               { id = "Bluetooth"; }
               { id = "NightLight"; }
               { id = "Brightness"; }
-              { id = "Battery"; }
+              {
+                id = "Battery";
+                displayMode = "alwaysshow";
+                warningThreshold = 15;
+              }
               { id = "WiFi"; }
               { id = "SessionMenu"; }
             ];

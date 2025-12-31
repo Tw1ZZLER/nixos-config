@@ -12,9 +12,7 @@ in
   };
   config = lib.mkIf config.niri.enable {
     # Putting the dotfiles in their rightful place.
-    xdg.configFile = {
-      "niri/config.kdl".source = "${dotfiles}/niri/config.kdl";
-    };
+    xdg.configFile."niri/config.kdl".source = "${dotfiles}/niri/config.kdl";
   };
 
 }

@@ -12,9 +12,6 @@ in
   };
   config = lib.mkIf config.hyprland.enable {
     # Putting the dotfiles in their rightful place.
-    xdg.configFile = {
-      "hypr/hyprland.conf".source = "${dotfiles}/hypr/hyprland.conf";
-    };
+    xdg.configFile."hypr/hyprland.conf".source = "${dotfiles}/hypr/hyprland.conf";
   };
-
 }

@@ -10,6 +10,7 @@
   # DEFAULTS For all systems!
   imports = [
     ../common
+    ./desktop
     ./programs
     ./services
   ];

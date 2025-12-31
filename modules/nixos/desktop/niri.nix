@@ -20,6 +20,9 @@
         # Other Wayland clipboard stuff
         wl-clipboard
         cliphist
+
+        # Xwayland support
+        xwayland-satellite
       ];
     };
   };

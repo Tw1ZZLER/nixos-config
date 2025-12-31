@@ -11,7 +11,7 @@
   config = lib.mkIf config.hyprland.enable {
     programs.hyprland = {
       enable = true;
-      withUWSM = true;
+      # withUWSM = true; # to be honest I wish I knew why this doesn't work but I don't right now know!
     };
 
     environment = {

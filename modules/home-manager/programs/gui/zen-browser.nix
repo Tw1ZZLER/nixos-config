@@ -89,6 +89,11 @@
           };
           Preferences = mkLockedAttrs {
             "browser.tabs.warnOnClose" = false;
+            "browser.tabs.allow_transparent_browser" = true;
+            "mod.sameerasw.zen_transparent_glance_enabled" = true;
+            "mod.sameerasw.zen_transparent_sidebar_enabled" = true;
+            "widget.transparent_windows" = true;
+            "zen.widget.linux.transparency" = true;
             "media.videocontrols.picture-in-picture.video-toggle.enabled" = true;
           };
         };

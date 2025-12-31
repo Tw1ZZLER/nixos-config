@@ -30,6 +30,7 @@
   # Desktop environment
   # cosmic.enable = true;
   hyprland.enable = true;
+  niri.enable = true;
 
   # Intel hardware
   intel-graphics.enable = true;

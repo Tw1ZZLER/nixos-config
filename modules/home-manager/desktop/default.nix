@@ -3,7 +3,7 @@
   imports = [
     ./hyprland.nix
     ./niri.nix
-    ./noctalia.nix
+    ./noctalia-shell.nix
   ];
 
   noctalia-shell.enable = lib.mkIf (args ? osConfig) (

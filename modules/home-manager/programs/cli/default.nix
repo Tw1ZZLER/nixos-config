@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, ... }@args:
 {
   imports = [
     ./bat.nix
@@ -13,6 +13,7 @@
     ./neovim.nix
     ./nix-helper.nix
     ./nix-index.nix
+    ./nixgl.nix
     ./python.nix
     ./ripgrep.nix
     ./rmpc.nix
@@ -34,6 +35,7 @@
   neovim.enable = lib.mkDefault true;
   nix-helper.enable = lib.mkDefault true;
   nix-index.enable = lib.mkDefault true;
+  nixgl.enable = lib.mkIf (args ? osConfig) (lib.mkDefault true);
   python.enable = lib.mkDefault true;
   ripgrep.enable = lib.mkDefault true;
   rmpc.enable = lib.mkDefault true;

@@ -21,6 +21,7 @@
   # Disable some GUI apps that don't work due to graphics
   wezterm.enable = false;
   filelight.enable = false;
+  dolphin.enable = false;
   ark.enable = false;
   gwenview.enable = false;
   stylix-wrapper.enable = false;

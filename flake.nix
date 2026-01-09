@@ -73,10 +73,18 @@
     # Nixcord - Discord client management for home-manager
     nixcord = {
       url = "github:kaylorben/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Garuda Linux Nix Subsystem
     garuda.url = "gitlab:garuda-linux/garuda-nix-subsystem/stable";
+
+    # NixGL
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   #  $$$$$$\  $$\   $$\ $$$$$$$$\ $$$$$$$\  $$\   $$\ $$$$$$$$\  $$$$$$\

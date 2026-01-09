@@ -4,6 +4,7 @@
     ./ark.nix
     ./clonehero.nix
     ./discord.nix
+    ./dolphin.nix
     ./filelight.nix
     ./flameshot.nix
     ./gwenview.nix
@@ -27,6 +28,7 @@
   ark.enable = lib.mkDefault true;
   clonehero.enable = lib.mkDefault true;
   discord.enable = lib.mkDefault true;
+  dolphin.enable = lib.mkDefault true;
   filelight.enable = lib.mkDefault true;
   flameshot.enable = lib.mkDefault true;
   gwenview.enable = lib.mkDefault true;

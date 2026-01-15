@@ -85,6 +85,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # NixOS Raspberry Pi configurations
+    # follow `main` branch of this repository, considered being stable
+    nixos-raspberrypi = {
+      url = "github:nvmd/nixos-raspberrypi/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   #  $$$$$$\  $$\   $$\ $$$$$$$$\ $$$$$$$\  $$\   $$\ $$$$$$$$\  $$$$$$\
@@ -161,6 +167,13 @@
           modules = [
             # > Our main Garuda Linux Nix Subsystem configuration file <
             ./hosts/REDMOND/configuration.nix
+          ];
+        };
+        MALENIA = inputs.nixos-raspberrypi.lib.nixosSystemFull {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            # > Our main nixos-raspberrypi configuration file <
+            ./hosts/MALENIA/configuration.nix
           ];
         };
       };

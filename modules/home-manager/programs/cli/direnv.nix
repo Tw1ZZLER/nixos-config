@@ -14,7 +14,6 @@
     programs.direnv = {
       enable = true;
       package = pkgs.unstable.direnv;
-      enableFishIntegration = true;
       nix-direnv.enable = true;
       nix-direnv.package = pkgs.unstable.nix-direnv;
     };

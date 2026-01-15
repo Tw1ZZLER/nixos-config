@@ -204,6 +204,16 @@
           modules = [
             # > Our main nixos-raspberrypi configuration file <
             ./hosts/MALENIA/configuration.nix
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs outputs; };
+                users.tw1zzler.imports = [
+                  ./hosts/MALENIA/home.nix
+                ];
+              };
+            }
           ];
         };
       };

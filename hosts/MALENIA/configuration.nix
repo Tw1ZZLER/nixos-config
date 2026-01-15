@@ -4,68 +4,63 @@
   inputs,
   outputs,
   pkgs,
+  config,
+  lib,
   ...
 }:
 {
   imports = [
     # Import your generated (nixos-generate-config) hardware configuration
-    ./hardware-configuration.nix
+    # ./hardware-configuration.nix
 
     # If you want to use modules your own flake exports (from modules/nixos):
     outputs.nixosModules
 
     # Or modules from other flakes
     inputs.home-manager.nixosModules.home-manager
-    inputs.catppuccin.nixosModules.catppuccin
-    inputs.stylix.nixosModules.stylix
   ];
 
-  # Boot splash screen
-  plymouth.enable = true;
+  # Hardware specific configuration, see section below for a more complete
+  # list of modules
+  imports = with inputs.nixos-raspberrypi.nixosModules; [
+    raspberry-pi-5.base
+    raspberry-pi-5.page-size-16k
+    raspberry-pi-5.display-vc4
+  ];
 
-  # Display manager
-  # cosmic-greeter.enable = true;
-  ly.enable = true;
-
-  # Desktop environment
-  # cosmic.enable = true;
-  hyprland.enable = true;
-  niri.enable = true;
-
-  # Intel hardware
-  intel-graphics.enable = true;
   # Server configuration module for running server
   server-networking.enable = true;
 
-  # ONU Printers and Drives
-  onu-printers.enable = true;
-  onu-drives.enable = true;
+  # Optional: Binary cache for the flake
+  nixConfig = {
+    extra-substituters = [
+      "https://nixos-raspberrypi.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
+    ];
+  };
 
   # Boot loader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  system.nixos.tags =
+    let
+      cfg = config.boot.loader.raspberryPi;
+    in
+    [
+      "raspberry-pi-${cfg.variant}"
+      cfg.bootloader
+      config.boot.kernelPackages.kernel.version
+    ];
+
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # System76 hardware
-  hardware.system76.enableAll = true;
-
   # Networking
-  networking.hostName = "PRIMUS";
+  networking.hostName = "MALENIA";
   networking.networkmanager.enable = true;
-
-  hardware.bluetooth.enable = true;
-  services.power-profiles-daemon.enable = true;
-  services.upower.enable = true;
-
-  # Touchpad support
-  services.libinput.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    # C/C++ compiler
-    gcc
-  ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "25.05";

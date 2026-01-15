@@ -34,6 +34,8 @@
 
   # Intel hardware
   intel-graphics.enable = true;
+  # Server configuration module for running server
+  server-networking.enable = true;
 
   # ONU Printers and Drives
   onu-printers.enable = true;

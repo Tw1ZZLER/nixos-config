@@ -15,6 +15,7 @@
       wineWowPackages.staging
       winetricks
       wineasio # JACK to ASIO driver
+      bottles
     ];
   };
 }

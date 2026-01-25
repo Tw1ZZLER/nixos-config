@@ -21,7 +21,6 @@
     programs.fish = {
       enable = true;
       package = pkgs.unstable.fish;
-      interactiveShellInit = builtins.readFile ../../../../dotfiles/fish/config.fish;
       shellAbbrs = {
         ".." = "cd ..";
         "..." = "cd ../../";
@@ -79,12 +78,38 @@
       };
 
       # Hide welcome message & ensure we are reporting fish as shell
+      ## Set values
+      # Set settings for https://github.com/franciscolourenco/done
       shellInit = ''
         set fish_greeting
         set VIRTUAL_ENV_DISABLE_PROMPT 1
+        set -U __done_min_cmd_duration 10000
+        set -U __done_notification_urgency_level low
       '';
 
       functions = {
+        # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
+        __history_previous_command = ''
+          switch (commandline -t)
+              case "!"
+                  commandline -t $history[1]
+                  commandline -f repaint
+              case "*"
+                  commandline -i !
+          end
+        '';
+
+        __history_previous_command_arguments = ''
+          switch (commandline -t)
+              case "!"
+                  commandline -t ""
+                  commandline -f history-token-search-backward
+              case "*"
+                  commandline -i '$'
+          end
+        '';
+
+        # Run Silk server and GUI
         runsilk = ''
           cd /home/tw1zzler/Silk
           python -m server &
@@ -109,14 +134,15 @@
           builtin history --show-time='%F %T '
         '';
 
-        # function backup --argument filename
-        #     cp $filename $filename.bak
-        # end
-
         # Backup a file
-        backup = {
+        backup = ''
+          cp $filename $filename.bak
+        '';
+      };
+      completions = {
+        exercism = {
           body = ''
-            cp $filename $filename.bak
+            ${pkgs.unstable.exercism}/bin/exercism completion fish
           '';
         };
       };
@@ -127,7 +153,5 @@
       autopair
       grc
     ];
-
-    xdg.configFile."fish/completions".source = ../../../../dotfiles/fish/completions;
   };
 }

@@ -36,22 +36,22 @@
           }
           {
             type = "cpu";
-            key = "│ ├";
+            key = "│ ├ ";
             keyColor = "green";
           }
           {
             type = "gpu";
-            key = "│ ├󰍛";
+            key = "│ ├󰍛 ";
             keyColor = "green";
           }
           {
             type = "memory";
-            key = "│ ├󰍛";
+            key = "│ ├󰍛 ";
             keyColor = "green";
           }
           {
             type = "disk";
-            key = "└ └";
+            key = "└ └ ";
             keyColor = "green";
           }
           {
@@ -66,27 +66,22 @@
           {
             type = "os";
             key = " OS";
-            keyColor = "yellow";
+            keyColor = "red";
           }
           {
             type = "kernel";
-            key = "│ ├";
-            keyColor = "yellow";
-          }
-          {
-            type = "bios";
-            key = "│ ├";
-            keyColor = "yellow";
+            key = "│ ├ ";
+            keyColor = "red";
           }
           {
             type = "packages";
-            key = "│ ├󰏖";
-            keyColor = "yellow";
+            key = "│ ├󰏖 ";
+            keyColor = "red";
           }
           {
             type = "shell";
-            key = "└ └";
-            keyColor = "yellow";
+            key = "└ └ ";
+            keyColor = "red";
           }
           {
             type = "de";
@@ -95,22 +90,22 @@
           }
           {
             type = "lm";
-            key = "│ ├";
+            key = "│ ├ ";
             keyColor = "blue";
           }
           {
             type = "wm";
-            key = "│ ├";
+            key = "│ ├ ";
             keyColor = "blue";
           }
           {
             type = "wmtheme";
-            key = "│ ├󰉼";
+            key = "│ ├󰉼 ";
             keyColor = "blue";
           }
           {
             type = "terminal";
-            key = "└ └";
+            key = "└ └ ";
             keyColor = "blue";
           }
           {

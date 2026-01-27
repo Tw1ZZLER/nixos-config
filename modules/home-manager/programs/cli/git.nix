@@ -27,7 +27,8 @@
     };
 
     home.packages = with pkgs.unstable; [
-      gh
+      gh # GitHub CLI
+      codeberg-cli # gh-like tool for Codeberg
     ];
   };
 }

@@ -113,7 +113,7 @@
     # follow `main` branch of this repository, considered being stable
     nixos-raspberrypi = {
       url = "github:nvmd/nixos-raspberrypi/main";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
     };
 
     # Disko - NixOS installation utility

@@ -34,7 +34,7 @@
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     # Nix Index
@@ -55,7 +55,7 @@
     # Noctalia Shell
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     # Zen Browser
@@ -68,21 +68,25 @@
         home-manager.follows = "home-manager";
       };
     };
+
+    # Firefox Add-ons from NUR
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     # Xilinx / Vivado Flake
     nix-xilinx = {
       url = "github:MIT-OpenCompute/xilinx-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     # Nixcord - Discord client management for home-manager
     nixcord = {
       url = "github:kaylorben/nixcord";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs-unstable";
+      };
     };
 
     # Garuda Linux Nix Subsystem
@@ -104,14 +108,16 @@
     # Disko - NixOS installation utility
     disko = {
       url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     # NixOS Anywhere
     nixos-anywhere = {
       url = "github:nix-community/nixos-anywhere";
-      inputs.nixpkgs.follows = "nixpkgs";
       inputs.disko.follows = "disko";
+      inputs = {
+        nixpkgs.follows = "nixpkgs-unstable";
+      };
     };
   };
 

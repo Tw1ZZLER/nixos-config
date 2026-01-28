@@ -128,9 +128,10 @@
     # NixOS Anywhere
     nixos-anywhere = {
       url = "github:nix-community/nixos-anywhere";
-      inputs.disko.follows = "disko";
       inputs = {
         nixpkgs.follows = "nixpkgs-unstable";
+        flake-parts.follows = "flake-parts";
+        disko.follows = "disko";
       };
     };
   };

@@ -90,6 +90,8 @@
       url = "github:kaylorben/nixcord";
       inputs = {
         nixpkgs.follows = "nixpkgs-unstable";
+        flake-parts.follows = "flake-parts";
+        flake-compat.follows = "flake-compat";
       };
     };
 

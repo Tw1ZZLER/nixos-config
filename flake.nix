@@ -93,7 +93,15 @@
     };
 
     # Garuda Linux Nix Subsystem
-    garuda.url = "gitlab:garuda-linux/garuda-nix-subsystem/stable";
+    garuda = {
+      url = "gitlab:garuda-linux/garuda-nix-subsystem/stable";
+      inputs = {
+        nixpkgs.follows = "nixpkgs-unstable";
+        flake-parts.follows = "flake-parts";
+        nix-index-database.follows = "nix-index-database";
+        home-manager.follows = "home-manager";
+      };
+    };
 
     # NixGL
     nixgl = {

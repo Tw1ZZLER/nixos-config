@@ -82,6 +82,7 @@
     nix-xilinx = {
       url = "github:MIT-OpenCompute/xilinx-flake";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.flake-compat.follows = "flake-compat";
     };
 
     # Nixcord - Discord client management for home-manager

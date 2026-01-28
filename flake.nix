@@ -22,6 +22,15 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
+    # Mainly here for `follows` optimization
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs-unstable";
+    };
+
+    # https://nixos.wiki/wiki/Flakes#Using_flakes_project_from_a_legacy_Nix
+    flake-compat.url = "github:NixOS/flake-compat";
+
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager";

@@ -2,24 +2,30 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }:
 
 {
+  imports = [ inputs.mnw.homeManagerModules.default ];
   options = {
     neovim.enable = lib.mkEnableOption "Enable Neovim configuration";
   };
 
   config = lib.mkIf config.neovim.enable {
-    programs.neovim = {
+    home = {
+      shellAliases.vimdiff = "nvim -d";
+      sessionVariables.EDITOR = "nvim";
+    };
+    programs.mnw = {
       enable = true;
-      package = pkgs.unstable.neovim-unwrapped;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
-      withNodeJs = true;
-      extraPackages = with pkgs.unstable; [
+      neovim = pkgs.unstable.neovim-unwrapped;
+      aliases = [
+        "vi"
+        "nvim"
+      ];
+      provides.nodeJs.enable = true;
+      extraBinPath = with pkgs.unstable; [
         unzip
         sqlite
         mermaid-cli
@@ -50,10 +56,13 @@
         python312Packages.pylatexenc
         jdk21
       ];
-    };
-    xdg.configFile.nvim = {
-      recursive = true;
-      source = ../../../../dotfiles/nvim;
+      plugins = {
+        start = [ ];
+        opt = [ ];
+        dev.myConfig = {
+          pure = ../../../../dotfiles/nvim;
+        };
+      };
     };
   };
 }

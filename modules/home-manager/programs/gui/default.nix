@@ -30,7 +30,7 @@
   discord.enable = lib.mkDefault true;
   dolphin.enable = lib.mkDefault true;
   filelight.enable = lib.mkDefault true;
-  flameshot.enable = lib.mkDefault true;
+  flameshot.enable = lib.mkDefault false; # Only needed if compositor has no screenshot feature
   gwenview.enable = lib.mkDefault true;
   krita.enable = lib.mkDefault true;
   moonlight.enable = lib.mkDefault true;

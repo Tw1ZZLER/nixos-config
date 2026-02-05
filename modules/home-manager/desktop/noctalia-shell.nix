@@ -95,21 +95,21 @@
             ];
             center = [
               {
-                customFont = "";
+                customFont = "VictorMono Nerd Font";
                 formatHorizontal = "h:mm:ss AP";
                 formatVertical = "HH mm - dd MM";
                 id = "Clock";
                 tooltipFormat = "HH:mm ddd, MMM dd";
-                useCustomFont = false;
+                useCustomFont = true;
                 usePrimaryColor = false;
               }
               {
-                customFont = "";
+                customFont = "VictorMono Nerd Font";
                 formatHorizontal = "yyyy-MM-dd";
                 formatVertical = "HH mm - dd MM";
                 id = "Clock";
                 tooltipFormat = "HH:mm ddd, MMM dd";
-                useCustomFont = false;
+                useCustomFont = true;
                 usePrimaryColor = false;
               }
               {

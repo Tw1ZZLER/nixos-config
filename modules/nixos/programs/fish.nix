@@ -12,5 +12,6 @@
   };
   config = lib.mkIf config.fish.enable {
     programs.fish.enable = true;
+    environment.systemPackages = with pkgs.unstable; [ grc ];
   };
 }

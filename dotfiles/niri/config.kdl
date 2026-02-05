@@ -425,14 +425,15 @@ binds {
     // Window management
     Mod+Q repeat=false { close-window; } // close window
     Mod+M { maximize-column; } // maximize window
-    Mod+F11 { fullscreen-window; } // fullscreen window
-    Mod+G { toggle-window-floating; } // make floating
+    Mod+F11 { maximize-window-to-edges; } // fullscreen window
+    Mod+V { toggle-window-floating; } // make floating
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; } // toggle between floating and tiling focus
     
     // Terminal and applications
     Mod+T { spawn "wezterm"; } // or your terminal
     Mod+Return { spawn "wezterm";}
     Mod+B { spawn "zen-beta"; }
-    Mod+F { spawn "dolphin"; } // or your file manager
+    Mod+F { spawn-sh "wezterm -e yazi"; } // or your file manager
     
     // Screenshot
     Print { screenshot; }
@@ -511,8 +512,6 @@ binds {
 
     // Center all fully visible columns on screen.
     Mod+Ctrl+C { center-visible-columns; }
-    Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Ctrl+Alt+Delete { quit; }
     Mod+Shift+P { power-off-monitors; }

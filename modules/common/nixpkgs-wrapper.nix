@@ -16,6 +16,9 @@
         outputs.overlays.additions
         outputs.overlays.modifications
         outputs.overlays.unstable-packages
+
+        # Add overlays from other flakes (from inputs):
+        outputs.overlays.nix-xilinx
       ];
       # Configure nixpkgs instance
       config = {

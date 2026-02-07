@@ -173,7 +173,6 @@
       # pass to it, with each system as an argument
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      flake-overlays = [ inputs.nix-xilinx.overlay ];
     in
     {
       # Your custom packages

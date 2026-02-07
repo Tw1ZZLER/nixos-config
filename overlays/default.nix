@@ -21,4 +21,7 @@
       config.allowUnfree = true;
     };
   };
+
+  # Add the nix-xilinx overlay to provide Xilinx tools like vivado, vitis, etc.
+  nix-xilinx = inputs.nix-xilinx.overlay;
 }

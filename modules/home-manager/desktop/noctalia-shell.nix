@@ -305,7 +305,7 @@
           terminalCommand = "wezterm -e";
           customLaunchPrefixEnabled = false;
           customLaunchPrefix = "";
-          viewMode = "grid";
+          viewMode = "list";
           showCategories = true;
           iconMode = "tabler";
           showIconBackground = false;

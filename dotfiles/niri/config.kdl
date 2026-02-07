@@ -425,7 +425,8 @@ binds {
     // Window management
     Mod+Q repeat=false { close-window; } // close window
     Mod+M { maximize-column; } // maximize window
-    Mod+F11 { maximize-window-to-edges; } // fullscreen window
+    F11 { maximize-window-to-edges; } // maximize window to edges
+    Mod+F11 { fullscreen-window; } // fullscreen window
     Mod+V { toggle-window-floating; } // make floating
     Mod+Shift+V { switch-focus-between-floating-and-tiling; } // toggle between floating and tiling focus
     

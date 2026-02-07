@@ -21,6 +21,7 @@
     ./torrent.nix
     ./vscode.nix
     ./wezterm.nix
+    ./xilinx.nix
     ./zathura.nix
     ./zen-browser.nix
   ];
@@ -45,6 +46,7 @@
   torrent.enable = lib.mkDefault true;
   vscode.enable = lib.mkDefault true;
   wezterm.enable = lib.mkDefault true;
+  xilinx.enable = lib.mkDefault false; # Only enable if doing FPGA development
   zathura.enable = lib.mkDefault true;
   zen-browser.enable = lib.mkDefault true;
 }

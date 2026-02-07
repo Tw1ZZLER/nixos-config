@@ -12,6 +12,9 @@
     outputs.homeModules
   ];
 
+  # Enable Xilinx tooling (Vivado, Vitis, etc.)
+  xilinx.enable = true;
+
   # Must pass hostname to Syncthing wrapper on non-NixOS hosts
   syncthing.hostName = "PRIMUS";
 

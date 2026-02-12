@@ -397,6 +397,21 @@
         "type": "github"
       }
     },
+    "mnw": {
+      "locked": {
+        "lastModified": 1770419553,
+        "narHash": "sha256-b1XqsH7AtVf2dXmq2iyRr2NC1yG7skY7Z6N2MpWHlK4=",
+        "owner": "Gerg-L",
+        "repo": "mnw",
+        "rev": "2aaffa8030d0b262176146adbb6b0e6374ce2957",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gerg-L",
+        "repo": "mnw",
+        "type": "github"
+      }
+    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -771,6 +786,7 @@
         "flake-parts": "flake-parts",
         "garuda": "garuda",
         "home-manager": "home-manager",
+        "mnw": "mnw",
         "nix-index-database": "nix-index-database",
         "nix-xilinx": "nix-xilinx",
         "nixcord": "nixcord",

@@ -136,6 +136,9 @@
       };
     };
 
+    # Minimal Neovim Wrapper
+    mnw.url = "github:Gerg-L/mnw";
+
     # Secrets management with SOPS-nix
     sops-nix = {
       url = "github:Mic92/sops-nix";

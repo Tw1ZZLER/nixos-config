@@ -51,36 +51,18 @@
         mermaid-cli
         ghostscript
         icu
-        rust-analyzer
         nil
         lua-language-server
         nixfmt-rfc-style
         statix
         deadnix
-        ltex-ls
-        pyright
-        texlab
         imagemagick
         tree-sitter
-        (pkgs.unstable.texlive.combine {
-          inherit (pkgs.unstable.texlive)
-            scheme-medium
-            biber
-            standalone
-            amsmath
-            xcolor
-            mathtools
-            amsfonts
-            varwidth
-            preview
-            ;
-        })
+        nodePackages.markdownlint-cli2
         lua51Packages.lua
         lua51Packages.luautf8
         lua51Packages.luarocks
         python312Packages.pynvim
-        python312Packages.pylatexenc
-        jdk21
       ];
 
       plugins = with pkgs.unstable.vimPlugins; {
@@ -89,6 +71,7 @@
           plenary-nvim
           which-key-nvim
           nvim-web-devicons
+          nvim-treesitter
         ] ++ nvim-treesitter.withAllGrammars.dependencies;
 
         opt = [
@@ -96,20 +79,32 @@
           snacks-nvim
           lualine-nvim
           fzf-lua
+          bufferline-nvim
+          blink-cmp
           nvim-lspconfig
-          nvim-cmp
-          cmp-nvim-lsp
-          cmp-buffer
-          cmp-path
-          cmp_luasnip
+          grug-far-nvim
+          yanky-nvim
+          dial-nvim
+          luasnip
+          harpoon2
+          vim-illuminate
+          flit-nvim
+          vim-repeat
+          mini-diff
+          mini-files
+          outline-nvim
+          overseer-nvim
+          refactoring-nvim
+          neogen
+          nvim-dap-ui
+          edgy-nvim
+          gh-nvim
           friendly-snippets
           nvim-lint
           gitsigns-nvim
           trouble-nvim
           noice-nvim
           nvim-notify
-          obsidian-nvim
-          vimtex
         ];
 
         optAttrs = {

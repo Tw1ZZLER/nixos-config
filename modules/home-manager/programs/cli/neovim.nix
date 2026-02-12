@@ -15,6 +15,7 @@
   config = lib.mkIf config.neovim.enable {
     home = {
       shellAliases.vimdiff = "nvim -d";
+      shellAliases.nvim-dev = "${config.programs.mnw.finalPackage.devMode}/bin/nvim";
       sessionVariables.EDITOR = "nvim";
     };
 
@@ -72,7 +73,8 @@
           which-key-nvim
           nvim-web-devicons
           nvim-treesitter
-        ] ++ nvim-treesitter.withAllGrammars.dependencies;
+        ]
+        ++ nvim-treesitter.withAllGrammars.dependencies;
 
         opt = [
           catppuccin-nvim
@@ -94,6 +96,7 @@
           mini-files
           outline-nvim
           overseer-nvim
+          obsidian-nvim
           refactoring-nvim
           neogen
           nvim-dap-ui
@@ -119,6 +122,7 @@
 
         dev.myConfig = {
           pure = ../../../../dotfiles/nvim;
+          impure = "/home/tw1zzler/nixos-config/dotfiles/nvim";
         };
       };
     };

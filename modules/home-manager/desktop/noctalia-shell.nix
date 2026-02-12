@@ -174,6 +174,7 @@
                 id = "Battery";
                 showNoctaliaPerformance = true;
                 showPowerProfiles = true;
+                alwaysShowPercentage = true;
                 warningThreshold = 15;
               }
               {

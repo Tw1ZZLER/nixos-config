@@ -23,6 +23,12 @@
           # Workaround for https://github.com/NixOS/nix/issues/9574
           nix-path = config.nix.nixPath;
         };
+        extraOptions = ''
+          warn-dirty = false
+        '';
+        # add to extraOptions later when this secret is added
+        # !include ${config.sops.secrets.nixAccessTokens.path}
+
         # Opinionated: disable channels
         channel.enable = false;
 

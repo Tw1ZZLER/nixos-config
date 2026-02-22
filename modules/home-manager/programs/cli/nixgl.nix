@@ -12,7 +12,7 @@
   };
   config = lib.mkIf config.nixgl.enable {
     # NixGL settings
-    nixGL = {
+    targets.genericLinux.nixGL = {
       packages = inputs.nixgl.packages;
       defaultWrapper = "mesa";
       installScripts = [ "mesa" ];

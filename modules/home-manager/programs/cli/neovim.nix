@@ -54,7 +54,7 @@
         icu
         nil
         lua-language-server
-        nixfmt-rfc-style
+        nixfmt
         statix
         deadnix
         imagemagick

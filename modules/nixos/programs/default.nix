@@ -1,7 +1,9 @@
 { lib, ... }:
+with lib;
 {
   imports = [
     ./fish.nix
+    ./gpu-screen-recorder.nix
     ./nix-ld.nix
     ./seahorse.nix
     ./sops.nix
@@ -11,12 +13,13 @@
     ./wine.nix
   ];
 
-  fish.enable = lib.mkDefault true;
-  nix-ld.enable = lib.mkDefault true;
-  seahorse.enable = lib.mkDefault true;
-  sops.enable = lib.mkDefault true;
-  steam.enable = lib.mkDefault true;
-  trashy.enable = lib.mkDefault true;
-  weylus.enable = lib.mkDefault true;
-  wine.enable = lib.mkDefault true;
+  fish.enable = mkDefault true;
+  gpu-screen-recorder.enable = mkDefault true;
+  nix-ld.enable = mkDefault true;
+  seahorse.enable = mkDefault true;
+  sops.enable = mkDefault true;
+  steam.enable = mkDefault true;
+  trashy.enable = mkDefault true;
+  weylus.enable = mkDefault true;
+  wine.enable = mkDefault true;
 }

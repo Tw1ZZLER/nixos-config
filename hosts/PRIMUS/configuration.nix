@@ -31,6 +31,7 @@
   # cosmic.enable = true;
   hyprland.enable = true;
   niri.enable = true;
+  flatpak.enable = true;
 
   # Intel hardware
   intel-graphics.enable = true;

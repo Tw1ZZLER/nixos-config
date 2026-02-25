@@ -4,10 +4,8 @@
   config,
   inputs,
   ...
-}:
-
-{
-  imports = [ inputs.mnw.homeManagerModules.default ];
+}: {
+  imports = [inputs.mnw.homeManagerModules.default];
   options = {
     neovim.enable = lib.mkEnableOption "Enable Neovim configuration";
   };
@@ -36,7 +34,7 @@
         LZN.load("plugins")
       '';
 
-      extraLuaPackages = ps: [ ps.jsregexp ];
+      extraLuaPackages = ps: [ps.jsregexp];
 
       providers.nodeJs.enable = true;
       extraBinPath = with pkgs.unstable; [
@@ -69,14 +67,15 @@
       ];
 
       plugins = with pkgs.unstable.vimPlugins; {
-        start = [
-          lz-n
-          plenary-nvim
-          which-key-nvim
-          nvim-web-devicons
-          nvim-treesitter
-        ]
-        ++ nvim-treesitter.withAllGrammars.dependencies;
+        start =
+          [
+            lz-n
+            plenary-nvim
+            which-key-nvim
+            nvim-web-devicons
+            nvim-treesitter
+          ]
+          ++ nvim-treesitter.withAllGrammars.dependencies;
 
         opt = [
           catppuccin-nvim

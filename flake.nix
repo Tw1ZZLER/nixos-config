@@ -205,6 +205,7 @@
             nativeBuildInputs = with pkgs; [
               nil # lsp language server for nix
               nixpkgs-fmt
+              sops
               inputs.nixos-anywhere.packages.${system}.default
             ];
           };

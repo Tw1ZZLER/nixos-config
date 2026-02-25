@@ -57,6 +57,8 @@
         nixfmt
         statix
         deadnix
+        basedpyright
+        ruff
         imagemagick
         tree-sitter
         nodePackages.markdownlint-cli2

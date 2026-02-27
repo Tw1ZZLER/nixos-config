@@ -22,7 +22,6 @@
 
       secrets = {
         example-key = { };
-        "myservice/mysubdir/mysecret" = { };
       };
     };
   };

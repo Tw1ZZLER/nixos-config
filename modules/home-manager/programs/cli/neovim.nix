@@ -50,13 +50,6 @@
         mermaid-cli
         ghostscript
         icu
-        nil
-        lua-language-server
-        nixfmt
-        statix
-        deadnix
-        basedpyright
-        ruff
         imagemagick
         tree-sitter
         nodePackages.markdownlint-cli2
@@ -64,6 +57,25 @@
         lua51Packages.luautf8
         lua51Packages.luarocks
         python312Packages.pynvim
+
+        # Language servers
+        nil # Nix
+        lua-language-server # Lua
+        basedpyright # Python
+        ruff # Python (linter/formatter)
+        clang-tools # C/C++ (clangd + clang-format)
+        haskell-language-server # Haskell
+        rust-analyzer # Rust
+        jdt-language-server # Java
+
+        # Formatters
+        nixfmt # Nix
+        fourmolu # Haskell
+
+        # Linters
+        statix # Nix
+        deadnix # Nix
+        hlint # Haskell
       ];
 
       plugins = with pkgs.unstable.vimPlugins; {
@@ -109,6 +121,10 @@
           trouble-nvim
           noice-nvim
           nvim-notify
+
+          # Language extras
+          rustaceanvim
+          nvim-jdtls
         ];
 
         optAttrs = {
@@ -119,6 +135,13 @@
           "indent-blankline.nvim" = pkgs.unstable.vimPlugins.indent-blankline-nvim;
           "mini.nvim" = pkgs.unstable.vimPlugins.mini-nvim;
           "ts-comments.nvim" = pkgs.unstable.vimPlugins.ts-comments-nvim;
+
+          # Language extras
+          "haskell-tools.nvim" = pkgs.unstable.vimPlugins.haskell-tools-nvim;
+          "crates.nvim" = pkgs.unstable.vimPlugins.crates-nvim;
+          "clangd_extensions.nvim" = pkgs.unstable.vimPlugins.clangd_extensions-nvim;
+          "haskell-snippets.nvim" = pkgs.unstable.vimPlugins.haskell-snippets-nvim;
+          "lazydev.nvim" = pkgs.unstable.vimPlugins.lazydev-nvim;
         };
 
         dev.myConfig = {

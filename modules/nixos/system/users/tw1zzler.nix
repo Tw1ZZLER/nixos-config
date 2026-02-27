@@ -21,6 +21,7 @@
           "networkmanager"
           "docker"
           "audio"
+          "video"
           "dialout"
           "libvirtd"
           "kvm"

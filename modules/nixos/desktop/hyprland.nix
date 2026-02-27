@@ -14,6 +14,13 @@
       withUWSM = true; # to be honest I wish I knew why this doesn't work but I don't right now know!
     };
 
+    # Portal configuration for screen sharing, file dialogs, etc.
+    xdg.portal = {
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk # Fallback portal for file dialogs and other interfaces
+      ];
+    };
+
     environment = {
       sessionVariables = {
         # Wayland support for Electron and Chromium

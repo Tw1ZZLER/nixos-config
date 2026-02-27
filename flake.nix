@@ -88,7 +88,7 @@
 
     # Nixcord - Discord client management for home-manager
     nixcord = {
-      url = "github:kaylorben/nixcord";
+      url = "github:FlameFlag/nixcord";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";

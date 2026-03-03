@@ -38,7 +38,7 @@
   mpv.enable = lib.mkDefault true;
   obs-studio.enable = lib.mkDefault true;
   obsidian.enable = lib.mkDefault true;
-  onu.enable = lib.mkDefault true;
+  onu.enable = lib.mkDefault false;
   prismlauncher.enable = lib.mkDefault true;
   reaper.enable = lib.mkDefault true;
   research.enable = lib.mkDefault true;

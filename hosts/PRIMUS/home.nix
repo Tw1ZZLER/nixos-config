@@ -15,6 +15,9 @@
   # Enable Xilinx tooling (Vivado, Vitis, etc.)
   xilinx.enable = true;
 
+  # Enable ONU stuff
+  onu.enable = true;
+
   # Must pass hostname to Syncthing wrapper on non-NixOS hosts
   syncthing.hostName = "PRIMUS";
 

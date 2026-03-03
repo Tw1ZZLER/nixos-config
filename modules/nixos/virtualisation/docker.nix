@@ -8,5 +8,6 @@
       enable = true;
       # Add any additional Docker configuration options here
     };
+    users.users.tw1zzler.extraGroups = [ "docker" ];
   };
 }

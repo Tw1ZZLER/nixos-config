@@ -18,6 +18,7 @@
         xdg-desktop-portal-gnome # Screen sharing portal
         xdg-desktop-portal-gtk # Fallback portal for file dialogs and other interfaces
       ];
+      config.common.default = [ "*" ];
     };
 
     environment = {
@@ -32,6 +33,10 @@
 
         # Xwayland support
         xwayland-satellite
+        qt6.qtwayland
+        wayland
+        alacritty # in case of non-parsing config
+        fuzzel
       ];
     };
   };

@@ -96,6 +96,12 @@
       };
     };
 
+    # Twintail Launcher
+    twintail-launcher = {
+      url = "github:Tw1ZZLER/twintail-launcher-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Garuda Linux Nix Subsystem
     garuda = {
       url = "gitlab:garuda-linux/garuda-nix-subsystem/stable";

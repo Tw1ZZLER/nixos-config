@@ -19,6 +19,7 @@
     ./research.nix
     ./thunderbird.nix
     ./torrent.nix
+    ./twintail-launcher.nix
     ./vscode.nix
     ./wezterm.nix
     ./xilinx.nix
@@ -44,6 +45,7 @@
   research.enable = lib.mkDefault true;
   thunderbird.enable = lib.mkDefault true;
   torrent.enable = lib.mkDefault true;
+  twintail-launcher.enable = lib.mkDefault true;
   vscode.enable = lib.mkDefault true;
   wezterm.enable = lib.mkDefault true;
   xilinx.enable = lib.mkDefault false; # Only enable if doing FPGA development

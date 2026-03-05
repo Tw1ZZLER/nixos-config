@@ -41,10 +41,13 @@
     systemd.packages = [ pkgs.xwayland-satellite ];
 
     environment = {
-      sessionVariables = {
-        DISPLAY = ":0"; # Xwayland-satellite
+      variables = {
+        # Xwayland-satellite
+        DISPLAY = ":0";
         # Wayland support for Electron and Chromium
         NIXOS_OZONE_WL = "1";
+        # Fix icon theming
+        QT_QPA_PLATFORMTHEME = "qt6ct";
       };
       systemPackages = with pkgs; [
         # Other Wayland clipboard stuff

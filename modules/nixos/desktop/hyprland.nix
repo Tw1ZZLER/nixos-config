@@ -16,7 +16,9 @@
 
     # Portal configuration for screen sharing, file dialogs, etc.
     xdg.portal = {
+      enable = true;
       extraPortals = with pkgs; [
+        xdg-desktop-portal-gnome # Screen sharing portal
         xdg-desktop-portal-gtk # Fallback portal for file dialogs and other interfaces
       ];
     };

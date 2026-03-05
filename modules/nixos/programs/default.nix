@@ -8,6 +8,7 @@ with lib;
     ./seahorse.nix
     ./sops.nix
     ./steam.nix
+    ./system76-keyboard-configurator.nix
     ./trashy.nix
     ./weylus.nix
     ./wine.nix
@@ -19,6 +20,7 @@ with lib;
   seahorse.enable = mkDefault true;
   sops.enable = mkDefault true;
   steam.enable = mkDefault true;
+  system76-keyboard-configurator.enable = mkDefault true;
   trashy.enable = mkDefault true;
   weylus.enable = mkDefault true;
   wine.enable = mkDefault true;

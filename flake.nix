@@ -145,6 +145,9 @@
     # Minimal Neovim Wrapper
     mnw.url = "github:Gerg-L/mnw";
 
+    # Trying out LazyVim Flake
+    lazyvim.url = "github:pfassina/lazyvim-nix";
+
     # Secrets management with SOPS-nix
     sops-nix = {
       url = "github:Mic92/sops-nix";

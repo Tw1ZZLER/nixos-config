@@ -47,7 +47,7 @@
         # Wayland support for Electron and Chromium
         NIXOS_OZONE_WL = "1";
         # Fix icon theming
-        QT_QPA_PLATFORMTHEME = "qt6ct";
+        # QT_QPA_PLATFORMTHEME = "qt6ct";
       };
       systemPackages = with pkgs; [
         # Other Wayland clipboard stuff

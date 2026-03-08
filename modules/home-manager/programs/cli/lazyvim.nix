@@ -20,6 +20,7 @@
 
       extras = {
         ai = {
+          copilot.enable = true;
           avante.enable = true;
         };
         coding = {
@@ -109,14 +110,65 @@
 
       # Additional packages (optional)
       extraPackages = with pkgs; [
-        nixd # Nix LSP
-        alejandra # Nix formatter
+        # missing nixpkgs mappings for above tools:
+        pplatex
+
+        # Stuff that checkhealth told me I needed
+        unzip
+        sqlite
+        prettierd
+        shfmt
+        mermaid-cli
+        ghostscript
+        icu
+        imagemagick
+        tree-sitter
+        nodePackages.markdownlint-cli2
+        lua51Packages.lua
+        lua51Packages.luautf8
+        lua51Packages.luarocks
+        python312Packages.pynvim
+
+        biber
+        texliveMedium
+
+        # Language servers
+        vscode-json-languageserver # JSON
+        lua-language-server # Lua
+        marksman # Markdown
+        texlab # LaTeX
+        yaml-language-server # YAML
+        zls # Zig
+        # nil # Nix
+        # lua-language-server # Lua
+        basedpyright # Python
+        # ruff # Python (linter/formatter)
+        # clang-tools # C/C++ (clangd + clang-format)
+        # haskell-language-server # Haskell
+        # haskellPackages.haskell-debug-adapter # Haskell
+        # rust-analyzer # Rust
+        # jdt-language-server # Java
+
+        # Formatters
+        stylua
+        # alejandra # Nix formatter
+        # fourmolu # Haskell
+
+        # Linters
+        statix # Nix
+        # hlint # Haskell
       ];
 
       # Only needed for languages not covered by LazyVim extras
       treesitterParsers = with pkgs.vimPlugins.nvim-treesitter-parsers; [
         wgsl # WebGPU Shading Language
         templ # Go templ files
+
+        # Snacks.image
+        css
+        scss
+        svelte
+        vue
       ];
     };
   };

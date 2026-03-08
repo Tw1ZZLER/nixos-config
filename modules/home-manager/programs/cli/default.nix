@@ -36,7 +36,7 @@
   fzf.enable = lib.mkDefault true;
   git.enable = lib.mkDefault true;
   lazyvim.enable = lib.mkDefault true;
-  neovim.enable = lib.mkDefault true;
+  neovim.enable = lib.mkDefault false;
   nix-helper.enable = lib.mkDefault true;
   nix-index.enable = lib.mkDefault true;
   nixgl.enable = lib.mkIf (args ? osConfig) (lib.mkDefault true);

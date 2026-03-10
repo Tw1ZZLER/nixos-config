@@ -55,7 +55,7 @@
           };
           nix = {
             enable = true;
-            installDependencies = true; # nixd # Nix LSP # alejandra # Nix formatter
+            installDependencies = true;
             installRuntimeDependencies = true;
           };
           python = {
@@ -110,53 +110,73 @@
 
       # Additional packages (optional)
       extraPackages = with pkgs; [
-        # missing nixpkgs mappings for above tools:
-        pplatex
+        # Nix
+        # nil # LSP
+        # alejandra # Formatter
+        statix # Linter
+
+        # C/C++
+        # clang-tools # C/C++ (clangd + clang-format)
+
+        # Python
+        python312Packages.pynvim
+        basedpyright # LSP
+        # ruff # Linter/formatter
+
+        # Shell
+        shfmt # Formatter
+
+        # TeX
+        pplatex # missing nixpkgs mappings for above tools:
+        biber # Latex bibliography tool
+        texliveMedium # LaTeX distribution with medium collection of packages
+        ghostscript # LaTeX previewing
+        texlab # LSP
+
+        # Rust
+        # rust-analyzer # LSP
+
+        # Haskell
+        # haskell-language-server # LSP
+        # fourmolu # Formatter
+        # hlint # Linter
+        # haskellPackages.haskell-debug-adapter # Debug adapter
+
+        # Markdown
+        nodePackages.markdownlint-cli2 # Linter
+        marksman # LSP
+
+        # Lua
+        lua51Packages.lua
+        lua51Packages.luautf8
+        lua51Packages.luarocks
+        lua-language-server # LSP
+        stylua # Formatter
+
+        # Java
+        # jdt-language-server # LSP
+
+        # JSON
+        vscode-json-languageserver # LSP
+
+        # YAML
+        yaml-language-server # LSP
+
+        # Zig
+        zls # LSP
+
+        # Conform.nvim
+        prettier
+        prettierd
 
         # Stuff that checkhealth told me I needed
         unzip
         sqlite
-        prettierd
-        shfmt
+
         mermaid-cli
-        ghostscript
         icu
         imagemagick
         tree-sitter
-        nodePackages.markdownlint-cli2
-        lua51Packages.lua
-        lua51Packages.luautf8
-        lua51Packages.luarocks
-        python312Packages.pynvim
-
-        biber
-        texliveMedium
-
-        # Language servers
-        vscode-json-languageserver # JSON
-        lua-language-server # Lua
-        marksman # Markdown
-        texlab # LaTeX
-        yaml-language-server # YAML
-        zls # Zig
-        # nil # Nix
-        # lua-language-server # Lua
-        basedpyright # Python
-        # ruff # Python (linter/formatter)
-        # clang-tools # C/C++ (clangd + clang-format)
-        # haskell-language-server # Haskell
-        # haskellPackages.haskell-debug-adapter # Haskell
-        # rust-analyzer # Rust
-        # jdt-language-server # Java
-
-        # Formatters
-        stylua
-        # alejandra # Nix formatter
-        # fourmolu # Haskell
-
-        # Linters
-        statix # Nix
-        # hlint # Haskell
       ];
 
       # Only needed for languages not covered by LazyVim extras
@@ -170,6 +190,10 @@
         svelte
         vue
       ];
+    };
+    home.shellAliases = {
+      lazyvim = "NVIM_APPNAME=lazyvim nvim";
+      pyright-langserver = "basedpyright-langserver";
     };
   };
 }

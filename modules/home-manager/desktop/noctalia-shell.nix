@@ -18,7 +18,7 @@
     programs.noctalia-shell = {
       enable = true;
       settings = {
-        settingsVersion = 46;
+        settingsVersion = 49;
         bar = {
           barType = "simple";
           position = "top";
@@ -47,18 +47,18 @@
                 useDistroLogo = true;
               }
               {
-                characterCount = 2;
+                characterCount = 8;
                 colorizeIcons = false;
-                emptyColor = "secondary";
+                emptyColor = "none";
                 enableScrollWheel = true;
                 focusedColor = "primary";
                 followFocusedScreen = false;
                 groupedBorderOpacity = 1;
-                hideUnoccupied = false;
+                hideUnoccupied = true;
                 iconScale = 0.5;
                 id = "Workspace";
-                labelMode = "index";
-                occupiedColor = "secondary";
+                labelMode = "index+name";
+                occupiedColor = "tertiary";
                 reverseScroll = false;
                 showApplications = false;
                 showBadge = true;
@@ -481,7 +481,6 @@
           lowUrgencyDuration = 3;
           normalUrgencyDuration = 8;
           criticalUrgencyDuration = 15;
-          enableKeyboardLayoutToast = true;
           saveToHistory = {
             low = true;
             normal = true;
@@ -497,6 +496,8 @@
             excludedApps = "discord,firefox,chrome,chromium,edge";
           };
           enableMediaToast = false;
+          enableKeyboardLayoutToast = true;
+          enableBatteryToast = true;
         };
         osd = {
           enabled = true;

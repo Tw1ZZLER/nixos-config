@@ -328,7 +328,6 @@ window-rule {
     // You can get away with just app-id="wezterm" if you want.
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
-    open-on-workspace "term"
 
     // Rounded corners for a modern look.
     // geometry-corner-radius 20
@@ -352,14 +351,20 @@ window-rule {
 // 1) Home Base (browser, comms, occasional file manager)
 window-rule {
     match app-id=r#"(zen|zen-beta|firefox)$"#
-    match app-id=r#"(discord|vesktop|equicord|webcord|element|fractal)$"#
+    match app-id=r#"(discord|vesktop|equibop|webcord|element|fractal)$"#
     match app-id=r#"(org\.kde\.dolphin|dolphin)$"#
     open-on-workspace "home"
 }
 
+// 2) Terminal Hub
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    open-on-workspace "term"
+}
+
 // 3) Documentation & Writing
 window-rule {
-    match app-id=r#"(obsidian|zotero|okular|evince|zathura)$"#
+    match app-id=r#"(obsidian|Zotero|okular|zathura)$"#
     match app-id=r#"libreoffice"#
     match app-id=r#"wps"#
     open-on-workspace "docs"
@@ -367,7 +372,7 @@ window-rule {
 
 // 4) Development
 window-rule {
-    match app-id=r#"(code|codium|code-url-handler|neovide)$"#
+    match app-id=r#"(code|codium|code-url-handler)$"#
     open-on-workspace "dev"
 }
 
@@ -385,13 +390,14 @@ window-rule {
 
 // 7) Media Production
 window-rule {
-    match app-id=r#"(reaper|carla|toneroom)$"#
+    match app-id=r#"(REAPER|carla|toneroom.exe)$"#
     open-on-workspace "prod"
 }
 
 // 8) Gaming & Media Consumption
 window-rule {
-    match app-id=r#"(steam|prismlauncher|mpv)$"#
+    match app-id=r#"^org\.prismlauncher\.PrismLauncher$"#
+    match app-id=r#"(steam|mpv)$"#
     open-on-workspace "game"
 }
 

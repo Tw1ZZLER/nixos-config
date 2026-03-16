@@ -264,6 +264,17 @@ layout {
     }
 }
 
+// Named workspaces: declared in your preferred top-to-bottom order.
+workspace "home"
+workspace "term"
+workspace "docs"
+workspace "dev"
+workspace "robo"
+workspace "rsch"
+workspace "prod"
+workspace "game"
+workspace "music"
+
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
@@ -317,6 +328,7 @@ window-rule {
     // You can get away with just app-id="wezterm" if you want.
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
+    open-on-workspace "term"
 
     // Rounded corners for a modern look.
     // geometry-corner-radius 20
@@ -332,6 +344,55 @@ window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
+}
+
+// Workspace routing rules for your named workspace flow.
+// Tip: use `niri msg pick-window` to verify app IDs and adjust these patterns.
+
+// 1) Home Base (browser, comms, occasional file manager)
+window-rule {
+    match app-id=r#"(zen|zen-beta|firefox)$"#
+    match app-id=r#"(discord|vesktop|equicord|webcord|element|fractal)$"#
+    match app-id=r#"(org\.kde\.dolphin|dolphin)$"#
+    open-on-workspace "home"
+}
+
+// 3) Documentation & Writing
+window-rule {
+    match app-id=r#"(obsidian|zotero|okular|evince|zathura)$"#
+    match app-id=r#"libreoffice"#
+    match app-id=r#"wps"#
+    open-on-workspace "docs"
+}
+
+// 4) Development
+window-rule {
+    match app-id=r#"(code|codium|code-url-handler|neovide)$"#
+    open-on-workspace "dev"
+}
+
+// 5) Robotics / Specialized Dev
+window-rule {
+    match app-id=r#"(minicom|gtkterm|moserial|cutecom|putty)$"#
+    open-on-workspace "robo"
+}
+
+// 6) Research & Simulation
+window-rule {
+    match app-id=r#"(vivado|matlab)$"#
+    open-on-workspace "rsch"
+}
+
+// 7) Media Production
+window-rule {
+    match app-id=r#"(reaper|carla|toneroom)$"#
+    open-on-workspace "prod"
+}
+
+// 8) Gaming & Media Consumption
+window-rule {
+    match app-id=r#"(steam|prismlauncher|mpv)$"#
+    open-on-workspace "game"
 }
 
 // Example: block out two password managers from screen capture.
@@ -400,27 +461,27 @@ binds {
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
     
-    // Workspace switching with numbers
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-    Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
-    Mod+8 { focus-workspace 8; }
-    Mod+9 { focus-workspace 9; }
+    // Named workspace switching (kept on Mod+1..9 muscle memory)
+    Mod+1 { focus-workspace "home";  }
+    Mod+2 { focus-workspace "term";  }
+    Mod+3 { focus-workspace "docs";  }
+    Mod+4 { focus-workspace "dev";   }
+    Mod+5 { focus-workspace "robo";  }
+    Mod+6 { focus-workspace "rsch";  }
+    Mod+7 { focus-workspace "prod";  }
+    Mod+8 { focus-workspace "game";  }
+    Mod+9 { focus-workspace "music"; }
     
-    // Move window to workspace
-    Mod+Shift+1 { move-window-to-workspace 1; }
-    Mod+Shift+2 { move-window-to-workspace 2; }
-    Mod+Shift+3 { move-window-to-workspace 3; }
-    Mod+Shift+4 { move-window-to-workspace 4; }
-    Mod+Shift+5 { move-window-to-workspace 5; }
-    Mod+Shift+6 { move-window-to-workspace 6; }
-    Mod+Shift+7 { move-window-to-workspace 7; }
-    Mod+Shift+8 { move-window-to-workspace 8; }
-    Mod+Shift+9 { move-window-to-workspace 9; }
+    // Move window to named workspace
+    Mod+Shift+1 { move-window-to-workspace "home";  }
+    Mod+Shift+2 { move-window-to-workspace "term";  }
+    Mod+Shift+3 { move-window-to-workspace "docs";  }
+    Mod+Shift+4 { move-window-to-workspace "dev";   }
+    Mod+Shift+5 { move-window-to-workspace "robo";  }
+    Mod+Shift+6 { move-window-to-workspace "rsch";  }
+    Mod+Shift+7 { move-window-to-workspace "prod";  }
+    Mod+Shift+8 { move-window-to-workspace "game";  }
+    Mod+Shift+9 { move-window-to-workspace "music"; }
     
     // Window management
     Mod+Q repeat=false { close-window; } // close window

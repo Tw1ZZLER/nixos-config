@@ -86,6 +86,11 @@
       inputs.flake-compat.follows = "flake-compat";
     };
 
+    # Digilent Waveforms Flake
+    waveforms = {
+      url = "github:DragonHuntrX/waveforms-flake-local";
+    };
+
     # Nixcord - Discord client management for home-manager
     nixcord = {
       url = "github:FlameFlag/nixcord";

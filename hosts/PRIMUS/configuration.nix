@@ -40,26 +40,34 @@
   onu-printers.enable = true;
   onu-drives.enable = true;
 
-  # Boot loader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    # Boot loader
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
 
-  # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+    # Kernel
+    kernelPackages = pkgs.linuxPackages_latest;
+  };
 
   # System76 hardware
   hardware.system76.enableAll = true;
 
   # Networking
-  networking.hostName = "PRIMUS";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "PRIMUS";
+    networkmanager.enable = true;
+  };
 
   hardware.bluetooth.enable = true;
-  services.power-profiles-daemon.enable = true;
-  services.upower.enable = true;
+  services = {
+    power-profiles-daemon.enable = true;
+    upower.enable = true;
 
-  # Touchpad support
-  services.libinput.enable = true;
+    # Touchpad support
+    libinput.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     # C/C++ compiler

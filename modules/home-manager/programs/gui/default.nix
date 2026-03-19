@@ -1,4 +1,7 @@
-{ lib, ... }@args:
+{ lib, ... }:
+let
+  inherit (lib) mkDefault;
+in
 {
   imports = [
     ./ark.nix
@@ -27,28 +30,28 @@
     ./zen-browser.nix
   ];
 
-  ark.enable = lib.mkDefault true;
-  clonehero.enable = lib.mkDefault true;
-  discord.enable = lib.mkDefault true;
-  dolphin.enable = lib.mkDefault true;
-  filelight.enable = lib.mkDefault true;
-  flameshot.enable = lib.mkDefault false; # Only needed if compositor has no screenshot feature
-  gwenview.enable = lib.mkDefault true;
-  krita.enable = lib.mkDefault true;
-  moonlight.enable = lib.mkDefault true;
-  mpv.enable = lib.mkDefault true;
-  obs-studio.enable = lib.mkDefault true;
-  obsidian.enable = lib.mkDefault true;
-  onu.enable = lib.mkDefault false;
-  prismlauncher.enable = lib.mkDefault true;
-  reaper.enable = lib.mkDefault true;
-  research.enable = lib.mkDefault true;
-  thunderbird.enable = lib.mkDefault true;
-  torrent.enable = lib.mkDefault true;
-  twintail-launcher.enable = lib.mkDefault true;
-  vscode.enable = lib.mkDefault true;
-  wezterm.enable = lib.mkDefault true;
-  xilinx.enable = lib.mkDefault false; # Only enable if doing FPGA development
-  zathura.enable = lib.mkDefault true;
-  zen-browser.enable = lib.mkDefault true;
+  ark.enable = mkDefault true;
+  clonehero.enable = mkDefault true;
+  discord.enable = mkDefault true;
+  dolphin.enable = mkDefault true;
+  filelight.enable = mkDefault true;
+  flameshot.enable = mkDefault false; # Only needed if compositor has no screenshot feature
+  gwenview.enable = mkDefault true;
+  krita.enable = mkDefault true;
+  moonlight.enable = mkDefault true;
+  mpv.enable = mkDefault true;
+  obs-studio.enable = mkDefault true;
+  obsidian.enable = mkDefault true;
+  onu.enable = mkDefault false;
+  prismlauncher.enable = mkDefault true;
+  reaper.enable = mkDefault true;
+  research.enable = mkDefault true;
+  thunderbird.enable = mkDefault true;
+  torrent.enable = mkDefault true;
+  twintail-launcher.enable = mkDefault true;
+  vscode.enable = mkDefault true;
+  wezterm.enable = mkDefault true;
+  xilinx.enable = mkDefault false; # Only enable if doing FPGA development
+  zathura.enable = mkDefault true;
+  zen-browser.enable = mkDefault true;
 }

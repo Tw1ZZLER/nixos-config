@@ -40,6 +40,9 @@
   onu-printers.enable = true;
   onu-drives.enable = true;
 
+  # Waveforms program
+  waveforms.enable = true;
+
   boot = {
     # Boot loader
     loader = {

@@ -89,6 +89,7 @@
     # Digilent Waveforms Flake
     waveforms = {
       url = "github:DragonHuntrX/waveforms-flake-local";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Nixcord - Discord client management for home-manager
@@ -151,7 +152,10 @@
     mnw.url = "github:Gerg-L/mnw";
 
     # Trying out LazyVim Flake
-    lazyvim.url = "github:pfassina/lazyvim-nix";
+    lazyvim = {
+      url = "github:pfassina/lazyvim-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Secrets management with SOPS-nix
     sops-nix = {

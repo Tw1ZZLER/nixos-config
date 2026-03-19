@@ -1,5 +1,7 @@
 { lib, ... }:
-with lib;
+let
+  inherit (lib) mkDefault;
+in
 {
   imports = [
     ./fish.nix
@@ -10,6 +12,7 @@ with lib;
     ./steam.nix
     ./system76-keyboard-configurator.nix
     ./trashy.nix
+    ./waveforms.nix
     ./weylus.nix
     ./wine.nix
   ];
@@ -22,6 +25,7 @@ with lib;
   steam.enable = mkDefault true;
   system76-keyboard-configurator.enable = mkDefault true;
   trashy.enable = mkDefault true;
+  waveforms.enable = mkDefault false;
   weylus.enable = mkDefault true;
   wine.enable = mkDefault true;
 }

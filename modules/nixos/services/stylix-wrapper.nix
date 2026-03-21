@@ -15,13 +15,13 @@
 
       # dark mode
       # Catpuccin-frappe from the base16-schemes package
-      # base16Scheme = "${pkgs.unstable.base16-schemes}/share/themes/catppuccin-frappe.yaml";
-      # polarity = "dark";
+      base16Scheme = "${pkgs.unstable.base16-schemes}/share/themes/catppuccin-frappe.yaml";
+      polarity = "dark";
 
       # light mode
       # Catpuccin-latte from the base16-schemes package
-      base16Scheme = "${pkgs.unstable.base16-schemes}/share/themes/catppuccin-latte.yaml";
-      polarity = "light";
+      # base16Scheme = "${pkgs.unstable.base16-schemes}/share/themes/catppuccin-latte.yaml";
+      # polarity = "light";
 
       fonts = {
         serif = {

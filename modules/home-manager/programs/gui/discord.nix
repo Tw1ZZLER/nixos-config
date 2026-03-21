@@ -16,15 +16,12 @@
   };
 
   config = lib.mkIf config.discord.enable {
-
     programs.nixcord = {
       enable = true;
       discord = {
-        vencord.enable = false;
-        equicord.enable = true;
+        vencord.enable = true;
       };
-      vesktop.enable = false;
-      equibop.enable = true;
+      vesktop.enable = true;
       config = {
         frameless = true;
         plugins = {

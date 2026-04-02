@@ -59,6 +59,7 @@
     # Zen Browser Program
     programs.zen-browser = {
       enable = true;
+      setAsDefaultBrowser = true;
 
       # POLICIES
       policies =
@@ -102,6 +103,14 @@
       profiles."tw1zzler" = {
         id = 0;
         isDefault = true;
+
+        # Keyboard Shortcuts
+        keyboardShortcuts = [
+          {
+            id = "zen-compact-mode-toggle";
+            key = "F1";
+          }
+        ];
 
         # Search Engines
         search = {

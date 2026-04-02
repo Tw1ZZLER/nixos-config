@@ -4,8 +4,9 @@
   config,
   inputs,
   ...
-}: {
-  imports = [inputs.mnw.homeManagerModules.default];
+}:
+{
+  imports = [ inputs.mnw.homeManagerModules.default ];
   options = {
     neovim.enable = lib.mkEnableOption "Enable Neovim configuration";
   };
@@ -34,7 +35,7 @@
         LZN.load("plugins")
       '';
 
-      extraLuaPackages = ps: [ps.jsregexp];
+      extraLuaPackages = ps: [ ps.jsregexp ];
 
       providers.nodeJs.enable = true;
       extraBinPath = with pkgs.unstable; [
@@ -52,7 +53,7 @@
         icu
         imagemagick
         tree-sitter
-        nodePackages.markdownlint-cli2
+        markdownlint-cli2
         lua51Packages.lua
         lua51Packages.luautf8
         lua51Packages.luarocks
@@ -79,15 +80,14 @@
       ];
 
       plugins = with pkgs.unstable.vimPlugins; {
-        start =
-          [
-            lz-n
-            plenary-nvim
-            which-key-nvim
-            nvim-web-devicons
-            nvim-treesitter
-          ]
-          ++ nvim-treesitter.withAllGrammars.dependencies;
+        start = [
+          lz-n
+          plenary-nvim
+          which-key-nvim
+          nvim-web-devicons
+          nvim-treesitter
+        ]
+        ++ nvim-treesitter.withAllGrammars.dependencies;
 
         opt = [
           catppuccin-nvim

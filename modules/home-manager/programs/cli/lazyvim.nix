@@ -50,7 +50,7 @@
           };
           markdown = {
             enable = true;
-            installDependencies = true;
+            installDependencies = false;
             installRuntimeDependencies = true;
           };
           nix = {
@@ -143,7 +143,7 @@
         # haskellPackages.haskell-debug-adapter # Debug adapter
 
         # Markdown
-        nodePackages.markdownlint-cli2 # Linter
+        markdownlint-cli2 # Linter
         marksman # LSP
 
         # Lua

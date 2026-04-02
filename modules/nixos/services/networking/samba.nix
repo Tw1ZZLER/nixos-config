@@ -14,7 +14,7 @@
     services = {
       samba = {
         enable = true;
-        package = pkgs.samba4Full;
+        package = pkgs.samba;
       };
 
       # Browse Samba shares

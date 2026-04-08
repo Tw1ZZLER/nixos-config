@@ -1,4 +1,4 @@
-# The best terminal emulator
+# Used to be the best terminal emulator
 {
   pkgs,
   lib,

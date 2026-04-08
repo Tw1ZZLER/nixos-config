@@ -10,6 +10,7 @@ in
     ./dolphin.nix
     ./filelight.nix
     ./flameshot.nix
+    ./ghostty.nix
     ./gwenview.nix
     ./krita.nix
     ./moonlight.nix
@@ -36,6 +37,7 @@ in
   dolphin.enable = mkDefault true;
   filelight.enable = mkDefault true;
   flameshot.enable = mkDefault false; # Only needed if compositor has no screenshot feature
+  ghostty.enable = mkDefault true;
   gwenview.enable = mkDefault true;
   krita.enable = mkDefault true;
   moonlight.enable = mkDefault true;
@@ -50,7 +52,7 @@ in
   torrent.enable = mkDefault true;
   twintail-launcher.enable = mkDefault true;
   vscode.enable = mkDefault true;
-  wezterm.enable = mkDefault true;
+  wezterm.enable = mkDefault false;
   xilinx.enable = mkDefault false; # Only enable if doing FPGA development
   zathura.enable = mkDefault true;
   zen-browser.enable = mkDefault true;

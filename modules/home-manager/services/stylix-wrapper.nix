@@ -44,6 +44,7 @@
       targets = {
         neovim.enable = false;
         wezterm.enable = false;
+        ghostty.enable = false;
         starship.enable = false;
         kde.enable = true;
         gtk.enable = true;

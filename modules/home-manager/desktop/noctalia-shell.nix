@@ -537,12 +537,6 @@
           monitorForColors = "";
         };
         templates = {
-          activeTemplates = [
-            {
-              enabled = true;
-              id = "hyprland";
-            }
-          ];
           enableUserTheming = false;
         };
         nightLight = {

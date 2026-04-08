@@ -498,10 +498,10 @@ binds {
     Mod+Shift+V { switch-focus-between-floating-and-tiling; } // toggle between floating and tiling focus
     
     // Terminal and applications
-    Mod+T { spawn "wezterm"; } // or your terminal
-    Mod+Return { spawn "wezterm";}
+    Mod+T { spawn-sh "ghostty +new-window"; } // or your terminal
+    Mod+Return { spawn-sh "ghostty +new-window"; }
     Mod+B { spawn "zen-beta"; }
-    Mod+F { spawn-sh "wezterm -e yazi"; } // or your file manager
+    Mod+F { spawn-sh "ghostty -e yazi"; } // or your file manager
     
     // Screenshot
     Print { screenshot; }

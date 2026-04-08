@@ -303,7 +303,7 @@
           pinnedApps = [ ];
           useApp2Unit = false;
           sortByMostUsed = true;
-          terminalCommand = "wezterm -e";
+          terminalCommand = "ghostty -e";
           customLaunchPrefixEnabled = false;
           customLaunchPrefix = "";
           viewMode = "list";

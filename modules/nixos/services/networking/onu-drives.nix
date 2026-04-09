@@ -15,7 +15,7 @@
     cifs.enable = true;
     samba.enable = true;
 
-    fileSystems."/mnt/H" = {
+    fileSystems."/home/tw1zzler/drive/onu-hdrive" = {
       device = "//onufs01.onu.edu/home/c-hibler";
       fsType = "cifs";
       options =

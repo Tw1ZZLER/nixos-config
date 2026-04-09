@@ -180,15 +180,29 @@
 
         # Extensions
         extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+          # Wide-spectrum content blocker
+          ublock-origin
+
+          # Userscript manager
+          violentmonkey
+
+          # Userstyle manager
+          stylus
+
+          # Password manager
           bitwarden
+
+          # YouTube extensions
           dearrow
-          web-clipper-obsidian
           return-youtube-dislikes
           sponsorblock
-          stylus
-          ublock-origin
-          violentmonkey
+
+          # Webpage grabber tools
+          web-clipper-obsidian
           zotero-connector
+
+          # QoL
+          no-pdf-download
         ];
 
         # Container Tabs

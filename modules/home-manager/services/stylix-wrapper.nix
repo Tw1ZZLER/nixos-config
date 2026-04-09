@@ -46,6 +46,7 @@
         wezterm.enable = false;
         ghostty.enable = false;
         starship.enable = false;
+        fish.enable = false;
         kde.enable = true;
         gtk.enable = true;
         zen-browser = {

@@ -145,11 +145,12 @@
         '';
       };
       completions = {
-        exercism = {
-          body = ''
-            ${pkgs.unstable.exercism}/bin/exercism completion fish
-          '';
-        };
+        # Later figure out how to extract command output directly to completions
+        # exercism = {
+        #   body = ''
+        #     ${pkgs.unstable.exercism}/bin/exercism completion fish
+        #   '';
+        # };
       };
     };
 

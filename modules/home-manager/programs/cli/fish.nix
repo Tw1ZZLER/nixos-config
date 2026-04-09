@@ -109,14 +109,6 @@
           end
         '';
 
-        # Run Silk server and GUI
-        runsilk = ''
-          cd /home/tw1zzler/Silk
-          python -m server &
-          cd /home/tw1zzler/Silk/GUI
-          python -m http.server 8000 &
-        '';
-
         # Copy DIR1 DIR2
         copy = ''
           set count (count $argv | tr -d \n)

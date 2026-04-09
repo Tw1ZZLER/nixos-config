@@ -77,18 +77,19 @@
         "l." = "eza -ald --color=always --group-directories-first --icons .*"; # show only dotfiles
       };
 
-      # First set proper fish theme
       # Hide welcome message & ensure we are reporting fish as shell
       ## Set values
       # Set settings for https://github.com/franciscolourenco/done
-      # Last enable transient prompt
       shellInit = ''
-        fish_config theme choose catppuccin-frappe
         set fish_greeting
         set VIRTUAL_ENV_DISABLE_PROMPT 1
         set -U __done_min_cmd_duration 10000
         set -U __done_notification_urgency_level low
-        enable_transience
+      '';
+
+      # Set proper fish theme
+      interactiveShellInit = ''
+        fish_config theme choose catppuccin-frappe
       '';
 
       functions = {

@@ -55,7 +55,6 @@
         "dir" = "dir --color=auto";
         "grep" = "rg";
         "egrep" = "egrep --color=auto";
-        "fastfetch" = "fastfetch -l nixos";
         "fgrep" = "fgrep --color=auto";
         "gitlog" = "git log --oneline --graph --decorate --all";
         "ip" = "ip --color=auto";

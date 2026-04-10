@@ -15,11 +15,12 @@
       package = pkgs.unstable.fastfetch;
       settings = {
         logo = {
-          type = "builtin";
-          height = 1;
-          width = 1;
+          type = "kitty-direct";
+          source = "${pkgs.nixos-icons}/share/icons/hicolor/1024x1024/apps/nix-snowflake.png";
+          height = 20;
+          width = 50;
           padding = {
-            top = 3;
+            top = 0;
             left = 1;
           };
         };

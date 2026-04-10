@@ -21,7 +21,10 @@
       enableInteractive = true;
 
       package = pkgs.unstable.starship;
-      settings = lib.mkForce (builtins.fromTOML (builtins.readFile ../../../../dotfiles/starship.toml));
+      presets = [
+        "nerd-font-symbols"
+      ];
+      # settings = lib.mkForce (builtins.fromTOML (builtins.readFile ../../../../dotfiles/starship.toml));
     };
   };
 }

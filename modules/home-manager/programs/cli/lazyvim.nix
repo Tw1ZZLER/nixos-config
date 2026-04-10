@@ -12,6 +12,13 @@
   };
 
   config = lib.mkIf config.lazyvim.enable {
+    home = {
+      sessionVariables = {
+        EDITOR = "lazyvim";
+        VISUAL = "lazyvim";
+      };
+    };
+
     programs.lazyvim = {
       enable = true;
 

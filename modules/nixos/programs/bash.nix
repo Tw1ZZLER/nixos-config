@@ -63,6 +63,8 @@
         "use" = "nix shell nixpkgs#";
         "vdir" = "vdir --color=auto";
         "wget" = "wget -c";
+        "ff" = "fastfetch";
+        "lv" = "lazyvim";
       };
     };
   };

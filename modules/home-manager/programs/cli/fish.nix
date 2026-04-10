@@ -45,6 +45,8 @@
         "tree" = "eza --git --color always -T";
         "untar" = "tar -zxvf ";
         "use" = "nix shell nixpkgs#";
+        "ff" = "fastfetch";
+        "lv" = "lazyvim";
       };
       shellAliases = {
         # Replace some more things with better alternatives

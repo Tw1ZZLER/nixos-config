@@ -1,4 +1,7 @@
 { lib, ... }@args:
+let
+  inherit (lib) mkDefault mkIf;
+in
 {
   imports = [
     ./bat.nix
@@ -25,26 +28,26 @@
     ./yazi.nix
   ];
 
-  bat.enable = lib.mkDefault true;
-  btop.enable = lib.mkDefault true;
-  direnv.enable = lib.mkDefault true;
-  exercism.enable = lib.mkDefault true;
-  eza.enable = lib.mkDefault true;
-  fastfetch.enable = lib.mkDefault true;
-  fd.enable = lib.mkDefault true;
-  fish.enable = lib.mkDefault true;
-  fzf.enable = lib.mkDefault true;
-  git.enable = lib.mkDefault true;
-  lazyvim.enable = lib.mkDefault true;
-  neovim.enable = lib.mkDefault false;
-  nix-helper.enable = lib.mkDefault true;
-  nix-index.enable = lib.mkDefault true;
-  nixgl.enable = lib.mkIf (args ? osConfig) (lib.mkDefault true);
-  python.enable = lib.mkDefault true;
-  ripgrep.enable = lib.mkDefault true;
-  rmpc.enable = lib.mkDefault true;
-  sqlite.enable = lib.mkDefault true;
-  starship.enable = lib.mkDefault true;
-  wget.enable = lib.mkDefault true;
-  yazi.enable = lib.mkDefault true;
+  bat.enable = mkDefault true;
+  btop.enable = mkDefault true;
+  direnv.enable = mkDefault true;
+  exercism.enable = mkDefault true;
+  eza.enable = mkDefault true;
+  fastfetch.enable = mkDefault true;
+  fd.enable = mkDefault true;
+  fish.enable = mkDefault true;
+  fzf.enable = mkDefault true;
+  git.enable = mkDefault true;
+  lazyvim.enable = mkDefault true;
+  neovim.enable = mkDefault false;
+  nix-helper.enable = mkDefault true;
+  nix-index.enable = mkDefault true;
+  nixgl.enable = mkIf (args ? osConfig) (mkDefault true);
+  python.enable = mkDefault true;
+  ripgrep.enable = mkDefault true;
+  rmpc.enable = mkDefault true;
+  sqlite.enable = mkDefault true;
+  starship.enable = mkDefault true;
+  wget.enable = mkDefault true;
+  yazi.enable = mkDefault true;
 }

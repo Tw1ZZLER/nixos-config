@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ./bash.nix
     ./fish.nix
     ./gpu-screen-recorder.nix
     ./nix-ld.nix
@@ -17,6 +18,7 @@ in
     ./wine.nix
   ];
 
+  bash.enable = mkDefault true;
   fish.enable = mkDefault true;
   gpu-screen-recorder.enable = mkDefault true;
   nix-ld.enable = mkDefault true;

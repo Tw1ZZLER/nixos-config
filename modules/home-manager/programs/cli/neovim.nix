@@ -15,7 +15,10 @@
     home = {
       shellAliases.vimdiff = "nvim -d";
       shellAliases.nvim-dev = "${config.programs.mnw.finalPackage.devMode}/bin/nvim";
-      sessionVariables.EDITOR = "nvim";
+      sessionVariables = {
+        EDITOR = "nvim";
+        VISUAL = "nvim";
+      };
     };
 
     programs.mnw = {

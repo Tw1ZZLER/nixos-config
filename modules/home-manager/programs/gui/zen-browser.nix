@@ -197,6 +197,15 @@
           return-youtube-dislikes
           sponsorblock
 
+          # TRANS RIGHTS!!!!!!!!!!!!!!!
+          # I am not trans but I am a strong ally
+          # A browser addon that highlights transphobic and trans-friendly
+          # social network pages and users with different colors.
+          shinigami-eyes
+
+          # Redirects from corporate wiki farms to independent wikis
+          indie-wiki-buddy
+
           # Webpage grabber tools
           web-clipper-obsidian
           zotero-connector

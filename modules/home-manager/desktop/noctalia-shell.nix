@@ -559,6 +559,10 @@
           startup = "";
           session = "";
         };
+        plugins = {
+          autoUpdate = true;
+          notifyUpdates = true;
+        };
         desktopWidgets = {
           enabled = false;
           gridSnap = false;

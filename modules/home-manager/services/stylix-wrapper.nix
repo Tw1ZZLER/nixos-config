@@ -43,7 +43,6 @@
       };
       targets = {
         neovim.enable = false;
-        wezterm.enable = false;
         ghostty.enable = false;
         starship.enable = false;
         fish.enable = false;

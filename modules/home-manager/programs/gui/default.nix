@@ -26,7 +26,6 @@ in
     ./torrent.nix
     ./twintail-launcher.nix
     ./vscode.nix
-    ./wezterm.nix
     ./xilinx.nix
     ./zathura.nix
     ./zen-browser.nix
@@ -54,7 +53,6 @@ in
   torrent.enable = mkDefault true;
   twintail-launcher.enable = mkDefault true;
   vscode.enable = mkDefault true;
-  wezterm.enable = mkDefault false;
   xilinx.enable = mkDefault false; # Only enable if doing FPGA development
   zathura.enable = mkDefault true;
   zen-browser.enable = mkDefault true;

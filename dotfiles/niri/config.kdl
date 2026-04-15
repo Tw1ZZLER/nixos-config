@@ -320,22 +320,6 @@ animations {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 
-// Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
-window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-
-    // Rounded corners for a modern look.
-    // geometry-corner-radius 20
-
-    // Clips window cotents to the rounded corner boundaries.
-    clip-to-geometry true
-}
-
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
@@ -358,7 +342,7 @@ window-rule {
 
 // 2) Terminal Hub
 window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    // I open terminals everywhere, so a rule keeping them here would just be annoying
     open-on-workspace "term"
 }
 

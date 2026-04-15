@@ -19,7 +19,7 @@
   mpd.enable = true;
 
   # Disable some GUI apps that don't work due to graphics
-  wezterm.enable = false;
+  ghostty.enable = false;
   filelight.enable = false;
   dolphin.enable = false;
   ark.enable = false;

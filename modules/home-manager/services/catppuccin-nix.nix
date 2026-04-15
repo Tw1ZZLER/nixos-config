@@ -19,7 +19,6 @@
       flavor = "frappe";
       accent = "red";
       nvim.enable = false;
-      wezterm.enable = false;
       starship.enable = false;
     };
   };

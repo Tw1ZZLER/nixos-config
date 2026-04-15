@@ -1,9 +1,7 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
-  inputs,
   outputs,
-  pkgs,
   ...
 }:
 {
@@ -17,6 +15,9 @@
 
   # Enable ONU stuff
   onu.enable = true;
+
+  # Slack I guess
+  slack.enable = true;
 
   # Must pass hostname to Syncthing wrapper on non-NixOS hosts
   syncthing.hostName = "PRIMUS";

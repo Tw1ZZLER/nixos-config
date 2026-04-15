@@ -21,6 +21,7 @@ in
     ./prismlauncher.nix
     ./reaper.nix
     ./research.nix
+    ./slack.nix
     ./thunderbird.nix
     ./torrent.nix
     ./twintail-launcher.nix
@@ -48,6 +49,7 @@ in
   prismlauncher.enable = mkDefault true;
   reaper.enable = mkDefault true;
   research.enable = mkDefault true;
+  slack.enable = mkDefault false;
   thunderbird.enable = mkDefault true;
   torrent.enable = mkDefault true;
   twintail-launcher.enable = mkDefault true;

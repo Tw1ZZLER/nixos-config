@@ -24,7 +24,6 @@
       presets = [
         "nerd-font-symbols"
       ];
-      # settings = lib.mkForce (builtins.fromTOML (builtins.readFile ../../../../dotfiles/starship.toml));
     };
   };
 }

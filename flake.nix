@@ -278,12 +278,6 @@
     # Minimal Neovim Wrapper
     mnw.url = "github:Gerg-L/mnw";
 
-    # Trying out LazyVim Flake
-    lazyvim = {
-      url = "github:pfassina/lazyvim-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     #
     # ========= Ricing =========
     #

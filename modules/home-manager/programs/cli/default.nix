@@ -14,7 +14,6 @@ in
     ./fish.nix
     ./fzf.nix
     ./git.nix
-    ./lazyvim.nix
     ./neovim.nix
     ./nix-helper.nix
     ./nix-index.nix
@@ -38,8 +37,7 @@ in
   fish.enable = mkDefault true;
   fzf.enable = mkDefault true;
   git.enable = mkDefault true;
-  lazyvim.enable = mkDefault true;
-  neovim.enable = mkDefault false;
+  neovim.enable = mkDefault true;
   nix-helper.enable = mkDefault true;
   nix-index.enable = mkDefault true;
   nixgl.enable = mkIf (args ? osConfig) (mkDefault true);

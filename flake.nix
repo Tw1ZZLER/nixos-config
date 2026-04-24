@@ -272,9 +272,6 @@
       inputs.flake-compat.follows = "flake-compat";
     };
 
-    # Minimal Neovim Wrapper
-    mnw.url = "github:Gerg-L/mnw";
-
     #
     # ========= Ricing =========
     #

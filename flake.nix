@@ -139,9 +139,6 @@
   # \______|\__|  \__|\__|       \______/    \__|    \______/
 
   inputs = {
-    # Enable flake support for Git submodules
-    self.submodules = true;
-
     #
     # ========= Official NixOS, Darwin, and HM Package Sources =========
     #

@@ -192,12 +192,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Firefox Add-ons from NUR
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # NixOS Anywhere
     nixos-anywhere = {
       url = "github:nix-community/nixos-anywhere";
@@ -206,6 +200,40 @@
         flake-parts.follows = "flake-parts";
         disko.follows = "disko";
       };
+    };
+
+    # Garuda Linux Nix Subsystem
+    garuda = {
+      url = "gitlab:garuda-linux/garuda-nix-subsystem/stable";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        nix-index-database.follows = "nix-index-database";
+        home-manager.follows = "home-manager";
+      };
+    };
+
+    # NixGL
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # NixOS Raspberry Pi configurations
+    # follow `main` branch of this repository, considered being stable
+    nixos-raspberrypi = {
+      url = "github:nvmd/nixos-raspberrypi/main";
+      inputs.flake-compat.follows = "flake-compat";
+    };
+
+    #
+    # ========= Applications =========
+    #
+    # My Neovim Configuration
+    # If using anywhere else, change to GitHub url
+    vimridian = {
+	url = "path:/home/tw1zzler/proj/vimridian";
+	inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     # Zen Browser
@@ -217,6 +245,12 @@
         nixpkgs.follows = "nixpkgs-unstable";
         home-manager.follows = "home-manager";
       };
+    };
+
+    # Firefox Add-ons from NUR
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Xilinx / Vivado Flake
@@ -246,30 +280,6 @@
     twintail-launcher = {
       url = "github:Tw1ZZLER/twintail-launcher-flake";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Garuda Linux Nix Subsystem
-    garuda = {
-      url = "gitlab:garuda-linux/garuda-nix-subsystem/stable";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-        nix-index-database.follows = "nix-index-database";
-        home-manager.follows = "home-manager";
-      };
-    };
-
-    # NixGL
-    nixgl = {
-      url = "github:nix-community/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # NixOS Raspberry Pi configurations
-    # follow `main` branch of this repository, considered being stable
-    nixos-raspberrypi = {
-      url = "github:nvmd/nixos-raspberrypi/main";
-      inputs.flake-compat.follows = "flake-compat";
     };
 
     #

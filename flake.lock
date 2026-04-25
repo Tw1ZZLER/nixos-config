@@ -463,6 +463,21 @@
         "type": "github"
       }
     },
+    "mnw": {
+      "locked": {
+        "lastModified": 1776530647,
+        "narHash": "sha256-AHM3wNuC5zzGaygnovHqFUI0YJR1Jj7ZgK9D9m7cgMQ=",
+        "owner": "Gerg-L",
+        "repo": "mnw",
+        "rev": "54f7ad6e34f4e44e0260a5140af7726a4792dece",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gerg-L",
+        "repo": "mnw",
+        "type": "github"
+      }
+    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -867,6 +882,7 @@
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "twintail-launcher": "twintail-launcher",
+        "vimridian": "vimridian",
         "waveforms": "waveforms",
         "zen-browser": "zen-browser"
       }
@@ -1174,6 +1190,24 @@
         "ref": "stable",
         "repo": "TwintailLauncher",
         "type": "github"
+      }
+    },
+    "vimridian": {
+      "inputs": {
+        "mnw": "mnw",
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1777076136,
+        "narHash": "sha256-x2R/b1X/7EJzIIva85Zq3T9vtmW/kgbKtfzPXqRwnqo=",
+        "path": "/home/tw1zzler/proj/vimridian",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/tw1zzler/proj/vimridian",
+        "type": "path"
       }
     },
     "waveforms": {

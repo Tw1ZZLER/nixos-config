@@ -189,6 +189,29 @@
                 warningThreshold = 15;
               }
               {
+                defaultSettings = {
+                  compactMode = false;
+                  defaultPeerAction = "copy-ip";
+                  hideDisconnected = false;
+                  hideMullvadExitNodes = true;
+                  loginServer = "";
+                  pingCount = 5;
+                  refreshInterval = 5000;
+                  showIpAddress = true;
+                  showPeerCount = true;
+                  sshUsername = "";
+                  taildropDownloadDir = "~/Downloads";
+                  taildropEnabled = true;
+                  taildropReceiveMode = "operator";
+                  terminalCommand = "";
+                };
+                id = "plugin:tailscale";
+              }
+              {
+                defaultSettings = { };
+                id = "plugin:kde-connect";
+              }
+              {
                 displayMode = "onhover";
                 id = "Network";
               }

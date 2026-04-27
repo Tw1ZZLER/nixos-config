@@ -15,7 +15,7 @@
       wineWow64Packages.staging
       winetricks
       wineasio # JACK to ASIO driver
-      (bottles.override { removeWarningPopup = true; }) # GUI for managing Wine prefixes
+      # (bottles.override { removeWarningPopup = true; }) # GUI for managing Wine prefixes
     ];
   };
 }

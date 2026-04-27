@@ -134,6 +134,17 @@
                 id = "plugin:privacy-indicator";
               }
               {
+                defaultSettings = {
+                  autoStartBreaks = false;
+                  autoStartWork = false;
+                  longBreakDuration = 15;
+                  sessionsBeforeLongBreak = 4;
+                  shortBreakDuration = 5;
+                  workDuration = 25;
+                };
+                id = "plugin:pomodoro";
+              }
+              {
                 hideWhenZero = true;
                 hideWhenZeroUnread = false;
                 id = "NotificationHistory";

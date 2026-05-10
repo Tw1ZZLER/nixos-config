@@ -10,6 +10,9 @@
   };
 
   config = lib.mkIf config.stylix-wrapper.enable {
+    # Fix GTK4 theme warning
+    gtk.gtk4.theme = config.gtk.theme;
+
     stylix = {
       enable = true;
 

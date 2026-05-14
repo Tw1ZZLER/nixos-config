@@ -198,7 +198,7 @@
           sponsorblock
 
           # TRANS RIGHTS!!!!!!!!!!!!!!!
-          # I am not trans but I am a strong ally
+          # (I am not trans but I am a strong ally)
           # A browser addon that highlights transphobic and trans-friendly
           # social network pages and users with different colors.
           shinigami-eyes
@@ -264,29 +264,23 @@
               container = containers."College".id;
               position = 3000;
             };
-            "ACM" = {
-              id = "5d6a2f3a-d301-400f-aadc-9a391567d3ee";
-              icon = "💻";
-              container = containers."College".id;
-              position = 4000;
-            };
             "Leisure" = {
               id = "8f7f9ec5-e9d4-464c-b41b-82078057b4e8";
               icon = "🧊"; # get it, cuz chilling
               container = containers."Personal".id;
-              position = 5000;
+              position = 4000;
             };
             "Music" = {
               id = "{1b1efd97-f8e8-42f7-926e-3dc4867d66fc}";
               icon = "🎼";
               container = containers."Personal".id;
-              position = 6000;
+              position = 5000;
             };
             "Finance" = {
               id = "b888bece-ded5-4708-af08-f49e45604edd";
               icon = "🪙";
               container = containers."Banking".id;
-              position = 7000;
+              position = 6000;
             };
           };
       };

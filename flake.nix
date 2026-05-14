@@ -10,9 +10,10 @@
   #  $$$$$$  |\$$$$$$  |   $$ |   $$ |      \$$$$$$  |   $$ |   \$$$$$$  |
   #  \______/  \______/    \__|   \__|       \______/    \__|    \______/
 
-  outputs = inputs: inputs.flake-parts.lib.mkFlake
-    { inherit inputs; }
-    ( inputs.import-tree ./modules );
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake
+    {inherit inputs;}
+    (inputs.import-tree ./modules);
 
   # outputs =
   #   {
@@ -192,7 +193,6 @@
     #   url = "github:BirdeeHub/nix-wrapper-modules";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
-
 
     # Mainly here for `follows` optimization
     # https://nixos.wiki/wiki/Flakes#Using_flakes_project_from_a_legacy_Nix

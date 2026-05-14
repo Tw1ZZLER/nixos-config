@@ -1,7 +1,8 @@
-{ self, inputs, ... }: {
+{ self, inputs, ... }:
+{
 
-    flake.nixosConfigurations.PRIMUS = inputs.nixpkgs.lib.nixosSystem {
-        modules = [ ];
-    };
+  flake.nixosConfigurations.PRIMUS = inputs.nixpkgs.lib.nixosSystem {
+    modules = [ ];
+  };
 
 }

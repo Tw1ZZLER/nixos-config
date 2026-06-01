@@ -1,12 +1,15 @@
 { lib, ... }:
+with lib;
 {
   imports = [
+    ./argonne-printers.nix
     ./graphics.nix
     ./intel-graphics.nix
     ./onu-printers.nix
   ];
 
-  graphics.enable = lib.mkDefault true;
-  intel-graphics.enable = lib.mkDefault false;
-  onu-printers.enable = lib.mkDefault false;
+  argonne-printers.enable = mkDefault false;
+  graphics.enable = mkDefault true;
+  intel-graphics.enable = mkDefault false;
+  onu-printers.enable = mkDefault false;
 }

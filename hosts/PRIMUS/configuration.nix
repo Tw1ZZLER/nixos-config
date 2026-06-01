@@ -40,6 +40,9 @@
   onu-printers.enable = true;
   onu-drives.enable = true;
 
+  # Argonne Printers
+  argonne-printers.enable = true;
+
   # Waveforms program
   waveforms.enable = true;
 

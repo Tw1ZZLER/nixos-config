@@ -12,7 +12,7 @@
           description = "Argonne NiagaraFalls Printer";
           location = "5C5";
           deviceUri = "lpd://printers.anl.gov/NiagaraFalls";
-          model = "everywhere";
+          model = "drv:///sample.drv/generic.ppd";
           ppdOptions = {
             AuthInfoRequired = "username,password";
           };

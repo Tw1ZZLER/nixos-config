@@ -37,6 +37,7 @@
       self.homeModules.yazi
 
       # GUI Programs
+      # self.homeModules.clone-hero-nixgl - this isnt working idk why
       self.homeModules.discord
       self.homeModules.ghostty
       self.homeModules.ghostty-nixgl

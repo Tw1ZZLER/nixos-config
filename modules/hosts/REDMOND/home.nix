@@ -42,6 +42,7 @@
       self.homeModules.prismlauncher
       self.homeModules.zathura
       self.homeModules.zen-browser
+      self.homeModules.zen-browser-nixgl
 
       # Services
       self.homeModules.nixgl

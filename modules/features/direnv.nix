@@ -4,11 +4,10 @@
   inputs,
   ...
 }: {
-  flake.homeModules.direnv = {pkgs, ...}: {
+  flake.homeModules.direnv = {...}: {
     programs.direnv = {
       enable = true;
       nix-direnv.enable = true;
-      nix-direnv.package = pkgs.nix-direnv;
     };
   };
 }

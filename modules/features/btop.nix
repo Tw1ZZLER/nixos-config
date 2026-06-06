@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.btop = {pkgs, ...}: {
+  flake.homeModules.btop = {...}: {
     programs.btop = {
       enable = true;
       settings = {

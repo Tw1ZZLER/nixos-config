@@ -287,6 +287,27 @@
         "type": "github"
       }
     },
+    "flake-parts_2": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "nixos-anywhere",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778716662,
+        "narHash": "sha256-m1Yf0wZ8j1OHjTc2UwHwyQRSnNeSgLJOd7q5Y45hzi4=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "f7c1a2d347e4c52d5fb8d10cb4d94b5884e546fb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -610,6 +631,7 @@
         "disko": [
           "disko"
         ],
+        "flake-parts": "flake-parts_2",
         "nix-vm-test": "nix-vm-test",
         "nixos-images": "nixos-images",
         "nixos-stable": "nixos-stable",
@@ -1212,8 +1234,8 @@
         ]
       },
       "locked": {
-        "lastModified": 1780623695,
-        "narHash": "sha256-4MubqinLXrNRytNDz96npCqkUbQz9K41RgA99czpW5o=",
+        "lastModified": 1780624014,
+        "narHash": "sha256-MmsOjOR2KnZ75m99TL+Wa/NuQZRtjdSUNsOKOOdnapc=",
         "path": "/home/tw1zzler/proj/vimridian",
         "type": "path"
       },

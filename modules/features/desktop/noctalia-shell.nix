@@ -1,20 +1,14 @@
+# Enable Noctalia Shell
 {
-  pkgs,
+  self,
   inputs,
-  lib,
-  config,
   ...
-}:
-{
-  # import the home manager module
-  imports = [
-    inputs.noctalia.homeModules.default
-  ];
-
-  options = {
-    noctalia-shell.enable = lib.mkEnableOption "Enable Noctalia Shell integration.";
-  };
-  config = lib.mkIf config.noctalia-shell.enable {
+}: {
+  flake.homeModules.noctalia-shell = {...}: {
+    # import the home manager module
+    imports = [
+      inputs.noctalia.homeModules.default
+    ];
     programs.noctalia-shell = {
       enable = true;
       settings = {
@@ -22,7 +16,7 @@
         bar = {
           barType = "simple";
           position = "top";
-          monitors = [ ];
+          monitors = [];
           density = "default";
           showOutline = false;
           showCapsule = true;
@@ -152,12 +146,12 @@
                 unreadBadgeColor = "primary";
               }
               {
-                blacklist = [ ];
+                blacklist = [];
                 colorizeIcons = false;
                 drawerEnabled = false;
                 hidePassive = false;
                 id = "Tray";
-                pinned = [ ];
+                pinned = [];
               }
               {
                 displayMode = "onhover";
@@ -208,7 +202,7 @@
                 id = "plugin:tailscale";
               }
               {
-                defaultSettings = { };
+                defaultSettings = {};
                 id = "plugin:kde-connect";
               }
               {
@@ -230,7 +224,7 @@
           rightClickAction = "controlCenter";
           rightClickFollowMouse = true;
           rightClickCommand = "";
-          screenOverrides = [ ];
+          screenOverrides = [];
         };
         general = {
           avatarImage = "/home/tw1zzler/.face";
@@ -266,7 +260,7 @@
           clockStyle = "custom";
           clockFormat = "hh\nmm";
           passwordChars = false;
-          lockScreenMonitors = [ ];
+          lockScreenMonitors = [];
           lockScreenBlur = 0;
           lockScreenTint = 0;
           keybinds = {
@@ -340,7 +334,7 @@
           enabled = true;
           overviewEnabled = false;
           directory = "/home/tw1zzler/media/img/wallpapers";
-          monitorDirectories = [ ];
+          monitorDirectories = [];
           enableMultiMonitorDirectories = false;
           showHiddenFiles = false;
           viewMode = "single";
@@ -376,7 +370,7 @@
           wallhavenResolutionWidth = "";
           wallhavenResolutionHeight = "";
           sortOrder = "name";
-          favorites = [ ];
+          favorites = [];
         };
         appLauncher = {
           enableClipboardHistory = true;
@@ -388,7 +382,7 @@
           clipboardWatchTextCommand = "wl-paste --type text --watch cliphist store";
           clipboardWatchImageCommand = "wl-paste --type image --watch cliphist store";
           position = "center";
-          pinnedApps = [ ];
+          pinnedApps = [];
           sortByMostUsed = true;
           terminalCommand = "ghostty -e";
           customLaunchPrefixEnabled = false;
@@ -500,8 +494,8 @@
           floatingRatio = 1;
           size = 1.25;
           onlySameOutput = true;
-          monitors = [ ];
-          pinnedApps = [ ];
+          monitors = [];
+          pinnedApps = [];
           colorizeIcons = false;
           pinnedStatic = false;
           inactiveIndicators = false;
@@ -569,7 +563,7 @@
           enabled = true;
           enableMarkdown = false;
           density = "default";
-          monitors = [ ];
+          monitors = [];
           location = "bottom_right";
           overlayLayer = true;
           # backgroundOpacity = 1;
@@ -607,7 +601,7 @@
             1
             2
           ];
-          monitors = [ ];
+          monitors = [];
         };
         audio = {
           volumeStep = 5;
@@ -615,7 +609,7 @@
           spectrumFrameRate = 30;
           visualizerType = "linear";
           spectrumMirrored = true;
-          mprisBlacklist = [ ];
+          mprisBlacklist = [];
           preferredPlayer = "mpv";
           volumeFeedback = false;
           volumeFeedbackSoundFile = "";
@@ -624,7 +618,7 @@
           brightnessStep = 5;
           enforceMinimum = true;
           enableDdcSupport = true;
-          backlightDeviceMappings = [ ];
+          backlightDeviceMappings = [];
         };
         colorSchemes = {
           useWallpaperColors = false;
@@ -638,7 +632,7 @@
           syncGsettings = true;
         };
         templates = {
-          activeTemplates = [ ];
+          activeTemplates = [];
           enableUserTheming = false;
         };
         nightLight = {
@@ -685,7 +679,7 @@
           overviewEnabled = true;
           gridSnap = false;
           gridSnapScale = false;
-          monitorWidgets = [ ];
+          monitorWidgets = [];
         };
       };
     };

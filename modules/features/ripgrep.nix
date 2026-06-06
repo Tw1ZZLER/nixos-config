@@ -6,7 +6,7 @@
   flake.homeModules.ripgrep = {pkgs, ...}: {
     programs.ripgrep = {
       enable = true;
-      package = pkgs.unstable.ripgrep;
+      package = pkgs.ripgrep;
     };
   };
 }

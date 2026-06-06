@@ -3,10 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.bat = {pkgs, ...}: {
-    programs.bat = {
-      enable = true;
-      package = pkgs.unstable.bat;
-    };
+  flake.homeModules.bat = { ... }: {
+    programs.bat.enable = true;
   };
 }

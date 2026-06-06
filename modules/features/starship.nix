@@ -15,7 +15,7 @@
       enableTransience = true;
       enableInteractive = true;
 
-      package = pkgs.unstable.starship;
+      package = pkgs.starship;
       presets = [
         "nerd-font-symbols"
       ];

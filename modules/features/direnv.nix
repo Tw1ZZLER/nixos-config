@@ -16,9 +16,9 @@
     config = lib.mkIf config.direnv.enable {
       programs.direnv = {
         enable = true;
-        package = pkgs.unstable.direnv;
+        package = pkgs.direnv;
         nix-direnv.enable = true;
-        nix-direnv.package = pkgs.unstable.nix-direnv;
+        nix-direnv.package = pkgs.nix-direnv;
       };
     };
   };

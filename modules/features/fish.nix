@@ -7,21 +7,21 @@
   # Vendor completions provided by Nixpkgs require this module to be enabled.
   flake.nixosModules.fish = {pkgs, ...}: {
     programs.fish.enable = true;
-    environment.systemPackages = with pkgs.unstable; [grc];
+    environment.systemPackages = with pkgs; [grc];
   };
 
   flake.homeModules.fish = {pkgs, ...}: {
     home.sessionVariables = {
-      SHELL = "${pkgs.unstable.fish}/bin/fish";
+      SHELL = "${pkgs.fish}/bin/fish";
 
       # Use bat for man pages
-      MANPAGER = "sh -c 'col -bx | ${pkgs.unstable.bat}/bin/bat -l man -p'";
+      MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
       MANROFFOPT = "-c";
     };
 
     programs.fish = {
       enable = true;
-      package = pkgs.unstable.fish;
+      package = pkgs.fish;
       shellAbbrs = {
         ".." = "cd ..";
         "..." = "cd ../../";
@@ -151,13 +151,13 @@
         # Later figure out how to extract command output directly to completions
         # exercism = {
         #   body = ''
-        #     ${pkgs.unstable.exercism}/bin/exercism completion fish
+        #     ${pkgs.exercism}/bin/exercism completion fish
         #   '';
         # };
       };
     };
 
-    home.packages = with pkgs.unstable.fishPlugins; [
+    home.packages = with pkgs.fishPlugins; [
       bass
       autopair
       grc

@@ -6,7 +6,7 @@
   flake.homeModules.eza = {pkgs, ...}: {
     programs.eza = {
       enable = true;
-      package = pkgs.unstable.eza;
+      package = pkgs.eza;
     };
   };
 }

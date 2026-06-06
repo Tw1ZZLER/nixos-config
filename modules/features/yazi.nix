@@ -6,14 +6,14 @@
   flake.homeModules.yazi = {pkgs, ...}: {
     programs.yazi = {
       enable = true;
-      package = pkgs.unstable.yazi;
+      package = pkgs.yazi;
       enableBashIntegration = true;
       enableZshIntegration = true;
       enableNushellIntegration = true;
       enableFishIntegration = true;
       shellWrapperName = "y";
 
-      plugins = with pkgs.unstable.yaziPlugins; {
+      plugins = with pkgs.yaziPlugins; {
         inherit
           chmod
           diff

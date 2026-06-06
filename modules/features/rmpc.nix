@@ -6,7 +6,7 @@
   flake.homeModules.rmpc = {pkgs, ...}: {
     programs.rmpc = {
       enable = true;
-      package = pkgs.unstable.rmpc;
+      package = pkgs.rmpc;
       config = ''
         (
             address: "100.80.238.41:6600",

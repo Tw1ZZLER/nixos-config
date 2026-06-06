@@ -16,10 +16,10 @@
 
     programs.lazygit = {
       enable = true;
-      package = pkgs.unstable.lazygit;
+      package = pkgs.lazygit;
     };
 
-    home.packages = with pkgs.unstable; [
+    home.packages = with pkgs; [
       gh # GitHub CLI
       codeberg-cli # gh-like tool for Codeberg
     ];

@@ -1,16 +1,11 @@
 # Python stuff
 # This is for GENERAL PURPOSE PYthon usage, for project-specific stuff use poetry.nix or flakes.nix
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    python.enable = lib.mkEnableOption "Enable general purpose Python packages";
-  };
-  config = lib.mkIf config.python.enable {
+}: {
+  flake.homeModules.python = {pkgs, ...}: {
     home.packages = with pkgs.unstable; [
       python313
       python313Packages.pip

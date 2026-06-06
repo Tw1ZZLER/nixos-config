@@ -41,6 +41,7 @@
       self.homeModules.discord
       self.homeModules.ghostty
       self.homeModules.ghostty-nixgl
+      self.homeModules.mpv
       self.homeModules.prismlauncher
       self.homeModules.prismlauncher-nixgl
       self.homeModules.slack

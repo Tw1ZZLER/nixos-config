@@ -1,15 +1,9 @@
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    fastfetch.enable = lib.mkEnableOption "Enable fastfetch, a fast and highly customizable system information tool";
-  };
-
-  config = lib.mkIf config.fastfetch.enable {
+}: {
+  flake.homeModules.fastfetch = {pkgs, ...}: {
     programs.fastfetch = {
       enable = true;
       package = pkgs.unstable.fastfetch;

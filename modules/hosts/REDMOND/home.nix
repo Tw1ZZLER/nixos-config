@@ -19,6 +19,7 @@
       self.homeModules.neovim
       self.homeModules.ghostty
       self.homeModules.prismlauncher
+      self.homeModules.nixgl
     ];
   };
 

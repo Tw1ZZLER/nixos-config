@@ -47,9 +47,6 @@
       self.homeModules.nixgl
       self.homeModules.syncthing
       self.homeModules.xdg-user-dirs
-
-      # Desktop
-      self.homeModules.niri
     ];
   };
 

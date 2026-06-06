@@ -1,32 +1,6 @@
-{ lib, ... }@args:
-let
+{lib, ...} @ args: let
   inherit (lib) mkDefault mkIf;
-in
-{
-  imports = [
-    ./bat.nix
-    ./btop.nix
-    ./direnv.nix
-    ./exercism.nix
-    ./eza.nix
-    ./fastfetch.nix
-    ./fd.nix
-    ./fish.nix
-    ./fzf.nix
-    ./git.nix
-    ./neovim.nix
-    ./nix-helper.nix
-    ./nix-index.nix
-    ./nixgl.nix
-    ./python.nix
-    ./ripgrep.nix
-    ./rmpc.nix
-    ./sqlite.nix
-    ./starship.nix
-    ./wget.nix
-    ./yazi.nix
-  ];
-
+in {
   bat.enable = mkDefault true;
   btop.enable = mkDefault true;
   direnv.enable = mkDefault true;

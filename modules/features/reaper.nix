@@ -1,17 +1,11 @@
 # Reaper DAW and other music stuff related to it
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    reaper.enable = lib.mkEnableOption "Enable REAPER DAW and related tools";
-  };
-
-  config = lib.mkIf config.reaper.enable {
-    home.packages = with pkgs.unstable; [
+}: {
+  flake.homeModules.reaper = {pkgs, ...}: {
+    home.packages = with pkgs; [
       # An extra line later is needed to actually link ReaPack into ~/.config/REAPER/UserPlugins/
       reaper # WARN: Proprietary
       reaper-reapack-extension
@@ -23,15 +17,15 @@
 
     # Link ReaPack to Reaper User Plugins
     home.file.".config/REAPER/UserPlugins/reaper_reapack-x86_64.so" = {
-      source = pkgs.unstable.reaper-reapack-extension + "/UserPlugins/reaper_reapack-x86_64.so";
+      source = pkgs.reaper-reapack-extension + "/UserPlugins/reaper_reapack-x86_64.so";
     };
 
     # Link Carla Plugins to Reaper VST and LV2 Plugins
     home.file.".vst/carla.vst" = {
-      source = pkgs.unstable.carla + "/lib/vst/carla.vst";
+      source = pkgs.carla + "/lib/vst/carla.vst";
     };
     home.file.".lv2/carla.lv2" = {
-      source = pkgs.unstable.carla + "/lib/lv2/carla.lv2";
+      source = pkgs.carla + "/lib/lv2/carla.lv2";
     };
   };
 }

@@ -13,6 +13,8 @@
         home.username = "tw1zzler";
         home.homeDirectory = "/home/tw1zzler";
       }
+
+      self.homeModules.fish
     ];
   };
 

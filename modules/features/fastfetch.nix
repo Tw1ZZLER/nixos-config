@@ -6,7 +6,6 @@
   flake.homeModules.fastfetch = {pkgs, ...}: {
     programs.fastfetch = {
       enable = true;
-      package = pkgs.fastfetch;
       settings = {
         logo = {
           type = "kitty-direct";

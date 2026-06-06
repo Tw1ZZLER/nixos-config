@@ -7,7 +7,7 @@
   # Vendor completions provided by Nixpkgs require this module to be enabled.
   flake.nixosModules.fish = {pkgs, ...}: {
     programs.fish.enable = true;
-    environment.systemPackages = with pkgs; [grc];
+    environment.systemPackages = [pkgs.grc];
   };
 
   flake.homeModules.fish = {pkgs, ...}: {

@@ -4,8 +4,6 @@
   ...
 }: {
   flake.homeModules.sqlite = {pkgs, ...}: {
-    home.packages = with pkgs; [
-      sqlite
-    ];
+    home.packages = [pkgs.sqlite];
   };
 }

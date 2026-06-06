@@ -7,7 +7,6 @@
   flake.homeModules.zen-browser = {
     pkgs,
     config,
-    lib,
     ...
   }: let
     system = pkgs.stdenv.hostPlatform.system;

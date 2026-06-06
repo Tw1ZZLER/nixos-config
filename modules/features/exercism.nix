@@ -4,8 +4,6 @@
   ...
 }: {
   flake.homeModules.exercism = {pkgs, ...}: {
-    home.packages = with pkgs; [
-      exercism
-    ];
+    home.packages = [pkgs.exercism];
   };
 }

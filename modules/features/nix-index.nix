@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.nix-index = {inputs, ...}: {
+  flake.homeModules.nix-index = {...}: {
     imports = [
       inputs.nix-index-database.homeModules.nix-index
     ];

@@ -3,10 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.fd = {pkgs, ...}: {
-    programs.fd = {
-      enable = true;
-      package = pkgs.fd;
-    };
+  flake.homeModules.fd = {...}: {
+    programs.fd.enable = true;
   };
 }

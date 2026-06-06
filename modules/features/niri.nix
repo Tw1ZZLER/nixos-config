@@ -1,86 +1,68 @@
+# Enable the Niri window manager
+# I took quite a bit of this from https://codeberg.org/kiara/dots/src/branch/main/system/niri/default.nix
+# Thank you!!
 {
   self,
   inputs,
   ...
 }: {
-  # I took quite a bit of this from https://codeberg.org/kiara/dots/src/branch/main/system/niri/default.nix
-  # Thank you!!
-  flake.nixosModules.niri = {
-    pkgs,
-    lib,
-    config,
-    ...
-  }: {
-    options = {
-      niri.enable = lib.mkEnableOption "Enable the Niri window manager";
+  flake.nixosModules.niri = {pkgs, ...}: {
+    programs.niri.enable = true;
+
+    # Portal configuration for screen sharing, file dialogs, etc.
+    # system-level portal is needed for secrets
+    xdg.portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gnome # Screen sharing portal
+        xdg-desktop-portal-gtk # Fallback portal for file dialogs and other interfaces
+      ];
+      config = let
+        common = {
+          default = [
+            "gnome"
+            "gtk"
+          ];
+          "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
+        };
+      in {
+        inherit common;
+        niri = common;
+      };
+      configPackages = [pkgs.niri];
     };
-    config = lib.mkIf config.niri.enable {
-      programs.niri.enable = true;
 
-      # Portal configuration for screen sharing, file dialogs, etc.
-      # system-level portal is needed for secrets
-      xdg.portal = {
-        enable = true;
-        extraPortals = with pkgs; [
-          xdg-desktop-portal-gnome # Screen sharing portal
-          xdg-desktop-portal-gtk # Fallback portal for file dialogs and other interfaces
-        ];
-        config = let
-          common = {
-            default = [
-              "gnome"
-              "gtk"
-            ];
-            "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
-          };
-        in {
-          inherit common;
-          niri = common;
-        };
-        configPackages = [pkgs.niri];
+    systemd.packages = [pkgs.xwayland-satellite];
+
+    environment = {
+      variables = {
+        # Xwayland-satellite
+        DISPLAY = ":0";
+        # Wayland support for Electron and Chromium
+        NIXOS_OZONE_WL = "1";
+        # Fix icon theming
+        # QT_QPA_PLATFORMTHEME = "qt6ct";
       };
+      systemPackages = with pkgs; [
+        # Other Wayland clipboard stuff
+        wl-clipboard
+        cliphist
 
-      systemd.packages = [pkgs.xwayland-satellite];
-
-      environment = {
-        variables = {
-          # Xwayland-satellite
-          DISPLAY = ":0";
-          # Wayland support for Electron and Chromium
-          NIXOS_OZONE_WL = "1";
-          # Fix icon theming
-          # QT_QPA_PLATFORMTHEME = "qt6ct";
-        };
-        systemPackages = with pkgs; [
-          # Other Wayland clipboard stuff
-          wl-clipboard
-          cliphist
-
-          # Xwayland support
-          xwayland-satellite
-          xdg-utils
-          qt6.qtwayland
-          wayland
-          alacritty # in case of non-parsing config
-          fuzzel
-        ];
-      };
+        # Xwayland support
+        xwayland-satellite
+        xdg-utils
+        qt6.qtwayland
+        wayland
+        alacritty # in case of non-parsing config
+        fuzzel
+      ];
     };
   };
 
-  flake.homeModules.niri = {
-    config,
-    lib,
-    ...
-  }: let
-    dotfiles = config.lib.file.mkOutOfStoreSymlink "/home/tw1zzler/nixos-config/dotfiles";
+  # All this does is place the Niri config.kdl file
+  flake.homeModules.niri = {lib, ...}: let
+    dotfiles = lib.file.mkOutOfStoreSymlink "/home/tw1zzler/nixos-config/dotfiles";
   in {
-    options = {
-      niri.enable = lib.mkEnableOption "Enable Niri configuration (as an extension to NixOS module)";
-    };
-    config = lib.mkIf config.niri.enable {
-      # Putting the dotfiles in their rightful place.
-      xdg.configFile."niri/config.kdl".source = "${dotfiles}/niri/config.kdl";
-    };
+    xdg.configFile."niri/config.kdl".source = "${dotfiles}/niri/config.kdl";
   };
 }

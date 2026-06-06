@@ -3,10 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.eza = {pkgs, ...}: {
-    programs.eza = {
-      enable = true;
-      package = pkgs.eza;
-    };
+  flake.homeModules.eza = {...}: {
+    programs.eza.enable = true;
   };
 }

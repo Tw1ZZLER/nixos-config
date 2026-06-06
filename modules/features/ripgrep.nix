@@ -3,10 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.ripgrep = {pkgs, ...}: {
-    programs.ripgrep = {
-      enable = true;
-      package = pkgs.ripgrep;
-    };
+  flake.homeModules.ripgrep = {...}: {
+    programs.ripgrep.enable = true;
   };
 }

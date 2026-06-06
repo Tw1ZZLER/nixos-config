@@ -14,10 +14,7 @@
       };
     };
 
-    programs.lazygit = {
-      enable = true;
-      package = pkgs.lazygit;
-    };
+    programs.lazygit.enable = true;
 
     home.packages = with pkgs; [
       gh # GitHub CLI

@@ -4,8 +4,6 @@
   ...
 }: {
   flake.homeModules.wget = {pkgs, ...}: {
-    home.packages = with pkgs; [
-      wget
-    ];
+    home.packages = [pkgs.wget];
   };
 }

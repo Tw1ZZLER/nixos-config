@@ -4,10 +4,9 @@
   inputs,
   ...
 }: {
-  flake.homeModules.ghostty = {pkgs, ...}: {
+  flake.homeModules.ghostty = {...}: {
     programs.ghostty = {
       enable = true;
-      package = pkgs.ghostty;
       enableBashIntegration = true;
       enableFishIntegration = true;
       installBatSyntax = true;

@@ -3,13 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.discord = {
-    inputs,
-    pkgs,
-    lib,
-    config,
-    ...
-  }: {
+  flake.homeModules.discord = {...}: {
     imports = [
       inputs.nixcord.homeModules.nixcord
     ];

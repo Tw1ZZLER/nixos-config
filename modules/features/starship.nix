@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.starship = {pkgs, ...}: {
+  flake.homeModules.starship = {...}: {
     # Starship prompt
     programs.starship = {
       enable = true;
@@ -15,7 +15,6 @@
       enableTransience = true;
       enableInteractive = true;
 
-      package = pkgs.starship;
       presets = [
         "nerd-font-symbols"
       ];

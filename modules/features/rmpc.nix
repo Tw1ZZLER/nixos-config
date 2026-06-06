@@ -3,10 +3,9 @@
   inputs,
   ...
 }: {
-  flake.homeModules.rmpc = {pkgs, ...}: {
+  flake.homeModules.rmpc = {...}: {
     programs.rmpc = {
       enable = true;
-      package = pkgs.rmpc;
       config = ''
         (
             address: "100.80.238.41:6600",

@@ -47,6 +47,7 @@
       self.homeModules.prismlauncher
       self.homeModules.prismlauncher-nixgl
       self.homeModules.slack
+      self.homeModules.qbittorrent
       self.homeModules.zathura
       self.homeModules.zen-browser
       self.homeModules.zen-browser-nixgl

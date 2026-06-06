@@ -4,6 +4,15 @@
   inputs,
   ...
 }: {
+  # Small module to replace package with nixGL wrapped package on non-NixOS systems
+  flake.homeModules.ghostty-nixgl = {
+    pkgs,
+    config,
+    ...
+  }: {
+    programs.ghostty.package = config.lib.nixGL.wrap pkgs.ghostty;
+  };
+
   flake.homeModules.ghostty = {...}: {
     programs.ghostty = {
       enable = true;

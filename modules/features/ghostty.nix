@@ -1,17 +1,13 @@
 # The best terminal emulator
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
 }: {
-  options = {
-    ghostty.enable = lib.mkEnableOption "Enable Ghostty terminal emulator";
-  };
-  config = lib.mkIf config.ghostty.enable {
+  flake.homeModules.ghostty = {pkgs, ...}: {
     programs.ghostty = {
       enable = true;
-      package = pkgs.unstable.ghostty;
+      package = pkgs.ghostty;
       enableBashIntegration = true;
       enableFishIntegration = true;
       installBatSyntax = true;

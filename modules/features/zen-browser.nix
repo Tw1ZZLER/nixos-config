@@ -6,9 +6,17 @@
 }: {
   flake.homeModules.zen-browser = {
     pkgs,
+    config,
+    inputs,
     lib,
     ...
   }: {
+    imports = [
+      inputs.zen-browser.homeModules.beta
+      # inputs.zen-browser.homeModules.twilight
+      # or inputs.zen-browser.homeModules.twilight-official
+    ];
+
     # Zen-browser as default browser
     xdg.mimeApps = let
       value = let
@@ -48,12 +56,7 @@
     programs.zen-browser = {
       enable = true;
       setAsDefaultBrowser = true;
-      package = self.packages.${pkgs.stdenv.hostPlatform.system}.myZen;
-    };
-  };
 
-  perSystem = {pkgs, ...}: {
-    packages.myZen = inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default.override {
       # POLICIES
       policies = let
         mkLockedAttrs = builtins.mapAttrs (
@@ -232,41 +235,43 @@
 
         # Spaces
         spacesForce = true;
-        spaces = {
+        spaces = let
+          inherit (config.programs.zen-browser.profiles."tw1zzler") containers;
+        in {
           "College" = {
             id = "00c706b6-4239-4915-ac6d-f93ec2cdd749";
             icon = "💽";
-            container = 4; # College
+            container = containers."College".id;
             position = 1000;
           };
           "Research" = {
             id = "{f04cb5c2-d9e1-473f-b91d-e7b1277c7961}";
             icon = "🔏";
-            container = 2; # Work
+            container = containers."Work".id;
             position = 2000;
           };
           "Robotics" = {
             id = "4deb6ee3-5d78-4ceb-a7d8-7f4d9d30b22e";
             icon = "🔧";
-            container = 4; # College
+            container = containers."College".id;
             position = 3000;
           };
           "Leisure" = {
             id = "8f7f9ec5-e9d4-464c-b41b-82078057b4e8";
             icon = "🧊"; # get it, cuz chilling
-            container = 1; # Personal
+            container = containers."Personal".id;
             position = 4000;
           };
           "Music" = {
             id = "{1b1efd97-f8e8-42f7-926e-3dc4867d66fc}";
             icon = "🎼";
-            container = 1; # Personal
+            container = containers."Personal".id;
             position = 5000;
           };
           "Finance" = {
             id = "b888bece-ded5-4708-af08-f49e45604edd";
             icon = "🪙";
-            container = 3; # Banking
+            container = containers."Banking".id;
             position = 6000;
           };
         };
@@ -274,69 +279,3 @@
     };
   };
 }
-# {
-#   pkgs,
-#   config,
-#   inputs,
-#   lib,
-#   ...
-# }:
-#
-# {
-#   imports = [
-#     inputs.zen-browser.homeModules.beta
-#     # inputs.zen-browser.homeModules.twilight
-#     # or inputs.zen-browser.homeModules.twilight-official
-#   ];
-#
-#   options = {
-#     zen-browser.enable = lib.mkEnableOption "Enable Zen Browser";
-#   };
-#   config = lib.mkIf config.zen-browser.enable {
-#     # Zen-browser as default browser
-#     xdg.mimeApps =
-#       let
-#         value =
-#           let
-#             zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.beta; # or twilight
-#           in
-#           zen-browser.meta.desktopFileName;
-#
-#         associations = builtins.listToAttrs (
-#           map
-#             (name: {
-#               inherit name value;
-#             })
-#             [
-#               "application/x-extension-shtml"
-#               "application/x-extension-xhtml"
-#               "application/x-extension-html"
-#               "application/x-extension-xht"
-#               "application/x-extension-htm"
-#               "x-scheme-handler/unknown"
-#               "x-scheme-handler/mailto"
-#               "x-scheme-handler/chrome"
-#               "x-scheme-handler/about"
-#               "x-scheme-handler/https"
-#               "x-scheme-handler/http"
-#               "application/xhtml+xml"
-#               "application/json"
-#               "text/plain"
-#               "text/html"
-#             ]
-#         );
-#       in
-#       {
-#         associations.added = associations;
-#         defaultApplications = associations;
-#       };
-#
-#     # Zen Browser Program
-#     programs.zen-browser = {
-#       enable = true;
-#       setAsDefaultBrowser = true;
-#
-#     };
-#   };
-# }
-

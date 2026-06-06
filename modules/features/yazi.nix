@@ -1,15 +1,9 @@
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    yazi.enable = lib.mkEnableOption "Enable yazi, a modern terminal file manager";
-  };
-
-  config = lib.mkIf config.yazi.enable {
+}: {
+  flake.homeModules.yazi = {pkgs, ...}: {
     programs.yazi = {
       enable = true;
       package = pkgs.unstable.yazi;
@@ -65,7 +59,6 @@
             desc = "Open lazygit in the current directory";
           }
         ];
-
       };
 
       initLua = ''

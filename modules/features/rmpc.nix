@@ -1,15 +1,9 @@
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    rmpc.enable = lib.mkEnableOption "Enable rmpc, a remote client for MPD";
-  };
-
-  config = lib.mkIf config.rmpc.enable {
+}: {
+  flake.homeModules.rmpc = {pkgs, ...}: {
     programs.rmpc = {
       enable = true;
       package = pkgs.unstable.rmpc;

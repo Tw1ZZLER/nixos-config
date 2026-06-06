@@ -11,27 +11,23 @@
       pkgs,
       lib,
       config,
-      inputs,
       ...
-    }: {
-      options = {
-        neovim.enable = lib.mkEnableOption "Enable my Neovim configuration, Vimridian";
+    }:
+let
+	system = pkgs.stdenv.hostPlatform.system;
+	vimridian = inputs.vimridian.packages.${system}.maximal;
+in
+ {
+    home = {
+      shellAliases.vimdiff = "nvim -d";
+      shellAliases.nvim-dev = "${vimridian.dev}/bin/nvim";
+      sessionVariables = {
+        EDITOR = "nvim";
+        VISUAL = "nvim";
       };
-
-      config = lib.mkIf config.neovim.enable {
-        programs.neovim = {
-          enable = true;
-          defaultEditor = true;
-          vimdiffAlias = true;
-
-          # Vimridian package
-          package = inputs.vimridian.packages.${pkgs.stdenv.hostPlatform.system}.maximal.default;
-        };
-
-        # nvim-dev alias
-        home.shellAliases.nvim-dev = "${
-          inputs.vimridian.packages.${pkgs.stdenv.hostPlatform.system}.maximal.dev
-        }/bin/nvim";
-      };
+      packages = [
+        vimridian.default
+      ];
     };
+  };
 }

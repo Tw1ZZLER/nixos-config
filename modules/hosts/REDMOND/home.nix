@@ -15,6 +15,8 @@
       }
 
       self.homeModules.fish
+      self.homeModules.starship
+      self.homeModules.neovim
     ];
   };
 

@@ -21,7 +21,6 @@
   flake.homeModules."tw1zzler@REDMOND" = {pkgs, ...}: {
     home.packages = [
       pkgs.hello
-      self.packages.myZen
     ];
     home.stateVersion = "25.05";
   };

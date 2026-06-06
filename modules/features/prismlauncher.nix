@@ -14,6 +14,9 @@
     };
   };
 
+  # This module does not actually wrap Prism Launcher itself with nixGL, as it does
+  # not need it. Rather, the Java binaries that Prism launches need to be wrapped
+  # to work properly on non-NixOS distros.
   flake.homeModules.prismlauncher-nixgl = {
     config,
     lib,
@@ -38,9 +41,7 @@
         if [ -f ${jdkPkg}/release ]; then ln -s ${jdkPkg}/release $out/release; fi
       '';
   in {
-    programs.prismlauncher.package = lib.mkForce (config.lib.nixGL.wrap pkgs.prismlauncher);
-
-    # On non-NixOS (REDMOND), link our fake JDK directories instead
+    # On non-NixOS, link our fake JDK directories instead
     home.file = {
       ".local/share/PrismLauncher/java/jdk8".source = lib.mkForce (fakeJDKDir "jdk8" pkgs.jdk8);
       ".local/share/PrismLauncher/java/jdk17".source = lib.mkForce (fakeJDKDir "jdk17" pkgs.jdk17);

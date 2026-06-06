@@ -18,6 +18,7 @@
       self.homeModules.starship
       self.homeModules.neovim
       self.homeModules.ghostty
+      self.homeModules.prismlauncher
     ];
   };
 

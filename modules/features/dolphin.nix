@@ -1,16 +1,11 @@
+# Enable Dolphin, a file manager for KDE.
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    dolphin.enable = lib.mkEnableOption "Enable Dolphin, a file manager for KDE.";
-  };
-
-  config = lib.mkIf config.dolphin.enable {
-    home.packages = with pkgs.unstable; [
+}: {
+  flake.homeModules.dolphin = {pkgs, ...}: {
+    home.packages = with pkgs; [
       kdePackages.dolphin
       kdePackages.qtsvg # For support for SVG icons
       kdePackages.kio # needed since 25.11

@@ -1,14 +1,9 @@
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    starship.enable = lib.mkEnableOption "Enable Starship prompt";
-  };
-  config = lib.mkIf config.starship.enable {
+}: {
+  flake.homeModules.starship = {pkgs, ...}: {
     # Starship prompt
     programs.starship = {
       enable = true;

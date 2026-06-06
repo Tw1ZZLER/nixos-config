@@ -42,6 +42,7 @@
       self.homeModules.ghostty
       self.homeModules.ghostty-nixgl
       self.homeModules.mpv
+      self.homeModules.obsidian
       self.homeModules.prismlauncher
       self.homeModules.prismlauncher-nixgl
       self.homeModules.slack

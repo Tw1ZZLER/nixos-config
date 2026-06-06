@@ -4,12 +4,10 @@
   inputs,
   ...
 }: {
-  flake.homeModules.nixgl = {...}: let
-    nixglPkgs = inputs.nixgl.packages;
-  in {
+  flake.homeModules.nixgl = {...}: {
     # NixGL settings
     targets.genericLinux.nixGL = {
-      packages = nixglPkgs;
+      packages = inputs.nixgl.packages;
       defaultWrapper = "mesa";
       installScripts = ["mesa"];
     };

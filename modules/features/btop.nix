@@ -1,15 +1,9 @@
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    btop.enable = lib.mkEnableOption "Enable btop, a resource monitor terminal application";
-  };
-
-  config = lib.mkIf config.btop.enable {
+}: {
+  flake.homeModules.btop = {pkgs, ...}: {
     programs.btop = {
       enable = true;
       package = pkgs.unstable.btop;

@@ -14,12 +14,41 @@
         home.homeDirectory = "/home/tw1zzler";
       }
 
+      # CLI Programs
+      self.homeModules.bat
+      self.homeModules.btop
+      self.homeModules.direnv
+      self.homeModules.exercism
+      self.homeModules.eza
+      self.homeModules.fastfetch
+      self.homeModules.fd
       self.homeModules.fish
-      self.homeModules.starship
+      self.homeModules.fzf
+      self.homeModules.git
       self.homeModules.neovim
+      self.homeModules.nix-helper
+      self.homeModules.nix-index
+      self.homeModules.python
+      self.homeModules.ripgrep
+      self.homeModules.rmpc
+      self.homeModules.sqlite
+      self.homeModules.starship
+      self.homeModules.wget
+      self.homeModules.yazi
+
+      # GUI Programs
+      self.homeModules.discord
       self.homeModules.ghostty
       self.homeModules.prismlauncher
+      self.homeModules.zen-browser
+
+      # Services
       self.homeModules.nixgl
+      self.homeModules.syncthing
+      self.homeModules.xdg-user-dirs
+
+      # Desktop
+      self.homeModules.niri
     ];
   };
 

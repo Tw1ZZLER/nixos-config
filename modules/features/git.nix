@@ -1,16 +1,9 @@
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-
-{
-  options = {
-    git.enable = lib.mkEnableOption "Enable git and related tools";
-  };
-
-  config = lib.mkIf config.git.enable {
+}: {
+  flake.homeModules.git = {pkgs, ...}: {
     programs.git = {
       enable = true;
       settings = {

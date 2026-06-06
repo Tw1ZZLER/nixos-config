@@ -1,16 +1,9 @@
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-
-{
-  options = {
-    nix-helper.enable = lib.mkEnableOption "Enable Nix helper tools";
-  };
-
-  config = lib.mkIf config.nix-helper.enable {
+}: {
+  flake.homeModules.nix-helper = {pkgs, ...}: {
     programs.nh = {
       enable = true;
       package = pkgs.unstable.nh;

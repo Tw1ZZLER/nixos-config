@@ -1,15 +1,16 @@
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    fish.enable = lib.mkEnableOption "Enable fish shell configuration";
+}: {
+  # https://nixos.wiki/wiki/Fish
+  # Vendor completions provided by Nixpkgs require this module to be enabled.
+  flake.nixosModules.fish = {pkgs, ...}: {
+    programs.fish.enable = true;
+    environment.systemPackages = with pkgs.unstable; [grc];
   };
 
-  config = lib.mkIf config.fish.enable {
+  flake.homeModules.fish = {pkgs, ...}: {
     home.sessionVariables = {
       SHELL = "${pkgs.unstable.fish}/bin/fish";
 

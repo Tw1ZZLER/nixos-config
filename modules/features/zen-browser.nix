@@ -4,11 +4,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.zen-browser = {
-    pkgs,
-    config,
-    ...
-  }: let
+  flake.homeModules.zen-browser = {pkgs, ...}: let
     system = pkgs.stdenv.hostPlatform.system;
     zenHomeModule = inputs.zen-browser.homeModules.beta;
     zenPkg = inputs.zen-browser.packages.${system}.beta;
@@ -91,7 +87,32 @@
       };
 
       # PROFILE
-      profiles."tw1zzler" = {
+      profiles."tw1zzler" = let
+        # Define containers in a local let-binding so both containers
+        # and spaces can reference them cleanly
+        myContainers = {
+          Personal = {
+            color = "blue";
+            icon = "fingerprint";
+            id = 1;
+          };
+          Work = {
+            color = "orange";
+            icon = "briefcase";
+            id = 2;
+          };
+          Banking = {
+            color = "green";
+            icon = "dollar";
+            id = 3;
+          };
+          College = {
+            color = "turquoise";
+            icon = "tree";
+            id = 4;
+          };
+        };
+      in {
         id = 0;
         isDefault = true;
 
@@ -207,68 +228,45 @@
 
         # Container Tabs
         containersForce = true;
-        containers = {
-          Personal = {
-            color = "blue";
-            icon = "fingerprint";
-            id = 1;
-          };
-          Work = {
-            color = "orange";
-            icon = "briefcase";
-            id = 2;
-          };
-          Banking = {
-            color = "green";
-            icon = "dollar";
-            id = 3;
-          };
-          College = {
-            color = "turquoise";
-            icon = "tree";
-            id = 4;
-          };
-        };
+        containers = myContainers;
 
         # Spaces
         spacesForce = true;
-        spaces = let
-          inherit (config.programs.zen-browser.profiles."tw1zzler") containers;
-        in {
+        spaces = {
           "College" = {
             id = "00c706b6-4239-4915-ac6d-f93ec2cdd749";
             icon = "💽";
-            container = containers."College".id;
+            container = myContainers."College".id;
             position = 1000;
           };
           "Research" = {
             id = "{f04cb5c2-d9e1-473f-b91d-e7b1277c7961}";
             icon = "🔏";
-            container = containers."Work".id;
+            container = myContainers."Work".id;
             position = 2000;
           };
           "Robotics" = {
             id = "4deb6ee3-5d78-4ceb-a7d8-7f4d9d30b22e";
             icon = "🔧";
-            container = containers."College".id;
+            container = myContainers."College".id;
             position = 3000;
           };
           "Leisure" = {
             id = "8f7f9ec5-e9d4-464c-b41b-82078057b4e8";
-            icon = "🧊"; # get it, cuz chilling
-            container = containers."Personal".id;
+            icon = "🧊";
+            container = myContainers."Personal".id;
             position = 4000;
           };
           "Music" = {
             id = "{1b1efd97-f8e8-42f7-926e-3dc4867d66fc}";
             icon = "🎼";
-            container = containers."Personal".id;
+            container = myContainers."Personal".id;
             position = 5000;
           };
           "Finance" = {
             id = "b888bece-ded5-4708-af08-f49e45604edd";
             icon = "🪙";
-            container = containers."Banking".id;
+            container = myContainers."Banking".id;
             position = 6000;
           };
         };

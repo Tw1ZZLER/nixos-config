@@ -7,27 +7,25 @@
   flake.homeModules.zen-browser = {
     pkgs,
     config,
-    inputs,
     lib,
     ...
-  }: {
+  }: let
+    system = pkgs.stdenv.hostPlatform.system;
+    zenHomeModule = inputs.zen-browser.homeModules.beta;
+    zenPkg = inputs.zen-browser.packages.${system}.beta;
+    desktopFile = zenPkg.meta.desktopFileName;
+    firefoxAddons = inputs.firefox-addons.packages.${system};
+  in {
     imports = [
-      inputs.zen-browser.homeModules.beta
-      # inputs.zen-browser.homeModules.twilight
-      # or inputs.zen-browser.homeModules.twilight-official
+      zenHomeModule
     ];
 
     # Zen-browser as default browser
     xdg.mimeApps = let
-      value = let
-        zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.beta; # or twilight
-      in
-        zen-browser.meta.desktopFileName;
-
       associations = builtins.listToAttrs (
         map
         (name: {
-          inherit name value;
+          inherit name desktopFile;
         })
         [
           "application/x-extension-shtml"
@@ -173,7 +171,7 @@
         };
 
         # Extensions
-        extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+        extensions.packages = with firefoxAddons; [
           # Wide-spectrum content blocker
           ublock-origin
 

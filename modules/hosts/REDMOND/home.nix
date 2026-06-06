@@ -55,10 +55,11 @@
 
   # This is your home.nix, your module where you configure home-manager
   # It's imported both in standalone configuration above, and in your nixos configuration
-  flake.homeModules."tw1zzler@REDMOND" = {pkgs, ...}: {
-    home.packages = [
-      pkgs.hello
-    ];
+  flake.homeModules."tw1zzler@REDMOND" = {...}: {
+    # Must pass hostname to Syncthing wrapper on non-NixOS hosts
+    syncthing.hostName = "REDMOND";
+
+    # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     home.stateVersion = "25.05";
   };
 }

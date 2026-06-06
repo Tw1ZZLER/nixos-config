@@ -4,39 +4,48 @@
   inputs,
   ...
 }: {
-  flake.homeModules.prismlauncher = {
-    pkgs,
-    lib,
+  flake.homeModules.prismlauncher = {pkgs, ...}: {
+    programs.prismlauncher.enable = true;
+    home.file = {
+      ".local/share/PrismLauncher/java/jdk8".source = pkgs.jdk8;
+      ".local/share/PrismLauncher/java/jdk17".source = pkgs.jdk17;
+      ".local/share/PrismLauncher/java/jdk21".source = pkgs.jdk21;
+      ".local/share/PrismLauncher/java/jdk25".source = pkgs.jdk25;
+    };
+  };
+
+  flake.homeModules.prismlauncher-nixgl = {
     config,
+    lib,
+    pkgs,
     ...
-  } @ args: {
-    home.packages = with pkgs; (
-      # We are using lib.optionals here to conditionally wrap the application with nixGL, based on the presence of osConfig argument.
-      # osConfig tells us if we are on a NixOS or non-NixOS system.
-      # non-NixOS systems need nixGL to properly handle OpenGL
-      lib.optionals (!(args ? osConfig)) [
-        (config.lib.nixGL.wrap (
-          prismlauncher.override {
-            jdks = [
-              (config.lib.nixGL.wrap jdk25)
-              (config.lib.nixGL.wrap jdk21)
-              (config.lib.nixGL.wrap jdk17)
-              (config.lib.nixGL.wrap jdk8)
-            ];
-          }
-        ))
-      ]
-      # If osConfig is present, we are on NixOS and do not need nixGL wrapping the packages
-      ++ lib.optionals (args ? osConfig) [
-        (prismlauncher.override {
-          jdks = [
-            jdk25
-            jdk21
-            jdk17
-            jdk8
-          ];
-        })
-      ]
-    );
+  }: let
+    # Helper to build a mock JDK directory structure with a wrapped java binary inside
+    fakeJDKDir = name: jdkPkg: let
+      wrappedJava = config.lib.nixGL.wrap (
+        pkgs.writeShellScriptBin "java" ''
+          exec ${jdkPkg}/bin/java "$@"
+        ''
+      );
+    in
+      pkgs.runCommand "fake-${name}" {} ''
+        mkdir -p $out/bin
+        # Link the NixGL wrapped script as the primary binary
+        ln -s ${wrappedJava}/bin/java $out/bin/java
+
+        # Pass-through other essential JDK metadata files so Prism recognizes it
+        if [ -d ${jdkPkg}/lib ]; then ln -s ${jdkPkg}/lib $out/lib; fi
+        if [ -f ${jdkPkg}/release ]; then ln -s ${jdkPkg}/release $out/release; fi
+      '';
+  in {
+    programs.prismlauncher.package = lib.mkForce (config.lib.nixGL.wrap pkgs.prismlauncher);
+
+    # On non-NixOS (REDMOND), link our fake JDK directories instead
+    home.file = {
+      ".local/share/PrismLauncher/java/jdk8".source = lib.mkForce (fakeJDKDir "jdk8" pkgs.jdk8);
+      ".local/share/PrismLauncher/java/jdk17".source = lib.mkForce (fakeJDKDir "jdk17" pkgs.jdk17);
+      ".local/share/PrismLauncher/java/jdk21".source = lib.mkForce (fakeJDKDir "jdk21" pkgs.jdk21);
+      ".local/share/PrismLauncher/java/jdk25".source = lib.mkForce (fakeJDKDir "jdk25" pkgs.jdk25);
+    };
   };
 }

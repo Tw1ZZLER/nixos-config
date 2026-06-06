@@ -41,6 +41,7 @@
       self.homeModules.ghostty
       self.homeModules.ghostty-nixgl
       self.homeModules.prismlauncher
+      self.homeModules.prismlauncher-nixgl
       self.homeModules.zathura
       self.homeModules.zen-browser
       self.homeModules.zen-browser-nixgl

@@ -40,6 +40,7 @@
       self.homeModules.discord
       self.homeModules.ghostty
       self.homeModules.prismlauncher
+      self.homeModules.zathura
       self.homeModules.zen-browser
 
       # Services

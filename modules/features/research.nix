@@ -1,15 +1,11 @@
+# Enable research and academic tools
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    research.enable = lib.mkEnableOption "Enable research and academic tools";
-  };
-  config = lib.mkIf config.research.enable {
-    home.packages = with pkgs.unstable; [
+}: {
+  flake.homeModules.research = {pkgs, ...}: {
+    home.packages = with pkgs; [
       zotero
       # jabref
       # texstudio

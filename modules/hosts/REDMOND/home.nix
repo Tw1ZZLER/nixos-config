@@ -19,13 +19,10 @@
   # This is your home.nix, your module where you configure home-manager
   # It's imported both in standalone configuration above, and in your nixos configuration
   flake.homeModules."tw1zzler@REDMOND" = {pkgs, ...}: {
-    programs.bash.enable = true;
-    programs.bash.shellAliases.ll = "ls -l";
-
     home.packages = [
       pkgs.hello
       self.packages.myZen
     ];
-    home.stateVersion = "24.11";
+    home.stateVersion = "25.05";
   };
 }

@@ -1,15 +1,10 @@
+# Enable Stylix theme manager
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    stylix-wrapper.enable = lib.mkEnableOption "Enable Stylix theme manager";
-  };
-
-  config = lib.mkIf config.stylix-wrapper.enable {
+}: {
+  flake.homeModules.stylix-wrapper = {pkgs, ...}: {
     # Fix GTK4 theme warning
     # gtk.gtk4.theme = config.gtk.theme;
 
@@ -53,7 +48,7 @@
         gtk.enable = true;
         zen-browser = {
           enable = true;
-          profileNames = [ "tw1zzler" ];
+          profileNames = ["tw1zzler"];
         };
       };
     };

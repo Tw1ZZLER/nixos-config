@@ -53,6 +53,7 @@
       self.homeModules.zen-browser-nixgl
 
       # Services
+      self.homeModules.fonts
       self.homeModules.mpd
       self.homeModules.nixgl
       self.homeModules.nixpkgs-wrapper

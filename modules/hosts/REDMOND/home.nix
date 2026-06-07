@@ -9,10 +9,6 @@
     pkgs = import inputs.nixpkgs {system = "x86_64-linux";};
     modules = [
       self.homeModules."tw1zzler@REDMOND"
-      {
-        home.username = "tw1zzler";
-        home.homeDirectory = "/home/tw1zzler";
-      }
 
       # CLI Programs
       self.homeModules.bat
@@ -65,8 +61,16 @@
   # This is your home.nix, your module where you configure home-manager
   # It's imported both in standalone configuration above, and in your nixos configuration
   flake.homeModules."tw1zzler@REDMOND" = {...}: {
+    programs.home-manager.enable = true;
+
+    home.username = "tw1zzler";
+    home.homeDirectory = "/home/tw1zzler";
+
     # Must pass hostname to Syncthing wrapper on non-NixOS hosts
     syncthing.hostName = "REDMOND";
+
+    # Nicely reload system units when changing configs
+    systemd.user.startServices = "sd-switch";
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     home.stateVersion = "25.05";

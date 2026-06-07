@@ -1,19 +1,16 @@
+# Enable MPD music server
 {
-  config,
-  pkgs,
-  lib,
+  self,
+  inputs,
   ...
-}:
-
-{
-  options = {
-    mpd.enable = lib.mkEnableOption "Enable MPD music server";
-  };
-
-  config = lib.mkIf config.mpd.enable {
+}: {
+  flake.homeModules.mpd = {
+    config,
+    pkgs,
+    ...
+  }: {
     services.mpd = {
       enable = true;
-      package = pkgs.mpd;
       musicDirectory = "/home/tw1zzler/media/music";
       dataDir = "${config.xdg.cacheHome}/mpd";
       playlistDirectory = "${config.xdg.configHome}/mpd/playlists";

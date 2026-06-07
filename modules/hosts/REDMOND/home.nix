@@ -36,22 +36,23 @@
       # self.homeModules.clone-hero-nixgl - this isnt working idk why
       self.homeModules.discord
       self.homeModules.ghostty
-      self.homeModules.ghostty-nixgl
+      # self.homeModules.ghostty-nixgl
       self.homeModules.mpv
       self.homeModules.obsidian
-      self.homeModules.obsidian-nixgl
+      # self.homeModules.obsidian-nixgl
       self.homeModules.prismlauncher
-      self.homeModules.prismlauncher-nixgl
+      # self.homeModules.prismlauncher-nixgl
       self.homeModules.qbittorrent
       self.homeModules.slack
       self.homeModules.zathura
       self.homeModules.zen-browser
-      self.homeModules.zen-browser-nixgl
+      # self.homeModules.zen-browser-nixgl
 
       # Services
       self.homeModules.fonts
       self.homeModules.mpd
-      self.homeModules.nixgl
+      # self.homeModules.nixgl
+      self.homeModules.generic-linux
       self.homeModules.nixpkgs-wrapper
       self.homeModules.syncthing
       self.homeModules.xdg-user-dirs

@@ -8,17 +8,6 @@
   inputs,
   ...
 }: {
-  # Small module to replace package with nixGL wrapped package on non-NixOS systems
-  flake.homeModules.twintail-launcher-nixgl = {
-    pkgs,
-    config,
-    ...
-  }: {
-    home.packages = [
-      (config.lib.nixGL.wrap inputs.twintail-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default)
-    ];
-  };
-
   flake.homeModules.twintail-launcher = {pkgs, ...}: {
     home.packages = [
       inputs.twintail-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default

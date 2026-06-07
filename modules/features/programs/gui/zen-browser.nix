@@ -4,18 +4,6 @@
   inputs,
   ...
 }: {
-  # Small module to replace package with nixGL wrapped package on non-NixOS systems
-  flake.homeModules.zen-browser-nixgl = {
-    pkgs,
-    config,
-    ...
-  }: let
-    system = pkgs.stdenv.hostPlatform.system;
-    zenPkg = inputs.zen-browser.packages.${system}.beta;
-  in {
-    programs.zen-browser.package = config.lib.nixGL.wrap zenPkg;
-  };
-
   flake.homeModules.zen-browser = {pkgs, ...}: let
     system = pkgs.stdenv.hostPlatform.system;
     zenHomeModule = inputs.zen-browser.homeModules.beta;

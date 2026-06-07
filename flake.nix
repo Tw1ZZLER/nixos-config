@@ -176,12 +176,6 @@
       };
     };
 
-    # NixGL
-    nixgl = {
-      url = "github:nix-community/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # NixOS Raspberry Pi configurations
     # follow `main` branch of this repository, considered being stable
     nixos-raspberrypi = {

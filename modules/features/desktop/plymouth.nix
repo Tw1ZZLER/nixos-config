@@ -1,15 +1,11 @@
+# Enable Plymouth for a graphical boot experience
 # How to achieve slow but awesome boots
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    plymouth.enable = lib.mkEnableOption "Enable Plymouth for a graphical boot experience";
-  };
-  config = lib.mkIf config.plymouth.enable {
+}: {
+  flake.nixosModules.plymouth = {...}: {
     # Plymouth / silent boot
     boot = {
       plymouth = {

@@ -112,7 +112,7 @@ output "Dell Inc. DELL E2724HS CP47G04" {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 2
+    gaps 6
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -176,14 +176,8 @@ layout {
         // where you can see its inactive-color is on other monitors.
         inactive-color "#505050"
 
-        // You can also use gradients. They take precedence over solid colors.
-        // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
-        // The angle is the same as in linear-gradient, and is optional,
-        // defaulting to 180 (top-to-bottom gradient).
-        // You can use any CSS linear-gradient tool on the web to set these up.
-        // Changing the color space is also supported, check the wiki for more info.
-        //
-        active-gradient from="magenta" to="red" angle=90 in="oklch longer hue" relative-to="workspace-view"
+        // uncomment this line for rainbow ring
+        // active-gradient from="magenta" to="red" angle=90 in="oklch longer hue" relative-to="workspace-view"
 
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
@@ -384,6 +378,14 @@ window-rule {
     open-on-workspace "game"
 }
 
+// blur lol
+window-rule {
+    match app-id="com.mitchellh.ghostty"
+    background-effect {
+        blur true
+    }
+}
+
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
@@ -484,7 +486,7 @@ binds {
     Mod+T { spawn-sh "ghostty +new-window"; } // or your terminal
     Mod+Return { spawn-sh "ghostty +new-window"; }
     Mod+B { spawn "zen-beta"; }
-    Mod+F { spawn-sh "ghostty -e yazi"; } // or your file manager
+    Mod+F { spawn-sh "ghostty +new-window -e yazi"; } // or your file manager
     
     // Screenshot
     Print { screenshot; }

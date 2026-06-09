@@ -30,23 +30,6 @@
   #     # NixOS configuration entrypoint
   #     # Available through 'nixos-rebuild --flake .#your-hostname'
   #     nixosConfigurations = {
-  #       PRIMUS = lib.nixosSystem {
-  #         specialArgs = { inherit inputs outputs; };
-  #         modules = [
-  #           # > Our main nixos configuration file <
-  #           ./hosts/PRIMUS/configuration.nix
-  #           {
-  #             home-manager = {
-  #               useGlobalPkgs = true;
-  #               useUserPackages = true;
-  #               extraSpecialArgs = { inherit inputs outputs; };
-  #               users.tw1zzler.imports = [
-  #                 ./hosts/PRIMUS/home.nix
-  #               ];
-  #             };
-  #           }
-  #         ];
-  #       };
   #       MALENIA = inputs.nixos-raspberrypi.lib.nixosSystemFull {
   #         specialArgs = { inherit inputs outputs; };
   #         modules = [

@@ -6,10 +6,10 @@
   flake.nixosConfigurations.PRIMUS = inputs.nixpkgs.lib.nixosSystem {
     pkgs = import inputs.nixpkgs {system = "x86_64-linux";};
     modules = [
-      # > Our main nixos configuration file <
-      self.nixosModules.PRIMUS
-    ];
-  };
+      self.nixosModules.PRIMUS # this is defined right -----> |
+    ]; #                                                      ↓
+  }; #      |  <-----------------------------------------------
+  #         ↓  here
   flake.nixosModules.PRIMUS = {pkgs, ...}: {
     imports = [
       # Import your generated (nixos-generate-config) hardware configuration

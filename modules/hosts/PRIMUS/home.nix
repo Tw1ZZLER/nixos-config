@@ -46,6 +46,12 @@
       self.homeModules.nixpkgs-wrapper
       self.homeModules.syncthing
       self.homeModules.xdg-user-dirs
+
+      # Desktop
+      self.homeModules.hyprland
+      self.homeModules.niri
+      self.homeModules.gnome-keyring
+      self.homeModules.noctalia-shell
     ];
 
     programs.home-manager.enable = true;

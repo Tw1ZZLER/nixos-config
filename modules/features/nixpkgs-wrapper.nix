@@ -4,10 +4,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.nixpkgs-wrapper = {
-    # outputs,
-    ...
-  }: {
+  flake.homeModules.nixpkgs-wrapper = {...}: {
     nixpkgs = {
       overlays = [
         # Add overlays your own flake exports (from overlays and pkgs dir):
@@ -25,10 +22,7 @@
     };
   };
 
-  flake.nixosModules.nixpkgs-wrapper = {
-    # outputs,
-    ...
-  }: {
+  flake.nixosModules.nixpkgs-wrapper = {...}: {
     nixpkgs = {
       overlays = [
         # Add overlays your own flake exports (from overlays and pkgs dir):

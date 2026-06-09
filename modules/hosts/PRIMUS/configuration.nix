@@ -9,13 +9,10 @@
       self.nixosModules.PRIMUS # this is defined right -----> |
     ]; #                                                      ↓
   }; #      |  <-----------------------------------------------
-  #         ↓  here
+  #         ↓  here (as well as hardware-configuration.nix)
   flake.nixosModules.PRIMUS = {pkgs, ...}: {
     imports = [
-      # Import your generated (nixos-generate-config) hardware configuration
-      ./hardware-configuration.nix
-
-      # Or modules from other flakes
+      # Move these to their own respective NixOS modules later
       inputs.home-manager.nixosModules.home-manager
       inputs.catppuccin.nixosModules.catppuccin
       inputs.stylix.nixosModules.stylix
@@ -29,6 +26,9 @@
       # Desktop environment
       self.nixosModules.hyprland
       self.nixosModules.niri
+
+      # Nixpkgs wrapper
+      self.nixosModules.nixpkgs-wrapper
     ];
 
     # Home-manager configuration

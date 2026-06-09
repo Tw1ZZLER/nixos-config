@@ -43,7 +43,6 @@
 
       # Services
       self.homeModules.fonts
-      self.homeModules.nixpkgs-wrapper
       self.homeModules.syncthing
       self.homeModules.xdg-user-dirs
 

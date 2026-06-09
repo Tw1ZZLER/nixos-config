@@ -23,7 +23,7 @@
         font-size = 12;
         theme = "Catppuccin Frappe";
         background-opacity = 0.85;
-        background-blur = true;
+        quit-after-last-window-closed = false;
       };
     };
   };

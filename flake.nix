@@ -47,13 +47,6 @@
   #           }
   #         ];
   #       };
-  #       REDMOND = garuda.lib.garudaSystem {
-  #         specialArgs = { inherit inputs outputs; };
-  #         modules = [
-  #           # > Our main Garuda Linux Nix Subsystem configuration file <
-  #           ./hosts/REDMOND/configuration.nix
-  #         ];
-  #       };
   #       MALENIA = inputs.nixos-raspberrypi.lib.nixosSystemFull {
   #         specialArgs = { inherit inputs outputs; };
   #         modules = [
@@ -236,6 +229,12 @@
     # Twintail Launcher
     twintail-launcher = {
       url = "github:Tw1ZZLER/twintail-launcher-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Pano Scrobbler
+    pano-scrobbler = {
+      url = "github:kawaiiDango/pano-scrobbler-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

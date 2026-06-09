@@ -40,6 +40,7 @@
       self.homeModules.prismlauncher
       self.homeModules.qbittorrent
       self.homeModules.slack
+      self.homeModules.ytmusic
       self.homeModules.zathura
       self.homeModules.zen-browser
 

@@ -1,14 +1,9 @@
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    cosmic-greeter.enable = lib.mkEnableOption "Enable the COSMIC greeter login manager";
-  };
-  config = lib.mkIf config.cosmic-greeter.enable {
+}: {
+  flake.nixosModules.cosmic-greeter = {...}: {
     # Enable the COSMIC login manager
     services = {
       displayManager = {

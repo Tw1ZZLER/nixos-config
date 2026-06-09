@@ -4,11 +4,7 @@
   lib,
   config,
   ...
-}:
-let
-  dotfiles = config.lib.file.mkOutOfStoreSymlink "/home/tw1zzler/nixos-config/dotfiles";
-in
-{
+}: {
   options = {
     ghostty.enable = lib.mkEnableOption "Enable Ghostty terminal emulator";
   };
@@ -27,13 +23,8 @@ in
         font-size = 12;
         theme = "Catppuccin Frappe";
         background-opacity = 0.85;
+        background-blur = true;
       };
     };
-
-    # Ghostty configuration dotfiles
-    # xdg.configFile.ghostty = {
-    #   source = "${dotfiles}/ghostty";
-    #   recursive = true;
-    # };
   };
 }

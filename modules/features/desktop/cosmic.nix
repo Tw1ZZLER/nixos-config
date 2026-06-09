@@ -1,14 +1,10 @@
+# Enable the COSMIC desktop environment
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    cosmic.enable = lib.mkEnableOption "Enable the COSMIC desktop environment";
-  };
-  config = lib.mkIf config.cosmic.enable {
+}: {
+  flake.nixosModules.cosmic = {pkgs, ...}: {
     services.desktopManager.cosmic.enable = true;
 
     environment = {

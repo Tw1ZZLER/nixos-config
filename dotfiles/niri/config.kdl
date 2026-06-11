@@ -329,6 +329,7 @@ window-rule {
 window-rule {
     match app-id=r#"(zen|zen-beta|firefox)$"#
     match app-id=r#"(discord|vesktop|equibop|webcord|element|fractal)$"#
+    match app-id=r#"(slack)"
     match app-id=r#"(org\.kde\.dolphin|dolphin)$"#
     open-on-workspace "home"
 }

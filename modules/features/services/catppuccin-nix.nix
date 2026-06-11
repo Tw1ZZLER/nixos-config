@@ -16,4 +16,17 @@
       starship.enable = false;
     };
   };
+
+  flake.nixosModules.catppuccin-nix = {...}: {
+    imports = [
+      inputs.catppuccin.nixosModules.catppuccin
+    ];
+    catppuccin = {
+      enable = true;
+      flavor = "frappe";
+      accent = "red";
+      nvim.enable = false;
+      starship.enable = false;
+    };
+  };
 }

@@ -14,7 +14,6 @@
     imports = [
       # Move these to their own respective NixOS modules later
       inputs.home-manager.nixosModules.home-manager
-      inputs.catppuccin.nixosModules.catppuccin
       inputs.stylix.nixosModules.stylix
 
       # Boot splash screen

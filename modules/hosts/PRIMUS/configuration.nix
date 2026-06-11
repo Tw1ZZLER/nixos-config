@@ -40,6 +40,7 @@
       # CLI Programs
       self.nixosModules.bash
       self.nixosModules.nix-ld
+      self.nixosModules.sops
 
       # GUI Programs
       self.nixosModules.gpu-screen-recorder

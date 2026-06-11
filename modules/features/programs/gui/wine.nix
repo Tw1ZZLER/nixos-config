@@ -1,16 +1,12 @@
+# Enable Wine for running Windows applications
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    wine.enable = lib.mkEnableOption "Enable Wine for running Windows applications";
-  };
-  config = lib.mkIf config.wine.enable {
+}: {
+  flake.nixosModules.wine = {pkgs, ...}: {
     # It's better to use unstable for this sort of thing
-    environment.systemPackages = with pkgs.unstable; [
+    environment.systemPackages = with pkgs; [
       # Wine
       wineWow64Packages.staging
       winetricks

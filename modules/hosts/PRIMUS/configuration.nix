@@ -50,6 +50,7 @@
       self.nixosModules.system76-keyboard-configurator
       self.nixosModules.waveforms
       self.nixosModules.weylus
+      self.nixosModules.wine
     ];
 
     # Home-manager configuration

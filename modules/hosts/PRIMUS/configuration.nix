@@ -29,6 +29,9 @@
 
       # Nixpkgs wrapper
       self.nixosModules.nixpkgs-wrapper
+
+      # Intel hardware
+      self.nixosModules.intel-graphics
     ];
 
     # Home-manager configuration
@@ -42,9 +45,6 @@
     };
 
     flatpak.enable = true;
-
-    # Intel hardware
-    intel-graphics.enable = true;
 
     # ONU Printers and Drives
     onu-printers.enable = true;

@@ -1,17 +1,14 @@
 # Graphics stuffs
 # (https://wiki.nixos.org/wiki/Intel_Graphics)
 # https://nixos.org/manual/nixos/stable/#sec-gpu-accel
+{self,inputs,...}:{
+flake.nixosModules.intel-graphics = 
+
 {
   pkgs,
-  lib,
-  config,
   ...
 }:
 {
-  options = {
-    intel-graphics.enable = lib.mkEnableOption "Enable Intel graphics optimizations and drivers";
-  };
-  config = lib.mkIf config.intel-graphics.enable {
     hardware.graphics = {
       enable = true; # Enable OpenGL (graphics)
       extraPackages = with pkgs; [

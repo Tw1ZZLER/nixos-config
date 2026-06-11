@@ -62,4 +62,43 @@
       '';
     };
   };
+
+  flake.nixosModules.stylix-wrapper = {pkgs, ...}: {
+    imports = [
+      inputs.stylix.nixosModules.stylix
+    ];
+
+    stylix = {
+      enable = true;
+
+      # dark mode
+      # Catpuccin-frappe from the base16-schemes package
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
+      polarity = "dark";
+
+      # light mode
+      # Catpuccin-latte from the base16-schemes package
+      # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
+      # polarity = "light";
+
+      fonts = {
+        serif = {
+          package = pkgs.nerd-fonts.overpass;
+          name = "Overpass Nerd Font";
+        };
+        sansSerif = {
+          package = pkgs.nerd-fonts.overpass;
+          name = "Overpass Nerd Font";
+        };
+        monospace = {
+          package = pkgs.nerd-fonts.victor-mono;
+          name = "VictorMono Nerd Font";
+        };
+        emoji = {
+          package = pkgs.noto-fonts-color-emoji;
+          name = "Noto Color Emoji";
+        };
+      };
+    };
+  };
 }

@@ -45,6 +45,7 @@
       self.homeModules.fonts
       self.homeModules.syncthing
       self.homeModules.xdg-user-dirs
+      self.homeModules.stylix-wrapper
 
       # Desktop
       self.homeModules.hyprland

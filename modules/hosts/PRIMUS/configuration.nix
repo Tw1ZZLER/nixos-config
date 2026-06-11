@@ -41,6 +41,7 @@
       self.nixosModules.bash
       self.nixosModules.nix-ld
       self.nixosModules.sops
+      self.nixosModules.trashy
 
       # GUI Programs
       self.nixosModules.gpu-screen-recorder

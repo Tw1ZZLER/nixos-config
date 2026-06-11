@@ -1,15 +1,10 @@
 # Default graphics setup for NixOS systems
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    graphics.enable = lib.mkEnableOption "Enable default graphics setup with Vulkan support";
-  };
-  config = lib.mkIf config.graphics.enable {
+}: {
+  flake.nixosModules.graphics = {pkgs, ...}: {
     hardware.graphics = {
       enable = true;
       extraPackages = with pkgs; [

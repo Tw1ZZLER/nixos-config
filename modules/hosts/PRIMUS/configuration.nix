@@ -45,6 +45,7 @@
       # GUI Programs
       self.nixosModules.gpu-screen-recorder
       self.nixosModules.seahorse
+      self.nixosModules.steam
     ];
 
     # Home-manager configuration

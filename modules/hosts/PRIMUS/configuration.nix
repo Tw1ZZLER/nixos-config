@@ -39,6 +39,7 @@
 
       # CLI Programs
       self.nixosModules.bash
+      self.nixosModules.gpu-screen-recorder
     ];
 
     # Home-manager configuration

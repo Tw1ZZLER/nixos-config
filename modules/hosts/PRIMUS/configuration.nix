@@ -33,8 +33,9 @@
       # Intel hardware
       self.nixosModules.intel-graphics
 
-      # Printers
+      # Printers and drives
       self.nixosModules.onu-printers
+      self.nixosModules.onu-drives
       self.nixosModules.argonne-printers
 
       # CLI Programs
@@ -64,9 +65,6 @@
     };
 
     flatpak.enable = true;
-
-    # ONU Printers and Drives
-    onu-drives.enable = true;
 
     boot = {
       # Boot loader

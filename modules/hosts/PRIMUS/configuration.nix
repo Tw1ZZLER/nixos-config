@@ -48,6 +48,7 @@
       self.nixosModules.seahorse
       self.nixosModules.steam
       self.nixosModules.system76-keyboard-configurator
+      self.nixosModules.waveforms
     ];
 
     # Home-manager configuration
@@ -64,9 +65,6 @@
 
     # ONU Printers and Drives
     onu-drives.enable = true;
-
-    # Waveforms program
-    waveforms.enable = true;
 
     boot = {
       # Boot loader

@@ -49,6 +49,7 @@
       self.nixosModules.steam
       self.nixosModules.system76-keyboard-configurator
       self.nixosModules.waveforms
+      self.nixosModules.weylus
     ];
 
     # Home-manager configuration

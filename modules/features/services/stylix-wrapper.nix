@@ -13,29 +13,29 @@
 
       # dark mode
       # Catpuccin-frappe from the base16-schemes package
-      base16Scheme = "${pkgs.unstable.base16-schemes}/share/themes/catppuccin-frappe.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
       polarity = "dark";
 
       # light mode
       # Catpuccin-latte from the base16-schemes package
-      # base16Scheme = "${pkgs.unstable.base16-schemes}/share/themes/catppuccin-latte.yaml";
+      # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
       # polarity = "light";
 
       fonts = {
         serif = {
-          package = pkgs.unstable.nerd-fonts.overpass;
+          package = pkgs.nerd-fonts.overpass;
           name = "Overpass Nerd Font";
         };
         sansSerif = {
-          package = pkgs.unstable.nerd-fonts.overpass;
+          package = pkgs.nerd-fonts.overpass;
           name = "Overpass Nerd Font";
         };
         monospace = {
-          package = pkgs.unstable.nerd-fonts.victor-mono;
+          package = pkgs.nerd-fonts.victor-mono;
           name = "VictorMono Nerd Font";
         };
         emoji = {
-          package = pkgs.unstable.noto-fonts-color-emoji;
+          package = pkgs.noto-fonts-color-emoji;
           name = "Noto Color Emoji";
         };
       };

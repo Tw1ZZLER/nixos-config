@@ -1,22 +1,17 @@
+# Enable bash shell configuration
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    bash.enable = lib.mkEnableOption "Enable bash shell configuration";
-  };
-
-  config = lib.mkIf config.bash.enable {
+}: {
+  flake.nixosModules.bash = {pkgs, ...}: {
     programs.bash = {
       # Execute fish in case we aren't using a login shell
       interactiveShellInit = ''
         if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
         then
           shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-          exec ${pkgs.unstable.fish}/bin/fish $LOGIN_OPTION
+          exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
         fi
       '';
 

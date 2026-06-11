@@ -36,6 +36,9 @@
       # Printers
       self.nixosModules.onu-printers
       self.nixosModules.argonne-printers
+
+      # CLI Programs
+      self.nixosModules.bash
     ];
 
     # Home-manager configuration

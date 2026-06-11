@@ -46,6 +46,7 @@
       self.nixosModules.gpu-screen-recorder
       self.nixosModules.seahorse
       self.nixosModules.steam
+      self.nixosModules.system76-keyboard-configurator
     ];
 
     # Home-manager configuration

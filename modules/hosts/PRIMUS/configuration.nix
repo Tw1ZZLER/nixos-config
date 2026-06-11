@@ -56,6 +56,9 @@
       self.nixosModules.tailscale
       self.nixosModules.flatpak
       self.nixosModules.stylix-wrapper
+
+      # System
+      self.nixosModules.user-tw1zzler
     ];
 
     # Home-manager configuration

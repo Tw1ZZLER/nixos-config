@@ -55,6 +55,7 @@
       # Services
       self.nixosModules.ssh
       self.nixosModules.tailscale
+      self.nixosModules.flatpak
     ];
 
     # Home-manager configuration
@@ -66,8 +67,6 @@
         self.homeModules."tw1zzler@PRIMUS"
       ];
     };
-
-    flatpak.enable = true;
 
     boot = {
       # Boot loader

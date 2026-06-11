@@ -1,14 +1,10 @@
+# Enable Flatpak package manager
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    flatpak.enable = lib.mkEnableOption "Enable Flatpak package manager";
-  };
-  config = lib.mkIf config.flatpak.enable {
+}: {
+  flake.nixosModules.flatpak = {...}: {
     # Need flatpak for some packages (particularly COSMIC DE)
     services.flatpak.enable = true;
     # systemd.services.flatpak-repo = {

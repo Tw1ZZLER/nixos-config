@@ -1,15 +1,11 @@
+# Enable server networking optimizations for NixOS
 # Lifted directly from https://github.com/nvmd/nixos-raspberrypi-demo/blob/main/modules/server-networking.nix
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    server-networking.enable = lib.mkEnableOption "Enable server networking optimizations for NixOS";
-  };
-  config = lib.mkIf config.server-networking.enable {
+}: {
+  flake.nixosModules.server-networking = {lib, ...}: {
     # https://github.com/nix-community/srvos/blob/fa814c65868d32f7bd4d13a87b191ace02feb7d8/nixos/common/networking.nix
     # with some options disabled
 

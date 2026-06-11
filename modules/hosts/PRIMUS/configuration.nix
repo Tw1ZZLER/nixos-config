@@ -39,6 +39,9 @@
 
       # CLI Programs
       self.nixosModules.bash
+      self.nixosModules.nix-ld
+
+      # GUI Programs
       self.nixosModules.gpu-screen-recorder
     ];
 

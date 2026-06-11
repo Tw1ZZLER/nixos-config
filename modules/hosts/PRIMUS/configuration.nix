@@ -59,6 +59,10 @@
 
       # System
       self.nixosModules.user-tw1zzler
+      self.nixosModules.nix-wrapper
+      self.nixosModules.pipewire
+      self.nixosModules.printing
+      self.nixosModules.timezone
     ];
 
     # Home-manager configuration

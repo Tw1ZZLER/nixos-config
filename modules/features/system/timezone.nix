@@ -1,9 +1,10 @@
-{ lib, config, ... }:
+# Enable timezone configuration
 {
-  options = {
-    timezone.enable = lib.mkEnableOption "Enable timezone configuration";
-  };
-  config = lib.mkIf config.timezone.enable {
+  self,
+  inputs,
+  ...
+}: {
+  flake.nixosModules.timezone = {...}: {
     # Timezone
     time.timeZone = "America/Chicago";
     i18n.defaultLocale = "en_US.UTF-8";

@@ -1,15 +1,10 @@
+# Enable sound service with PipeWire
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    pipewire.enable = lib.mkEnableOption "Enable sound service with PipeWire";
-  };
-
-  config = lib.mkIf config.pipewire.enable {
+}: {
+  flake.nixosModules.pipewire = {...}: {
     services.pulseaudio.enable = false;
     security.rtkit.enable = true;
     services.pipewire = {

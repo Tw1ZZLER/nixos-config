@@ -1,16 +1,11 @@
 # Printing stuff
 # https://nixos.wiki/wiki/Printing
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
-}:
-{
-  options = {
-    printing.enable = lib.mkEnableOption "Enable CUPS printing services";
-  };
-  config = lib.mkIf config.printing.enable {
+}: {
+  flake.nixosModules.printing = {pkgs, ...}: {
     # CUPS (printing)
     services = {
       printing = {

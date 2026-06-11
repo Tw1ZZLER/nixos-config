@@ -1,9 +1,10 @@
-{ lib, config, ... }:
+# Enable ONU printers configuration
 {
-  options = {
-    onu-printers.enable = lib.mkEnableOption "Enable ONU Printers configuration";
-  };
-  config = lib.mkIf config.onu-printers.enable {
+  self,
+  inputs,
+  ...
+}: {
+  flake.nixosModules.onu-printers = {...}: {
     hardware.printers = {
       ensurePrinters = [
         # ONU Printers

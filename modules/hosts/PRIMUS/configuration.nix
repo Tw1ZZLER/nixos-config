@@ -32,6 +32,10 @@
 
       # Intel hardware
       self.nixosModules.intel-graphics
+
+      # Printers
+      self.nixosModules.onu-printers
+      self.nixosModules.argonne-printers
     ];
 
     # Home-manager configuration
@@ -47,11 +51,7 @@
     flatpak.enable = true;
 
     # ONU Printers and Drives
-    onu-printers.enable = true;
     onu-drives.enable = true;
-
-    # Argonne Printers
-    argonne-printers.enable = true;
 
     # Waveforms program
     waveforms.enable = true;

@@ -43,6 +43,7 @@
 
       # GUI Programs
       self.nixosModules.gpu-screen-recorder
+      self.nixosModules.seahorse
     ];
 
     # Home-manager configuration

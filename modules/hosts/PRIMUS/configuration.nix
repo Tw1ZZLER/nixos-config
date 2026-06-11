@@ -55,6 +55,7 @@
 
       # Services
       self.nixosModules.ssh
+      self.nixosModules.tailscale
     ];
 
     # Home-manager configuration

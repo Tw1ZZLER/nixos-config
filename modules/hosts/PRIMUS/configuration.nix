@@ -52,6 +52,9 @@
       self.nixosModules.waveforms
       self.nixosModules.weylus
       self.nixosModules.wine
+
+      # Services
+      self.nixosModules.ssh
     ];
 
     # Home-manager configuration

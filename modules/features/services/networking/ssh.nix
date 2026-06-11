@@ -1,11 +1,11 @@
-{ lib, config, ... }:
+# Enable and configure SSH server
+# This setups a SSH server. Very important if you're setting up a headless system.
 {
-  options = {
-    ssh.enable = lib.mkEnableOption "Enable and configure SSH server";
-  };
-  config = lib.mkIf config.ssh.enable {
-    # This setups a SSH server. Very important if you're setting up a headless system.
-    # Feel free to remove if you don't need it.
+  self,
+  inputs,
+  ...
+}: {
+  flake.nixosModules.ssh = {...}: {
     services.openssh = {
       enable = true;
       settings = {

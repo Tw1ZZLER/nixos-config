@@ -22,7 +22,6 @@
         "audio"
         "video"
         "dialout"
-        "libvirtd"
         "kvm"
         "sudo"
         "adm"

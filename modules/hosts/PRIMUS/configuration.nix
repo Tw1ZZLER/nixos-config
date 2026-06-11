@@ -63,6 +63,10 @@
       self.nixosModules.pipewire
       self.nixosModules.printing
       self.nixosModules.timezone
+
+      # Virtualisation
+      self.nixosModules.docker
+      self.nixosModules.virt-manager
     ];
 
     # Home-manager configuration

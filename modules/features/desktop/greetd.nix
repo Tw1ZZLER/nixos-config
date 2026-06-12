@@ -1,13 +1,10 @@
+# Enable the greetd display manager
 {
-  pkgs,
-  lib,
-  config,
+  self,
+  inputs,
   ...
 }: {
-  options = {
-    greetd.enable = lib.mkEnableOption "Enable the greetd display manager";
-  };
-  config = lib.mkIf config.greetd.enable {
+  flake.nixosModules.greetd = {pkgs, ...}: {
     services.greetd = {
       enable = true;
       settings = {

@@ -1,8 +1,8 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   imports = [
     ./cosmic-greeter.nix
     ./cosmic.nix
+    ./greetd.nix
     ./hyprland.nix
     ./ly.nix
     ./niri.nix
@@ -11,6 +11,7 @@
 
   cosmic-greeter.enable = lib.mkDefault false;
   cosmic.enable = lib.mkDefault false;
+  greetd.enable = lib.mkDefault false;
   hyprland.enable = lib.mkDefault false;
   ly.enable = lib.mkDefault false;
   niri.enable = lib.mkDefault false;

@@ -5,8 +5,7 @@
   outputs,
   pkgs,
   ...
-}:
-{
+}: {
   imports = [
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -25,7 +24,8 @@
 
   # Display manager
   # cosmic-greeter.enable = true;
-  ly.enable = true;
+  # ly.enable = true;
+  greetd.enable = true;
 
   # Desktop environment
   # cosmic.enable = true;

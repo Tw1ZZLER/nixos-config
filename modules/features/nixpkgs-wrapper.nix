@@ -4,39 +4,50 @@
   inputs,
   ...
 }: {
-  flake.homeModules.nixpkgs-wrapper = {...}: {
-    nixpkgs = {
-      overlays = [
-        # Add overlays your own flake exports (from overlays and pkgs dir):
-        # outputs.overlays.additions
-        # outputs.overlays.modifications
-        # outputs.overlays.unstable-packages
-
-        # Add overlays from other flakes (from inputs):
-        # outputs.overlays.nix-xilinx
-      ];
-      # Configure nixpkgs instance
+  perSystem = { system, ... }: {
+    _module.args.pkgs = import inputs.nixpkgs {
+      inherit system;
+      # overlays = [ inputs.foo.overlays.default ];
       config = {
         allowUnfree = true;
       };
     };
   };
 
-  flake.nixosModules.nixpkgs-wrapper = {...}: {
-    nixpkgs = {
-      overlays = [
-        # Add overlays your own flake exports (from overlays and pkgs dir):
-        # outputs.overlays.additions
-        # outputs.overlays.modifications
-        # outputs.overlays.unstable-packages
 
-        # Add overlays from other flakes (from inputs):
-        # outputs.overlays.nix-xilinx
-      ];
-      # Configure nixpkgs instance
-      config = {
-        allowUnfree = true;
-      };
-    };
-  };
+  # flake.homeModules.nixpkgs-wrapper = {...}: {
+  #   nixpkgs = {
+  #     overlays = [
+  #       # Add overlays your own flake exports (from overlays and pkgs dir):
+  #       # outputs.overlays.additions
+  #       # outputs.overlays.modifications
+  #       # outputs.overlays.unstable-packages
+  #
+  #       # Add overlays from other flakes (from inputs):
+  #       # outputs.overlays.nix-xilinx
+  #     ];
+  #     # Configure nixpkgs instance
+  #     config = {
+  #       allowUnfree = true;
+  #     };
+  #   };
+  # };
+  #
+  # flake.nixosModules.nixpkgs-wrapper = {...}: {
+  #   nixpkgs = {
+  #     overlays = [
+  #       # Add overlays your own flake exports (from overlays and pkgs dir):
+  #       # outputs.overlays.additions
+  #       # outputs.overlays.modifications
+  #       # outputs.overlays.unstable-packages
+  #
+  #       # Add overlays from other flakes (from inputs):
+  #       # outputs.overlays.nix-xilinx
+  #     ];
+  #     # Configure nixpkgs instance
+  #     config = {
+  #       allowUnfree = true;
+  #     };
+  #   };
+  # };
 }

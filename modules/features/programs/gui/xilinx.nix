@@ -5,6 +5,10 @@
   inputs,
   ...
 }: {
+  flake.nixosModules.xilinx = {
+    nixpkgs.overlays = [inputs.nix-xilinx.overlay];
+  };
+
   flake.homeModules.xilinx = {pkgs, ...}: {
     home.packages = with pkgs; [
       xilinx-shell

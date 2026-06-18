@@ -1,22 +1,11 @@
 {
   self,
-  withSystem,
   inputs,
   ...
 }: {
   flake.nixosConfigurations.PRIMUS = inputs.nixpkgs.lib.nixosSystem {
     pkgs = import inputs.nixpkgs {system = "x86_64-linux";};
     modules = [
-      inputs.nixpkgs.nixosModules.readOnlyPkgs
-      ({config, ...}: {
-        # Use the configured pkgs from perSystem
-        nixpkgs.pkgs = withSystem config.nixpkgs.hostPlatform.system (
-          {pkgs, ...}:
-          # perSystem module arguments
-            pkgs
-        );
-      })
-
       self.nixosModules.PRIMUS # this is defined right -----> |
     ]; #                                                      ↓
   }; #      |  <-----------------------------------------------
@@ -36,8 +25,8 @@
       self.nixosModules.hyprland
       self.nixosModules.niri
 
-      # Nixpkgs wrapper
-      # self.nixosModules.nixpkgs-wrapper
+      # Nixpkgs
+      self.nixosModules.xilinx
 
       # Intel hardware
       self.nixosModules.intel-graphics

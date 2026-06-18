@@ -59,6 +59,8 @@
   flake.homeModules."tw1zzler@REDMOND" = {...}: {
     programs.home-manager.enable = true;
 
+    nixpkgs.config.allowUnfree = true;
+
     home.username = "tw1zzler";
     home.homeDirectory = "/home/tw1zzler";
 

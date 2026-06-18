@@ -60,8 +60,8 @@
   };
 
   # All this does is place the Niri config.kdl file
-  flake.homeModules.niri = {lib, ...}: let
-    dotfiles = lib.file.mkOutOfStoreSymlink "/home/tw1zzler/nixos-config/dotfiles";
+  flake.homeModules.niri = {config, ...}: let
+    dotfiles = config.lib.file.mkOutOfStoreSymlink "/home/tw1zzler/nixos-config/dotfiles";
   in {
     xdg.configFile."niri/config.kdl".source = "${dotfiles}/niri/config.kdl";
   };

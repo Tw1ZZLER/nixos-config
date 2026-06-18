@@ -116,7 +116,7 @@
     # My Neovim Configuration
     # If using anywhere else, change to GitHub url
     vimridian = {
-      url = "path:/home/tw1zzler/proj/vimridian";
+      url = "github:tw1zzler/vimridian";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 

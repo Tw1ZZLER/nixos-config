@@ -27,5 +27,10 @@
     home.file.".lv2/carla.lv2" = {
       source = pkgs.carla + "/lib/lv2/carla.lv2";
     };
+    
+    # Link Neural Amp Modeler LV2 to Reaper LV2 Plugins
+    home.file.".lv2/neural_amp_modeler.lv2" = {
+      source = pkgs.neural-amp-modeler-lv2 + "/lib/lv2/neural_amp_modeler.lv2";
+    };
   };
 }

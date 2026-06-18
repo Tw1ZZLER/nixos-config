@@ -15,41 +15,6 @@
     {inherit inputs;}
     (inputs.import-tree ./modules);
 
-  # outputs =
-  #   {
-  #     self,
-  #     nixpkgs,
-  #     garuda,
-  #     ...
-  #   }@inputs:
-  #   let
-  #     inherit (self) outputs;
-  #     inherit (nixpkgs) lib;
-  #   in
-  #   {
-  #     # NixOS configuration entrypoint
-  #     # Available through 'nixos-rebuild --flake .#your-hostname'
-  #     nixosConfigurations = {
-  #       MALENIA = inputs.nixos-raspberrypi.lib.nixosSystemFull {
-  #         specialArgs = { inherit inputs outputs; };
-  #         modules = [
-  #           # > Our main nixos-raspberrypi configuration file <
-  #           ./hosts/MALENIA/configuration.nix
-  #           {
-  #             home-manager = {
-  #               useGlobalPkgs = true;
-  #               useUserPackages = true;
-  #               extraSpecialArgs = { inherit inputs outputs; };
-  #               users.tw1zzler.imports = [
-  #                 ./hosts/MALENIA/home.nix
-  #               ];
-  #             };
-  #           }
-  #         ];
-  #       };
-  #     };
-  #
-
   # $$$$$$\ $$\   $$\ $$$$$$$\  $$\   $$\ $$$$$$$$\  $$$$$$\
   # \_$$  _|$$$\  $$ |$$  __$$\ $$ |  $$ |\__$$  __|$$  __$$\
   #   $$ |  $$$$\ $$ |$$ |  $$ |$$ |  $$ |   $$ |   $$ /  \__|

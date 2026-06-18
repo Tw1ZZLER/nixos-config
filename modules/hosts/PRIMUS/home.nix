@@ -4,54 +4,67 @@
   ...
 }: {
   flake.homeModules."tw1zzler@PRIMUS" = {...}: {
-    imports = [
+    imports = with self.homeModules; [
       # CLI Programs
-      self.homeModules.bat
-      self.homeModules.btop
-      self.homeModules.direnv
-      self.homeModules.exercism
-      self.homeModules.eza
-      self.homeModules.fastfetch
-      self.homeModules.fd
-      self.homeModules.fish
-      self.homeModules.fzf
-      self.homeModules.git
-      self.homeModules.neovim
-      self.homeModules.nix-helper
-      self.homeModules.nix-index
-      self.homeModules.python
-      self.homeModules.ripgrep
-      self.homeModules.rmpc
-      self.homeModules.sqlite
-      self.homeModules.starship
-      self.homeModules.wget
-      self.homeModules.yazi
+      bat
+      btop
+      direnv
+      exercism
+      eza
+      fastfetch
+      fd
+      fish
+      fzf
+      git
+      neovim
+      nix-helper
+      nix-index
+      python
+      ripgrep
+      rmpc
+      sqlite
+      starship
+      wget
+      yazi
 
       # GUI Programs
-      self.homeModules.clone-hero
-      self.homeModules.discord
-      self.homeModules.ghostty
-      self.homeModules.mpv
-      self.homeModules.obsidian
-      self.homeModules.onu
-      self.homeModules.prismlauncher
-      self.homeModules.qbittorrent
-      self.homeModules.slack
-      self.homeModules.xilinx
-      self.homeModules.zathura
-      self.homeModules.zen-browser
+      ark
+      clone-hero
+      discord
+      dolphin
+      filelight
+      ghostty
+      gwenview
+      krita
+      moonlight
+      mpv
+      obs-studio
+      obsidian
+      onu
+      prismlauncher
+      qbittorrent
+      reaper
+      research
+      slack
+      thunderbird
+      twintail-launcher
+      vscode
+      xilinx
+      ytmusic
+      zathura
+      zen-browser
 
       # Services
-      self.homeModules.fonts
-      self.homeModules.syncthing
-      self.homeModules.xdg-user-dirs
-      self.homeModules.stylix-wrapper
+      fonts
+      syncthing
+      xdg-user-dirs
+      stylix-wrapper
 
       # Desktop
-      self.homeModules.hyprland
-      self.homeModules.niri
-      self.homeModules.gnome-keyring
-      self.homeModules.noctalia-shell
+      hyprland
+      niri
+      gnome-keyring
+      noctalia-shell
     ];
 
     programs.home-manager.enable = true;

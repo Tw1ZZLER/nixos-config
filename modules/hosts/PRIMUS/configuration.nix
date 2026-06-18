@@ -18,7 +18,7 @@
       self.nixosModules.plymouth
 
       # Display manager
-      self.nixosModules.ly
+      self.nixosModules.greetd
 
       # Desktop environment
       self.nixosModules.hyprland
@@ -37,6 +37,7 @@
 
       # CLI Programs
       self.nixosModules.bash
+      self.nixosModules.fish
       self.nixosModules.nix-ld
       self.nixosModules.sops
       self.nixosModules.trashy

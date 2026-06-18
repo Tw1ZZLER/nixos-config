@@ -48,7 +48,6 @@
       self.homeModules.fonts
       self.homeModules.mpd
       self.homeModules.generic-linux
-      self.homeModules.nixpkgs-wrapper
       self.homeModules.syncthing
       self.homeModules.xdg-user-dirs
     ];

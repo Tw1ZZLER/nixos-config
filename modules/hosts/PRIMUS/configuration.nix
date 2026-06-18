@@ -4,7 +4,6 @@
   ...
 }: {
   flake.nixosConfigurations.PRIMUS = inputs.nixpkgs.lib.nixosSystem {
-    pkgs = import inputs.nixpkgs {system = "x86_64-linux";};
     modules = [
       self.nixosModules.PRIMUS # this is defined right -----> |
     ]; #                                                      ↓

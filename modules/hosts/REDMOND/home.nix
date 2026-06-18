@@ -39,6 +39,7 @@
       self.homeModules.obsidian
       self.homeModules.prismlauncher
       self.homeModules.qbittorrent
+      self.homeModules.reaper
       self.homeModules.slack
       self.homeModules.ytmusic
       self.homeModules.zathura

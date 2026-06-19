@@ -65,20 +65,20 @@
         require("git"):setup()
       '';
 
-      settings = {
-        plugin.prepend_fetchers = [
-          {
-            id = "git";
-            name = "*"; # use `url` if you're using the nightly version of Yazi
-            run = "git";
-          }
-          {
-            id = "git";
-            name = "*/"; # use `url` if you're using the nightly version of Yazi
-            run = "git";
-          }
-        ];
-      };
+      # settings = {
+      #   plugin.prepend_fetchers = [
+      #     {
+      #       id = "git";
+      #       name = "*"; # use `url` if you're using the nightly version of Yazi
+      #       run = "git";
+      #     }
+      #     {
+      #       id = "git";
+      #       name = "*/"; # use `url` if you're using the nightly version of Yazi
+      #       run = "git";
+      #     }
+      #   ];
+      # };
 
       # flavors = [ ];
       # theme = [ ];

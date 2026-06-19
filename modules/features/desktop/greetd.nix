@@ -10,7 +10,7 @@
       settings = {
         default_session = {
           # Tuigreet automatically passes the right session variables to niri-session
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --cmd niri-session";
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd niri-session";
           user = "greeter";
         };
       };

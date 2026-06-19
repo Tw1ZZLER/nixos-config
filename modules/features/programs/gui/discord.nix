@@ -19,7 +19,7 @@
         plugins = {
           alwaysTrust.enable = true;
           # anammox.enable = true;
-          ClearURLs.enable = true;
+          clearUrls.enable = true;
           fakeNitro.enable = true;
           fixYoutubeEmbeds.enable = true;
           fixImagesQuality.enable = true;
@@ -40,7 +40,7 @@
           # questify.enable = true;
           # steamStatusSync.enable = true;
           # UserPFP.enable = true;
-          USRBG.enable = true;
+          usrbg.enable = true;
           viewIcons.enable = true;
           youtubeAdblock.enable = true;
         };

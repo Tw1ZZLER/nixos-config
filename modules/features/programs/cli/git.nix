@@ -12,6 +12,11 @@
           email = "63320116+Tw1ZZLER@users.noreply.github.com";
         };
       };
+      signing = {
+        format = "ssh";
+        key = "/home/tw1zzler/.ssh/github_signing.pub";
+        signByDefault = true;
+      };
     };
 
     programs.lazygit.enable = true;

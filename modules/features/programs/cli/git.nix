@@ -19,7 +19,10 @@
       };
     };
 
-    programs.lazygit.enable = true;
+    programs.lazygit = {
+      enable = true;
+      settings.git.overrideGpg = true;
+    };
 
     home.packages = with pkgs; [
       gh # GitHub CLI

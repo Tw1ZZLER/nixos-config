@@ -5,21 +5,15 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.nix-wrapper = {
-    lib,
-    config,
-    ...
-  }: {
-    nix = let
-      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-    in {
+  flake.nixosModules.nix-wrapper = {...}: {
+    nix = {
       settings = {
         # Enable flakes and new 'nix' command
         experimental-features = "nix-command flakes";
-        # Opinionated: disable global registry
-        flake-registry = "";
-        # Workaround for https://github.com/NixOS/nix/issues/9574
-        nix-path = config.nix.nixPath;
+
+        # Binary Cache
+        extra-substituters = ["https://noctalia.cachix.org"];
+        extra-trusted-public-keys = ["noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="];
       };
       extraOptions = ''
         warn-dirty = false
@@ -29,10 +23,6 @@
 
       # Disable channels
       channel.enable = false;
-
-      # Make flake registry and nix path match flake inputs
-      registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
-      nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
     };
   };
 }

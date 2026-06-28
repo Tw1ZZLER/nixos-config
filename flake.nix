@@ -188,9 +188,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Noctalia Shell — pinned until noctalia-shell.nix is migrated to v5 (programs.noctalia + TOML)
+    # Noctalia Shell
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell/3aab45a2f34fd47666b05892b95054952e788de1";
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

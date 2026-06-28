@@ -272,7 +272,7 @@ workspace "music"
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
-spawn-at-startup "noctalia-shell"
+spawn-at-startup "noctalia"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -499,7 +499,7 @@ binds {
     // Mod+W { toggle-column-tabbed-display; }
     
     // Applications launcher
-    Mod+R { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    Mod+R { spawn-sh "noctalia msg panel-toggle launcher"; }
     
     // Input source switching
     // Mod+space { spawn "fcitx5-remote -t" } // adjust for your IME

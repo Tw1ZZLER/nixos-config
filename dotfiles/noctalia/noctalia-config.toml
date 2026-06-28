@@ -58,6 +58,9 @@ avatar_path = "/home/tw1zzler/.face"
 font_family = "Overpass Nerd Font"
 niri_overview_type_to_launch_enabled = true
 
+    [shell.animation]
+    speed = 2.0
+
     [shell.launcher]
     session_search = true
 
@@ -128,9 +131,15 @@ capsule_radius = 4
 show_label = false
 
 [widget.notifications]
+capsule = true
+capsule_radius = 4
 hide_when_no_unread = true
 
 [widget.session]
+capsule = true
+capsule_radius = 4
+
+[widget.tray]
 capsule = true
 capsule_radius = 4
 

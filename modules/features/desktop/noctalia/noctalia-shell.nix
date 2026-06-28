@@ -12,7 +12,7 @@
 
     programs.noctalia = {
       enable = true;
-      settings = ../../../dotfiles/noctalia/noctalia-config.toml;
+      settings = ./noctalia-config.toml;
     };
   };
 }

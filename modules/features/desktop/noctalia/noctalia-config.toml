@@ -20,15 +20,35 @@ reserve_space = false
 [location]
 auto_locate = true
 
+[lockscreen]
+blur_intensity = 0.0
+
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1" ]
+widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@eDP-1" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
     major_interval = 4
     visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 854.0
+    cy = 841.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_login_button = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 70.0
@@ -64,11 +84,16 @@ niri_overview_type_to_launch_enabled = true
     [shell.launcher]
     session_search = true
 
+    [shell.screenshot]
+    confirm_region = true
+    directory = "/home/tw1zzler/media/img/screenshots/desktop"
+    filename_pattern = "%Y-%m-%d %H-%M-%S"
+
 [theme]
 builtin = "Catppuccin"
 community_palette = "Everforest"
 mode = "dark"
-source = "custom"
+source = "builtin"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
@@ -110,7 +135,7 @@ capsule_radius = 4
 [widget.clock]
 capsule = true
 capsule_radius = 4
-format = " {:%Y-%M-%d} | {:%I:%M %p}"
+format = " {:%Y-%m-%d} | {:%I:%M %p}"
 
 [widget.control-center]
 capsule = true
@@ -124,6 +149,8 @@ glyph = "grid-dots"
 [widget.media]
 capsule = true
 capsule_radius = 4
+hide_when_no_media = true
+title_scroll = "on_hover"
 
 [widget.network]
 capsule = true

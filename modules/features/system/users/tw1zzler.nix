@@ -14,7 +14,7 @@
       isNormalUser = true;
       description = "Tw1ZZLER";
       openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC0e4+wxqXRno7s5VdlWzrFHCUL9IxrMFKfEiaaxZFRw SSH KEY"
       ];
       extraGroups = [
         "wheel"

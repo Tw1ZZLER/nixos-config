@@ -26,6 +26,7 @@
           "catppuccin.cachix.org-1:noGdz9JST3clb8h9W9q6CZvGsDY6HG0cmM6b856w06M="
           "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
         ];
+        trusted-users = [ "root" "tw1zzler" "@wheel" ];
       };
       extraOptions = ''
         warn-dirty = false

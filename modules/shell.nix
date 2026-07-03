@@ -1,7 +1,7 @@
 # Development shell for NixOS configuration
 {inputs, ...}: {
-  flake.perSystem.devShells = {pkgs, ...}: {
-    default = pkgs.mkShell {
+  perSystem = {pkgs, ...}: {
+    devShells.default = pkgs.mkShell {
       nativeBuildInputs = with pkgs; [
         nixd # Nix LSP
         statix # Nix linter

@@ -12,9 +12,11 @@
 
   flake.nixosModules.MALENIA = {lib, ...}: {
     imports = [
+      inputs.disko.nixosModules.disko
       inputs.nixos-raspberrypi.nixosModules.raspberry-pi-5.base
       inputs.nixos-raspberrypi.nixosModules.raspberry-pi-5.page-size-16k
 
+      self.nixosModules.malenia-disko
       self.nixosModules.server-networking
       self.nixosModules.ssh
       self.nixosModules.sops
@@ -26,7 +28,10 @@
 
     networking.hostName = "MALENIA";
 
-    boot.loader.raspberry-pi.bootloader = "kernel";
+    boot.loader.raspberry-pi = {
+      bootloader = "kernel";
+      firmwarePath = "/boot";
+    };
 
     sops = {
       age.keyFile = lib.mkForce "/etc/sops/age/key.txt";

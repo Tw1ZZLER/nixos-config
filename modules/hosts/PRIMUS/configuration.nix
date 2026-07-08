@@ -5,68 +5,66 @@
 }: {
   flake.nixosConfigurations.PRIMUS = inputs.nixpkgs.lib.nixosSystem {
     modules = [
+      inputs.home-manager.nixosModules.home-manager
       self.nixosModules.PRIMUS # this is defined right -----> |
     ]; #                                                      ↓
   }; #      |  <-----------------------------------------------
   #         ↓  here (as well as hardware-configuration.nix)
   flake.nixosModules.PRIMUS = {pkgs, ...}: {
-    imports = [
-      # Move these to their own respective NixOS modules later
-      inputs.home-manager.nixosModules.home-manager
-
+    imports = with self.nixosModules; [
       # Boot splash screen
-      self.nixosModules.plymouth
+      plymouth
 
       # Display manager
-      self.nixosModules.greetd
+      greetd
 
       # Desktop environment
-      self.nixosModules.hyprland
-      self.nixosModules.niri
+      hyprland
+      niri
 
       # Nixpkgs
-      self.nixosModules.xilinx
+      xilinx
 
       # Intel hardware
-      self.nixosModules.intel-graphics
+      intel-graphics
 
       # Printers and drives
-      self.nixosModules.onu-printers
-      self.nixosModules.onu-drives
-      self.nixosModules.argonne-printers
+      onu-printers
+      onu-drives
+      argonne-printers
 
       # CLI Programs
-      self.nixosModules.bash
-      self.nixosModules.fish
-      self.nixosModules.nix-ld
-      self.nixosModules.sops
-      self.nixosModules.trashy
+      bash
+      fish
+      nix-ld
+      sops
+      trashy
 
       # GUI Programs
-      self.nixosModules.gpu-screen-recorder
-      self.nixosModules.seahorse
-      self.nixosModules.steam
-      self.nixosModules.system76-keyboard-configurator
-      self.nixosModules.waveforms
-      self.nixosModules.weylus
-      self.nixosModules.wine
+      gpu-screen-recorder
+      seahorse
+      steam
+      system76-keyboard-configurator
+      waveforms
+      weylus
+      wine
 
       # Services
-      self.nixosModules.ssh
-      self.nixosModules.tailscale
-      self.nixosModules.flatpak
-      self.nixosModules.stylix-wrapper
+      ssh
+      tailscale
+      flatpak
+      stylix-wrapper
 
       # System
-      self.nixosModules.user-tw1zzler
-      self.nixosModules.nix-wrapper
-      self.nixosModules.pipewire
-      self.nixosModules.printing
-      self.nixosModules.timezone
+      user-tw1zzler
+      nix-wrapper
+      pipewire
+      printing
+      timezone
 
       # Virtualisation
-      self.nixosModules.docker
-      self.nixosModules.virt-manager
+      docker
+      virt-manager
     ];
 
     # Home-manager configuration

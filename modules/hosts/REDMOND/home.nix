@@ -3,60 +3,57 @@
   inputs,
   ...
 }: {
-  # This is your standalone home-manager configuration, meant to be used on non-nixos machines
-  # with the home-manager command
   flake.homeConfigurations."tw1zzler@REDMOND" = inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = import inputs.nixpkgs {system = "x86_64-linux";};
-    modules = [
-      self.homeModules."tw1zzler@REDMOND"
-
-      # CLI Programs
-      self.homeModules.bat
-      self.homeModules.btop
-      self.homeModules.direnv
-      self.homeModules.exercism
-      self.homeModules.eza
-      self.homeModules.fastfetch
-      self.homeModules.fd
-      self.homeModules.fish
-      self.homeModules.fzf
-      self.homeModules.git
-      self.homeModules.neovim
-      self.homeModules.nix-helper
-      self.homeModules.nix-index
-      self.homeModules.python
-      self.homeModules.ripgrep
-      self.homeModules.rmpc
-      self.homeModules.sqlite
-      self.homeModules.starship
-      self.homeModules.wget
-      self.homeModules.yazi
-
-      # GUI Programs
-      self.homeModules.discord
-      self.homeModules.ghostty
-      self.homeModules.mpv
-      self.homeModules.obsidian
-      self.homeModules.prismlauncher
-      self.homeModules.qbittorrent
-      self.homeModules.reaper
-      self.homeModules.slack
-      self.homeModules.ytmusic
-      self.homeModules.zathura
-      self.homeModules.zen-browser
-
-      # Services
-      self.homeModules.fonts
-      self.homeModules.mpd
-      self.homeModules.generic-linux
-      self.homeModules.syncthing
-      self.homeModules.xdg-user-dirs
-    ];
+    modules = [self.homeModules."tw1zzler@REDMOND"];
   };
 
-  # This is your home.nix, your module where you configure home-manager
-  # It's imported both in standalone configuration above, and in your nixos configuration
   flake.homeModules."tw1zzler@REDMOND" = {...}: {
+    imports = with self.homeModules; [
+      # CLI Programs
+      bat
+      btop
+      direnv
+      exercism
+      eza
+      fastfetch
+      fd
+      fish
+      fzf
+      git
+      neovim
+      nix-helper
+      nix-index
+      python
+      ripgrep
+      rmpc
+      sqlite
+      starship
+      wget
+      yazi
+
+      # GUI Programs
+      cursor
+      discord
+      ghostty
+      mpv
+      obsidian
+      prismlauncher
+      qbittorrent
+      reaper
+      slack
+      ytmusic
+      zathura
+      zen-browser
+
+      # Services
+      fonts
+      mpd
+      generic-linux
+      syncthing
+      xdg-user-dirs
+    ];
+
     programs.home-manager.enable = true;
 
     nixpkgs.config.allowUnfree = true;

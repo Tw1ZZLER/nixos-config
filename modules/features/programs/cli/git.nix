@@ -14,7 +14,7 @@
       };
       signing = {
         format = "ssh";
-        key = "/home/tw1zzler/.ssh/github_signing.pub";
+        key = "/home/tw1zzler/.ssh/git_signing.pub";
         signByDefault = true;
       };
     };

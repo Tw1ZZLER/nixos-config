@@ -19,6 +19,7 @@
       self.nixosModules.malenia-disko
       self.nixosModules.server-networking
       self.nixosModules.ssh
+      self.nixosModules.tailscale
       self.nixosModules.sops
       self.nixosModules.user-tw1zzler
       self.nixosModules.nix-wrapper

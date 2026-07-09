@@ -113,13 +113,6 @@
     #
     # ========= Applications =========
     #
-    # My Neovim Configuration
-    # If using anywhere else, change to GitHub url
-    vimridian = {
-      url = "github:tw1zzler/vimridian";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     # Zen Browser
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -191,6 +184,20 @@
     # Noctalia Shell
     noctalia = {
       url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    #
+    # ========= Personal Repositories =========
+    #
+    # My Neovim Configuration
+    vimridian = {
+      url = "github:tw1zzler/vimridian";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    nix-secrets = {
+      url = "git+ssh://git@codeberg.org/Tw1ZZLER/nix-secrets.git?ref=main&shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

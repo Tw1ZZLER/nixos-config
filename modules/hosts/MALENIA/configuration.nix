@@ -19,6 +19,7 @@
       self.nixosModules.malenia-disko
       self.nixosModules.server-networking
       self.nixosModules.ssh
+      self.nixosModules.tailscale
       self.nixosModules.sops
       self.nixosModules.user-tw1zzler
       self.nixosModules.nix-wrapper
@@ -35,7 +36,10 @@
 
     sops = {
       age.keyFile = lib.mkForce "/etc/sops/age/key.txt";
-      secrets.malenia-wifi-superbad-psk = {};
+      secrets = {
+        malenia-wifi-superbad-psk = {};
+        malenia-pihole-admin-password = {};
+      };
     };
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

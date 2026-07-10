@@ -66,21 +66,21 @@
       recursive = true;
     };
 
-    # Adjusted to target "Smooth_6_Windows_Dark.ReaperTheme" as seen in your logs.
-    # (Note: If you are on Linux/macOS, REAPER can still read this layout completely fine)
+    # Automatic ini injector configuration utilizing absolute path strings
     home.activation.setReaperTheme = lib.hm.dag.entryAfter ["writeBoundary"] ''
       REAPER_INI="$HOME/${reaperDir}/reaper.ini"
-      TARGET_THEME="Smooth_6_Windows_Dark.ReaperTheme"
+      TARGET_PATH="$HOME/${reaperDir}/ColorThemes/Smooth_6_Dark.ReaperTheme"
 
       if [ -f "$REAPER_INI" ]; then
-        if grep -q "^colortheme=" "$REAPER_INI"; then
-          sed -i "s|^colortheme=.*|colortheme=$TARGET_THEME|" "$REAPER_INI"
+        if grep -q "^lastthemefn5=" "$REAPER_INI"; then
+          sed -i "s|^lastthemefn5=.*|lastthemefn5=$TARGET_PATH|" "$REAPER_INI"
         else
-          sed -i "/^\[REAPER\]/a colortheme=$TARGET_THEME" "$REAPER_INI"
+          sed -i "/^\[REAPER\]/a lastthemefn5=$TARGET_PATH" "$REAPER_INI"
         fi
       else
+        # Initial file generator if running a clean user profile setup
         mkdir -p "$(dirname "$REAPER_INI")"
-        echo -e "[REAPER]\ncolortheme=$TARGET_THEME" > "$REAPER_INI"
+        echo -e "[REAPER]\nlastthemefn5=$TARGET_PATH" > "$REAPER_INI"
       fi
     '';
   };

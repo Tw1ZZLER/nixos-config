@@ -10,17 +10,22 @@
     lib,
     ...
   }: let
-    # Handle path configurations gracefully across Linux and macOS environments
+    # 1. Handle REAPER configuration pathways across environments
     reaperDir =
       if pkgs.stdenv.isDarwin
       then "Library/Application Support/REAPER"
       else ".config/REAPER";
 
+    # 2. Track OS-specific fonts directory
+    fontDir =
+      if pkgs.stdenv.isDarwin
+      then "Library/Fonts"
+      else ".local/share/fonts/truetype/smooth6";
+
     smooth6Theme = pkgs.stdenv.mkDerivation {
       pname = "reaper-theme-smooth6-dark";
       version = "2.1";
 
-      # Point to your downloaded archive containing the Smooth 6 theme variants
       src = ./Smooth_6_v2.1.zip;
 
       nativeBuildInputs = [pkgs.unzip];
@@ -30,46 +35,52 @@
       installPhase = ''
         mkdir -p $out/ColorThemes
         mkdir -p $out/Scripts/Cockos
+        mkdir -p $out/Fonts
 
-        # 1. Extract all .ReaperThemeZip files found in the archive (captures Light, Dark, etc.)
-        find dest -type f -name "*.ReaperThemeZip" -exec cp {} $out/ColorThemes/ \;
+        # Match both the packed bundle (.ReaperThemeZip) and loose variation files (.ReaperTheme)
+        find dest -type f \( -name "*.ReaperThemeZip" -o -name "*.ReaperTheme" \) -exec cp {} $out/ColorThemes/ \;
 
-        # 2. Extract the relative theme adjuster script framework
+        # Extract theme adjuster scripts (.lua)
         ADJUSTER_SRC=$(dirname "$(find dest -type f -name "*theme_adjuster*.lua" | head -n 1)")
         if [ -d "$ADJUSTER_SRC" ]; then
           cp -r "$ADJUSTER_SRC"/* $out/Scripts/Cockos/
         fi
+
+        # Extract all bundled TrueType and OpenType fonts safely
+        find dest -type f \( -name "*.ttf" -o -name "*.otf" \) -exec cp {} $out/Fonts/ \;
       '';
     };
   in {
-    # Merge all found theme files cleanly into REAPER's ColorThemes directory
-    # 'recursive = true' ensures Home Manager safely updates this folder without wiping out other themes
+    # Merge all theme layouts into REAPER's ColorThemes directory
     home.file."${reaperDir}/ColorThemes" = {
       source = "${smooth6Theme}/ColorThemes";
       recursive = true;
     };
 
-    # Merge the layout adjuster scripts safely into the default Cockos environment
+    # Merge scripts into REAPER
     home.file."${reaperDir}/Scripts/Cockos" = {
       source = "${smooth6Theme}/Scripts/Cockos";
       recursive = true;
     };
 
-    # Automatic ini injector targeting the Dark configuration specifically
+    # Symlink custom fonts into your OS font environment
+    home.file."${fontDir}" = {
+      source = "${smooth6Theme}/Fonts";
+      recursive = true;
+    };
+
+    # Automatic config editor targeting the Dark configuration precisely
     home.activation.setReaperTheme = lib.hm.dag.entryAfter ["writeBoundary"] ''
       REAPER_INI="$HOME/${reaperDir}/reaper.ini"
       TARGET_THEME="Smooth_6_Dark.ReaperTheme"
 
       if [ -f "$REAPER_INI" ]; then
         if grep -q "^colortheme=" "$REAPER_INI"; then
-          # Swap out whatever theme was previously configured
           sed -i "s|^colortheme=.*|colortheme=$TARGET_THEME|" "$REAPER_INI"
         else
-          # Inject the key directly under the global REAPER layout block
           sed -i "/^\[REAPER\]/a colortheme=$TARGET_THEME" "$REAPER_INI"
         fi
       else
-        # Fallback initialization if running on a fresh user profile
         mkdir -p "$(dirname "$REAPER_INI")"
         echo -e "[REAPER]\ncolortheme=$TARGET_THEME" > "$REAPER_INI"
       fi

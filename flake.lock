@@ -495,6 +495,28 @@
         "type": "github"
       }
     },
+    "nix-secrets": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783576090,
+        "narHash": "sha256-fWo+krT2fzQh9RYDr5XWvvs2VE/EB6Yn2I8erikkTB4=",
+        "ref": "main",
+        "rev": "13bd126e11b6d23e145db3e6fdca2dd898a20d7f",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@codeberg.org/Tw1ZZLER/nix-secrets.git"
+      },
+      "original": {
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@codeberg.org/Tw1ZZLER/nix-secrets.git"
+      }
+    },
     "nix-vm-test": {
       "inputs": {
         "nixpkgs": [
@@ -840,6 +862,7 @@
         "home-manager": "home-manager",
         "import-tree": "import-tree",
         "nix-index-database": "nix-index-database",
+        "nix-secrets": "nix-secrets",
         "nix-xilinx": "nix-xilinx",
         "nixcord": "nixcord",
         "nixos-anywhere": "nixos-anywhere",

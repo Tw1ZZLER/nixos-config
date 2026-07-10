@@ -10,13 +10,11 @@
     lib,
     ...
   }: let
-    # 1. Handle REAPER configuration pathways across environments
     reaperDir =
       if pkgs.stdenv.isDarwin
       then "Library/Application Support/REAPER"
       else ".config/REAPER";
 
-    # 2. Track OS-specific fonts directory
     fontDir =
       if pkgs.stdenv.isDarwin
       then "Library/Fonts"
@@ -37,42 +35,42 @@
         mkdir -p $out/Scripts/Cockos
         mkdir -p $out/Fonts
 
-        # Match both the packed bundle (.ReaperThemeZip) and loose variation files (.ReaperTheme)
-        find dest -type f \( -name "*.ReaperThemeZip" -o -name "*.ReaperTheme" \) -exec cp {} $out/ColorThemes/ \;
+        # 1. Search relative to '.' (since Nix already CD'd into dest)
+        # and explicitly ignore macOS metadata resource forks
+        find . -type f \( -name "*.ReaperThemeZip" -o -name "*.ReaperTheme" \) ! -path "*/__MACOSX/*" ! -name "._*" -exec cp {} $out/ColorThemes/ \;
 
-        # Extract theme adjuster scripts (.lua)
-        ADJUSTER_SRC=$(dirname "$(find dest -type f -name "*theme_adjuster*.lua" | head -n 1)")
-        if [ -d "$ADJUSTER_SRC" ]; then
+        # 2. Safely isolate and extract layout adjuster scripts
+        ADJUSTER_FILE=$(find . -type f -name "*theme_adjuster*.lua" ! -path "*/__MACOSX/*" ! -name "._*" | head -n 1)
+        if [ -n "$ADJUSTER_FILE" ]; then
+          ADJUSTER_SRC=$(dirname "$ADJUSTER_FILE")
           cp -r "$ADJUSTER_SRC"/* $out/Scripts/Cockos/
         fi
 
-        # Extract all bundled TrueType and OpenType fonts safely
-        find dest -type f \( -name "*.ttf" -o -name "*.otf" \) -exec cp {} $out/Fonts/ \;
+        # 3. Extract typography assets
+        find . -type f \( -name "*.ttf" -o -name "*.otf" \) ! -path "*/__MACOSX/*" ! -name "._*" -exec cp {} $out/Fonts/ \;
       '';
     };
   in {
-    # Merge all theme layouts into REAPER's ColorThemes directory
     home.file."${reaperDir}/ColorThemes" = {
       source = "${smooth6Theme}/ColorThemes";
       recursive = true;
     };
 
-    # Merge scripts into REAPER
     home.file."${reaperDir}/Scripts/Cockos" = {
       source = "${smooth6Theme}/Scripts/Cockos";
       recursive = true;
     };
 
-    # Symlink custom fonts into your OS font environment
     home.file."${fontDir}" = {
       source = "${smooth6Theme}/Fonts";
       recursive = true;
     };
 
-    # Automatic config editor targeting the Dark configuration precisely
+    # Adjusted to target "Smooth_6_Windows_Dark.ReaperTheme" as seen in your logs.
+    # (Note: If you are on Linux/macOS, REAPER can still read this layout completely fine)
     home.activation.setReaperTheme = lib.hm.dag.entryAfter ["writeBoundary"] ''
       REAPER_INI="$HOME/${reaperDir}/reaper.ini"
-      TARGET_THEME="Smooth_6_Dark.ReaperTheme"
+      TARGET_THEME="Smooth_6_Windows_Dark.ReaperTheme"
 
       if [ -f "$REAPER_INI" ]; then
         if grep -q "^colortheme=" "$REAPER_INI"; then

@@ -1140,11 +1140,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781561234,
-        "narHash": "sha256-cTKNOSSpWSESsI0CzhGXXE16BCesSsKJ+VhOZV7mI9E=",
+        "lastModified": 1783718134,
+        "narHash": "sha256-pZTjdGtWwyEvhE9FP0rtORS6RD867BO2PQd1RDJRP9g=",
         "owner": "tw1zzler",
         "repo": "vimridian",
-        "rev": "c5552b3ab7762caa92d500b63bd2b2264ac41343",
+        "rev": "6c15dc82488e2db04a876f818a1e0e1661eacf78",
         "type": "github"
       },
       "original": {

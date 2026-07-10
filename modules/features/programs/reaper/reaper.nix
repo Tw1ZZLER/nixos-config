@@ -16,6 +16,11 @@
       '';
     };
   in {
+    imports = [
+      # Automatic installation of Smooth 6 theme
+      self.homeModules.reaper-smooth6
+    ];
+
     home.packages = with pkgs; [
       wrappedReaper # Use our custom wrapped REAPER instead of the stock one
       reaper-reapack-extension

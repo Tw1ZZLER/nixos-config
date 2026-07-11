@@ -851,6 +851,29 @@
         "type": "github"
       }
     },
+    "reaper-flake": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783520559,
+        "narHash": "sha256-HIeavyOtARLCKggyJXtBjrMkebTTwfnKte/hTiXMCTw=",
+        "owner": "9Prestidigitator",
+        "repo": "reaper-flake",
+        "rev": "5292b53ee816813f721ba770556e3943ca614af1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "9Prestidigitator",
+        "repo": "reaper-flake",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
@@ -871,6 +894,7 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "noctalia": "noctalia",
         "pano-scrobbler": "pano-scrobbler",
+        "reaper-flake": "reaper-flake",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "twintail-launcher": "twintail-launcher",

@@ -4,26 +4,52 @@
   inputs,
   ...
 }: {
-  flake.homeModules.reaper = {pkgs, ...}: let
+  flake.homeModules.reaper = {
+    config,
+    pkgs,
+    ...
+  }: let
     # Create a wrapped version of REAPER that includes PipeWire's JACK library
-    wrappedReaper = pkgs.symlinkJoin {
-      name = "reaper-wrapped";
-      paths = [pkgs.reaper];
-      nativeBuildInputs = [pkgs.makeWrapper];
-      postBuild = ''
-        wrapProgram $out/bin/reaper \
-          --prefix LD_LIBRARY_PATH : "${pkgs.pipewire.jack}/lib"
-      '';
-    };
+    # wrappedReaper = pkgs.symlinkJoin {
+    #   name = "reaper-wrapped";
+    #   paths = [pkgs.reaper];
+    #   nativeBuildInputs = [pkgs.makeWrapper];
+    #   postBuild = ''
+    #     wrapProgram $out/bin/reaper \
+    #       --prefix LD_LIBRARY_PATH : "${pkgs.pipewire.jack}/lib"
+    #   '';
+    # };
   in {
-    imports = [
-      # Automatic installation of Smooth 6 theme
-      self.homeModules.reaper-smooth6
-    ];
+    imports = [inputs.reaper-flake.homeModules.reaper];
+
+    programs.reaper = {
+      enable = true;
+      # configPath = "${config.xdg.configHome}/REAPER";
+
+      extensions = {
+        reapack.enable = true;
+        sws.enable = true;
+      };
+
+      swell.colortheme = {
+        enable = true;
+
+        # Use "stylix" here when Stylix is imported.
+        preset = "reapertips";
+
+        settings = {
+          default_font_face = "Liberation Sans";
+          default_font_size = 13;
+          menubar_height = 17;
+          scrollbar_width = 14;
+          focus_hilight = "#d1a660";
+        };
+      };
+    };
 
     home.packages = with pkgs; [
-      wrappedReaper # Use our custom wrapped REAPER instead of the stock one
-      reaper-reapack-extension
+      # wrappedReaper # Use our custom wrapped REAPER instead of the stock one
+      # reaper-reapack-extension
       carla # Audio plugin host
 
       yabridge # Run Windows VST plugins on Linux
@@ -31,9 +57,9 @@
     ];
 
     # Link ReaPack to Reaper User Plugins
-    home.file.".config/REAPER/UserPlugins/reaper_reapack-x86_64.so" = {
-      source = pkgs.reaper-reapack-extension + "/UserPlugins/reaper_reapack-x86_64.so";
-    };
+    # home.file.".config/REAPER/UserPlugins/reaper_reapack-x86_64.so" = {
+    #   source = pkgs.reaper-reapack-extension + "/UserPlugins/reaper_reapack-x86_64.so";
+    # };
 
     # Link Carla Plugins to Reaper VST and LV2 Plugins
     home.file.".vst/carla.vst" = {

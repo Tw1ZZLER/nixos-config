@@ -165,6 +165,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # REAPER DAW flake
+    reaper-flake = {
+      url = "github:9Prestidigitator/reaper-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs-unstable";
+        flake-parts.follows = "flake-parts";
+      };
+    };
+
     #
     # ========= Ricing =========
     #

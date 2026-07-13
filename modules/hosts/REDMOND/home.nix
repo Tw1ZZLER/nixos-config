@@ -46,6 +46,9 @@
       zathura
       zen-browser
 
+      # TUI Programs
+      opencode
+
       # Services
       fonts
       mpd

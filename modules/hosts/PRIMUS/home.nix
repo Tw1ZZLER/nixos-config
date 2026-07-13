@@ -55,6 +55,9 @@
       zathura
       zen-browser
 
+      # TUI Programs
+      opencode
+
       # Services
       fonts
       syncthing

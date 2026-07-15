@@ -7,7 +7,7 @@
 }: let
   sopsFolder = "${inputs.nix-secrets}/sops";
 in {
-  flake.nixosModules.sops = {lib, ...}: {
+  flake.nixosModules.sops = {...}: {
     imports = [
       inputs.sops-nix.nixosModules.sops
     ];
@@ -20,6 +20,23 @@ in {
       age = {
         # automatically import host SSH keys as age keys
         sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+      };
+    };
+  };
+
+  flake.homeModules.sops = {config, ...}: {
+    imports = [
+      inputs.sops-nix.homeManagerModules.sops
+    ];
+
+    sops = {
+      defaultSopsFile = "${sopsFolder}/shared.yaml";
+      validateSopsFiles = false;
+      defaultSopsFormat = "yaml";
+
+      age = {
+        # automatically import user SSH keys as age keys
+        sshKeyPaths = ["${config.home.homeDirectory}/.ssh/id_ed25519"];
       };
     };
   };

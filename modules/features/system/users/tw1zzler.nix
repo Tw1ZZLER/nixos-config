@@ -13,8 +13,13 @@
       initialPassword = "password";
       isNormalUser = true;
       description = "Tw1ZZLER";
-      openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC0e4+wxqXRno7s5VdlWzrFHCUL9IxrMFKfEiaaxZFRw SSH KEY"
+      openssh.authorizedKeys.keys = with inputs.nix-secrets.keys; [
+        tw1zzler_PRIMUS
+        tw1zzler_REDMOND
+        tw1zzler_MALENIA
+        PRIMUS
+        REDMOND
+        MALENIA
       ];
       extraGroups = [
         "wheel"

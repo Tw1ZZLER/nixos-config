@@ -4,7 +4,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.noctalia-shell = {...}: {
+  flake.homeModules.noctalia-shell = {lib, ...}: {
     # import the home manager module
     imports = [
       inputs.noctalia.homeModules.default
@@ -12,7 +12,7 @@
 
     programs.noctalia = {
       enable = true;
-      settings = ./noctalia-config.toml;
+      settings = lib.mkDefault (fromTOML (builtins.readFile ./noctalia-config.toml));
     };
   };
 }

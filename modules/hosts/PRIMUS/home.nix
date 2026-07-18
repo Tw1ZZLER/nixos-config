@@ -30,7 +30,6 @@
       # GUI Programs
       ark
       clone-hero
-      cursor
       discord
       dolphin
       filelight

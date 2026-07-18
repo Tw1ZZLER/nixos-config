@@ -23,6 +23,7 @@
       niri
 
       # Nixpkgs
+      nixpkgs-config
       xilinx
 
       # Intel hardware
@@ -76,8 +77,6 @@
         self.homeModules."tw1zzler@PRIMUS"
       ];
     };
-
-    nixpkgs.config.allowUnfree = true;
 
     boot = {
       # Boot loader

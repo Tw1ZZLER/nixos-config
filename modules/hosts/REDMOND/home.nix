@@ -10,6 +10,9 @@
 
   flake.homeModules."tw1zzler@REDMOND" = {...}: {
     imports = with self.homeModules; [
+      # Nixpkgs
+      nixpkgs-config
+
       # CLI Programs
       bat
       btop
@@ -58,8 +61,6 @@
     ];
 
     programs.home-manager.enable = true;
-
-    nixpkgs.config.allowUnfree = true;
 
     home.username = "tw1zzler";
     home.homeDirectory = "/home/tw1zzler";

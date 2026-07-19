@@ -1,11 +1,11 @@
-# Enable GNOME Keyring for managing secrets and SSH keys, works best with COSMIC DE
+# Enable GNOME Keyring for managing secrets and SSH keys
 {
   self,
   inputs,
   ...
 }: {
   flake.homeModules.gnome-keyring = {...}: {
-    # Enable GNOME keyring (works best with COSMIC DE)
+    # Enable GNOME keyring
     services.gnome-keyring = {
       enable = true;
       components = [

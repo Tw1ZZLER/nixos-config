@@ -5,7 +5,7 @@
   ...
 }: {
   flake.nixosModules.flatpak = {...}: {
-    # Need flatpak for some packages (particularly COSMIC DE)
+    # Need flatpak for some packages
     services.flatpak.enable = true;
     # systemd.services.flatpak-repo = {
     #   wantedBy = [ "multi-user.target" ];

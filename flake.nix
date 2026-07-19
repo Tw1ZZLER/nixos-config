@@ -29,13 +29,6 @@
     # ========= Official NixOS, Darwin, and HM Package Sources =========
     #
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # The next two are for pinning to stable vs unstable regardless of what the above is set to
-    # This is particularly useful when an upcoming stable release is in beta because you can effectively
-    # keep 'nixpkgs-stable' set to stable for critical packages while setting 'nixpkgs' to the beta branch to
-    # get a jump start on deprecation changes.
-    # See also 'stable-packages' and 'unstable-packages' overlays at 'overlays/default.nix"
-    # nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -125,7 +118,7 @@
       # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
       # to have it up-to-date or simply don't specify the nixpkgs input
       inputs = {
-        nixpkgs.follows = "nixpkgs-unstable";
+        nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
       };
     };
@@ -175,7 +168,7 @@
     reaper-flake = {
       url = "github:9Prestidigitator/reaper-flake";
       inputs = {
-        nixpkgs.follows = "nixpkgs-unstable";
+        nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
       };
     };
@@ -205,7 +198,7 @@
     # My Neovim Configuration
     vimridian = {
       url = "github:tw1zzler/vimridian";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-secrets = {

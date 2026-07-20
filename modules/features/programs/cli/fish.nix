@@ -70,12 +70,12 @@
         "jctl" = "journalctl -p 3 -xb";
 
         # Replace ls with eza
-        "ls" = "eza -al --color=always --group-directories-first --icons";
-        "lsz" = "eza -al --color=always --total-size --group-directories-first --icons"; # include file size
-        "la" = "eza -a --color=always --group-directories-first --icons"; # all files and dirs
-        "ll" = "eza -l --color=always --group-directories-first --icons"; # long format
-        "lt" = "eza -aT --color=always --group-directories-first --icons"; # tree listing
-        "l." = "eza -ald --color=always --group-directories-first --icons .*"; # show only dotfiles
+        "ls" = "eza -al --color=always --icons --group-directories-first"; # preferred listing
+        "lsz" = "eza -al --color=always --total-size --icons --group-directories-first"; # include file size
+        "la" = "eza -a --color=always --icons --group-directories-first"; # all files and dirs
+        "ll" = "eza -l --color=always --icons --group-directories-first"; # long format
+        "lt" = "eza -aT --color=always --icons --group-directories-first"; # tree listing
+        "l." = "eza -ald --color=always --icons --group-directories-first .*"; # show only dotfiles
       };
 
       # Hide welcome message & ensure we are reporting fish as shell

@@ -9,7 +9,7 @@
       settings = {
         user = {
           name = "Corbin";
-          email = "63320116+Tw1ZZLER@users.noreply.github.com";
+          email = inputs.nix-secrets.emails.gitHub;
         };
       };
       signing = {

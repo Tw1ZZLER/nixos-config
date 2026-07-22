@@ -29,6 +29,7 @@
 
       # GUI Programs
       ark
+      bitwarden
       clone-hero
       discord
       dolphin

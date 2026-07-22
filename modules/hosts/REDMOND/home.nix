@@ -36,6 +36,7 @@
       yazi
 
       # GUI Programs
+      bitwarden
       cursor
       discord
       ghostty

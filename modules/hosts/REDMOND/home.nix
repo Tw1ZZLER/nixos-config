@@ -36,6 +36,7 @@
       yazi
 
       # GUI Programs
+      cursor
       discord
       ghostty
       mpv

@@ -1,4 +1,4 @@
-# Enable GNOME Keyring for managing secrets and SSH keys
+# Enable GNOME Keyring for managing secrets (SSH agent is handled by rbw)
 {
   self,
   inputs,
@@ -10,7 +10,6 @@
       enable = true;
       components = [
         "secrets"
-        "ssh"
       ];
     };
   };

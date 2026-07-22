@@ -31,6 +31,7 @@
       ark
       bitwarden
       clone-hero
+      cursor
       discord
       dolphin
       filelight

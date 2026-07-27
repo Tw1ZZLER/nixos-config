@@ -29,7 +29,13 @@
       self.nixosModules.malenia-wifi
     ];
 
-    networking.hostName = "MALENIA";
+    # Tailscale settings for subnetting etc
+    services.tailscale.useRoutingFeatures = "server";
+    networking = {
+      hostName = "MALENIA";
+      firewall.checkReversePath = "loose";
+      nftables.enable = true;
+    };
 
     boot.loader.raspberry-pi = {
       bootloader = "kernel";

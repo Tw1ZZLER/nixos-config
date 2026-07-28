@@ -40,7 +40,7 @@
         enable = true;
 
         # Use "stylix" here when Stylix is imported.
-        preset = "reapertips";
+        # preset = "none";
 
         # settings = {
         #   default_font_face = "Liberation Sans";
@@ -76,13 +76,13 @@
       };
 
       preferences = {
-        windows = {
-          tcpHelpBar = {
-            informationDisplay = reaperWindows.tcpHelpBar.informationDisplay.cpuRamUseTimeSinceLastSave;
-            showMouseEditingHelp = true;
-          };
-          mixer.master.showInDockerOrWindow = true;
-        };
+        # windows = {
+        #   tcpHelpBar = {
+        #     informationDisplay = reaperWindows.tcpHelpBar.informationDisplay.cpuRamUseTimeSinceLastSave;
+        #     showMouseEditingHelp = true;
+        #   };
+        #   mixer.master.showInDockerOrWindow = true;
+        # };
 
         project = {
           backups = {

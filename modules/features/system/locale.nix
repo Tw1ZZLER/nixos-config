@@ -1,12 +1,10 @@
-# Enable timezone configuration
+# Enable locale configuration
 {
   self,
   inputs,
   ...
 }: {
-  flake.nixosModules.timezone = {...}: {
-    # Timezone
-    time.timeZone = "America/Chicago";
+  flake.nixosModules.locale = {...}: {
     i18n.defaultLocale = "en_US.UTF-8";
     i18n.extraLocaleSettings = {
       LC_ADDRESS = "en_US.UTF-8";

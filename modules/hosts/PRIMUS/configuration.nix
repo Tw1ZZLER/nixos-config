@@ -62,12 +62,15 @@
       nix-wrapper
       pipewire
       printing
-      timezone
+      locale
 
       # Virtualisation
       docker
       virt-manager
     ];
+
+    # Timezone
+    time.timeZone = "America/Detroit";
 
     # Home-manager configuration
     home-manager = {

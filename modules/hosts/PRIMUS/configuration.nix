@@ -24,7 +24,6 @@
 
       # Nixpkgs
       nixpkgs-config
-      xilinx
 
       # Intel hardware
       intel-graphics
@@ -32,7 +31,13 @@
       # Printers and drives
       onu-printers
       onu-drives
-      argonne-printers
+
+      # Engineering software
+      xilinx
+      waveforms
+
+      # Secrets management
+      seahorse
 
       # CLI Programs
       bash
@@ -43,10 +48,8 @@
 
       # GUI Programs
       gpu-screen-recorder
-      seahorse
       steam
       system76-keyboard-configurator
-      waveforms
       weylus
       wine
 

@@ -66,7 +66,6 @@
       stylix-wrapper
 
       # Desktop
-      hyprland
       niri
       gnome-keyring
       noctalia-shell

@@ -20,7 +20,6 @@
       greetd
 
       # Desktop environment
-      hyprland
       niri
 
       # Nixpkgs

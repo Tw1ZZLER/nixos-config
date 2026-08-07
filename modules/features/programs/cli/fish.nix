@@ -37,6 +37,7 @@
         "gpull" = "git pull";
         "gpush" = "git push";
         "reb" = "nh os switch";
+        "rebmal" = "nh os switch -H MALENIA --target-host tw1zzler@MALENIA --build-host tw1zzler@MALENIA";
         "roll" = "nh os switch -- --rollback";
         "run" = "comma ";
         "su" = "sudo su -";

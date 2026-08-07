@@ -51,7 +51,7 @@
           protocol = "ssh-ng";
           maxJobs = 4;
           supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
-          #   sshKey = "/root/.ssh/id_ed25519"; # Path to the local root user's private key
+          sshKey = "/root/.ssh/id_ed25519";
         }
       ];
       # required, otherwise remote buildMachines above aren't used

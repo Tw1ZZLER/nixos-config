@@ -13,6 +13,9 @@
   #         ↓  here (as well as hardware-configuration.nix)
   flake.nixosModules.PRIMUS = {pkgs, ...}: {
     imports = with self.nixosModules; [
+      # Kernel settings
+      sysrq
+
       # Boot splash screen
       plymouth
 

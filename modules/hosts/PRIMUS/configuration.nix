@@ -51,7 +51,6 @@
 
       # GUI Programs
       gpu-screen-recorder
-      steam
       system76-keyboard-configurator
       weylus
       wine

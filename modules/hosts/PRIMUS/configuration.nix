@@ -70,7 +70,6 @@
 
       # Virtualisation
       docker
-      virt-manager
     ];
 
     # Timezone

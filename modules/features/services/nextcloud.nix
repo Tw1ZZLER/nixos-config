@@ -4,8 +4,16 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.nextcloud = {config, pkgs, ...}: {
+  flake.nixosModules.nextcloud = {
+    config,
+    pkgs,
+    ...
+  }: {
     environment.etc."nextcloud-admin-pass".text = "PWD";
+
+    # Ensure firewall allows HTTP and HTTPS traffic
+    networking.firewall.allowedTCPPorts = [80 443];
+
     services.nextcloud = {
       enable = true;
       package = pkgs.nextcloud34;

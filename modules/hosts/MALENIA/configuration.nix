@@ -29,6 +29,8 @@
       self.nixosModules.user-tw1zzler
       self.nixosModules.nix-wrapper
 
+      self.nixosModules.nextcloud
+
       self.nixosModules.malenia-wifi
     ];
 

@@ -1,4 +1,3 @@
-include "./noctalia.kdl"
 
 // This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.

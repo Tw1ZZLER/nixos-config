@@ -29,7 +29,9 @@
       self.nixosModules.user-tw1zzler
       self.nixosModules.nix-wrapper
 
+      # Homelab stuff
       self.nixosModules.nextcloud
+      self.nixosModules.pi-hole
 
       self.nixosModules.malenia-wifi
     ];

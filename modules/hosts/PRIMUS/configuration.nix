@@ -70,6 +70,7 @@
 
       # Virtualisation
       docker
+      build-system-aarch64
     ];
 
     # Timezone

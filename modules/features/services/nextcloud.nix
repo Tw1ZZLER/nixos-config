@@ -11,10 +11,15 @@
   }: {
     environment.etc."nextcloud-admin-pass".text = "PWD";
 
+    # Dusable systemd-resolved for better DNS handling
+    services.resolved.enable = false;
+    networking.nameservers = ["1.1.1.1" "8.8.8.8"];
+
     networking.firewall = {
+      enable = true;
+      allowedUDPPorts = [53 80 443];
+      allowedTCPPorts = [53 80 443];
       trustedInterfaces = ["tailscale0"];
-      allowedUDPPorts = [53];
-      allowedTCPPorts = [53];
     };
 
     services.pihole-ftl = {
@@ -22,7 +27,7 @@
       settings = {
         dns = {
           upstreams = ["1.1.1.1" "8.8.8.8"];
-
+          listeningBehavior = "all";
           hosts = [
             "100.83.191.106 cloud.tw1zzler.net"
             "100.83.191.106 pihole.tw1zzler.net"

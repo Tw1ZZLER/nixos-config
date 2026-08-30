@@ -9,7 +9,7 @@
       bat
       btop
       direnv
-      exercism
+      # exercism
       eza
       fastfetch
       fd
@@ -19,10 +19,8 @@
       neovim
       nix-helper
       nix-index
-      python
       ripgrep
       rmpc
-      sqlite
       starship
       wget
       yazi
@@ -40,7 +38,7 @@
       krita
       moonlight
       mpv
-      obs-studio
+      # obs-studio
       obsidian
       onu
       prismlauncher
@@ -49,9 +47,9 @@
       research
       slack
       thunderbird
-      twintail-launcher
+      # twintail-launcher
       vscode
-      xilinx
+      # xilinx
       ytmusic
       zathura
       zen-browser

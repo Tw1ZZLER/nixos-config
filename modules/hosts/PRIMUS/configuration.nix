@@ -6,7 +6,7 @@
   flake.nixosConfigurations.PRIMUS = inputs.nixpkgs.lib.nixosSystem {
     modules = [
       inputs.home-manager.nixosModules.home-manager
-      inputs.determinate.nixosModules.default
+      # inputs.determinate.nixosModules.default
       self.nixosModules.PRIMUS # this is defined right -----> |
     ]; #                                                      ↓
   }; #      |  <-----------------------------------------------
@@ -36,11 +36,11 @@
       onu-drives
 
       # Engineering software
-      xilinx
+      # xilinx
       waveforms
 
       # Secrets management
-      seahorse
+      # seahorse
 
       # CLI Programs
       bash
@@ -50,22 +50,22 @@
       trashy
 
       # GUI Programs
-      gpu-screen-recorder
-      system76-keyboard-configurator
-      weylus
+      # gpu-screen-recorder
+      # system76-keyboard-configurator
+      # weylus
       wine
 
       # Services
       ssh
       tailscale
-      flatpak
+      # flatpak
       stylix-wrapper
 
       # System
       user-tw1zzler
       nix-wrapper
       pipewire
-      printing
+      # printing # figure out why foomatic-db-ppds takes so damn long then re-enable
       locale
 
       # Virtualisation

@@ -27,10 +27,8 @@
       neovim
       nix-helper
       nix-index
-      python
       ripgrep
       rmpc
-      sqlite
       starship
       wget
       yazi

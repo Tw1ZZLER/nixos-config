@@ -98,10 +98,7 @@
 
     # NixOS Raspberry Pi configurations
     # follow `main` branch of this repository, considered being stable
-    nixos-raspberrypi = {
-      url = "github:nvmd/nixos-raspberrypi/main";
-      inputs.flake-compat.follows = "flake-compat";
-    };
+    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
 
     #
     # ========= Applications =========

@@ -6,7 +6,6 @@
   flake.nixosConfigurations.PRIMUS = inputs.nixpkgs.lib.nixosSystem {
     modules = [
       inputs.home-manager.nixosModules.home-manager
-      # inputs.determinate.nixosModules.default
       self.nixosModules.PRIMUS # this is defined right -----> |
     ]; #                                                      ↓
   }; #      |  <-----------------------------------------------

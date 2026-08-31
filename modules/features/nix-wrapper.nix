@@ -13,7 +13,6 @@
 
         # Extra Binary Caches
         extra-substituters = [
-          "https://install.determinate.systems" # determinate nix
           "https://nix-community.cachix.org" # disko, nixos-anywhere, etc
           "https://hercules-ci.cachix.org" # flake-parts
           "https://noctalia.cachix.org" # noctalia
@@ -21,7 +20,6 @@
           "https://nixos-raspberrypi.cachix.org" # nixos-raspberrypi
         ];
         extra-trusted-public-keys = [
-          "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
           "hercules-ci.cachix.org-1:g99HiMR8Y9Z8mYicrKWW04daP0W5ZshhZ/pYgNfC+1U="
           "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="

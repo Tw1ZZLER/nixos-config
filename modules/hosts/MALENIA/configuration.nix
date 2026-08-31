@@ -7,31 +7,30 @@
     specialArgs = {inherit inputs;};
     modules = [
       self.nixosModules.MALENIA
+      inputs.nixos-raspberrypi.nixosModules.raspberry-pi-5.base
     ];
   };
 
   flake.nixosModules.MALENIA = {lib, ...}: {
-    imports = [
-      inputs.nixos-raspberrypi.nixosModules.raspberry-pi-5.base
-
+    imports = with self.nixosModules; [
       # Kernel settings
-      self.nixosModules.sysrq
+      sysrq
 
-      self.nixosModules.nixpkgs-config
+      nixpkgs-config
 
-      self.nixosModules.malenia-disko
-      self.nixosModules.server-networking
-      self.nixosModules.ssh
-      self.nixosModules.tailscale
-      self.nixosModules.sops
-      self.nixosModules.user-tw1zzler
-      self.nixosModules.nix-wrapper
+      malenia-disko
+      server-networking
+      ssh
+      tailscale
+      sops
+      user-tw1zzler
+      nix-wrapper
 
       # Homelab stuff
-      self.nixosModules.nextcloud
-      self.nixosModules.pi-hole
+      nextcloud
+      pi-hole
 
-      self.nixosModules.malenia-wifi
+      malenia-wifi
     ];
 
     # Tailscale settings for subnetting etc

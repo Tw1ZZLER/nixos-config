@@ -57,7 +57,7 @@
             domain = "tw1zzler.net";
             domainNeeded = true;
             expandHosts = true;
-            interface = "eth0";
+            listeningMode = "LOCAL";
             hosts = [
               "100.83.191.106 cloud"
               "100.83.191.106 pihole"

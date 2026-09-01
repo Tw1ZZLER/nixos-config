@@ -8,7 +8,12 @@
   flake.nixosModules.pi-hole = {...}: {
     networking = {
       nameservers = ["1.1.1.1" "8.8.8.8"];
-      firewall.trustedInterfaces = ["tailscale0"];
+      firewall = {
+        enable = true;
+        trustedInterfaces = ["tailscale0"];
+        allowedUDPPorts = [53];
+        allowedTCPPorts = [53];
+      };
       hosts = {
         "100.83.191.106" = [
           "cloud.tw1zzler.net"

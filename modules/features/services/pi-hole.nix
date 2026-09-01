@@ -10,7 +10,12 @@
       nameservers = ["1.1.1.1" "8.8.8.8"];
       firewall.trustedInterfaces = ["tailscale0"];
       hosts = {
-        "100.83.191.106" = ["cloud.tw1zzler.net" "cloud" "pi-hole.tw1zzler.net" "pi-hole"];
+        "100.83.191.106" = [
+          "cloud.tw1zzler.net"
+          "cloud"
+          "pihole.tw1zzler.net"
+          "pihole"
+        ];
       };
     };
 
@@ -86,17 +91,17 @@
 
       nginx.virtualHosts."pihole.tw1zzler.net" = {
         locations."/" = {
-          proxyPass = "http://127.0.0.1:8081/admin/";
+          proxyPass = "http://127.0.0.1:8081/";
           proxyWebsockets = true;
         };
       };
     };
 
-    system.activationScripts = {
-      print-pi-hole = {
-        text = builtins.trace "building the pi-hole configuration..." "";
-      };
-    };
+    # system.activationScripts = {
+    #   print-pi-hole = {
+    #     text = builtins.trace "building the pi-hole configuration..." "";
+    #   };
+    # };
 
     #
     # Systemd

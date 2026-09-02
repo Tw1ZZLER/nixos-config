@@ -28,6 +28,7 @@
       dnsmasq = {
         enable = false;
         settings = {
+          local-service = false;
           address = [
             "/feelinsonice-hrd.appspot.com/ # Block Snapchat"
             "/feelinsonice.appspot.com/ # Block Snapchat"
@@ -67,7 +68,7 @@
             domain = "tw1zzler.net";
             domainNeeded = true;
             expandHosts = true;
-            listeningMode = "LOCAL";
+            listeningMode = "ALL";
             hosts = [
               "100.83.191.106 cloud"
               "100.83.191.106 pihole"

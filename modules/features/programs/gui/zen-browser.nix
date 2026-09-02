@@ -21,23 +21,26 @@
     ];
 
     # Zen-browser as default browser for these XDG mime types
-    xdg.mimeApps.defaultApplications = lib.genAttrs [
-      "application/x-extension-shtml"
-      "application/x-extension-xhtml"
-      "application/x-extension-html"
-      "application/x-extension-xht"
-      "application/x-extension-htm"
-      "x-scheme-handler/unknown"
-      "x-scheme-handler/mailto"
-      "x-scheme-handler/chrome"
-      "x-scheme-handler/about"
-      "x-scheme-handler/https"
-      "x-scheme-handler/http"
-      "application/xhtml+xml"
-      "application/json"
-      "text/plain"
-      "text/html"
-    ] (_: desktopFile);
+    xdg.mimeApps = {
+      enable = true;
+      defaultApplications = lib.genAttrs [
+        "application/x-extension-shtml"
+        "application/x-extension-xhtml"
+        "application/x-extension-html"
+        "application/x-extension-xht"
+        "application/x-extension-htm"
+        "x-scheme-handler/unknown"
+        "x-scheme-handler/mailto"
+        "x-scheme-handler/chrome"
+        "x-scheme-handler/about"
+        "x-scheme-handler/https"
+        "x-scheme-handler/http"
+        "application/xhtml+xml"
+        "application/json"
+        "text/plain"
+        "text/html"
+      ] (_: desktopFile);
+    };
 
     # Zen Browser Program
     programs.zen-browser = {

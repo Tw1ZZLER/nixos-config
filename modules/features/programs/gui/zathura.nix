@@ -10,11 +10,13 @@
     lib,
     ...
   }: {
-    xdg.mimeApps.defaultApplications = lib.genAttrs [
-      "application/pdf"
-      "application/epub"
-    ] (_: pkgs.zathura.meta.desktopFileName);
-
+    xdg.mimeApps = {
+      enable = true;
+      defaultApplications = lib.genAttrs [
+        "application/pdf"
+        "application/epub"
+      ] (_: pkgs.zathura.meta.desktopFileName);
+    };
     programs.zathura.enable = true;
   };
 }

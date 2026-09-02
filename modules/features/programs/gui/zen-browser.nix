@@ -1,10 +1,15 @@
 # The best browser in the world right now
+# genAttrs usage: https://noogle.dev/f/lib/genAttrs/
 {
   self,
   inputs,
   ...
 }: {
-  flake.homeModules.zen-browser = {pkgs, ...}: let
+  flake.homeModules.zen-browser = {
+    pkgs,
+    lib,
+    ...
+  }: let
     system = pkgs.stdenv.hostPlatform.system;
     zenHomeModule = inputs.zen-browser.homeModules.beta;
     zenPkg = inputs.zen-browser.packages.${system}.beta;
@@ -15,35 +20,24 @@
       zenHomeModule
     ];
 
-    # Zen-browser as default browser
-    xdg.mimeApps = let
-      associations = builtins.listToAttrs (
-        map
-        (name: {
-          inherit name desktopFile;
-        })
-        [
-          "application/x-extension-shtml"
-          "application/x-extension-xhtml"
-          "application/x-extension-html"
-          "application/x-extension-xht"
-          "application/x-extension-htm"
-          "x-scheme-handler/unknown"
-          "x-scheme-handler/mailto"
-          "x-scheme-handler/chrome"
-          "x-scheme-handler/about"
-          "x-scheme-handler/https"
-          "x-scheme-handler/http"
-          "application/xhtml+xml"
-          "application/json"
-          "text/plain"
-          "text/html"
-        ]
-      );
-    in {
-      associations.added = associations;
-      defaultApplications = associations;
-    };
+    # Zen-browser as default browser for these XDG mime types
+    xdg.mimeApps.defaultApplications = lib.genAttrs [
+      "application/x-extension-shtml"
+      "application/x-extension-xhtml"
+      "application/x-extension-html"
+      "application/x-extension-xht"
+      "application/x-extension-htm"
+      "x-scheme-handler/unknown"
+      "x-scheme-handler/mailto"
+      "x-scheme-handler/chrome"
+      "x-scheme-handler/about"
+      "x-scheme-handler/https"
+      "x-scheme-handler/http"
+      "application/xhtml+xml"
+      "application/json"
+      "text/plain"
+      "text/html"
+    ] (_: desktopFile);
 
     # Zen Browser Program
     programs.zen-browser = {

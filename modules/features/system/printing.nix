@@ -15,7 +15,6 @@
           # Foomatic Printer Drivers
           foomatic-db-nonfree
           foomatic-db-engine
-          foomatic-db-ppds-withNonfreeDb
 
           # GhostScript and CUPS printer drivers
           gutenprint

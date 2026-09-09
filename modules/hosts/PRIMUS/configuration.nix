@@ -64,7 +64,7 @@
       user-tw1zzler
       nix-wrapper
       pipewire
-      # printing # figure out why foomatic-db-ppds takes so damn long then re-enable
+      printing # figure out why foomatic-db-ppds takes so damn long then re-enable
       locale
 
       # Virtualisation

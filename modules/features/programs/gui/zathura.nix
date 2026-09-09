@@ -15,7 +15,7 @@
       defaultApplications = lib.genAttrs [
         "application/pdf"
         "application/epub"
-      ] (_: pkgs.zathura.meta.desktopFileName);
+      ] (_: "zathura.desktop");
     };
     programs.zathura.enable = true;
   };

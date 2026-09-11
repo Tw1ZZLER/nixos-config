@@ -29,9 +29,9 @@
         enable = false;
         settings = {
           address = [
-            "/feelinsonice-hrd.appspot.com/ # Block Snapchat"
-            "/feelinsonice.appspot.com/ # Block Snapchat"
-            "/snapchat.com/ # Block Snapchat"
+            # "/feelinsonice-hrd.appspot.com/ # Block Snapchat"
+            # "/feelinsonice.appspot.com/ # Block Snapchat"
+            # "/snapchat.com/ # Block Snapchat"
           ];
           dhcp-name-match = [
             "set:hostname-ignore,wpad"

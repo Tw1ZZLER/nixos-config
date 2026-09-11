@@ -7,7 +7,7 @@
 }: {
   flake.nixosModules.pi-hole = {...}: {
     networking = {
-      nameservers = ["1.1.1.1" "8.8.8.8"];
+      nameservers = ["127.0.0.1" "::1"];
       firewall = {
         enable = true;
         trustedInterfaces = ["tailscale0"];
@@ -86,11 +86,11 @@
       };
 
       resolved = {
-        # enable = false;
+        enable = false;
         settings = {
           Resolve = {
-            DNSStubListener = false;
-            MulticastDNS = false;
+            # DNSStubListener = false;
+            # MulticastDNS = false;
           };
         };
       };
@@ -103,15 +103,6 @@
       };
     };
 
-    # system.activationScripts = {
-    #   print-pi-hole = {
-    #     text = builtins.trace "building the pi-hole configuration..." "";
-    #   };
-    # };
-
-    #
-    # Systemd
-    #
     # The following silences a benign FTL.log warning:
     # WARNING API: Failed to read /etc/pihole/versions (key: internal_error)
     systemd.tmpfiles.rules = [

@@ -16,6 +16,7 @@
       package = pkgs.nextcloud34;
 
       hostName = "cloud.tw1zzler.net";
+      https = true;
 
       config = {
         adminpassFile = "/etc/nextcloud-admin-pass";

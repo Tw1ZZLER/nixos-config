@@ -33,6 +33,7 @@
       # Homelab stuff
       nextcloud
       pi-hole
+      step-ca
 
       malenia-wifi
     ];

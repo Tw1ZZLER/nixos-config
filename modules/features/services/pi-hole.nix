@@ -28,7 +28,6 @@
       dnsmasq = {
         enable = false;
         settings = {
-          local-service = false;
           address = [
             "/feelinsonice-hrd.appspot.com/ # Block Snapchat"
             "/feelinsonice.appspot.com/ # Block Snapchat"

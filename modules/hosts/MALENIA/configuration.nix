@@ -11,7 +11,11 @@
     ];
   };
 
-  flake.nixosModules.MALENIA = {lib, ...}: {
+  flake.nixosModules.MALENIA = {
+    pkgs,
+    lib,
+    ...
+  }: {
     imports = with self.nixosModules; [
       # Kernel settings
       sysrq
@@ -32,6 +36,8 @@
 
       malenia-wifi
     ];
+
+    environment.systemPackages = [pkgs.dig];
 
     # Tailscale settings for subnetting etc
     services.tailscale.useRoutingFeatures = "server";

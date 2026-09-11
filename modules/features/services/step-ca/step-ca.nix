@@ -11,7 +11,8 @@
       address = "127.0.0.1";
       port = 8443;
       intermediatePasswordFile = "/var/lib/step-ca/password.txt";
-      configFile = "/var/lib/step-ca/config/ca.json";
+      # settings = builtins.fromJSON (builtins.readFile ./)
+      # configFile = "/var/lib/step-ca/config/ca.json";
     };
 
     # 2. Tell NixOS to trust step-ca Root CA system-wide

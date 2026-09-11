@@ -102,6 +102,15 @@
       };
     };
 
+    # This node is the DNS server for my Tailnet...
+    # I don't want DNS routing through Tailscale bc everything else routes to this device
+    # Also Tailscale replaces resolv.conf with resolving to Tailscale, which I do not want.
+    services.tailscale = {
+      extraSetFlags = [
+        "--accept-dns=false"
+      ];
+    };
+
     # The following silences a benign FTL.log warning:
     # WARNING API: Failed to read /etc/pihole/versions (key: internal_error)
     systemd.tmpfiles.rules = [

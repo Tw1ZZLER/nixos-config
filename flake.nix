@@ -90,8 +90,6 @@
       url = "gitlab:garuda-linux/garuda-nix-subsystem/stable";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-        nix-index-database.follows = "nix-index-database";
         home-manager.follows = "home-manager";
       };
     };
@@ -136,10 +134,7 @@
     # Nixcord - Discord client management for home-manager
     nixcord = {
       url = "github:FlameFlag/nixcord";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Twintail Launcher

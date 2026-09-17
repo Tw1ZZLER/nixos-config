@@ -12,8 +12,8 @@
   }: let
     system = pkgs.stdenv.hostPlatform.system;
     zenHomeModule = inputs.zen-browser.homeModules.beta;
-    zenPkg = inputs.zen-browser.packages.${system}.beta;
-    desktopFile = zenPkg.meta.desktopFileName;
+    # zenPkg = inputs.zen-browser.packages.${system}.beta;
+    # desktopFile = zenPkg.meta.desktopFileName;
     firefoxAddons = inputs.firefox-addons.packages.${system};
   in {
     imports = [
@@ -21,26 +21,26 @@
     ];
 
     # Zen-browser as default browser for these XDG mime types
-    xdg.mimeApps = {
-      enable = true;
-      defaultApplications = lib.genAttrs [
-        "application/x-extension-shtml"
-        "application/x-extension-xhtml"
-        "application/x-extension-html"
-        "application/x-extension-xht"
-        "application/x-extension-htm"
-        "x-scheme-handler/unknown"
-        "x-scheme-handler/mailto"
-        "x-scheme-handler/chrome"
-        "x-scheme-handler/about"
-        "x-scheme-handler/https"
-        "x-scheme-handler/http"
-        "application/xhtml+xml"
-        "application/json"
-        "text/plain"
-        "text/html"
-      ] (_: desktopFile);
-    };
+    # xdg.mimeApps = {
+    #   enable = true;
+    #   defaultApplications = lib.genAttrs [
+    #     "application/x-extension-shtml"
+    #     "application/x-extension-xhtml"
+    #     "application/x-extension-html"
+    #     "application/x-extension-xht"
+    #     "application/x-extension-htm"
+    #     "x-scheme-handler/unknown"
+    #     "x-scheme-handler/mailto"
+    #     "x-scheme-handler/chrome"
+    #     "x-scheme-handler/about"
+    #     "x-scheme-handler/https"
+    #     "x-scheme-handler/http"
+    #     "application/xhtml+xml"
+    #     "application/json"
+    #     "text/plain"
+    #     "text/html"
+    #   ] (_: "zen-beta.desktop");
+    # };
 
     # Zen Browser Program
     programs.zen-browser = {

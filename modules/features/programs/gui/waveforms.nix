@@ -11,5 +11,6 @@
     services.udev.packages = [pkgs.adept2-runtime];
     environment.systemPackages = [pkgs.waveforms];
     users.users.tw1zzler.extraGroups = ["plugdev"];
+    users.groups.plugdev = {};
   };
 }

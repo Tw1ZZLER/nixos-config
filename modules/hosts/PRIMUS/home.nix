@@ -28,14 +28,11 @@
       # GUI Programs
       ark
       bitwarden
-      clone-hero
       cursor
       discord
       dolphin
-      filelight
       ghostty
       gwenview
-      krita
       moonlight
       mpv
       # obs-studio

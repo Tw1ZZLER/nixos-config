@@ -13,17 +13,17 @@
 
         drivers = with pkgs; [
           # Foomatic Printer Drivers
-          foomatic-db-nonfree
-          foomatic-db-engine
+          # foomatic-db-nonfree
+          # foomatic-db-engine
 
           # GhostScript and CUPS printer drivers
           gutenprint
 
           # HP Printer Drivers
-          hplip
+          # hplip
 
           # Samsung Printer Drivers
-          splix
+          # splix
 
           # ASCII to PostScript converter and pretty-printer
           a2ps

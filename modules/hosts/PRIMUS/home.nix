@@ -26,22 +26,22 @@
       yazi
 
       # GUI Programs
-      ark
+      # ark
       bitwarden
       cursor
       discord
       dolphin
       ghostty
       gwenview
-      moonlight
+      # moonlight
       mpv
       # obs-studio
       obsidian
-      onu
+      # onu
       prismlauncher
       qbittorrent
       reaper
-      research
+      # research
       slack
       thunderbird
       # twintail-launcher

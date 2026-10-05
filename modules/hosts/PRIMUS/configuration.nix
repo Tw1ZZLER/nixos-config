@@ -61,6 +61,7 @@
 
       # System
       user-tw1zzler
+      user-root
       nix-wrapper
       pipewire
       printing # figure out why foomatic-db-ppds takes so damn long then re-enable

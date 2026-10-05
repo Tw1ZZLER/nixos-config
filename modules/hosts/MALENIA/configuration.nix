@@ -28,6 +28,7 @@
       tailscale
       sops
       user-tw1zzler
+      user-root
       nix-wrapper
 
       # Homelab stuff

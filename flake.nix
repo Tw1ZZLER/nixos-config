@@ -67,10 +67,7 @@
     };
 
     # Explode root on every boot
-    preservation = {
-      url = "github:nix-community/preservation";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    preservation.url = "github:nix-community/preservation";
 
     # Secrets management with SOPS-nix
     sops-nix = {

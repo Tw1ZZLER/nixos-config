@@ -66,7 +66,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Impermenance setup
+    # Impermanence setup
     impermanence = {
       url = "github:nix-community/impermanence";
       inputs = {

@@ -105,6 +105,8 @@
     };
 
     hardware.bluetooth.enable = true;
+
+    # Laptop specific
     services = {
       power-profiles-daemon.enable = true;
       upower.enable = true;

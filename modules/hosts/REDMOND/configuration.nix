@@ -3,43 +3,99 @@
   inputs,
   ...
 }: {
-  flake.nixosConfigurations.REDMOND = inputs.garuda.lib.garudaSystem {
-    pkgs = import inputs.nixpkgs {system = "x86_64-linux";};
+  flake.nixosConfigurations.REDMOND = inputs.nixpkgs.lib.nixosSystem {
     modules = [
-      self.nixosModules.REDMOND
+      inputs.home-manager.nixosModules.home-manager
+      self.nixosModules.REDMOND # this is defined right -----> |
+    ]; #                                                      ↓
+  }; #      |  <-----------------------------------------------
+  #         ↓  here (as well as hardware-configuration.nix)
+  flake.nixosModules.REDMOND = {pkgs, ...}: {
+    imports = with self.nixosModules; [
+      # Kernel settings
+      sysrq
+
+      # Boot splash screen
+      plymouth
+
+      # Display manager
+      greetd
+
+      # Desktop environment
+      niri
+
+      # Nixpkgs
+      nixpkgs-config
+
+      # CLI Programs
+      bash
+      fish
+      sops
+      trashy
+
+      # GUI Programs
+      wine
+
+      # Services
+      ssh
+      tailscale
+      # flatpak
+      stylix-wrapper
+
+      # System
+      user-tw1zzler
+      nix-wrapper
+      pipewire
+      printing # figure out why foomatic-db-ppds takes so damn long then re-enable
+      locale
+
+      # Virtualisation
+      docker
+      build-system-aarch64
     ];
-  };
 
-  # This is your system's configuration file.
-  # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-  flake.nixosModules.REDMOND = {...}: {
-    # You can import other NixOS modules here
-    imports = [
-      # If you want to use modules your own flake exports (from modules/nixos):
-      # outputs.nixosModules.example
+    # Timezone
+    time.timeZone = "America/Detroit";
 
-      # Or modules from other flakes (such as nixos-hardware):
-      # inputs.hardware.nixosModules.common-cpu-amd
-      # inputs.hardware.nixosModules.common-ssd
+    # Home-manager configuration
+    home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      extraSpecialArgs = {inherit inputs;};
+      users.tw1zzler.imports = [
+        self.homeModules."tw1zzler@REDMOND"
+      ];
+    };
 
-      # Import your generated (nixos-generate-config) hardware configuration
-      # (imported automatically by flake-parts)
+    boot = {
+      # Boot loader
+      loader = {
+        grub = {
+          enable = true;
+          device = "nodev"; # "nodev" is used for UEFI
+          efiSupport = true;
+        };
+        efi.canTouchEfiVariables = true;
+      };
 
-      # You can also split up your configuration and import pieces of it here:
-      # DEFAULTS for all systems
-      # ../../modules/nixos
+      # Kernel
+      kernelPackages = pkgs.linuxPackages_latest;
+    };
 
-      # Not defaults (changes per system)
+    # Networking
+    networking = {
+      hostName = "REDMOND";
+      networkmanager.enable = true;
+    };
+
+    hardware.bluetooth.enable = true;
+
+    environment.systemPackages = with pkgs; [
+      # C/C++ compiler
+      gcc
     ];
 
-    # Do not remove these subsystem settings
-    garuda.subsystem.enable = true;
-    garuda.managed.config = ./garuda-managed.json;
-
-    garuda.dr460nized.enable = true;
-
-    # This should never be changed unless you know exactly what you are doing.
-    # This has no impact on any package updates or OS version.
+    # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     system.stateVersion = "24.11";
   };
 }

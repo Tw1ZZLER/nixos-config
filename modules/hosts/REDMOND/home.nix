@@ -17,7 +17,9 @@
       # GUI Programs
       cursor
       discord
+      dolphin
       ghostty
+      gwenview
       mpv
       obsidian
       prismlauncher
@@ -34,9 +36,14 @@
       # Services
       fonts
       mpd
-      generic-linux
       syncthing
       xdg-user-dirs
+      stylix-wrapper
+
+      # Desktop
+      niri
+      gnome-keyring
+      noctalia-shell
     ];
 
     programs.home-manager.enable = true;

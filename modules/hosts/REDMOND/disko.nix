@@ -8,6 +8,9 @@
     imports = [
       inputs.disko.nixosModules.disko
     ];
+
+    fileSystems."/nix".neededForBoot = true;
+
     disko.devices = {
       disk = {
         main = {
@@ -17,8 +20,10 @@
             type = "gpt";
             partitions = {
               boot = {
-                type = "EF00";
+                name = "boot";
                 size = "512M";
+                type = "EF00";
+
                 content = {
                   type = "filesystem";
                   format = "vfat";
@@ -27,10 +32,13 @@
                 };
               };
               root = {
+                name = "root";
                 size = "100%";
+
                 content = {
                   type = "btrfs";
                   extraArgs = ["-f"];
+
                   subvolumes = {
                     "@root" = {
                       mountpoint = "/";

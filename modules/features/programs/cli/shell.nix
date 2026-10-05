@@ -7,7 +7,6 @@
   flake.homeModules.shell = {pkgs, ...}: {
     imports = with self.homeModules; [
       btop
-      bitwarden
       direnv
       fastfetch
       fish
@@ -15,6 +14,7 @@
       neovim
       nix-helper
       nix-index
+      rbw
       starship
       yazi
     ];

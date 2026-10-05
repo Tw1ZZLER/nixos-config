@@ -1,16 +1,10 @@
-# Bitwarden desktop + rbw CLI; rbw-agent is the SSH agent
+# rbw CLI for managing Bitwarden secrets; rbw-agent is the SSH agent
 {
   self,
   inputs,
   ...
 }: {
-  flake.homeModules.bitwarden = {
-    config,
-    pkgs,
-    ...
-  }: {
-    # home.packages = [pkgs.bitwarden-desktop];
-
+  flake.homeModules.rbw = {pkgs, ...}: {
     programs.rbw = {
       enable = true;
       settings = {

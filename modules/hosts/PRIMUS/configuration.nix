@@ -44,7 +44,6 @@
       # CLI Programs
       bash
       fish
-      # nix-ld
       sops
       trashy
 

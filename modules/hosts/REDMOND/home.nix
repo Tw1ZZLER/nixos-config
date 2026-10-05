@@ -3,11 +3,6 @@
   inputs,
   ...
 }: {
-  flake.homeConfigurations."tw1zzler@REDMOND" = inputs.home-manager.lib.homeManagerConfiguration {
-    pkgs = import inputs.nixpkgs {system = "x86_64-linux";};
-    modules = [self.homeModules."tw1zzler@REDMOND"];
-  };
-
   flake.homeModules."tw1zzler@REDMOND" = {...}: {
     imports = with self.homeModules; [
       # Nixpkgs

@@ -66,13 +66,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Impermanence setup
-    impermanence = {
-      url = "github:nix-community/impermanence";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
+    # Explode root on every boot
+    preservation = {
+      url = "github:nix-community/preservation";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Secrets management with SOPS-nix

@@ -5,9 +5,6 @@
 }: {
   flake.homeModules."tw1zzler@REDMOND" = {...}: {
     imports = with self.homeModules; [
-      # Nixpkgs
-      nixpkgs-config
-
       # standard shell
       shell
 

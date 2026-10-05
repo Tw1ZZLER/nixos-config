@@ -54,10 +54,6 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
 
-    # Mainly here for `follows` optimization
-    # https://nixos.wiki/wiki/Flakes#Using_flakes_project_from_a_legacy_Nix
-    flake-compat.url = "github:NixOS/flake-compat";
-
     # Nix Index
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
@@ -68,6 +64,15 @@
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Impermenance setup
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
     };
 
     # Secrets management with SOPS-nix
@@ -82,15 +87,6 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         disko.follows = "disko";
-      };
-    };
-
-    # Garuda Linux Nix Subsystem
-    garuda = {
-      url = "gitlab:garuda-linux/garuda-nix-subsystem/stable";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
       };
     };
 
@@ -122,7 +118,6 @@
     nix-xilinx = {
       url = "github:MIT-OpenCompute/xilinx-flake";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "flake-compat";
     };
 
     # Digilent Waveforms Flake

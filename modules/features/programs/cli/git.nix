@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.git = {pkgs, ...}: {
+  flake.homeModules.git = {...}: {
     programs.git = {
       enable = true;
       settings = {
@@ -23,10 +23,5 @@
       enable = true;
       settings.git.overrideGpg = true;
     };
-
-    home.packages = with pkgs; [
-      gh # GitHub CLI
-      codeberg-cli # gh-like tool for Codeberg
-    ];
   };
 }

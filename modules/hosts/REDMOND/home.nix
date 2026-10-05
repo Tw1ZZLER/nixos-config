@@ -8,28 +8,13 @@
       # Nixpkgs
       nixpkgs-config
 
-      # CLI Programs
-      bat
-      btop
-      direnv
-      exercism
-      eza
-      fastfetch
-      fd
-      fish
-      fzf
-      git
-      neovim
-      nix-helper
-      nix-index
-      ripgrep
+      # standard shell
+      shell
+
+      # music playa
       rmpc
-      starship
-      wget
-      yazi
 
       # GUI Programs
-      bitwarden
       cursor
       discord
       ghostty

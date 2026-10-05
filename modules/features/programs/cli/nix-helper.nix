@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.nix-helper = {pkgs, ...}: {
+  flake.homeModules.nix-helper = {...}: {
     programs.nh = {
       enable = true;
       flake = "/home/tw1zzler/nixos-config";
@@ -15,10 +15,5 @@
         dates = "weekly";
       };
     };
-
-    home.packages = with pkgs; [
-      nix-output-monitor
-      nvd
-    ];
   };
 }

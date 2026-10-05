@@ -5,29 +5,14 @@
 }: {
   flake.homeModules."tw1zzler@PRIMUS" = {...}: {
     imports = with self.homeModules; [
-      # CLI Programs
-      bat
-      btop
-      direnv
-      # exercism
-      eza
-      fastfetch
-      fd
-      fish
-      fzf
-      git
-      neovim
-      nix-helper
-      nix-index
-      ripgrep
+      # standard shell
+      shell
+
+      # music playa
       rmpc
-      starship
-      wget
-      yazi
 
       # GUI Programs
       # ark
-      bitwarden
       cursor
       discord
       dolphin

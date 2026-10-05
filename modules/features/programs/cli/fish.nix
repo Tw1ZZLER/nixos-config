@@ -147,14 +147,6 @@
           cp $filename $filename.bak
         '';
       };
-      completions = {
-        # Later figure out how to extract command output directly to completions
-        # exercism = {
-        #   body = ''
-        #     ${pkgs.exercism}/bin/exercism completion fish
-        #   '';
-        # };
-      };
     };
 
     home.packages = with pkgs.fishPlugins; [

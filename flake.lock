@@ -147,11 +147,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1791086769,
-        "narHash": "sha256-C34/GzVinIrfLGdpzHMB2NGggutjaA+AZx6fj804JS8=",
+        "lastModified": 1791172946,
+        "narHash": "sha256-dqhLZafEJaHmjoVpss9kC/gNY0K25rZEq+W9NWLepZE=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "e56771291e0b5649f8c5c4a092f475053bd4561b",
+        "rev": "b29e6cab45b83b19338d80037f60ffd5f32728d4",
         "type": "gitlab"
       },
       "original": {
@@ -425,10 +425,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1786091892,
-        "narHash": "sha256-9blLcpVtwxLmHi0BD/odxsb8i6qNCN1tZdtOg7f0EOQ=",
+        "lastModified": 1791179107,
+        "narHash": "sha256-zmz6QOh4Yq5CeaGwTs4P+u0AC0XRgihzBMAWCEJBOf8=",
         "ref": "main",
-        "rev": "9ec1695e1fcef1e85d209ebc9cacbaeb37e38a70",
+        "rev": "05357b56088ef77702f82c6721cb2511cc775e79",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@codeberg.org/Tw1ZZLER/nix-secrets.git"
@@ -494,11 +494,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1791153857,
-        "narHash": "sha256-8fJdQfc5WyWk8OEH14x6ppJPuT7kQo7SW89jNYtJo6c=",
+        "lastModified": 1791164236,
+        "narHash": "sha256-S5cAJMYQ2ATOOgEQwkM4cw2RFMAxwuwd+2N9aULT2Vg=",
         "owner": "FlameFlag",
         "repo": "nixcord",
-        "rev": "35f83d1671ebe37b7e9ac4c674baa84d52cef246",
+        "rev": "c76ec817e363c7c63007031ec6c1baee21626214",
         "type": "github"
       },
       "original": {
@@ -768,11 +768,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791162858,
-        "narHash": "sha256-Lb6lh3REiaKxxg5KJzmq4DKLQtzXa5f9TomDwUj+Mco=",
+        "lastModified": 1791167969,
+        "narHash": "sha256-rJRQcQMsEOqYYYcYBEqo9vgfRNDWZKS2K5U/6nMVW0U=",
         "owner": "9Prestidigitator",
         "repo": "reaper-flake",
-        "rev": "e27dc2e2918f8942af2d505c8eee2453d3553692",
+        "rev": "ae5c67b17ecbdceb8e556492fd86037c3e64689a",
         "type": "github"
       },
       "original": {

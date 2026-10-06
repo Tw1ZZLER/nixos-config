@@ -69,6 +69,17 @@
       ];
     };
 
+    fileSystems."/home/tw1zzler/BIGDATA" = {
+      device = "/dev/disk/by-uuid/c177732b-f5cb-493d-b332-1485ad5d017c";
+      fsType = "ext4";
+      options = [ "defaults" ];
+    };
+    fileSystems."/home/tw1zzler/FASTDATA" = {
+      device = "/dev/disk/by-uuid/541775d1-5fa8-475b-9c79-ff407bfc2827";
+      fsType = "ext4";
+      options = [ "defaults" ];
+    };
+
     boot = {
       # Boot loader
       loader = {

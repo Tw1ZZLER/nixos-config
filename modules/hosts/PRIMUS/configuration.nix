@@ -66,6 +66,7 @@
       pipewire
       printing # figure out why foomatic-db-ppds takes so damn long then re-enable
       locale
+      sshGitHosts
 
       # Virtualisation
       docker

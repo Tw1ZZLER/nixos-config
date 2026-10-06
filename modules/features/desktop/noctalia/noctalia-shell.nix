@@ -12,7 +12,7 @@
 
     programs.noctalia = {
       enable = true;
-      settings = lib.mkDefault (fromTOML (builtins.readFile ./noctalia-config.toml));
+      settings = lib.mkForce (fromTOML (builtins.readFile ./noctalia-config.toml));
     };
   };
 }

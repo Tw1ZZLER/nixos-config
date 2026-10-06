@@ -60,7 +60,7 @@
           }
           {
             file = "/etc/nix/id_rsa";
-            parentDirectory = {
+            parent = {
               mode = "u=rwx,g=,o=";
             };
           }

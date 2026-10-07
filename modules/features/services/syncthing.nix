@@ -33,19 +33,19 @@
           };
           devices = {
             "Pixel 8" = {
-              addresses = ["tcp://100.67.233.82:22000"];
+              addresses = ["tcp://${inputs.nix-secrets.ip-address.vpn.pixel-8}:22000"];
               id = "K6ZAYPE-YSJ7ILX-2XARZW7-HVKS76J-7YSAJM5-7K6TQ7H-LHQ5U4A-4EPXOQR";
             };
             "iPad" = {
-              addresses = ["tcp://100.85.218.3:22000"];
+              addresses = ["tcp://${inputs.nix-secrets.ip-address.vpn.ipad-gen-6}:22000"];
               id = "YJ74BBR-KYOX2GQ-WE6EPHY-WE6Y3DH-VEP6CFU-HATBP5G-U6VZMUS-BP4ALAA";
             };
             "PRIMUS" = {
-              addresses = ["tcp://100.110.251.51:22000"];
+              addresses = ["tcp://${inputs.nix-secrets.ip-address.vpn.primus}:22000"];
               id = "3OVXJ5E-MQ6BHCH-E67ZDZ7-U7APMIB-CSVGNXU-S5BS5DU-XWIWMY3-BKPETA2";
             };
             "REDMOND" = {
-              addresses = ["tcp://100.80.238.41:22000"];
+              addresses = ["tcp://${inputs.nix-secrets.ip-address.vpn.redmond}:22000"];
               id = "XVSUFJ6-DF5JJZU-ETJXMWT-XOFGOJ7-UJLGDLQ-MGMS2C3-HCJHTBM-F4E74QH";
             };
           };

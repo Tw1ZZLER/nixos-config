@@ -5,7 +5,9 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.pi-hole = {...}: {
+  flake.nixosModules.pi-hole = {...}: let
+    malenia-ip = inputs.nix-secrets.ip-address.vpn.malenia;
+  in {
     networking = {
       nameservers = ["127.0.0.1" "::1"];
       firewall = {
@@ -15,7 +17,7 @@
         allowedTCPPorts = [53];
       };
       hosts = {
-        "100.83.191.106" = [
+        "${malenia-ip}" = [
           "cloud.tw1zzler.net"
           "cloud"
           "pihole.tw1zzler.net"
@@ -40,10 +42,10 @@
           # Set DHCP option 6 to the DNS server you nodes should use.
           dhcp-option = [
             "vendor:MSFT,2,1i"
-            "6,100.83.191.106"
+            "6,${malenia-ip}"
           ];
           domain = [
-            "tw1zzler.net,100.83.191.106/32,local"
+            "tw1zzler.net,${malenia-ip}/32,local"
           ];
         };
       };
@@ -69,8 +71,8 @@
             expandHosts = true;
             listeningMode = "ALL";
             hosts = [
-              "100.83.191.106 cloud"
-              "100.83.191.106 pihole"
+              "${malenia-ip} cloud"
+              "${malenia-ip} pihole"
             ];
             upstreams = ["1.1.1.1" "8.8.8.8"];
           };

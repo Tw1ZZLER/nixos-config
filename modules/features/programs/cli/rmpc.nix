@@ -8,7 +8,7 @@
       enable = true;
       config = ''
         (
-            address: "100.80.238.41:6600",
+            address: "${inputs.nix-secrets.ip-address.vpn.redmond}:6600",
             password: None,
             theme: None,
             cache_dir: None,

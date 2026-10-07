@@ -51,7 +51,7 @@
 
       certs.${hostName} = {
         dnsProvider = "cloudflare";
-        environmentFile = config.sops.secrets.cloudflare-dns-api-token.path;
+        # environmentFile = config.sops.secrets.cloudflare-dns-api-token.path;
         group = "nginx";
       };
     };

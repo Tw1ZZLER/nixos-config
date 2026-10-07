@@ -42,6 +42,9 @@
       # flatpak
       stylix-wrapper
 
+      # AI inference
+      llama-cpp
+
       # System
       user-tw1zzler
       user-root

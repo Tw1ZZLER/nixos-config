@@ -59,6 +59,7 @@
       secrets = {
         malenia-wifi-superbad-psk = {};
         malenia-pihole-admin-password = {};
+        # cloudflare-dns-api-token = {};
       };
     };
 

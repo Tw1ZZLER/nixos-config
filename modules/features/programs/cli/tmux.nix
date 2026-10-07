@@ -10,6 +10,8 @@
       plugins = with pkgs.tmuxPlugins; [
         resurrect
         continuum
+        yank
+        sensible
         tmux-which-key
       ];
     };

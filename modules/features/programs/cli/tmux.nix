@@ -4,7 +4,14 @@
   inputs,
   ...
 }: {
-  flake.homeModules.tmux = {...}: {
-    programs.tmux.enable = true;
+  flake.homeModules.tmux = {pkgs, ...}: {
+    programs.tmux = {
+      enable = true;
+      plugins = with pkgs.tmuxPlugins; [
+        resurrect
+        continuum
+        tmux-which-key
+      ];
+    };
   };
 }

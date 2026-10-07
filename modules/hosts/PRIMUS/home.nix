@@ -38,6 +38,7 @@
 
       # TUI Programs
       opencode
+      pi
 
       # Services
       fonts

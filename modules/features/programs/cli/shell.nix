@@ -16,6 +16,7 @@
       nix-index
       rbw
       starship
+      tmux
       yazi
     ];
 

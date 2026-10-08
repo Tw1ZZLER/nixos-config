@@ -12,6 +12,14 @@
       inputs.preservation.nixosModules.default
     ];
 
+    # preservation bind-mounts /etc/machine-id in the initrd. That makes
+    # ConditionPathIsMountPoint= true, so systemd-machine-id-commit.service
+    # runs `systemd-machine-id-setup --commit`. --commit only accepts a
+    # tmpfs mount and exits 1 on this btrfs bind ("not on a temporary file
+    # system"), which fails switch-to-configuration. The id is already on
+    # disk; there is nothing to commit.
+    systemd.suppressedSystemUnits = ["systemd-machine-id-commit.service"];
+
     preservation = {
       enable = true;
 

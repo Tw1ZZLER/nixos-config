@@ -24,6 +24,8 @@
         no-models-autoload = true;
         spec-draft-n-max = 3;
         spec-type = "draft-mtp";
+        batch-size = 1024;
+        threads = 8;
       };
     };
 

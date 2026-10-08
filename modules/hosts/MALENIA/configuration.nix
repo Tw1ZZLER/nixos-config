@@ -34,6 +34,7 @@
       # Homelab stuff
       nextcloud
       pi-hole
+      vaultwarden
       # step-ca
 
       malenia-wifi

@@ -73,7 +73,6 @@
       ];
 
       # Safely freeze/dump SQLite database right before restic runs
-      preremovedCommands = "";
       backupPrepareCommand = ''
         # Optional: Safely create a live SQLite dump without stopping Vaultwarden
         ${pkgs.sqlite}/bin/sqlite3 /var/lib/vaultwarden/db.sqlite3 ".backup '/var/lib/vaultwarden/db.sqlite3.bak'"

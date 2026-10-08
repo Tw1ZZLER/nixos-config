@@ -57,6 +57,7 @@
           {
             file = "/etc/machine-id";
             inInitrd = true;
+            how = "symlink";
           }
           {
             file = "/etc/nix/id_rsa";

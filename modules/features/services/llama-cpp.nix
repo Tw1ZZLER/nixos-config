@@ -24,8 +24,16 @@
         no-models-autoload = true;
         spec-draft-n-max = 3;
         spec-type = "draft-mtp";
-        batch-size = 1024;
+        ctx-size = 16384;
+        batch-size = 2048;
+        gpu-layers = 99;
         threads = 8;
+
+        # KV cache quantization
+        cache-type-k = "q8_0";
+        cache-type-v = "q8_0";
+
+        flash-attn = "on";
       };
     };
 

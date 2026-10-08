@@ -9,7 +9,7 @@
       enable = true;
       settings = {
         email = inputs.nix-secrets.emails.personal;
-        lock_timeout = 3600;
+        lock_timeout = 604800;
         pinentry = pkgs.pinentry-curses;
       };
     };

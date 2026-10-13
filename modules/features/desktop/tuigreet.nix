@@ -1,10 +1,10 @@
-# Enable the greetd display manager
+# Enable tuigreet + greetd display manager
 {
   self,
   inputs,
   ...
 }: {
-  flake.nixosModules.greetd = {pkgs, ...}: {
+  flake.nixosModules.tuigreet = {pkgs, ...}: {
     services.greetd = {
       enable = true;
       settings = {

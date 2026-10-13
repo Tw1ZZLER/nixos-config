@@ -19,7 +19,7 @@
       plymouth
 
       # Display manager
-      greetd
+      tuigreet
 
       # Desktop environment
       niri

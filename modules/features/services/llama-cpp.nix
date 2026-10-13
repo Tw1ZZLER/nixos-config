@@ -22,8 +22,8 @@
         host = "127.0.0.1";
         port = 9931;
         no-models-autoload = true;
-        spec-draft-n-max = 3;
-        spec-type = "draft-mtp";
+        # spec-draft-n-max = 3;
+        # spec-type = "draft-mtp";
         ctx-size = 16384;
         batch-size = 2048;
         gpu-layers = 99;

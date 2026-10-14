@@ -54,7 +54,6 @@
         qt6.qtwayland
         wayland
         alacritty # in case of non-parsing config
-        fuzzel
       ];
     };
   };

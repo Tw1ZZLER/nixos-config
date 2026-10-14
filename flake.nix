@@ -157,6 +157,15 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
+    # Plasma Manager for configuration of KDE Plasma
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+
     # Catppuccin
     catppuccin = {
       url = "github:catppuccin/nix";

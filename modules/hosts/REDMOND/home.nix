@@ -39,9 +39,8 @@
       stylix-wrapper
 
       # Desktop
-      niri
-      gnome-keyring
-      noctalia-shell
+      # gnome-keyring
+      plasma
     ];
 
     programs.home-manager.enable = true;

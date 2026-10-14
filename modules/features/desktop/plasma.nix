@@ -53,5 +53,10 @@
   };
 
   # Plasma-manager configuration
-  flake.homeModules.plasma = {...}: {};
+  flake.homeModules.plasma = {...}: {
+    imports = [
+      inputs.plasma-manager.homeModules.plasma-manager
+      # ./rc2nix.nix # Imported directly from the rc2nix dump
+    ];
+  };
 }

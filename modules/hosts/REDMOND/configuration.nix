@@ -35,6 +35,7 @@
 
       # GUI Programs
       wine
+      steam
 
       # Services
       ssh

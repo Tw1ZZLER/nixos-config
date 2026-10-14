@@ -96,17 +96,37 @@
 
     # stage-1 initrd script: Wipe @root subvolume before mounting
     boot.initrd.supportedFilesystems = ["btrfs"];
-    boot.initrd.postDeviceCommands = lib.mkAfter ''
-      mkdir -p /tmp/mnt
-      mount /dev/disk/by-partlabel/disk-main-root /tmp/mnt -o subvolid=259 # CONFIRM THIS IS CORRECT FROM findmnt
-      mount /dev/nvme0n1p2 /tmp/mnt -o subvolid=259
-      if [ -e /tmp/mnt/@root ]; then
-          mkdir -p /tmp/mnt/@root_old
-          timestamp=$(date +%Y-%m-%d_%H:%M:%S)
-          mv /tmp/mnt/@root "/tmp/mnt/@root_old/$timestamp"
-      fi
-      btrfs subvolume create /tmp/mnt/@root
-      umount /tmp/mnt
-    '';
+    boot.initrd.systemd.services.wipe-my-root = {
+      description = "Wipe @root Btrfs subvolume on boot";
+      wantedBy = ["initrd.target"];
+
+      # Run before systemd attempts to mount /sysroot (the target root filesystem)
+      before = ["sysroot.mount"];
+
+      # Depend on device units becoming available
+      requires = ["dev-disk-by\\x2dpartlabel-disk\\x2dmain\\x2droot.device"];
+      after = ["dev-disk-by\\x2dpartlabel-disk\\x2dmain\\x2droot.device"];
+
+      unitConfig.DefaultDependencies = "no";
+      serviceConfig = {
+        Type = "oneshot";
+        RemainAfterExit = true;
+      };
+
+      script = ''
+        mkdir -p /tmp/mnt
+        # Mount top-level subvolume (subvolid=5) using persistent partition label
+        mount /dev/disk/by-partlabel/disk-main-root /tmp/mnt -o subvolid=5
+
+        if [ -e /tmp/mnt/@root ]; then
+            mkdir -p /tmp/mnt/@root_old
+            timestamp=$(date +%Y-%m-%d_%H:%M:%S)
+            mv /tmp/mnt/@root "/tmp/mnt/@root_old/$timestamp"
+        fi
+
+        btrfs subvolume create /tmp/mnt/@root
+        umount /tmp/mnt
+      '';
+    };
   };
 }

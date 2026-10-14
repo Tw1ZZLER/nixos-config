@@ -95,18 +95,18 @@
     };
 
     # stage-1 initrd script: Wipe @root subvolume before mounting
-    # boot.initrd.supportedFilesystems = ["btrfs"];
-    # boot.initrd.postDeviceCommands = lib.mkAfter ''
-    #   mkdir -p /tmp/mnt
-    #   mount /dev/disk/by-partlabel/disk-main-root /tmp/mnt -o subvolid=5 # CONFIRM THIS IS CORRECT FROM findmnt
-    #   mount /dev/nvme0n1p2 /tmp/mnt -o subvolid=5
-    #   if [ -e /tmp/mnt/@root ]; then
-    #       mkdir -p /tmp/mnt/@root_old
-    #       timestamp=$(date +%Y-%m-%d_%H:%M:%S)
-    #       mv /tmp/mnt/@root "/tmp/mnt/@root_old/$timestamp"
-    #   fi
-    #   btrfs subvolume create /tmp/mnt/@root
-    #   umount /tmp/mnt
-    # '';
+    boot.initrd.supportedFilesystems = ["btrfs"];
+    boot.initrd.postDeviceCommands = lib.mkAfter ''
+      mkdir -p /tmp/mnt
+      mount /dev/disk/by-partlabel/disk-main-root /tmp/mnt -o subvolid=259 # CONFIRM THIS IS CORRECT FROM findmnt
+      mount /dev/nvme0n1p2 /tmp/mnt -o subvolid=259
+      if [ -e /tmp/mnt/@root ]; then
+          mkdir -p /tmp/mnt/@root_old
+          timestamp=$(date +%Y-%m-%d_%H:%M:%S)
+          mv /tmp/mnt/@root "/tmp/mnt/@root_old/$timestamp"
+      fi
+      btrfs subvolume create /tmp/mnt/@root
+      umount /tmp/mnt
+    '';
   };
 }

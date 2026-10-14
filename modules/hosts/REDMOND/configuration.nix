@@ -41,7 +41,7 @@
       ssh
       tailscale
       # flatpak
-      stylix-wrapper
+      # stylix-wrapper
 
       # AI inference
       llama-cpp

@@ -36,7 +36,7 @@
       mpd
       syncthing
       xdg-user-dirs
-      stylix-wrapper
+      # stylix-wrapper
 
       # Desktop
       # gnome-keyring

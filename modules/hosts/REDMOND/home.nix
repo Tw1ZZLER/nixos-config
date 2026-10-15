@@ -33,6 +33,7 @@
       pi
 
       # Services
+      flatpak
       fonts
       mpd
       syncthing

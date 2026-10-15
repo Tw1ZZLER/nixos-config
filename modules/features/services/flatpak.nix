@@ -5,14 +5,15 @@
   ...
 }: {
   flake.nixosModules.flatpak = {pkgs, ...}: {
-    # Need flatpak for some packages
     services.flatpak.enable = true;
     systemd.services.add-flathub = {
       description = "Add Flathub Flatpak repository";
-      wantedBy = ["multi-user.target"];
+      wantedBy = ["sysinit-reactivation.target"];
+      before = ["sysinit-reactivation.target"];
+
       serviceConfig = {
         Type = "oneshot";
-        ExecStart = "${pkgs.flatpak}/bin/flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo";
+        ExecStart = "${pkgs.flatpak}/bin/flatpak remote-add --system --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo";
         RemainAfterExit = true;
       };
     };

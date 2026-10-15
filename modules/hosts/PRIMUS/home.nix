@@ -26,7 +26,6 @@
       prismlauncher
       qbittorrent
       reaper
-      # research
       slack
       thunderbird
       # twintail-launcher
@@ -35,6 +34,7 @@
       ytmusic
       zathura
       zen-browser
+      zotero
 
       # TUI Programs
       opencode

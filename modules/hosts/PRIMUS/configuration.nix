@@ -56,7 +56,7 @@
       # Services
       ssh
       tailscale
-      # flatpak
+      flatpak
       stylix-wrapper
 
       # System

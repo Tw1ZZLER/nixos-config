@@ -26,6 +26,7 @@
       ytmusic
       zathura
       zen-browser
+      zotero
 
       # TUI Programs
       opencode

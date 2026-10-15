@@ -41,6 +41,7 @@
       pi
 
       # Services
+      flatpak
       fonts
       syncthing
       xdg-user-dirs

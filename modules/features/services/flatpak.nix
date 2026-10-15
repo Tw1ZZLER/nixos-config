@@ -11,4 +11,11 @@
     ];
     services.flatpak.enable = true;
   };
+
+  flake.homeModules.flatpak = {...}: {
+    imports = [
+      inputs.nix-flatpak.homeModules.nix-flatpak
+    ];
+    services.flatpak.enable = true;
+  };
 }

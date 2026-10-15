@@ -60,6 +60,9 @@
           # tailscale authentication stuff
           "/var/lib/tailscale"
           "/var/lib/wireguard"
+
+          # flatpak
+          "/var/lib/flatpak"
         ];
         files = [
           {

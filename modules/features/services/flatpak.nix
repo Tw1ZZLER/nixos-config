@@ -5,6 +5,7 @@
   ...
 }: {
   flake.nixosModules.flatpak = {pkgs, ...}: {
+    imports = [self.nixosModules.misc-usr-fix];
     services.flatpak.enable = true;
     systemd.services.add-flathub = {
       description = "Add Flathub Flatpak repository";

@@ -5,8 +5,6 @@
   ...
 }: {
   flake.homeModules.zotero = {pkgs, ...}: {
-    home.packages = with pkgs; [
-      zotero
-    ];
+    services.flatpak.packages = ["org.zotero.Zotero"];
   };
 }

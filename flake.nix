@@ -88,6 +88,9 @@
     # follow `main` branch of this repository, considered being stable
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
 
+    # Flatpak declaratively installed with Nix
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
     #
     # ========= Applications =========
     #

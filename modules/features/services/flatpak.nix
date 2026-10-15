@@ -14,7 +14,7 @@
 
   flake.homeModules.flatpak = {...}: {
     imports = [
-      inputs.nix-flatpak.homeModules.nix-flatpak
+      inputs.nix-flatpak.homeManagerModules.nix-flatpak
     ];
     services.flatpak.enable = true;
   };

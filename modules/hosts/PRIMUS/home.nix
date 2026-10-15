@@ -34,7 +34,7 @@
       ytmusic
       zathura
       zen-browser
-      # zotero
+      zotero
 
       # TUI Programs
       opencode

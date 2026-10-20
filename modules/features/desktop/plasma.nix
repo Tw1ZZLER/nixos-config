@@ -73,11 +73,11 @@
           better_blur_dxEnabled = true;
         };
         "Effect-better-blur-dx" = {
-          WindowClasses = "ghostty\ncom.mitchellh.ghostty";
+          WindowClasses = "ghostty";
           BlurMatching = true;
           BlurNonMatching = false;
-          # Default strength is 15; ~80% for a subtler look
-          BlurStrength = 12;
+          # Default strength is 14
+          BlurStrength = 7;
           # Blur KWin titlebar / window chrome as well as client area
           BlurDecorations = true;
         };

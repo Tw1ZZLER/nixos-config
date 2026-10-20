@@ -14,8 +14,29 @@
         vencord.enable = true;
       };
       vesktop.enable = true;
+      # Midnight transparency toggles + translucent nord panels (compositor blur shows through)
+      quickCss = ''
+        body {
+          --transparency-tweaks: on;
+          --remove-bg-layer: on;
+          --panel-blur: off;
+        }
+        :root {
+          --bg-3: hsla(220, 16%, 18%, 0.65);
+          --bg-4: hsla(220, 16%, 22%, 0.7);
+        }
+      '';
       config = {
         frameless = true;
+        # Vesktop true window transparency (Vencord transparent → Electron transparent + #00000000)
+        transparent = true;
+        useQuickCss = true;
+        themeLinks = [
+          "https://raw.githubusercontent.com/refact0r/midnight-discord/refs/heads/master/themes/flavors/midnight-nord.theme.css"
+        ];
+        enabledThemeLinks = [
+          "https://raw.githubusercontent.com/refact0r/midnight-discord/refs/heads/master/themes/flavors/midnight-nord.theme.css"
+        ];
         plugins = {
           alwaysTrust.enable = true;
           # anammox.enable = true;

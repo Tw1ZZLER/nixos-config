@@ -38,17 +38,22 @@
         # Fix icon theming
         # QT_QPA_PLATFORMTHEME = "qt6ct";
       };
-      systemPackages = with pkgs; [
-        # Other Wayland clipboard stuff
-        wl-clipboard
-        cliphist
+      systemPackages =
+        (with pkgs; [
+          # Other Wayland clipboard stuff
+          wl-clipboard
+          cliphist
 
-        # Xwayland support
-        xwayland-satellite
-        xdg-utils
-        qt6.qtwayland
-        wayland
-      ];
+          # Xwayland support
+          xwayland-satellite
+          xdg-utils
+          qt6.qtwayland
+          wayland
+        ])
+        ++ [
+          # Force-blur for translucent apps (e.g. Ghostty on Plasma 6.7)
+          inputs.kwin-effects-better-blur-dx.packages.${pkgs.stdenv.hostPlatform.system}.default
+        ];
     };
   };
 
@@ -61,7 +66,18 @@
 
     programs.plasma = {
       enable = true;
-      kwin.effects.blur.enable = true;
+      kwin.effects.blur.enable = false; # conflicts with Better Blur DX
+      configFile."kwinrc" = {
+        Plugins = {
+          blurEnabled = false;
+          better_blur_dxEnabled = true;
+        };
+        "Effect-better-blur-dx" = {
+          WindowClasses = "ghostty\ncom.mitchellh.ghostty";
+          BlurMatching = true;
+          BlurNonMatching = false;
+        };
+      };
     };
   };
 }

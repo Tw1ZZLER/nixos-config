@@ -169,6 +169,12 @@
       };
     };
 
+    # Force-blur KWin effect (Plasma 6.7+)
+    kwin-effects-better-blur-dx = {
+      url = "github:xarblu/kwin-effects-better-blur-dx";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Catppuccin
     catppuccin = {
       url = "github:catppuccin/nix";

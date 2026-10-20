@@ -76,6 +76,10 @@
           WindowClasses = "ghostty\ncom.mitchellh.ghostty";
           BlurMatching = true;
           BlurNonMatching = false;
+          # Default strength is 15; ~80% for a subtler look
+          BlurStrength = 12;
+          # Blur KWin titlebar / window chrome as well as client area
+          BlurDecorations = true;
         };
       };
     };

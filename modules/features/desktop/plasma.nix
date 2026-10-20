@@ -58,5 +58,10 @@
       inputs.plasma-manager.homeModules.plasma-manager
       # ./rc2nix.nix # Imported directly from the rc2nix dump
     ];
+
+    programs.plasma = {
+      enable = true;
+      kwin.effects.blur.enable = true;
+    };
   };
 }

@@ -73,7 +73,10 @@
           better_blur_dxEnabled = true;
         };
         "Effect-better-blur-dx" = {
-          WindowClasses = "ghostty";
+          WindowClasses = ''
+            ghostty
+            vesktop
+          '';
           BlurMatching = true;
           BlurNonMatching = false;
           # Default strength is 14

@@ -1,5 +1,6 @@
 # Enable sops-nix for managing secrets from the private nix-secrets flake input.
 # credit: https://codeberg.org/EmergentMind/nix-config/src/branch/dev/hosts/common/core/sops.nix
+# also credit to ffflick on NixOS discord for the new pattern
 {
   self,
   inputs,

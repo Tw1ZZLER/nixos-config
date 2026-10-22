@@ -38,11 +38,7 @@
     #
     # ========= Dendritic Libraries =========
     #
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-
+    flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 
     #
@@ -195,7 +191,12 @@
 
     nix-secrets = {
       url = "git+ssh://git@codeberg.org/Tw1ZZLER/nix-secrets.git?ref=main&shallow=1";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        import-tree.follows = "import-tree";
+        sops-nix.follows = "sops-nix";
+      };
     };
   };
 }

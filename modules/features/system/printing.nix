@@ -13,8 +13,8 @@
 
         drivers = with pkgs; [
           # Foomatic Printer Drivers
-          # foomatic-db-nonfree
-          # foomatic-db-engine
+          foomatic-db-nonfree
+          foomatic-db-engine
 
           # GhostScript and CUPS printer drivers
           gutenprint
@@ -31,6 +31,7 @@
           # CUPS and related packages
           cups
           cups-filters
+          cups-browsed
           cups-pk-helper
 
           # PostScript interpreter
@@ -40,6 +41,7 @@
       avahi = {
         enable = true;
         nssmdns4 = true;
+        openFirewall = true;
       };
     };
 

@@ -13,7 +13,7 @@
           description = "ONU Black and White Printer";
           location = "ONU";
           deviceUri = "smb://onuprinters.onu.edu/Black-and-White";
-          model = "foomatic-db-ppds/KONICA_MINOLTA-bizhub_C352-Postscript-KONICA_MINOLTA.ppd.gz";
+          model = "drv:///sample.drv/generic.ppd";
           ppdOptions = {
             AuthInfoRequired = "username,password";
           };
@@ -23,7 +23,7 @@
           description = "ONU Color Printer";
           location = "ONU";
           deviceUri = "smb://onuprinters.onu.edu/Color";
-          model = "foomatic-db-ppds/KONICA_MINOLTA-bizhub_C352-Postscript-KONICA_MINOLTA.ppd.gz";
+          model = "drv:///sample.drv/generic.ppd";
           ppdOptions = {
             AuthInfoRequired = "username,password";
           };

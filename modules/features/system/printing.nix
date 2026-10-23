@@ -13,8 +13,8 @@
 
         drivers = with pkgs; [
           # Foomatic Printer Drivers
-          foomatic-db-nonfree
-          foomatic-db-engine
+          # foomatic-db-nonfree
+          # foomatic-db-engine
 
           # GhostScript and CUPS printer drivers
           gutenprint

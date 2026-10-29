@@ -58,9 +58,6 @@
     home.username = "tw1zzler";
     home.homeDirectory = "/home/tw1zzler";
 
-    # Must pass hostname to Syncthing wrapper on non-NixOS hosts
-    syncthing.hostName = "PRIMUS";
-
     # Nicely reload system units when changing configs
     systemd.user.startServices = "sd-switch";
 

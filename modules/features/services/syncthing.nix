@@ -50,7 +50,7 @@
             };
             "MALENIA" = {
               addresses = ["tcp://${inputs.nix-secrets.ip-address.vpn.malenia}:22000"];
-              # id = "M37SDQH-IDJVXFA-WGEIZIU-7MD5P5E-AH4H2EI-3G42PQA-NIKHKBH-SLN3BQB";
+              id = "KE3XA5M-GMH7LF5-VYOUZEG-IGQQ23F-6ILJ4MO-PLFUL33-T645AVD-QEMGOAM";
               introducer = true;
               autoAcceptFolders = true;
             };

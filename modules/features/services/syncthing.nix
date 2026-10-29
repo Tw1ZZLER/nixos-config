@@ -48,6 +48,12 @@
               addresses = ["tcp://${inputs.nix-secrets.ip-address.vpn.redmond}:22000"];
               id = "M37SDQH-IDJVXFA-WGEIZIU-7MD5P5E-AH4H2EI-3G42PQA-NIKHKBH-SLN3BQB";
             };
+            "MALENIA" = {
+              addresses = ["tcp://${inputs.nix-secrets.ip-address.vpn.malenia}:22000"];
+              # id = "M37SDQH-IDJVXFA-WGEIZIU-7MD5P5E-AH4H2EI-3G42PQA-NIKHKBH-SLN3BQB";
+              introducer = true;
+              autoAcceptFolders = true;
+            };
           };
           folders = {
             "Vaults" = {
@@ -56,17 +62,27 @@
               devices =
                 if hostName == "REDMOND"
                 then [
+                  "MALENIA"
                   "PRIMUS"
                   "iPad"
                   "Pixel 8"
                 ]
                 else if hostName == "PRIMUS"
                 then [
+                  "MALENIA"
+                  "REDMOND"
+                  "iPad"
+                  "Pixel 8"
+                ]
+                else if hostName == "MALENIA"
+                then [
+                  "PRIMUS"
                   "REDMOND"
                   "iPad"
                   "Pixel 8"
                 ]
                 else [
+                  "MALENIA"
                   "PRIMUS"
                   "REDMOND"
                   "iPad"

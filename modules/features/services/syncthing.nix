@@ -46,7 +46,7 @@
             };
             "REDMOND" = {
               addresses = ["tcp://${inputs.nix-secrets.ip-address.vpn.redmond}:22000"];
-              id = "XVSUFJ6-DF5JJZU-ETJXMWT-XOFGOJ7-UJLGDLQ-MGMS2C3-HCJHTBM-F4E74QH";
+              id = "M37SDQH-IDJVXFA-WGEIZIU-7MD5P5E-AH4H2EI-3G42PQA-NIKHKBH-SLN3BQB";
             };
           };
           folders = {

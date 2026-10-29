@@ -2,8 +2,8 @@
   self,
   inputs,
   ...
-}: {
-  flake.homeModules.syncthing = {
+}: let
+  syncthingModule = {
     config,
     lib,
     ...
@@ -110,4 +110,7 @@
       };
     };
   };
+in {
+  flake.nixosModules.syncthing = syncthingModule;
+  flake.homeModules.syncthing = syncthingModule;
 }

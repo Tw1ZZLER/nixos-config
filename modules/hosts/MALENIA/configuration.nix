@@ -25,6 +25,7 @@
       malenia-disko
       server-networking
       ssh
+      syncthing
       tailscale
       sops
       user-tw1zzler

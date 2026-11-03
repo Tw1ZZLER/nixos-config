@@ -6,6 +6,7 @@
   ...
 }: {
   flake.nixosModules.nix-wrapper = {...}: {
+    programs.nix-ld.enable = true;
     nix = {
       settings = {
         # Enable flakes and new 'nix' command

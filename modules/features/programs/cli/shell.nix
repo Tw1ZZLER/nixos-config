@@ -22,7 +22,7 @@
 
     home.packages = with pkgs; [
       gh # GitHub CLI
-      codeberg-cli # gh-like tool for Codeberg
+      forgejo-cli # gh-like tool for Forgejo instances
       nix-output-monitor # nom, can be used instead of nix
       nvd # nix diffing tool, makes updates look good
       wget

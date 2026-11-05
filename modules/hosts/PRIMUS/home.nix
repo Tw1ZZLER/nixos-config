@@ -18,11 +18,11 @@
       dolphin
       ghostty
       gwenview
+      # horizon-client
       # moonlight
       mpv
       # obs-studio
       obsidian
-      # onu
       prismlauncher
       qbittorrent
       reaper

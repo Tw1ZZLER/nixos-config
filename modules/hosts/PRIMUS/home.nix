@@ -16,6 +16,7 @@
       cursor
       discord
       dolphin
+      ghidra
       ghostty
       gwenview
       # horizon-client

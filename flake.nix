@@ -8,6 +8,6 @@
     inputs = (import ./.tack) {overrides = args.tackOverrides or {};};
   in
     inputs.flake-parts.lib.mkFlake
-    {inherit inputs;}
+    {inherit inputs self;}
     (inputs.import-tree ./modules);
 }

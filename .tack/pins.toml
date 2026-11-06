@@ -1,0 +1,115 @@
+# tack pins
+# edit by hand or with tack add / rm / alias
+# nix reads pins.lock.json
+# this file drives tack update
+
+# ==============================================================================
+# Global Rules (replaces "follows" boilerplate)
+# ==============================================================================
+[shorturls]
+gh = "github:{path}"
+gl = "gitlab:{path}"
+
+[all_follow]
+nixpkgs = "nixpkgs"
+home-manager = "home-manager"
+flake-parts = "flake-parts"
+import-tree = "import-tree"
+disko = "disko"
+sops-nix = "sops-nix"
+
+# ==============================================================================
+# Official NixOS, Darwin, and HM Package Sources
+# ==============================================================================
+[inputs.nixpkgs]
+url = "gh:NixOS/nixpkgs/nixos-unstable"
+
+[inputs.home-manager]
+url = "gh:nix-community/home-manager"
+
+# ==============================================================================
+# Dendritic Libraries
+# ==============================================================================
+[inputs.flake-parts]
+url = "gh:hercules-ci/flake-parts"
+
+[inputs.import-tree]
+url = "gh:vic/import-tree"
+
+# ==============================================================================
+# Utilities
+# ==============================================================================
+[inputs.nix-index-database]
+url = "gh:nix-community/nix-index-database"
+
+[inputs.disko]
+url = "gh:nix-community/disko"
+
+[inputs.preservation]
+url = "gh:nix-community/preservation"
+
+[inputs.sops-nix]
+url = "gh:Mic92/sops-nix"
+
+[inputs.nixos-anywhere]
+url = "gh:nix-community/nixos-anywhere"
+
+[inputs.nixos-raspberrypi]
+url = "gh:nvmd/nixos-raspberrypi/main"
+
+[inputs.nix-flatpak]
+url = "gh:gmodena/nix-flatpak/?ref=latest"
+
+# ==============================================================================
+# Applications
+# ==============================================================================
+[inputs.zen-browser]
+url = "gh:0xc000022070/zen-browser-flake"
+
+[inputs.firefox-addons]
+url = "gl:rycee/nur-expressions?dir=pkgs/firefox-addons"
+
+[inputs.nix-xilinx]
+url = "gh:MIT-OpenCompute/xilinx-flake"
+
+[inputs.waveforms]
+url = "gh:DragonHuntrX/waveforms-flake-local"
+
+[inputs.nixcord]
+url = "gh:FlameFlag/nixcord"
+
+[inputs.twintail-launcher]
+url = "gh:Tw1ZZLER/twintail-launcher-flake"
+
+[inputs.pano-scrobbler]
+url = "gh:kawaiiDango/pano-scrobbler-flake"
+
+[inputs.reaper-flake]
+url = "gh:9Prestidigitator/reaper-flake"
+
+# ==============================================================================
+# Ricing
+# ==============================================================================
+[inputs.stylix]
+url = "gh:nix-community/stylix"
+
+[inputs.plasma-manager]
+url = "gh:nix-community/plasma-manager"
+
+[inputs.kwin-effects-better-blur-dx]
+url = "gh:xarblu/kwin-effects-better-blur-dx"
+
+[inputs.catppuccin]
+url = "gh:catppuccin/nix"
+
+[inputs.noctalia]
+url = "gh:noctalia-dev/noctalia/cachix"
+
+# ==============================================================================
+# Personal Repositories
+# ==============================================================================
+[inputs.vimridian]
+url = "gh:tw1zzler/vimridian"
+
+[inputs.nix-secrets]
+url = "git+ssh://git@codeberg.org/Tw1ZZLER/nix-secrets.git?ref=main&shallow=1"

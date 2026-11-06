@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: EUPL-1.2
-# tack-managed resolver. delete this line to take ownership; tack will leave it alone afterwards.
+# Local fork of the tack resolver: also wires flake.lock inputs that are omitted
+# from flake.nix (registry / indirect pins such as waveforms-flake-local's nixpkgs).
 
 let
   inherit (builtins)
@@ -262,6 +263,14 @@ let
           hasTack = pathExists tackPinsPath;
           upPins = if hasTack then fromTOML (readFile tackPinsPath) else { };
 
+          # flake.nix may omit registry/indirect inputs that still appear in flake.lock
+          lockRootInputs =
+            if upLock != null && nodeName != null then
+              upLock.nodes.${nodeName}.inputs or { }
+            else
+              { };
+          rawInputs = (mapAttrs (_: _: { }) lockRootInputs) // (raw.inputs or { });
+
           # project follows onto each side, keep only names that side has
           # bare follow reaches both; `flake:`/`tack:` reaches just one
           tackOverrides = resolveFollows (
@@ -270,15 +279,14 @@ let
               follows = levelFollows;
             })
           );
-          flakeLevel = intersectAttrs (raw.inputs or { }) (followsForSide {
+          flakeLevel = intersectAttrs rawInputs (followsForSide {
             side = "flake";
             follows = levelFollows;
           });
 
           # deep follows pass down raw, so each descendant re-projects per side
           callerInputs = mkCallerInputs {
-            inherit upLock nodeName deepFollows;
-            rawInputs = raw.inputs or { };
+            inherit upLock nodeName deepFollows rawInputs;
             levelFollows = flakeLevel;
           };
 

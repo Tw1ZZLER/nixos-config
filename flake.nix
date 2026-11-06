@@ -4,8 +4,8 @@
   # Inputs are handled by Tack in the .tack/ directory
   # Outputs are handled by flake-parts in the modules/ directory
 
-  outputs = {self, nixpkgs ? null, ...}: let
-    inputs = (import ./.tack) // {inherit self;};
+  outputs = {self, ...} @ args: let
+    inputs = (import ./.tack) {overrides = args.tackOverrides or {};};
   in
     inputs.flake-parts.lib.mkFlake
     {inherit inputs;}

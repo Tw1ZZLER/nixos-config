@@ -67,7 +67,8 @@ url = "gh:gmodena/nix-flatpak/?ref=latest"
 url = "gh:0xc000022070/zen-browser-flake"
 
 [inputs.firefox-addons]
-url = "gl:rycee/nur-expressions?dir=pkgs/firefox-addons"
+url = "gl:rycee/nur-expressions"
+dir = "pkgs/firefox-addons"
 
 [inputs.nix-xilinx]
 url = "gh:MIT-OpenCompute/xilinx-flake"

@@ -38,7 +38,7 @@
       zotero
 
       # TUI Programs
-      opencode
+      # opencode
       pi
 
       # Services

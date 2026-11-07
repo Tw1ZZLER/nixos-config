@@ -7,6 +7,7 @@
         statix # Nix linter
         alejandra # Nix formatter
         sops # Secrets management
+        tack # Inputs / pins manager
         inputs.nixos-anywhere.packages.${pkgs.stdenv.hostPlatform.system}.default # Install NixOS anywhere
       ];
     };

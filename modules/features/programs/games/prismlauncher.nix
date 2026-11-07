@@ -10,7 +10,7 @@
       ".local/share/PrismLauncher/java/jdk8".source = pkgs.jdk8;
       ".local/share/PrismLauncher/java/jdk17".source = pkgs.jdk17;
       ".local/share/PrismLauncher/java/jdk21".source = pkgs.jdk21;
-      ".local/share/PrismLauncher/java/jdk25".source = pkgs.jdk25;
+      ".local/share/PrismLauncher/java/jdk26".source = pkgs.jdk26;
     };
   };
 }

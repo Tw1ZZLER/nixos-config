@@ -9,6 +9,8 @@
     programs.rmpc = {
       enable = true;
 
+      xdg.configFile."rmpc/themes/nord.ron".source = ./nord.ron;
+
       # tabs config taken from https://rmpc.mierak.dev/themes/nord/
       config = ''
         #![enable(implicit_some)]

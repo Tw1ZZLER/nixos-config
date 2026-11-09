@@ -35,8 +35,6 @@
       extraOptions = ''
         warn-dirty = false
       '';
-      # add to extraOptions later when this secret is added
-      # !include ${config.sops.secrets.nixAccessTokens.path}
 
       # Disable channels
       channel.enable = false;
